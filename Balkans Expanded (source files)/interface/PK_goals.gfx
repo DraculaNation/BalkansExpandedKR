@@ -1,0 +1,53 @@
+spriteTypes = {
+
+	SpriteType = {
+		name = "GFX_goal_incorporate_zbor"
+		texturefile = "gfx/interface/goals/goal_incorporate_zbor.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_goal_compromise_with_albania"
+		texturefile = "gfx/interface/goals/goal_compromise_with_albania.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_goal_covert_socialists"
+		texturefile = "gfx/interface/goals/goal_covert_socialists.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_goal_enver_hoxha"
+		texturefile = "gfx/interface/goals/goal_enver_hoxha.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_goal_syndicalist_economy"
+		texturefile = "gfx/interface/goals/goal_syndicalist_economy.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_goal_syndicalist_oppression"
+		texturefile = "gfx/interface/goals/goal_syndicalist_oppression.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_goal_syndicalist_science"
+		texturefile = "gfx/interface/goals/goal_syndicalist_science.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_goal_syndicalist_workers"
+		texturefile = "gfx/interface/goals/goal_syndicalist_workers.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_goal_syndie_cross"
+		texturefile = "gfx/interface/goals/goal_syndie_cross.dds"
+	}
+	
+	SpriteType = {
+		name = "GFX_goal_totalist_productions"
+		texturefile = "gfx/interface/goals/goal_totalist_productions.dds"
+	}
+	
+}

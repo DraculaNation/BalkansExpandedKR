@@ -1,0 +1,176 @@
+﻿capital = 44
+
+OOB = "ALB"
+
+set_convoys = 20
+set_research_slots = 3
+set_technology = {
+	### MOD ###
+	### General ###
+	shipbuild_basics = 1
+	### Navy ###
+	### Tanks ###
+	### INF ###
+	infantry_weapons = 1
+	tech_support = 1
+	tech_recon = 1
+	### AIR ###
+}
+
+add_ideas = { 
+	#medium_economy
+	ALB_Midhat_Frasheri_hog_ade
+	ALB_Fuat_Aslam_for_ade
+	ALB_Ruok_Geraj_eco_ade
+	ALB_Jocelyn_Percy_sec_ade
+	ALB_pk_unpopular_rule_idea
+	ALB_pk_divided_cabinet_idea
+}
+	
+set_politics = {
+
+	parties = {
+		totalist = {
+			popularity = 7
+		}
+		radical_socialist = {
+			popularity = 0
+		}
+		syndicalist = {
+			popularity = 2
+		}
+		social_democrat = {
+			popularity = 7
+		}
+		social_liberal = {
+			popularity = 3
+		}
+		market_liberal = {
+			popularity = 2
+		}
+		social_conservative = {
+			popularity = 12
+		}
+		authoritarian_democrat = {
+			popularity = 41
+		}
+		paternal_autocrat = {
+			popularity = 19
+		}
+		national_populist = {
+			popularity = 12
+		}
+	}
+	
+	ruling_party = authoritarian_democrat
+	last_election = "1888.15.6"
+	election_frequency = 48
+	elections_allowed = no
+
+}
+
+create_country_leader = {
+	name = "Enver Hoxha"
+	desc = "POLITICS_ENVER_HOXHA_DESC"
+	picture = "Enver_Hoxha.tga"
+	picture = "Enver_Hoxha.tga"
+	expire = "1965.1.1"
+	ideology = totalist_subtype
+	traits = {}
+}
+
+create_country_leader = {
+	name = "Koçi Xoxe"
+	desc = "POLITICS_FAN_NOLI_DESC"
+	picture = "Koci_Xoxe.tga"
+	expire = "1965.1.1"
+	ideology = radical_socialist_subtype
+	traits = {}
+}
+
+create_country_leader = {
+	name = "Mustafa Gjinishi"
+	desc = "POLITICS_FAN_NOLI_DESC"
+	picture = "Mustafa_Gjinishi.tga"
+	expire = "1965.1.1"
+	ideology = syndicalist_subtype
+	traits = {}
+}
+
+create_country_leader = {
+	name = "Theofan Stilian Noli"
+	desc = "POLITICS_FAN_NOLI_DESC"
+	picture = "Fan_Noli.tga"
+	expire = "1965.1.1"
+	ideology = social_democrat_subtype
+	traits = {}
+}
+
+create_country_leader = {
+	name = "Mustafa Merlika-Kruja"
+	desc = "POLITICS_BAHRI_OMARI_DESC"
+	picture = "Mustafa_Merlika_Kruja.tga"
+	expire = "1965.1.1"
+	ideology = social_liberal_subtype
+	traits = {}
+}
+
+create_country_leader = {
+	name = "Bahri Omari"
+	desc = "POLITICS_BAHRI_OMARI_DESC"
+	picture = "Bahri_Omari.tga"
+	expire = "1965.1.1"
+	ideology = market_liberal_subtype
+	traits = {}
+}
+
+create_country_leader = {
+	name = "Xhafer Ypi"
+	desc = "POLITICS_ALI_KELCYRA_DESC"
+	picture = "Xhafer_Ypi.tga"
+	expire = "1965.1.1"
+	ideology = social_conservative_subtype
+	traits = {}
+}
+
+create_country_leader = {
+	name = "Prince Wilhelm zu Wied"
+	desc = "POLITICS_WILLIAM_WIED_DESC"
+	picture = "Portrait_Albania_Wilhelm_Wied.tga"
+	expire = "1965.1.1"
+	ideology = authoritarian_democrat_subtype
+	traits = {}
+}
+
+create_country_leader = {
+	name = "Prince Wilhelm zu Wied"
+	desc = "POLITICS_WILLIAM_WIED_DESC"
+	picture = "Portrait_Albania_Wilhelm_Wied.tga"
+	expire = "1965.1.1"
+	ideology = paternal_autocrat_subtype
+	traits = {}
+}
+
+create_country_leader = {
+	name = "Ali Këlcyra"
+	desc = "POLITICS_ALI_KELCYRA_DESC"
+	picture = "Ali_Kelcyra.tga"
+	expire = "1965.1.1"
+	ideology = national_populist_subtype
+	traits = {}
+}
+
+### Corps Commander
+create_corps_commander = {
+	name = "Muharrem Bajraktari"
+	portrait_path = "gfx/leaders/ALB/Portrait_Albania_Muharrem_Bajraktari.tga"
+	traits = {}
+	skill = 1
+}
+
+create_corps_commander = {
+	name = "Prenk Pervizi"
+	portrait_path = "gfx/leaders/ALB/Portrait_Albania_Prenk_Pervizi.tga"
+	traits = {}
+	skill = 1
+}

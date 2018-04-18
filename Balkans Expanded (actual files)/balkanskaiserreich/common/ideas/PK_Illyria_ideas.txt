@@ -1,0 +1,846 @@
+ideas = {
+
+##############
+# Country ideas
+##############
+	country = {
+		
+		ILL_pk_nationalist_crisis = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.25
+				autonomy_gain = 0.6
+			}
+		}
+		
+		ILL_pk_nationalist_crisis_over = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				autonomy_gain = -0.4
+			}
+		}
+		
+		ILL_ausgleich_backan_claims = {
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.25
+			}
+		}
+		ILL_pk_croatian_command = {
+			picture = country_focus_army
+			modifier = {
+				planning_speed = 0.1
+				army_org_factor = 0.05
+				training_time_army_factor = -0.05
+				conscription_factor = -0.05
+			}
+		}
+
+		ILL_pk_federated_army = {
+			picture = raj_indian_gentlemen_officers
+			modifier = {
+				stability_factor = 0.05
+				political_power_cost = -0.05
+				army_morale_factor = 0.05
+				army_org_factor = 0.05
+			}
+		}
+		
+		ILL_pk_regional_command_idea = {
+			picture = raj_indian_gentlemen_officers
+			modifier = {
+				stability_factor = -0.05
+				army_core_defence_factor = 0.05
+				conscription = 0.02
+				political_power_gain = 0.1
+			}
+		}
+		
+		ILL_pk_economic_cooperation_austria_idea = {
+			picture = generic_goods_red_bonus
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+		
+		ILL_pk_montenegrin_nationalism_idea = {
+			picture = FRA_scw_intervention_republicans_focus
+			available = {
+				ILL = {
+					owns_state = 105
+				}
+			}
+			cancel_if_invalid = yes
+			modifier = {
+				stability_factor = -0.15
+			}
+		}
+		
+		ILL_pk_bosnian_issue_idea = {
+			picture = generic_production_bonus
+			available = {
+				ILL = {
+					OR = {
+						owns_state = 104
+						owns_state = 1029
+					}
+				}
+			}
+			cancel_if_invalid = yes
+			modifier = {
+				production_factory_max_efficiency_factor = -0.075
+			}
+		}
+		
+		ILL_pk_montenegrin_nationalism2_idea = {
+			picture = FRA_scw_intervention_republicans_focus
+			available = {
+				ILL = {
+					owns_state = 105
+				}
+			}
+			cancel_if_invalid = yes
+			modifier = {
+				stability_factor = -0.075
+			}
+		}
+		
+		ILL_pk_economic_dependency_idea = {
+			picture = generic_goods_red_bonus
+			available = {
+				ILL = {
+					is_subject_of = AUS
+				}
+			}
+			cancel_if_invalid = yes
+			modifier = {
+				consumer_goods_factor = -0.1
+				political_power_gain = -0.25
+			}
+		}
+		
+		ILL_pk_austrian_education_idea = {
+			picture = generic_research_bonus
+			available = {
+				ILL = {
+					is_subject_of = AUS
+				}
+			}
+			cancel_if_invalid = yes
+			modifier = {
+				research_time_factor = -0.025
+				political_power_cost = 0.25
+			}
+		}
+		
+		ILL_pk_slovenian_nationalist_revival_idea = {
+			picture = fra_scw_intervention_republicans_focus
+			available = {
+				AUS = {
+					owns_state = 102
+				}
+			}
+			cancel_if_invalid = yes
+			modifier = {
+				stability_factor = -0.1
+				political_power_cost = 0.1
+			}
+		}
+		
+		ILL_pk_economic_independency1_idea = {
+			picture = generic_local_self_management
+			modifier = {
+				production_factory_max_efficiency_factor = -0.025
+				industrial_capacity_factory = -0.05
+			}
+		}
+		
+		ILL_pk_economic_independency2_idea = {
+			picture = generic_local_self_management
+			modifier = {
+				production_factory_max_efficiency_factor = -0.05
+				industrial_capacity_factory = -0.1
+			}
+		}
+		
+		ILL_pk_economic_independency3_idea = {
+			picture = generic_local_self_management
+			modifier = {
+				production_factory_max_efficiency_factor = -0.1
+				industrial_capacity_factory = -0.2
+			}
+		}
+		
+		ILL_pk_hungary_reparations_idea = {
+			picture = generic_goods_red_bonus
+			modifier = {
+				consumer_goods_factor = 0.05
+			}
+		}
+		
+		ILL_pk_hungary_reparations2_idea = {
+			picture = generic_goods_red_bonus
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+		}
+		
+		ILL_pk_increased_autonomy_idea = {
+			modifier = {
+				political_power_gain = 0.5
+			}
+			picture = generic_morale_bonus
+		}
+		
+		ILL_pk_republicanism_idea = {
+			modifier = {
+				drift_defence_factor = 0.25
+				political_power_gain = 0.1
+			}
+			picture = generic_morale_bonus
+		}
+		
+		ILL_pk_secularization_effort_idea = {
+			modifier = {
+				stability_factor = 0.05
+				national_populist_drift = -0.01
+				paternal_autocrat_drift = -0.01
+				political_power_gain = -0.1
+			}
+			picture = generic_pp_unity_bonus
+		}
+		
+		ILL_pk_tolerance_idea = {
+			modifier = {
+				political_power_gain = 0.1
+				research_time_factor = -0.01
+			}
+			picture = generic_pp_unity_bonus
+		}
+		
+		ILL_pk_croat_focused_idea = {
+			modifier = {
+				stability_factor = -0.1
+				political_power_gain = 0.25
+			}
+			picture = generic_pp_unity_bonus
+		}
+		
+		ILL_pk_decentralized_state_idea = {
+			modifier = {
+				stability_factor = 0.05
+			}
+			picture = generic_local_self_management
+		}
+		
+		ILL_pk_illyrian_patriotism_idea = {
+			modifier = {
+				conscription = 0.01
+				army_morale_factor = 0.025
+			}
+			picture = generic_army_bonus
+		}
+		
+		ILL_pk_bosnian_investments_idea = {
+		available = {
+				ILL = {
+					OR = {
+						owns_state = 104
+						owns_state = 1029
+					}
+				}
+			}
+			cancel_if_invalid = yes
+			modifier = {
+				consumer_goods_factor = 0.5
+			}
+			picture = generic_goods_red_bonus
+		}
+		
+		ILL_pk_rural_exploitation_idea = {
+			picture = generic_production_bonus
+			available = {
+				ILL = {
+					OR = {
+						owns_state = 104
+						owns_state = 1029
+					}
+				}
+			}
+			cancel_if_invalid = yes
+			modifier = {
+				production_factory_max_efficiency_factor = -0.025
+			}
+		}
+		
+		ILL_pk_minority_unrest_idea = {
+			modifier = {
+				stability_factor = -0.1
+				political_power_gain = -0.1
+			}
+			picture = fra_matignon_agreements
+		}
+		
+		ILL_pk_minorities_ignored_idea = {
+			modifier = {
+				stability_factor = -0.15
+			}
+			picture = fra_matignon_agreements
+		}
+		
+		ILL_pk_minorities_outraged_idea = {
+			modifier = {
+				stability_factor = -0.15
+				political_power_gain = -0.2
+			}
+			picture = fra_matignon_agreements
+		}
+		
+		ILL_pk_civil_war_ongoing_idea = {
+			modifier = {
+				stability_factor = -0.05
+				political_power_gain = -0.05
+			}
+			picture = generic_fascism_drift_bonus
+		}
+		
+		ILL_pk_greater_croatia_minority_idea = {
+			modifier = {
+				stability_factor = -0.15
+				political_power_gain = -0.25
+			}
+			picture = FRA_matignon_agreements
+		}
+		
+		ILL_pk_spaho_croatian_nationalism_idea = {
+			modifier = {
+				stability_factor = -0.15
+				political_power_gain = -0.25
+			}
+			picture = FRA_scw_intervention_republicans_focus
+		}
+		
+		ILL_pk_spaho_croatian_nationalism2_idea = {
+			modifier = {
+				stability_factor = -0.07
+				political_power_gain = -0.1
+			}
+			picture = FRA_scw_intervention_republicans_focus
+		}
+		
+		ILL_pk_rebel_zeal_idea = {
+			modifier = {
+				army_core_attack_factor = 0.15
+				army_core_defence_factor = 0.15
+			}
+			picture = fra_scw_intervention_nationalists_focus
+		}
+		
+		ILL_pk_strong_police_idea = {
+			modifier = {
+				army_core_defence_factor = 0.05
+				political_power_factor = 0.1
+			}
+			picture = generic_spy_coup
+		}
+		
+		ILL_pk_statism_idea = {
+			modifier = {
+				authoritarian_democrat_drift = 0.005
+				political_power_gain = 0.1
+			}
+			picture = generic_fortify_the_borders
+		}
+		
+		ILL_pk_illyrian_illyria_idea = {
+			modifier = {
+				army_core_defence_factor = 0.05
+				army_core_attack_factor = 0.05
+				conscription = 0.025
+			}
+			picture = generic_reserve_divisions
+		}
+		
+		ILL_pk_catholics_favored_idea = {
+			modifier = {
+				stability_factor = -0.05
+				political_power_gain = 0.5
+				conscription_factor = 0.15
+				research_time_factor = 0.02
+			}
+			picture = IRE_catholic
+		}
+		
+		ILL_pk_catholics_favored2_idea = {
+			modifier = {
+				political_power_gain = 0.5
+				conscription_factor = 0.2
+				research_time_factor = 0.01
+			}
+			picture = ire_catholic
+		}
+		
+		ILL_pk_catholics_favored3_idea = {
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.7
+				conscription_factor = 0.25
+				conscription = 0.01
+				research_time_factor = 0.025
+			}
+			picture = ire_catholic
+		}
+		
+		ILL_pk_historical_revisionism_idea = {
+			modifier = {
+				stability_factor = 0.025
+				political_power_factor = 0.2
+				totalist_drift = -0.002
+				syndicalist_drift = -0.002
+				radical_socialist_drift = -0.002
+				social_democrat_drift = -0.002
+				research_time_factor = 0.01
+			}
+			picture = hun_treaty_of_trianon
+		}
+		
+		ILL_pk_military_youth_idea = {
+			modifier = {
+				conscription = 0.02
+				training_time_factor = -0.025
+			}
+			picture = generic_manpower_bonus
+		}
+		
+		ILL_pk_military_youth2_idea = {
+			modifier = {
+				conscription = 0.025
+				training_time_factor = -0.05
+			}
+			picture = generic_manpower_bonus
+		}
+		
+		ILL_pk_pure_croatia_idea = {
+			modifier = {
+				stability_factor = 0.1
+				political_power_factor = 0.1
+				army_morale_factor = 0.1
+			}
+			picture = generic_morale_bonus
+		}
+		
+		ILL_pk_pure_croatia2_idea = {
+			modifier = {
+				stability_factor = 0.15
+				political_power_factor = 0.15
+				army_morale_factor = 0.1
+				army_core_attack_factor = 0.05
+				army_core_defence_factor = 0.05
+			}
+			picture = generic_morale_bonus
+		}
+		
+		ILL_pk_religious_oligarchy_idea = {
+			modifier = {
+				authoritarian_democrat_drift = 0.005
+			}
+			picture = generic_constitutional_guarantee
+		}
+		
+		ILL_pk_croatian_theocracy_idea = {
+			modifier = {
+				stability_factor = 0.1
+				political_power_gain = 0.5
+				conscription_factor = 0.25
+				army_core_attack_factor = 0.025
+				army_core_defence_factor = 0.025
+			}
+			picture = the_war_to_end_all_wars
+		}
+		
+		ILL_pk_worker_rebellions_idea = {
+			modifier = {
+				stability_factor = -0.25
+				political_power_gain = -0.5
+				totalist_drift = 0.005
+				syndicalist_drift = 0.005
+				radical_socialist_drift = 0.005
+				paternal_autocrat_drift = -0.005
+			}
+			picture = economic_control_icon
+		}
+		
+		ILL_pk_socialist_threat_idea = {
+			modifier = {
+				stability_factor = -0.1
+				political_power_factor = -0.25
+				conscription_factor = -0.25
+			}
+			picture = anti_soviet_pact
+		}
+		
+		ILL_pk_austria_french_reparations_idea = {
+			modifier = {
+				consumer_goods_factor = -0.05
+				army_core_defence_factor = 0.05
+			}
+			picture = anti_soviet_pact
+		}
+		
+		ILL_pk_federalized_idea = {
+			modifier = {
+				stability_factor = 0.05
+				production_factory_max_efficiency_factor = 0.025
+			}
+			picture = generic_local_self_management
+		}
+		
+		ILL_pk_workers_councils_idea = {
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.05
+				production_speed_buildings_factor = 0.05
+				syndicalist_drift = 0.01
+			}
+			picture = generic_production_bonus
+		}
+		
+		ILL_pk_autonomous_regions_idea = {
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				political_power_gain = 0.15
+			}
+			picture = generic_local_self_management
+		}
+		
+		ILL_pk_federalized2_idea = {
+			modifier = {
+				stability_factor = 0.1
+				production_factory_max_efficiency_factor = 0.025
+			}
+			picture = generic_local_self_management
+		}
+		
+		ILL_pk_favor_the_workers_idea = {
+			modifier = {
+				production_speed_industrial_complex_factor = 0.10
+				consumer_goods_factor = 0.05
+			}
+			picture = generic_production_bonus
+		}
+		
+		ILL_pk_benevolent_dictatorship_idea = {
+			modifier = {
+				stability_factor = 0.05
+				production_speed_buildings_factor = 0.05
+				totalist_drift = -0.01
+			}
+			picture = generic_morale_bonus
+		}
+		
+		ILL_pk_brotherhood_and_unity_idea = {
+			modifier = {
+				stability_factor = 0.15
+				production_speed_buildings_factor = 0.1
+				syndicalist_drift = 0.01
+			}
+			picture = generic_morale_bonus
+		}
+		
+		ILL_pk_self_sustenance_idea = {
+			modifier = {
+				stability_factor = 0.05
+				army_core_attack_factor = 0.025
+				army_core_defence_factor = 0.075
+				conscription = 0.01
+			}
+			picture = generic_local_self_management
+		}
+		
+		ILL_pk_new_workers_culture_idea = {
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.05
+				stability_factor = 0.025
+				totalist_drift = 0.01
+			}
+			picture = generic_production_bonus
+		}
+
+		ILL_pk_rooting_out_reactionaries_idea = {
+			modifier = {
+				national_populist_drift = -0.01
+				paternal_autocrat_drift = -0.01
+				stability_factor = 0.025
+			}
+			picture = FRA_matignon_agreements
+		}
+		
+		ILL_pk_state_atheism_idea = {
+			modifier = {
+				political_power_gain = 0.25
+				stability_factor = -0.05
+			}
+			picture = FRA_matignon_agreements
+		}
+		
+		ILL_pk_dictatorship_of_the_proletariat_idea = {
+			modifier = {
+				political_power_factor = 0.25
+				totalist_drift = 0.01
+			}
+			picture = generic_production_bonus
+		}
+		
+		ILL_pk_womens_rights_idea = {
+			modifier = {
+				conscription_factor = 0.1
+				stability_factor = -0.05
+				production_factory_efficiency_gain_factor = 0.025
+			}
+			picture = generic_production_bonus
+		}
+		
+		ILL_pk_turbofolk_idea = {
+			modifier = {
+				political_power_gain = 0.1
+				stability_factor = 0.075
+			}
+			picture = generic_morale_bonus
+		}
+		
+		ILL_pk_decentralized_nation_idea = {
+			modifier = {
+				stability_factor = 0.1
+				political_power_factor = -0.02
+			}
+			picture = generic_local_self_management
+		}
+		
+		ILL_pk_centralizing_idea = {
+			modifier = {
+				political_power_factor = -0.025
+			}
+			picture = generic_local_self_management
+		}
+		
+		ILL_pk_empowered_militias_idea = {
+			modifier = {
+				army_org_factor = -0.025
+				army_core_attack_factor = 0.025
+				army_core_defence_factor = 0.025
+			}
+			picture = generic_army_bonus
+		}
+		
+		ILL_pk_romani_conscription_idea = {
+			modifier = {
+				conscription = 0.015
+			}
+			picture = generic_army_war_college
+		}
+		
+		ILL_pk_regulated_economy_idea = {
+			modifier = {
+				consumer_goods_factor = -0.1
+			}
+			picture = generic_local_self_management
+		}
+		
+		ILL_pk_revolution_in_the_balkans_idea = {
+			modifier = {
+				radical_socialist_drift = 0.02
+				justify_war_goal_time = -0.25
+				conscription_factor = 0.1
+			}
+			picture = FRA_scw_intervention_republicans_focus
+		}
+		
+		ILL_pk_black_monday_idea = {
+			picture = great_depression
+			allowed = {
+				always = no
+			}
+			modifier = {
+				stability_factor = -0.2
+				production_factory_max_efficiency_factor = -0.30
+				industrial_capacity_factory = -0.6
+				production_speed_buildings_factor = -0.7
+				min_export = -0.6
+			}
+			removal_cost = -1
+		}
+		
+		ILL_pk_black_monday11_idea = {
+			picture = great_depression
+			allowed = {
+				always = no
+			}
+			modifier = {
+				stability_factor = -0.25
+				production_factory_max_efficiency_factor = -0.2
+				industrial_capacity_factory = -0.4
+				production_speed_buildings_factor = -0.5
+				min_export = -0.6
+			}
+			removal_cost = -1
+		}
+		
+		ILL_pk_black_monday12_idea = {
+			picture = great_depression
+			allowed = {
+				always = no
+			}
+			modifier = {
+				stability_factor = -0.1
+				production_factory_max_efficiency_factor = -0.15
+				industrial_capacity_factory = -0.35
+				production_speed_buildings_factor = -0.5
+				min_export = -0.3
+			}
+			removal_cost = -1
+		}
+		
+		ILL_pk_black_monday13_idea = {
+			picture = great_depression
+			allowed = {
+				always = no
+			}
+			modifier = {
+				stability_factor = -0.05
+				production_factory_max_efficiency_factor = -0.10
+				industrial_capacity_factory = -0.25
+				production_speed_buildings_factor = -0.3
+				min_export = -0.15
+			}
+			removal_cost = -1
+		}
+		
+		ILL_pk_black_monday14_idea = {
+			picture = great_depression
+			allowed = {
+				always = no
+			}
+			modifier = {
+				stability_factor = -0.05
+				production_factory_max_efficiency_factor = -0.05
+				industrial_capacity_factory = -0.07
+				production_speed_buildings_factor = -0.2
+			}
+			removal_cost = -1
+		}
+		
+		ILL_pk_black_monday21_idea = {
+			picture = great_depression
+			allowed = {
+				always = no
+			}
+			modifier = {
+				stability_factor = -0.35
+				production_factory_max_efficiency_factor = -0.25
+				industrial_capacity_factory = -0.5
+				production_speed_buildings_factor = -0.5
+				min_export = -0.2
+			}
+			removal_cost = -1
+		}
+		
+		ILL_pk_black_monday22_idea = {
+			picture = great_depression
+			allowed = {
+				always = no
+			}
+			modifier = {
+				stability_factor = -0.35
+				production_factory_max_efficiency_factor = -0.25
+				industrial_capacity_factory = -0.4
+				production_speed_buildings_factor = -0.2
+			}
+			removal_cost = -1
+		}
+		
+		ILL_pk_black_monday23_idea = {
+			picture = great_depression
+			allowed = {
+				always = no
+			}
+			modifier = {
+				stability_factor = -0.15
+				production_factory_max_efficiency_factor = -0.15
+				industrial_capacity_factory = -0.25
+				production_speed_buildings_factor = -0.1
+			}
+			removal_cost = -1
+		}
+		
+		ILL_pk_economic_cooperation_serbia_idea = {
+			picture = generic_goods_red_bonus
+			modifier = {
+				consumer_goods_factor = -0.1
+			}
+		}
+		
+		ILL_pk_austrian_economic_dominance_idea = {
+			picture = generic_goods_red_bonus
+			modifier = {
+				consumer_goods_factor = 0.15
+			}
+		}
+		
+		ILL_pk_resource_exploitation_idea = {
+			picture = generic_exploit_mines
+			modifier = {
+				local_resources_factor = 0.1
+			}
+		}
+		
+		ILL_pk_mass_production_idea = {
+			picture = generic_production_bonus
+			modifier = {
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		ILL_pk_unthinkable_idea = {
+			picture = ast_naval_auxiliary_patrol
+			modifier = {
+				production_speed_bunker_factor = 0.125
+			}
+		}
+		
+		ILL_pk_further_industrialization_idea = {
+			picture = ast_naval_auxiliary_patrol
+			modifier = {
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		
+		ILL_pk_license_production_idea = {
+
+			picture = generic_license_production
+
+			allowed = {
+				has_dlc = "Death or Dishonor"
+			}
+
+			modifier = {
+				license_air_purchase_cost = -0.5
+			}
+		}
+		
+		ILL_pk_coast_defense_idea = {
+			picture = ast_naval_auxiliary_patrol
+			modifier = {
+				production_speed_coastal_bunker_factor = 0.15
+			}
+		}
+		
+	}
+}

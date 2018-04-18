@@ -1,0 +1,301 @@
+ideas = {
+
+##############
+# Country ideas
+##############
+	country = {
+
+		ALB_pk_divided_cabinet_idea = {
+			picture = generic_disjointed_gov
+			modifier = {
+				political_power_cost = 0.2
+				planning_speed = -0.1
+			}
+		}
+	
+		ALB_pk_unpopular_rule_idea = {
+			picture = Recruitment_Crisis
+			modifier = {
+				stability_factor = -0.25
+				political_power_cost = 0.15
+				conscription_factor = -0.1
+			}
+		}
+	
+		ALB_pk_parted_populace_idea = {
+			picture = Recruitment_Crisis
+			modifier = {
+				stability_factor = -0.1
+				political_power_cost = 0.1
+			}
+		}
+	
+		ALB_pk_religious_minorities_satisfied_idea = {
+			picture = raj_marginalized_muslim_community_happy
+			modifier = {
+				stability_factor = 0.05
+				conscription = 0.015
+			}
+		}
+		
+		ALB_pk_foothold_in_the_balkans_idea = {
+			picture = ROM_balkans_dominance
+			allowed = {
+				OR = { 
+					ALB = { is_puppet_of = OTT }
+					ALB = { is_puppet_of = TUR }
+				}
+			}
+			cancel_if_invalid = yes
+			modifier = {
+				political_power_gain = 0.1
+			}
+		}
+		
+		ALB_pk_modernization_effort_idea = {
+			picture = generic_production_bonus
+			modifier = {
+				production_speed_buildings_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
+			}
+		}
+		
+		ALB_pk_women_rights_idea = {
+			picture = UoB_women_soldiers
+			modifier = {
+				conscription_factor = 0.25
+			}
+		}
+		
+		ALB_pk_benevolent_despotism_idea = {
+			picture = generic_morale_bonus
+			modifier = {
+				stability_factor = 0.15
+				political_power_gain = 0.25
+				research_time_factor = -0.025
+			}
+		}
+		
+		ALB_pk_religious_zeal_idea = {
+			picture = raj_marginalized_muslim_community_angry
+			modifier = {
+				conscription = 0.03
+				army_attack_factor = 0.05
+				research_time_factor = 0.05
+			}
+		}
+		
+		ALB_pk_guerrilla_warfare_idea = {
+			picture = generic_infantry_bonus
+			modifier = {
+				conscription = 0.02
+				out_of_supply_factor = -0.25
+				supply_consumption_factor = -0.1
+				army_org_Factor = -0.02
+			}
+		}
+		
+		ALB_pk_irredentism_idea = {
+			picture = generic_volunteer_expedition_bonus
+			modifier = {
+				land_reinforce_rate = 0.3
+				army_attack_factor = 0.1
+				justify_war_goal_time = -0.5
+				political_power_gain = 0.5
+			}
+		}
+		
+		ALB_pk_corruption1_idea = {
+			picture = generic_foreign_capital
+			modifier = {
+				political_power_factor = -0.5
+			}
+		}
+		
+		ALB_pk_corruption2_idea = {
+			picture = generic_foreign_capital
+			modifier = {
+				consumer_goods_factor = 0.35
+				political_power_factor = -0.05
+			}
+		}
+		
+		ALB_pk_corruption3_idea = {
+			picture = generic_foreign_capital
+			modifier = {
+				consumer_goods_factor = 0.35
+				political_power_factor = -0.25
+			}
+		}
+		
+		ALB_pk_censored_press_idea = {
+			picture = FRA_matignon_agreements
+			modifier = {
+				political_power_factor = -0.05
+				consumer_goods_factor = 0.05
+			}
+		}
+		
+		ALB_pk_social_sciences_idea = {
+			picture = generic_research_bonus
+			modifier = {
+				political_power_factor = 0.15
+				research_time_factor = -0.025
+			}
+		}
+		
+		ALB_pk_freedom_idea = {
+			picture = generic_democratic_drift_bonus
+			modifier = {
+				political_power_gain = 0.3
+				stability_factor = 0.1
+			}
+		}
+		
+		ALB_pk_totalist_idea = {
+			picture = generic_intel_bonus
+			modifier = {
+				totalist_drift = 0.01
+			}
+		}
+		
+		ALB_pk_bunkers1_idea = {
+			picture = FRA_fortification_focus
+			modifier = {
+				production_speed_bunker_factor = 0.2
+			}
+		}
+		
+		ALB_pk_bunkers2_idea = {
+			picture = FRA_fortification_focus
+			modifier = {
+				production_speed_bunker_factor = 0.5
+			}
+		}
+		
+		ALB_pk_state_atheism_idea = {
+			picture = generic_deal_with_the_devil
+			modifier = {
+				stability_factor = 0.1
+				political_power_factor = 0.04
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		
+		ALB_pk_iron_fist_idea = {
+			picture = generic_intel_bonus
+			modifier = {
+				stability_factor = 0.05
+				production_speed_buildings_factor = 0.05
+				production_speed_bunker_factor = 0.01
+			}
+		}
+		
+		ALB_pk_means_of_production_idea = {
+			picture = generic_production_bonus
+			modifier = {
+				production_factory_max_efficiency_factor = 0.1
+			}
+		}
+		
+		ALB_pk_revolution_in_albania_idea = {
+			picture = FRA_scw_intervention_republicans_focus
+			modifier = {
+				justify_war_goal_time = -0.5
+				army_attack_factor = 0.05
+				political_power_factor = 0.25
+			}
+		}
+		
+		ALB_pk_armed_citizens_idea = {
+			picture = generic_infantry_bonus
+			modifier = {
+				army_core_defence_factor = 0.05
+				training_time_factor = -0.1
+			}
+		}
+		
+		ALB_pk_isolation_idea = {
+			picture = isolation
+			modifier = {
+				justify_war_goal_time = 1
+				stability_factor = 0.05
+			}
+		}
+		
+		ALB_pk_splendid_isolation_idea = {
+			picture = undisturbed_isolation
+			modifier = {
+				justify_war_goal_time = 1
+				stability_factor = 0.15
+				political_power_gain = 0.1
+			}
+		}
+		
+		ALB_pk_foreign_workers_idea = {
+			picture = backward_industry
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.05
+			}
+		}
+		
+		ALB_pk_kosovo_unrest_idea = {
+			picture = raj_marginalized_muslim_community_angry
+			modifier = {
+				stability_factor = -0.15
+				political_power_gain = -0.1
+			}
+		}
+		
+		ALB_pk_age_of_reclamation_idea = {
+			picture = FRA_scw_intervention_republicans_focus
+			modifier = {
+				conscription = 0.02
+				army_core_attack_factor = 0.05
+				political_power_gain = 0.1
+			}
+		}
+		
+		ALB_pk_foreign_investors_idea = {
+			picture = generic_research_bonus
+			modifier = {
+				research_time_factor = -0.025
+				production_speed_buildings_factor = 0.1
+			}
+		}
+		
+		ALB_pk_tourism_idea = {
+			picture = undisturbed_isolation
+			modifier = {
+				research_time_factor = -0.025
+				political_power_gain = 0.1
+			}
+		}
+		
+		ALB_pk_elite_army_idea = {
+			picture = generic_manpower_bonus
+			modifier = {
+				army_org_Factor = 0.05
+				max_planning = 0.1
+				army_attack_factor = 0.05
+			}
+		}
+		
+		ALB_pk_conscripted_mountain_men_idea = {
+			picture = generic_manpower_bonus
+			modifier = {
+				conscription = 0.05
+				army_org_Factor = -0.025
+			}
+		}
+		
+		ALB_pk_sturdy_army_idea = {
+			picture = generic_infantry_bonus
+			modifier = {
+				attrition = -0.1
+				supply_consumption_factor = -0.1
+			}
+		}
+		
+	}
+}

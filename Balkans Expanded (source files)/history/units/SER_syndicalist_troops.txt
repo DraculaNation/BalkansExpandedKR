@@ -1,0 +1,60 @@
+﻿########
+#Templates
+########
+
+division_template = {
+	name = "Socijalistička Milicija"	
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+		militia = { x = 2 y = 2 }
+	}
+	support = {
+		
+	}
+}
+
+
+########
+units = {
+########
+
+#### INF ####
+	division= {	
+		name = "Končarovi"
+		location = 11586
+		division_template = "Socijalistička Milicija"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "Brigada Marks"
+		location = 9599
+		division_template = "Socijalistička Milicija"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "Sindikat 1"
+		location = 11583
+		division_template = "Socijalistička Milicija"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "Sindikat 2"
+		location = 3984
+		division_template = "Socijalistička Milicija"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "Sindikat 3"
+		location = 6998
+		division_template = "Socijalistička Milicija"
+		start_experience_factor = 0.4
+	}
+}

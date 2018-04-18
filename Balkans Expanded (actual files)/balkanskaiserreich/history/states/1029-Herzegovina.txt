@@ -1,0 +1,22 @@
+state={
+	id=1029
+	name="STATE_1029"
+	provinces={
+		6942 6957 9894 9922 11572 11872 
+	}
+	history={
+		owner = ILL
+		victory_points = {
+			9894 1 
+		}
+		buildings = {
+			infrastructure = 3
+		}
+		add_core_of = ILL
+		add_core_of = BOS
+
+	}
+	manpower=912100
+	buildings_max_level_factor=1.000
+	state_category = city
+}

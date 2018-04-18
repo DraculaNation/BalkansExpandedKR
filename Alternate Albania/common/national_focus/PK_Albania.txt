@@ -1,0 +1,3244 @@
+focus_tree = {
+	id = balkans_albania_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 100
+			tag = ALB
+		}
+	}
+
+	default = no
+
+	#########################
+	### Internal Politics ###
+	#########################
+	
+	### Ottoman Loyalty ###
+	
+	focus = {
+		id = ALB_pk_loyalty_to_the_ottomans
+		icon = GFX_goal_OTT_coat_of_arms
+		x = 1
+		y = 0
+
+		cost = 1
+
+		mutually_exclusive = {
+			focus = ALB_pk_return_of_the_king
+			focus = ALB_pk_national_front
+			focus = ALB_pk_democracy_in_albania
+		}
+
+		available = {
+			always = no
+		}
+		
+		bypass = { 
+			OR = { 
+				has_country_flag = albania_loyal_zuwied
+				has_country_flag = albania_crushed
+			}
+		}
+		
+		ai_will_do = { factor = 100 }
+
+		completion_reward = { }
+	}
+	
+	focus = {
+		id = ALB_pk_recognise_the_sultan
+		icon = GFX_goal_OTT_army
+		x = 0
+		y = 1
+
+		cost = 10
+
+		available = {
+			OR = {
+				is_subject_of = OTT
+			}
+		}
+		
+		bypass = {
+			NOT = {
+				OR = {
+					is_subject_of = OTT
+				}
+			}
+		}
+		
+		prerequisite = { focus = ALB_pk_loyalty_to_the_ottomans }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = 75
+			OTT = { add_political_power = 50 }
+			TUR = { add_political_power = 50 }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_reach_out_to_religious_minorities
+		icon = GFX_goal_tax_church
+		x = 2
+		y = 1
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_loyalty_to_the_ottomans }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_religious_minorities_satisfied_idea
+			add_political_power = 50
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_appease_the_people
+		icon = GFX_goal_monarchism
+		x = 0
+		y = 2
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_recognise_the_sultan }
+		prerequisite = { focus = ALB_pk_reach_out_to_religious_minorities }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = -50
+			swap_ideas = {
+				remove_idea = ALB_pk_unpopular_rule_idea
+				add_idea = ALB_pk_parted_populace_idea
+			}
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
+			add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_deal_with_the_ottomans
+		icon = GFX_goal_OTT_caliph
+		x = 2
+		y = 2
+
+		cost = 10
+
+		available = {
+			OR = {
+				is_subject_of = OTT
+			}
+		}
+		
+		bypass = {
+			NOT = {
+				OR = {
+					is_subject_of = OTT
+				}
+			}
+		}
+		
+		prerequisite = { focus = ALB_pk_recognise_the_sultan }
+		prerequisite = { focus = ALB_pk_reach_out_to_religious_minorities }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = 25
+			OTT = { add_ideas = ALB_pk_foothold_in_the_balkans_idea }
+			TUR = { add_ideas = ALB_pk_foothold_in_the_balkans_idea }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_take_care_of_zog
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 0
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		ai_will_do = { factor = 15 }
+
+		prerequisite = { focus = ALB_pk_appease_the_people }
+		prerequisite = { focus = ALB_pk_deal_with_the_ottomans }
+		
+		completion_reward = {
+			add_political_power = -50
+			remove_ideas_with_trait = head_of_government
+			set_country_flag = can_replace_hog
+			remove_ideas = ALB_pk_divided_cabinet_idea
+			clr_country_flag = ministers_cannot_be_replaced
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_rightful_rule
+		icon = GFX_goal_generic_national_unity
+		x = 2
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		ai_will_do = { factor = 15 }
+
+		prerequisite = { focus = ALB_pk_appease_the_people }
+		prerequisite = { focus = ALB_pk_deal_with_the_ottomans }
+		
+		completion_reward = {
+			add_political_power = 25
+			remove_ideas = ALB_pk_parted_populace_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_limited_self_rule
+		icon = GFX_goal_generic_dangerous_deal
+		x = 1
+		y = 4
+
+		cost = 10
+
+		available = {
+			OR = {
+				is_subject_of = OTT
+			}
+		}
+		
+		bypass = {
+			NOT = {
+				OR = {
+					is_subject_of = OTT
+				}
+			}
+		}
+		
+		prerequisite = { focus = ALB_pk_take_care_of_zog }
+		prerequisite = { focus = ALB_pk_rightful_rule }
+		
+		ai_will_do = { factor = 30 }
+
+		completion_reward = {
+			if = {
+				limit = { is_subject_of = OTT }
+				OTT = { set_autonomy = { target = ALB autonomy_state = KR_autonomous_puppet } }
+				hidden_effect = { 
+					set_politics = { ruling_party = authoritarian_democrat elections_allowed = no } 
+					add_popularity = { ideology = authoritarian_democrat popularity = 0.25 }
+					set_country_flag = albania_autonomous
+				}
+			}
+		}
+	}
+	
+	# Ottomans lose mini route
+	
+	focus = {
+		id = ALB_pk_we_have_lost
+		icon = GFX_goal_generic_attack_allies
+		x = 23
+		y = 0
+
+		cost = 1
+
+		available = {
+			has_country_flag = albania_loyal_zuwied
+			OR = {
+				is_subject = no
+				is_subject_of = TUR
+			}
+		}
+		
+		bypass = { is_subject = no }
+		
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+			if = {
+				limit = { is_subject_of = TUR }
+			TUR = { end_puppet = ALB }
+			TUR = { country_event = { id = albania.7 days = 1 } }
+			}
+			add_political_power = 50
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_back_on_our_feet
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 22
+		y = 1
+
+		cost = 10
+
+		available = {
+			has_country_flag = albania_loyal_zuwied
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_we_have_lost }
+		
+		ai_will_do = { factor = 50 }
+
+		completion_reward = {
+			load_oob = ALB
+			load_oob = ALB_1
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_protection_from_mitteleuropa
+		icon = GFX_goal_align_germany
+		x = 24
+		y = 1
+
+		cost = 10
+
+		available = {
+			has_country_flag = albania_loyal_zuwied
+			is_subject = no
+			GER = { is_faction_leader = yes }
+		}
+		
+		prerequisite = { focus = ALB_pk_we_have_lost }
+		
+		ai_will_do = { factor = 50 }
+
+		completion_reward = {
+			GER = { country_event = { id = albania.8 days = 1 } }
+		}
+	}
+	
+	### KING ZOG ROUTE ###
+	
+	focus = {
+		id = ALB_pk_return_of_the_king
+		icon = GFX_focus_rom_royal_dictatorship
+		x = 5
+		y = 0
+
+		cost = 1
+
+		mutually_exclusive = {
+			focus = ALB_pk_loyalty_to_the_ottomans
+			focus = ALB_pk_national_front
+			focus = ALB_pk_democracy_in_albania
+		}
+
+		available = {
+			always = no
+		}
+		
+		bypass = { 
+		has_country_flag = albania_rebel_zog
+		}
+		
+		ai_will_do = { factor = 100 }
+
+		completion_reward = { }
+	}
+	
+	focus = {
+		id = ALB_pk_unite_the_cabinet
+		icon = GFX_goal_generic_major_alliance
+		x = 4
+		y = 1
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_return_of_the_king }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			remove_ideas = ALB_pk_divided_cabinet_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_new_nationalism
+		icon = GFX_focus_generic_support_the_left_right
+		x = 6
+		y = 1
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_return_of_the_king }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			remove_ideas = ALB_pk_parted_populace_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_foreign_and_internal_politics
+		icon = GFX_goal_anschluss
+		x = 4
+		y = 2
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_unite_the_cabinet }
+		prerequisite = { focus = ALB_pk_new_nationalism }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = 100
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_equal_rights_religion
+		icon = GFX_goal_generic_neutrality_focus
+		x = 6
+		y = 2
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_unite_the_cabinet }
+		prerequisite = { focus = ALB_pk_new_nationalism }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_religious_minorities_satisfied_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_modernize_the_country
+		icon = GFX_goal_generic_construction
+		x = 4
+		y = 3
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_foreign_and_internal_politics }
+		prerequisite = { focus = ALB_pk_equal_rights_religion }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_modernization_effort_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_equal_rights_women
+		icon = GFX_IRE_women_industry
+		x = 6
+		y = 3
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_foreign_and_internal_politics }
+		prerequisite = { focus = ALB_pk_equal_rights_religion }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_women_rights_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_enlightened_monarchy
+		icon = GFX_goal_POR_royal_edicts
+		x = 5
+		y = 4
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_modernize_the_country }
+		prerequisite = { focus = ALB_pk_equal_rights_women }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_benevolent_despotism_idea
+		}
+	}
+	
+	### BALLI KOMBETAR ROUTE ###
+	
+	focus = {
+		id = ALB_pk_national_front
+		icon = GFX_goal_generic_attack_allies
+		x = 9
+		y = 0
+
+		cost = 1
+
+		mutually_exclusive = {
+			focus = ALB_pk_loyalty_to_the_ottomans
+			focus = ALB_pk_return_of_the_king
+			focus = ALB_pk_democracy_in_albania
+		}
+
+		available = {
+			always = no
+		}
+		
+		bypass = { 
+		has_country_flag = albania_rebel_kombetar
+		}
+		
+		ai_will_do = { factor = 100 }
+
+		completion_reward = { }
+	}
+	
+	focus = {
+		id = ALB_pk_all_nationalist_cabinet
+		icon = GFX_goal_generic_dangerous_deal
+		x = 8
+		y = 1
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_national_front }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = 50
+			remove_ideas = ALB_pk_divided_cabinet_idea
+			hidden_effect = {
+				remove_ideas_with_trait = head_of_government
+				remove_ideas_with_trait = foreign_minister
+				remove_ideas_with_trait = economy_minister
+				remove_ideas_with_trait = security_minister
+			}
+			add_ideas = ALB_Midhat_Frasheri_hog_ade
+			add_ideas = ALB_Fiqri_Dine_for_ade
+			add_ideas = ALB_Maliq_Bushati_eco_pau
+			add_ideas = ALB_Nuhi_Berisha_sec_pau
+			add_popularity = { ideology = national_populist popularity = 0.1 }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_the_opposition
+		icon = GFX_goal_demand_sudetenland
+		x = 10
+		y = 1
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_national_front }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = -25
+			add_manpower = -5000
+			add_stability = -0.05
+			remove_ideas = ALB_pk_parted_populace_idea
+			add_popularity = { ideology = national_populist popularity = 0.05 }
+			add_popularity = { ideology = authoritarian_democrat popularity = -0.05 }
+			add_popularity = { ideology = paternal_autocrat popularity = -0.05 }
+			add_popularity = { ideology = totalist popularity = -0.05 }
+			add_popularity = { ideology = social_democrat popularity = -0.05 }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_dealing_with_the_zogists
+		icon = GFX_focus_rom_handle_king
+		x = 8
+		y = 2
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_all_nationalist_cabinet }
+		prerequisite = { focus = ALB_pk_the_opposition }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = -50
+			add_manpower = -2500
+			add_popularity = { ideology = authoritarian_democrat popularity = -0.1 }
+			add_popularity = { ideology = paternal_autocrat popularity = -0.1 }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_religious_zeal
+		icon = GFX_goal_OTT_caliph
+		x = 10
+		y = 2
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_all_nationalist_cabinet }
+		prerequisite = { focus = ALB_pk_the_opposition }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_religious_zeal_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_guerrilla_warfare
+		icon = GFX_focus_generic_air_defense
+		x = 8
+		y = 3
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_dealing_with_the_zogists }
+		prerequisite = { focus = ALB_pk_religious_zeal }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_guerrilla_warfare_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_border_fortifications
+		icon = GFX_goal_generic_construct_military
+		x = 10
+		y = 3
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_dealing_with_the_zogists }
+		prerequisite = { focus = ALB_pk_religious_zeal }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			44 = {
+			add_building_construction = { type = bunker province = 9780 level = 1 instant_build = yes }
+			add_building_construction = { type = bunker province = 3896 level = 1 instant_build = yes }
+			add_building_construction = { type = bunker province = 11762 level = 1 instant_build = yes }
+			add_building_construction = { type = bunker province = 9875 level = 1 instant_build = yes }
+			}
+			766 = {
+			add_building_construction = { type = bunker province = 6900 level = 1 instant_build = yes }
+			add_building_construction = { type = bunker province = 3448 level = 1 instant_build = yes }
+			add_building_construction = { type = bunker province = 914 level = 1 instant_build = yes }
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_irredentism_personified
+		icon = GFX_goal_generic_major_war
+		x = 9
+		y = 4
+
+		cost = 10
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_guerrilla_warfare }
+		prerequisite = { focus = ALB_pk_border_fortifications }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_irredentism_idea
+		}
+	}
+	
+	### Fan Noli Rebellion ###
+	
+	focus = {
+		id = ALB_pk_democracy_in_albania
+		icon = GFX_focus_generic_strike_at_democracy2
+		x = 17
+		y = 0
+
+		cost = 1
+
+		mutually_exclusive = {
+			focus = ALB_pk_loyalty_to_the_ottomans
+			focus = ALB_pk_return_of_the_king
+			focus = ALB_pk_national_front
+		}
+
+		available = {
+			always = no
+		}
+		
+		bypass = { 
+		has_country_flag = albania_rebel_noli
+		}
+		
+		ai_will_do = { factor = 100 }
+
+		completion_reward = { }
+	}
+	
+	focus = {
+		id = ALB_pk_secular_albania
+		icon = GFX_goal_tax_church
+		x = 16
+		y = 1
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_democracy_in_albania }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_religious_minorities_satisfied_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_partial_socialism
+		icon = GFX_goal_white_star
+		x = 18
+		y = 1
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_democracy_in_albania }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = { ideology = totalist popularity = 0.2 }
+			add_popularity = { ideology = radical_socialist popularity = 0.2 }
+			add_popularity = { ideology = social_democrat popularity = 0.2 }
+		}
+	}
+	
+	### Fan Noli "Democracy" Route ###
+	
+	focus = {
+		id = ALB_pk_dealing_with_the_opposition
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 17
+		y = 2
+
+		cost = 1
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_secular_albania }
+		prerequisite = { focus = ALB_pk_partial_socialism }
+		
+		mutually_exclusive = { 
+		focus = ALB_pk_hoxha_in_control
+		focus = ALB_pk_xoxe_socialists
+		}
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			custom_effect_tooltip = albania_noli_route1
+			hidden_effect = { set_country_flag = albania_noli_route2 }
+			add_timed_idea = { idea = ALB_pk_corruption3_idea days = 61 }
+			add_popularity = { ideology = social_democrat popularity = 0.15 }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_necessary_compromises
+		icon = GFX_goal_generic_forceful_treaty
+		x = 16
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_dealing_with_the_opposition }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			remove_ideas = ALB_pk_parted_populace_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_corruption_scandals
+		icon = GFX_goal_generic_consumer_goods
+		x = 18
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_dealing_with_the_opposition }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			country_event = { id = albania.12 days = 1 }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_austrian_imports
+		icon = GFX_goal_austria
+		x = 16
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_necessary_compromises }
+		prerequisite = { focus = ALB_pk_corruption_scandals }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.33 uses = 3 category = infantry_weapons }
+			remove_ideas_with_trait = trade_laws
+			add_ideas = free_trade
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_social_sciences
+		icon = GFX_focus_research
+		x = 18
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_necessary_compromises }
+		prerequisite = { focus = ALB_pk_corruption_scandals }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_social_sciences_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_a_free_albania
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 17
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_social_sciences }
+		prerequisite = { focus = ALB_pk_austrian_imports }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_freedom_idea
+			add_political_power = 50
+			if = {
+				limit = { has_country_flag = albania_anti_corruption_effort }
+				country_event = { id = albania.15 days = 1 }
+			}
+		}
+	}
+	
+	### Enver Hoxha Route ###
+	
+	focus = {
+		id = ALB_pk_hoxha_in_control
+		icon = GFX_goal_enver_hoxha
+		x = 13
+		y = 2
+
+		cost = 1
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_secular_albania }
+		prerequisite = { focus = ALB_pk_partial_socialism }
+		
+		mutually_exclusive = { 
+		focus = ALB_pk_dealing_with_the_opposition
+		focus = ALB_pk_xoxe_socialists
+		}
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			custom_effect_tooltip = albania_hoxha_route1
+			hidden_effect = { set_country_flag = albania_hoxha_route2 }
+			custom_effect_tooltip = albania_corruption_issue1
+			set_politics = { ruling_party = totalist elections_allowed = no }
+			add_popularity = { ideology = totalist popularity = 0.1 }
+			hidden_effect = {
+				remove_ideas_with_trait = head_of_government
+				remove_ideas_with_trait = foreign_minister
+				remove_ideas_with_trait = economy_minister
+				remove_ideas_with_trait = security_minister
+			}
+			add_ideas = ALB_Enver_Hoxha_hog_tot
+			add_ideas = ALB_Essad_Pacha_for_tot
+			add_ideas = ALB_Nano_Xhana_eco_tot
+			add_ideas = ALB_Aziz_Sulejmani_sec_tot
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_socialist_policies
+		icon = GFX_goal_syndicalist_oppression
+		x = 12
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_hoxha_in_control }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_women_rights_idea
+			add_ideas = ALB_pk_totalist_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_denounce_the_international
+		icon = GFX_goal_covert_socialists
+		x = 14
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_hoxha_in_control }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = 50
+			add_manpower = -5000
+			add_stability = -0.05
+			add_popularity = { ideology = radical_socialist popularity = -0.15 }
+			add_popularity = { ideology = syndicalist popularity = -0.15 }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_embrace_bunkers
+		icon = GFX_goal_generic_fortify_city
+		x = 12
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_socialist_policies }
+		prerequisite = { focus = ALB_pk_denounce_the_international }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = ALB_pk_bunkers1_idea }
+				swap_ideas = {
+					remove_idea = ALB_pk_bunkers1_idea
+					add_idea = ALB_pk_bunkers2_idea
+				}
+				else = { add_ideas = ALB_pk_bunkers1_idea }
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_no_place_for_religion
+		icon = GFX_goal_MAF_Kulturkampf
+		x = 14
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_socialist_policies }
+		prerequisite = { focus = ALB_pk_denounce_the_international }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ALB_pk_religious_minorities_satisfied_idea
+				add_idea = ALB_pk_state_atheism_idea
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_security_in_hoxha
+		icon = GFX_goal_totalist
+		x = 13
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_embrace_bunkers }
+		prerequisite = { focus = ALB_pk_no_place_for_religion }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_iron_fist_idea
+		}
+	}
+	
+	### KOCI XOXE ROUTE ###
+	
+	focus = {
+		id = ALB_pk_xoxe_socialists
+		icon = GFX_goal_ideology_radical_socialist
+		x = 21
+		y = 2
+
+		cost = 1
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_secular_albania }
+		prerequisite = { focus = ALB_pk_partial_socialism }
+		
+		mutually_exclusive = { 
+		focus = ALB_pk_dealing_with_the_opposition 
+		focus = ALB_pk_hoxha_in_control
+		}
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			custom_effect_tooltip = albania_xoxe_route1
+			hidden_effect = { set_country_flag = albania_xoxe_route2 }
+			set_politics = { ruling_party = radical_socialist elections_allowed = no }
+			add_popularity = { ideology = radical_socialist popularity = 0.1 }
+			hidden_effect = {
+				remove_ideas_with_trait = head_of_government
+				remove_ideas_with_trait = foreign_minister
+				remove_ideas_with_trait = economy_minister
+				remove_ideas_with_trait = security_minister
+			}
+			add_ideas = ALB_Beqir_Balluku_hog_rso
+			add_ideas = ALB_Essad_Pacha_for_tot
+			add_ideas = ALB_Nano_Xhana_eco_tot
+			add_ideas = ALB_Koci_Xoxe_sec_rso
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_end_corruption
+		icon = GFX_goal_generic_political_pressure
+		x = 20
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_xoxe_socialists }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = 50 
+			custom_effect_tooltip = albania_corruption_stop
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_support_from_workers
+		icon = GFX_goal_syndicalist_workers
+		x = 22
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_xoxe_socialists }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			remove_ideas = ALB_pk_parted_populace_idea
+			add_popularity = { ideology = radical_socialist popularity = 0.05 }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_means_of_production
+		icon = GFX_goal_generic_production2
+		x = 20
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_end_corruption }
+		prerequisite = { focus = ALB_pk_support_from_workers }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_means_of_production_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_socialist_militias
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 22
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_end_corruption }
+		prerequisite = { focus = ALB_pk_support_from_workers }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_guerrilla_warfare_idea
+			load_oob = ALB_1
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_albanian_revolution
+		icon = GFX_goal_red_star_green_wreath
+		x = 21
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_means_of_production }
+		prerequisite = { focus = ALB_pk_socialist_militias }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_revolution_in_albania_idea
+		}
+	}
+	
+	########################
+	### Foreign Politics ###
+	########################
+	
+	### Diplomacy ###
+	
+	focus = {
+		id = ALB_pk_entrance_into_the_world
+		icon = GFX_goal_generic_propaganda
+		x = 29
+		y = 0
+
+		cost = 1
+
+		available = {
+			OR = {
+				has_country_flag = albania_rebel_zog
+				AND = {
+					has_country_flag = albania_loyal_zuwied
+					has_completed_focus = ALB_pk_limited_self_rule
+				}
+				has_country_flag = albania_noli_route2
+				has_country_flag = albania_hoxha_route2
+				has_country_flag = albania_xoxe_route2
+			}
+		}
+		
+		mutually_exclusive = { focus = ALB_pk_expansionism }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			custom_effect_tooltip = albania_tooltip_diplomacy
+			add_political_power = 30
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_quench_radical_ideas
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		x = 28
+		y = 1
+
+		cost = 5
+
+		available = {
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_entrance_into_the_world }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_popularity = { ideology = national_populist popularity = -0.1 }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_belgrade_pact_observer
+		icon = GFX_goal_generic_improve_relations
+		x = 30
+		y = 1
+
+		cost = 5
+
+		available = {
+			is_subject = no
+		}
+		
+		bypass = { 
+			OR = { 
+				SER = { is_faction_leader = no }
+				has_war_with = SER
+			}
+		}
+		
+		prerequisite = { focus = ALB_pk_entrance_into_the_world }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			every_country = {
+				limit = { OR = {
+					is_in_faction_with = SER
+					tag = SER 
+				} }
+				add_opinion_modifier = { target = ALB modifier = ALB_pk_belgrade_pact_observer_opinion }
+			}
+			add_political_power = 50
+		}
+	}
+	
+	### Isolation ###
+	
+	focus = {
+		id = ALB_pk_isolation
+		icon = GFX_goal_generic_isolation
+		x = 26
+		y = 2
+
+		cost = 1
+
+		available = {
+			NOT = { 
+				has_country_flag = albania_noli_route2
+			}
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_quench_radical_ideas }
+		prerequisite = { focus = ALB_pk_belgrade_pact_observer }
+		
+		mutually_exclusive = { focus = ALB_pk_choosing_a_side }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_isolation_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_peace_with_serbia
+		icon = GFX_goal_tripartite_pact
+		x = 25
+		y = 3
+
+		cost = 5
+
+		available = {
+			NOT = { has_war_with = SER }
+			is_subject = no
+		}
+		
+		bypass = {
+			OR = {
+				country_exists = SER
+				SER = { is_subject = yes }
+				has_completed_focus = ALB_pk_limited_self_rule
+			}
+		}
+		
+		prerequisite = { focus = ALB_pk_isolation }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 40
+			SER = { country_event = { id = albania.16 days = 1 } }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_peace_with_greece
+		icon = GFX_goal_generic_major_alliance
+		x = 27
+		y = 3
+
+		cost = 5
+
+		available = {
+			NOT = { has_war_with = GRE }
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_isolation }
+		
+		bypass = {
+			OR = {
+				country_exists = GRE
+				GRE = { is_subject = yes }
+				has_completed_focus = ALB_pk_limited_self_rule
+			}
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 40
+			GRE = { country_event = { id = albania.16 days = 1 } }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_align_with_the_pact
+		icon = GFX_goal_serbia
+		x = 24
+		y = 4
+
+		cost = 10
+
+		available = {
+			country_exists = SER
+			NOT = { has_war_with = SER }
+			SER = {
+				is_subject = no
+				is_faction_leader = yes
+			}
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_peace_with_serbia }
+		prerequisite = { focus = ALB_pk_peace_with_greece }
+		
+		mutually_exclusive = {
+		focus = ALB_pk_deal_with_austria
+		focus = ALB_pk_assurance_from_bulgaria
+		}
+		
+		bypass = { has_completed_focus = ALB_pk_limited_self_rule }
+		
+		ai_will_do = { factor = 40 }
+
+		completion_reward = {
+			add_political_power = 40
+			SER = { country_event = { id = albania.19 days = 1 } }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_assurance_from_bulgaria
+		icon = GFX_goal_generic_military_deal
+		x = 26
+		y = 4
+
+		cost = 10
+
+		available = {
+			country_exists = BUL
+			NOT = { has_war_with = BUL }
+			BUL = { is_subject = no }
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_peace_with_serbia }
+		prerequisite = { focus = ALB_pk_peace_with_greece }
+		
+		mutually_exclusive = {
+		focus = ALB_pk_align_with_the_pact
+		focus = ALB_pk_deal_with_austria
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 40
+			BUL = { country_event = { id = albania.19 days = 1 } }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_deal_with_austria
+		icon = GFX_goal_austria
+		x = 28
+		y = 4
+
+		cost = 10
+
+		available = {
+			country_exists = AUS
+			NOT = { has_war_with = AUS }
+			AUS = { is_subject = no }
+			is_subject = no
+		}
+		
+		prerequisite = { focus = ALB_pk_peace_with_serbia }
+		prerequisite = { focus = ALB_pk_peace_with_greece }
+		
+		mutually_exclusive = {
+		focus = ALB_pk_align_with_the_pact
+		focus = ALB_pk_assurance_from_bulgaria
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 40
+			AUS = { country_event = { id = albania.19 days = 1 } }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_arm_the_people
+		icon = GFX_goal_generic_small_arms
+		x = 25
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { 
+			focus = ALB_pk_align_with_the_pact
+			focus = ALB_pk_assurance_from_bulgaria
+			focus = ALB_pk_deal_with_austria
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_armed_citizens_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_build_the_bunkers
+		icon = GFX_goal_generic_fortify_city
+		x = 27
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { 
+			focus = ALB_pk_align_with_the_pact
+			focus = ALB_pk_assurance_from_bulgaria
+			focus = ALB_pk_deal_with_austria
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = ALB_pk_bunkers1_idea }
+				swap_ideas = {
+					remove_idea = ALB_pk_bunkers1_idea
+					add_idea = ALB_pk_bunkers2_idea
+				}
+				else = { add_ideas = ALB_pk_bunkers1_idea }
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_neutrality_secured
+		icon = GFX_goal_generic_neutrality_focus
+		x = 26
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_arm_the_people }
+		prerequisite = { focus = ALB_pk_build_the_bunkers }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = ALB_pk_isolation_idea
+				add_idea = ALB_pk_splendid_isolation_idea
+			}
+		}
+	}
+	
+	### Choosing a Side ###
+	
+	focus = {
+		id = ALB_pk_choosing_a_side
+		icon = GFX_goal_generic_position_armies
+		x = 32
+		y = 2
+
+		cost = 1
+
+		available = {
+			NOT = { has_country_flag = albania_hoxha_route2 }
+			NOT = { has_country_flag = albania_loyal_zuwied } 
+			is_subject = no
+			is_in_faction = no
+		}
+		
+		prerequisite = { 
+		focus = ALB_pk_belgrade_pact_observer
+		focus = ALB_pk_dealing_with_kosovo
+		}
+		
+		mutually_exclusive = { focus = ALB_pk_choosing_a_side }
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = 5
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_belgrade_pact
+		icon = GFX_goal_anschluss
+		x = 30
+		y = 3
+
+		cost = 10
+		
+		available = {
+			country_exists = SER
+			NOT = { has_war_with = SER }
+			SER = {
+				is_subject = no
+				is_faction_leader = yes
+			}
+			is_subject = no
+			NOT = { has_country_flag = albania_xoxe_route2 }
+			NOT = { has_completed_focus = ALB_pk_expansionism }
+		}
+		
+		prerequisite = { focus = ALB_pk_choosing_a_side }
+		
+		bypass = { 
+		is_in_faction_with = SER
+		}
+		
+		mutually_exclusive = { 
+		focus = ALB_pk_austrian_sphere 
+		focus = ALB_pk_the_international
+		}
+		
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			SER = { country_event = { id = albania.22 days = 1 } }
+			set_country_flag = albania_rightful_belgradepact
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_austrian_sphere
+		icon = GFX_goal_generic_alliance
+		x = 32
+		y = 3
+
+		cost = 10
+		
+		available = {
+			country_exists = AUS
+			NOT = { has_war_with = AUS }
+			AUS = {
+				is_subject = no
+				is_faction_leader = yes
+			}
+			is_subject = no
+			NOT = { has_country_flag = albania_xoxe_route2 }
+		}
+		
+		prerequisite = { focus = ALB_pk_choosing_a_side }
+		
+		bypass = { 
+		is_in_faction_with = AUS
+		}
+		
+		mutually_exclusive = { 
+		focus = ALB_pk_belgrade_pact
+		focus = ALB_pk_the_international
+		}
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			AUS = { country_event = { id = albania.22 days = 1 } }	
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_the_international
+		icon = GFX_goal_ideology_syndicalist
+		x = 34
+		y = 3
+
+		cost = 10
+		
+		available = {
+			country_exists = FRA
+			NOT = { has_war_with = FRA }
+			FRA = {
+				is_subject = no
+				is_faction_leader = yes
+			}
+			is_subject = no
+			has_country_flag = albania_xoxe_route2
+		}
+		
+		prerequisite = { focus = ALB_pk_choosing_a_side }
+		
+		bypass = { 
+		is_in_faction_with = FRA
+		}
+		
+		mutually_exclusive = { 
+		focus = ALB_pk_austrian_sphere 
+		focus = ALB_pk_belgrade_pact
+		}
+		
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+			FRA = { country_event = { id = albania.22 days = 1 } }	
+			set_country_flag = albania_rightful_international
+		}
+	}
+
+	focus = {
+		id = ALB_pk_better_trade
+		icon = GFX_goal_generic_positive_trade_relations_gold
+		x = 31
+		y = 4
+
+		cost = 3
+		
+		available = {
+			OR = { 
+				is_in_faction_with = SER
+				is_in_faction_with = AUS
+			}
+		}
+		
+		prerequisite = { 
+			focus = ALB_pk_belgrade_pact 
+			focus = ALB_pk_austrian_sphere
+		}
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			remove_ideas_with_trait = trade_laws
+			add_ideas = free_trade
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_foreign_workers
+		icon = GFX_goal_generic_soviet_construction
+		x = 34
+		y = 4
+
+		cost = 3
+		
+		available = {
+			is_in_faction_with = FRA
+		}
+		
+		prerequisite = { 
+			focus = ALB_pk_the_international
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_foreign_workers_idea
+		}
+	}
+	
+	### Plebiscite in Kosovo ###
+	
+	focus = {
+		id = ALB_pk_plebiscite_in_kosovo
+		icon = GFX_goal_generic_elections
+		x = 34
+		y = 1
+
+		cost = 5
+		
+		available = {
+			765 = { is_owned_by = SER }
+			SER = { OR = { 
+				has_government = national_populist
+				has_government = totalist
+			} }
+		}
+		
+		will_lead_to_war_with = SER
+		
+		bypass = { owns_state = 765 }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_list = {
+				75 = { SER = { country_event = { id = albania.27 days = 1 } } }
+				25 = { country_event = { id = albania.28 days = 1 } }
+			}
+		}
+	}
+	
+	### Expansionism ###
+	
+	focus = {
+		id = ALB_pk_expansionism
+		icon = GFX_goal_generic_political_pressure
+		x = 38
+		y = 0
+
+		cost = 1
+
+		available = {
+			OR = {
+					has_country_flag = albania_rebel_kombetar
+				AND = {
+					has_country_flag = albania_loyal_zuwied
+					has_completed_focus = ALB_pk_limited_self_rule
+				}
+				has_country_flag = albania_noli_route2
+			}
+		}
+		
+		mutually_exclusive = { focus = ALB_pk_entrance_into_the_world }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			custom_effect_tooltip = albania_tooltip_expansionism
+			add_state_claim = 106
+			add_state_claim = 105
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_dealing_with_kosovo
+		icon = GFX_goal_generic_major_war
+		x = 38
+		y = 1
+
+		cost = 10
+
+		will_lead_to_war_with = SER
+		
+		available = {
+			OR = {
+				is_subject = no
+				has_completed_focus = ALB_pk_limited_self_rule
+			}
+		}
+		
+		bypass = { owns_state = 765 }
+		
+		prerequisite = { focus = ALB_pk_expansionism }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = {
+					765 = { is_owned_by = SER }
+				}
+				country_event = { id = albania.31 days = 1 }
+				else = {
+					every_country = {
+						limit = { owns_state = 765 } # Kosovo
+						ROOT = {
+							create_wargoal = {
+								target = PREV
+								type = take_state_focus
+								generator = { 765 }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_start_conscription
+		icon = GFX_goal_rhineland
+		x = 36
+		y = 2
+
+		cost = 10
+
+		available = {
+			OR = {
+				is_subject = no
+				has_completed_focus = ALB_pk_limited_self_rule
+			}
+		}
+		
+		prerequisite = { focus = ALB_pk_dealing_with_kosovo }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 50
+			remove_ideas_with_trait = mobilization_laws
+			add_ideas = extensive_conscription
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_age_of_reclamation
+		icon = GFX_focus_generic_little_entente
+		x = 36
+		y = 3
+
+		cost = 10
+
+		available = {
+			OR = {
+				is_subject = no
+				has_completed_focus = ALB_pk_limited_self_rule
+			}
+			owns_state = 765
+		}
+		
+		prerequisite = { focus = ALB_pk_start_conscription }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_age_of_reclamation_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_albanians_in_macedonia
+		icon = GFX_goal_generic_military_sphere
+		x = 38
+		y = 2
+
+		cost = 10
+
+		available = {
+			OR = {
+				is_subject = no
+				has_completed_focus = ALB_pk_limited_self_rule
+			}
+		}
+		
+		will_lead_to_war_with = SER
+		will_lead_to_war_with = BUL
+		
+		bypass = { owns_state = 106 }
+		
+		prerequisite = { focus = ALB_pk_dealing_with_kosovo }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_state_claim = 106
+			every_country = {
+			limit = { owns_state = 105 } # MNE
+			ROOT = {
+				create_wargoal = {
+					target = PREV
+					type = take_state_focus
+					generator = { 106 }
+				}
+			} }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_rule_the_skadar
+		icon = GFX_goal_generic_occupy_states_coastal
+		x = 40
+		y = 2
+
+		cost = 10
+
+		available = {
+			OR = {
+				is_subject = no
+				has_completed_focus = ALB_pk_limited_self_rule
+			}
+		}
+		
+		will_lead_to_war_with = SER
+		will_lead_to_war_with = AUS
+		
+		bypass = { owns_state = 105 }
+		
+		prerequisite = { focus = ALB_pk_dealing_with_kosovo }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_state_claim = 105
+			every_country = {
+				limit = { owns_state = 105 } # MNE
+			ROOT = {
+				create_wargoal = {
+					target = PREV
+					type = take_state_focus
+					generator = { 105 }
+				}
+			}
+		} }
+	}
+	
+	focus = {
+		id = ALB_pk_corfu_and_epirus
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 39
+		y = 3
+
+		cost = 10
+
+		available = {
+			OR = {
+				is_subject = no
+				has_completed_focus = ALB_pk_limited_self_rule
+			}
+		}
+		
+		will_lead_to_war_with = GRE
+		
+		bypass = { OR = { owns_state = 758 owns_state = 185 } }
+		
+		prerequisite = { focus = ALB_pk_albanians_in_macedonia }
+		prerequisite = { focus = ALB_pk_rule_the_skadar }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			country_event = { id = albania.34 days = 1 }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_greater_albania
+		icon = GFX_focus_generic_support_the_left_right
+		x = 38
+		y = 4
+
+		cost = 10
+
+		available = {
+			OR = {
+				is_subject = no
+				has_completed_focus = ALB_pk_limited_self_rule
+			}
+		}
+		
+		bypass = { OR = { owns_state = 758 owns_state = 185 } }
+		
+		prerequisite = { focus = ALB_pk_corfu_and_epirus }
+		prerequisite = { focus = ALB_pk_age_of_reclamation }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_state_core = 105
+			add_state_core = 106
+			if = {
+				limit = {
+					owns_state = 185
+				}
+				add_state_core = 185
+			}
+			if = {
+				limit = {
+					owns_state = 758
+				}
+				add_state_core = 758
+			}
+		}
+	}
+	
+	#########################
+	###      Industry     ###
+	#########################
+	
+	focus = {
+		id = ALB_pk_industrial_plan
+		icon = GFX_goal_generic_construction
+		x = 42
+		y = 0
+
+		cost = 10
+
+		available = {
+		}
+		
+		mutually_exclusive = {
+		focus = ALB_pk_balanced_plan
+		focus = ALB_pk_agrarian_plan
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_balanced_plan
+		icon = GFX_goal_generic_construct_civilian
+		x = 44
+		y = 0
+
+		cost = 10
+
+		available = {
+		}
+		
+		mutually_exclusive = {
+		focus = ALB_pk_industrial_plan
+		focus = ALB_pk_agrarian_plan
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_agrarian_plan
+		icon = GFX_goal_agrarian_reform
+		x = 46
+		y = 0
+
+		cost = 10
+
+		available = {
+		}
+		
+		mutually_exclusive = {
+		focus = ALB_pk_industrial_plan
+		focus = ALB_pk_agrarian_plan
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_holidays_in_albania
+		icon = GFX_goal_generic_radar
+		x = 43
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { 
+			focus = ALB_pk_electronic_industries
+			focus = ALB_pk_develop_tirana
+			focus = ALB_pk_fish_hatcheries
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_ideas = ALB_pk_tourism_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_food_processing
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 45
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { 
+			focus = ALB_pk_electronic_industries
+			focus = ALB_pk_develop_tirana
+			focus = ALB_pk_fish_hatcheries
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_a_new_age
+		icon = GFX_focus_research
+		x = 44
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { 
+			focus = ALB_pk_textile_industry
+			focus = ALB_pk_foreign_investors
+			focus = ALB_pk_develop_vineyards
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	### INDUSTRIAL PLAN ###
+	
+	focus = {
+		id = ALB_pk_dig_for_minerals
+		icon = GFX_all_resource
+		x = 42
+		y = 1
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_industrial_plan }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				add_resource = { type = steel amount = 12 state = 44 }
+				add_resource = { type = tungsten amount = 6 state = 44 }
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_electronic_industries
+		icon = GFX_goal_computer_focus
+		x = 42
+		y = 2
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_dig_for_minerals }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			add_tech_bonus = { bonus = 0.5 uses = 1 category = electronics }
+		}
+	}
+	
+	
+	focus = {
+		id = ALB_pk_textile_industry
+		icon = GFX_IRE_medium_industry
+		x = 42
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_electronic_industries }
+		prerequisite = { focus = ALB_pk_holidays_in_albania }
+		prerequisite = { focus = ALB_pk_food_processing }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	### BALANCED PLAN ###
+	
+	focus = {
+		id = ALB_pk_developing_the_plan
+		icon = GFX_IRE_heavy_industry
+		x = 44
+		y = 1
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_balanced_plan }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.5 uses = 2 category = industry }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_develop_tirana
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 44
+		y = 2
+
+		cost = 10
+
+		available = {
+			owns_state = 44
+		}
+		
+		prerequisite = { focus = ALB_pk_developing_the_plan }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			44 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_foreign_investors
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 44
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_develop_tirana }
+		prerequisite = { focus = ALB_pk_holidays_in_albania }
+		prerequisite = { focus = ALB_pk_food_processing }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_foreign_investors_idea
+		}
+	}
+	
+	### AGRARIAN PLAN ###
+	
+	focus = {
+		id = ALB_pk_farm_industry
+		icon = GFX_NIC_Cows
+		x = 46
+		y = 1
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_agrarian_plan }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_fish_hatcheries
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 46
+		y = 2
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_farm_industry }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			44 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	
+	focus = {
+		id = ALB_pk_develop_vineyards
+		icon = GFX_goal_generic_consumer_goods
+		x = 46
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_fish_hatcheries }
+		prerequisite = { focus = ALB_pk_holidays_in_albania }
+		prerequisite = { focus = ALB_pk_food_processing }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	#########################
+	###        Army       ###
+	#########################
+	
+	focus = {
+		id = ALB_pk_an_elite_army
+		icon = GFX_goal_generic_political_pressure
+		x = 48
+		y = 0
+
+		cost = 10
+
+		available = {
+		}
+		
+		mutually_exclusive = { focus = ALB_pk_conscript_the_mountain_men }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_elite_army_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_conscript_the_mountain_men
+		icon = GFX_goal_generic_national_unity
+		x = 50
+		y = 0
+
+		cost = 10
+
+		available = {
+		}
+		
+		mutually_exclusive = { focus = ALB_pk_an_elite_army }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_conscripted_mountain_men_idea
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_mountain_warriors
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 48
+		y = 1
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = {
+		focus = ALB_pk_an_elite_army
+		focus = ALB_pk_conscript_the_mountain_men
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.5 uses = 2 category = mountaineers_tech }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_better_artillery
+		icon = GFX_goal_generic_army_artillery2
+		x = 50
+		y = 1
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = {
+		focus = ALB_pk_an_elite_army
+		focus = ALB_pk_conscript_the_mountain_men
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.5 ahead_reduction = 1 uses = 1 category = artillery }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_upgrade_the_rifles
+		icon = GFX_goal_generic_small_arms
+		x = 48
+		y = 2
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_mountain_warriors }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.66 uses = 1 category = infantry_weapons }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_motorization_effort
+		icon = GFX_goal_generic_army_motorized
+		x = 50
+		y = 2
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_better_artillery }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.5 uses = 1 category = motorized_equipment }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_tactics
+		icon = GFX_goal_generic_army_doctrines
+		x = 49
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_upgrade_the_rifles }
+		prerequisite = { focus = ALB_pk_motorization_effort }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.5 uses = 2 category = land_doctrine }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_ready_for_war
+		icon = GFX_focus_generic_military_mission
+		x = 48
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_tactics }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = {
+					OR = {
+						has_idea = undisturbed_isolation
+						has_idea = isolation
+						has_idea = civilian_economy
+						has_idea = low_economic_mobilisation
+					}
+				}
+				remove_ideas_with_trait = economy
+				add_ideas = partial_economic_mobilisation
+				else = { add_political_power = 150 }
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_sturdy_army
+		icon = GFX_focus_generic_little_entente
+		x = 50
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = ALB_pk_tactics }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = ALB_pk_sturdy_army_idea
+		}
+	}
+	
+	#########################
+	###        Navy       ###
+	#########################
+	
+	focus = {
+		id = ALB_pk_albanian_navy
+		icon = GFX_goal_generic_build_navy
+		x = 54
+		y = 0
+
+		cost = 10
+
+		available = {
+		}
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			navy_experience = 30
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_submarine_focus
+		icon = GFX_goal_generic_navy_submarine
+		x = 52
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = ALB_pk_albanian_navy }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = ss_tech
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_develop_destroyers
+		icon = GFX_goal_generic_navy_anti_submarine
+		x = 52
+		y = 2
+
+		cost = 10
+
+		prerequisite = { focus = ALB_pk_submarine_focus }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.66
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_protect_our_coasts
+		icon = GFX_focus_generic_coastal_fort
+		x = 54
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = ALB_pk_albanian_navy }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			44 = {
+			add_building_construction = { type = coastal_bunker province = 9780 level = 1 instant_build = yes }
+			add_building_construction = { type = coastal_bunker province = 9914 level = 1 instant_build = yes }
+			add_building_construction = { type = coastal_bunker province = 10245 level = 1 instant_build = yes }
+			add_building_construction = { type = coastal_bunker province = 11767 level = 1 instant_build = yes }
+			}
+			766 = {
+			add_building_construction = { type = coastal_bunker province = 914 level = 1 instant_build = yes }
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_naval_tactics
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 54
+		y = 2
+
+		cost = 10
+
+		prerequisite = { focus = ALB_pk_protect_our_coasts }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.66
+				uses = 2
+				category = naval_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_light_cruisers
+		icon = GFX_goal_generic_navy_cruiser
+		x = 56
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = ALB_pk_albanian_navy }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				ahead_reduction = 1
+				category = cl_tech
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_expand_our_dockayrds
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 56
+		y = 2
+
+		cost = 10
+
+		prerequisite = { focus = ALB_pk_light_cruisers }
+		
+		available = { owns_state = 44 }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			44 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	#########################
+	###        Air        ###
+	#########################
+	
+	focus = {
+		id = ALB_pk_albanian_airforce
+		icon = GFX_goal_generic_build_airforce
+		x = 54
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			air_experience = 30
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_fighter_blueprints
+		icon = GFX_goal_generic_air_fighter
+		x = 52
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = ALB_pk_albanian_airforce }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.5 uses = 2 category = light_fighter }
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_cas_models
+		icon = GFX_goal_generic_CAS
+		x = 52
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = ALB_pk_fighter_blueprints }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 0.66
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_develop_the_tirana_airport
+		icon = GFX_goal_generic_air_fighter2
+		x = 54
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = ALB_pk_albanian_airforce }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			44 = {
+			add_building_construction = { type = air_base province = 9875 level = 2 instant_build = yes }
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_air_tactics
+		icon = GFX_goal_generic_air_doctrine
+		x = 54
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = ALB_pk_develop_the_tirana_airport }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_develop_bombers
+		icon = GFX_goal_generic_air_bomber
+		x = 56
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = ALB_pk_albanian_airforce }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				category = tactical_bomber
+			}
+		}
+	}
+	
+	focus = {
+		id = ALB_pk_naval_bombers
+		icon = GFX_goal_generic_air_naval_bomber
+		x = 56
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = ALB_pk_develop_bombers }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.66
+				uses = 1
+				category = naval_air
+			}
+		}
+	}
+	
+}

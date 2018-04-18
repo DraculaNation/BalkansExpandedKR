@@ -1,0 +1,54 @@
+﻿########
+#Templates
+########
+
+division_template = {
+	name = "Pobunjenici"	
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+		militia = { x = 2 y = 2 }
+	}
+	support = {
+		
+	}
+}
+
+
+########
+units = {
+########
+
+#### INF ####
+	division= {	
+		name = "Pobunjenici"
+		location = 11899
+		division_template = "Pobunjenici"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "Anti-Populisti"
+		location = 61029
+		division_template = "Pobunjenici"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "Policija Samouprave 1"
+		location = 9586
+		division_template = "Pobunjenici"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "Policija Samouprave 2"
+		location = 953
+		division_template = "Pobunjenici"
+		start_experience_factor = 0.4
+	}
+}

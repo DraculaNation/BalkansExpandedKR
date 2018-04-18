@@ -1,0 +1,615 @@
+### Serbian Ideas
+
+ideas = {
+##############
+# Country ideas
+##############
+	country = {
+		SER_pk_jingoism = {
+			modifier = {
+				unity_factor = 0.1
+				conscription = 0.03
+			}
+			picture = FRA_scw_intervention_nationalists_focus
+		}
+
+		SER_pk_army_command = {
+			modifier = {
+				land_reinforce_rate = 0.1
+				army_morale_factor = 0.1
+			}
+			picture = YUG_serbian_general_staff
+		}
+
+		SER_pk_strong_state_idea = {
+			modifier = {
+				unity_factor = 0.1
+				political_power_gain = 0.2
+			}
+			picture = generic_intel_bonus
+		}
+
+		SER_pk_heroic_spirit = {
+			modifier = {
+				army_core_attack_factor = 0.1
+				army_core_defence_factor = 0.1
+			}
+			picture = generic_infantry_bonus
+		}
+
+		SER_pk_free_society_idea = {
+			modifier = {
+				consumer_goods_factor = -0.1
+			}
+			picture = generic_production_bonus
+		}
+
+		SER_pk_science_idea = {
+			modifier = {
+				research_time_factor = -0.05
+			}
+			picture = generic_research_bonus
+		}
+
+		SER_pk_beacon_of_liberty = {
+			allowed = { always = no }
+
+			available = {
+				OR = {
+					has_government = social_democrat
+					has_government = social_liberal
+					has_government = market_liberal
+					has_government = social_conservative
+				}
+			}
+
+			cancel_if_invalid = yes
+
+			modifier = {
+				 drift_defence_factor = 0.5
+				 political_power_gain = 0.25
+			}
+
+			removal_cost = -1
+			picture = generic_democratic_drift_bonus
+		}
+
+		SER_pk_patriotic_spirit_idea = {
+			modifier = {
+				army_morale_factor = 0.05
+				army_core_attack_factor = 0.1
+				army_core_defence_factor = 0.1
+				conscription = 0.01				
+			}
+			picture = FRA_scw_intervention_republicans_focus
+		}
+
+		SER_pk_bunker_focus_idea = {
+			modifier = {
+				production_speed_bunker_factor = 0.1
+			}
+			picture = ast_naval_auxiliary_patrol
+		}
+
+		SER_pk_mobilisation_of_the_masses_idea = {
+			modifier = {
+				conscription = 0.03
+			}
+			picture = generic_manpower_bonus
+		}
+
+		SER_pk_building_ships_faster = {
+			allowed = { always = no }
+
+			available = {
+				has_navy_size = { size < 5 } # 3 ships built, 1 bought
+			}
+
+			cancel_if_invalid = yes
+
+			modifier = {
+				industrial_capacity_dockyard = 0.5
+				political_power_cost = 0.25
+			}
+
+			removal_cost = -1
+			picture = generic_coastal_navy
+		}
+
+		SER_pk_ship_research = {
+			research_bonus = {
+				naval_equipment = 0.2
+			}
+			picture = generic_coastal_defense_ships
+		}
+		
+		SER_pk_quality_workforce_idea = {
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.025
+			}
+			picture = HUN_secret_rearmament
+		}
+	
+	
+		SER_pk_adaptive_economy_idea = {
+			modifier = {
+				consumer_goods_factor = -0.05
+			}
+			picture = generic_production_bonus
+		}
+
+		SER_pk_libertarian_state_idea = {
+			modifier = {
+				consumer_goods_factor = +0.05
+				army_core_attack_factor = 0.05
+				conscription = 0.005	
+			}
+			picture = generic_production_bonus
+		}
+		
+		SER_pk_orthodox_cooperation = {
+			modifier = {
+				 drift_defence_factor = 0.5
+				 political_power_gain = 0.1
+			}
+			picture = YUG_orthodox_church_support
+		}
+		
+		SER_pk_schools_idea = {
+			modifier = {
+				research_time_factor = -0.025
+			}
+			picture = generic_research_bonus
+		}
+		
+		SER_pk_industrialization_idea = {
+			modifier = {
+				production_speed_buildings_factor = 0.10
+				consumer_goods_factor = 0.05
+			}
+			picture = generic_volunteer_expedition_bonus
+		}
+		
+		SER_pk_chaos_idea = {
+			modifier = {
+				unity_factor = -0.2
+				authoritarian_democrat_drift = -0.1
+				political_power_gain = -0.25
+			}
+			picture = FRA_scw_intervention_republicans_focus
+		}
+		
+		SER_pk_nedic_idea = {
+			modifier = {
+				paternal_autocrat_drift = 0.03
+				political_power_gain = 0.05
+				army_morale_factor = 0.025
+			}
+			picture = generic_infantry_bonus
+		}
+		
+		SER_pk_militaristic_laws_idea = {
+			modifier = {
+				justify_war_goal_time = -0.33
+				conscription = 0.005
+			}
+			picture = generic_intel_bonus
+		}
+		
+		SER_pk_albanian_friendship_idea = {
+			
+			available = {
+				has_guaranteed = ALB # Guaranteeing Albania
+			}
+		
+			modifier = {
+				conscription = 0.02
+			}
+			picture = generic_manpower_bonus
+		}
+		
+		SER_pk_albanian_reassurement_idea = {
+		
+			modifier = {
+				conscription = 0.015
+				unity_factor = -0.05
+			}
+			picture = generic_manpower_bonus
+		}
+		
+		SER_pk_mitteleuropa_solidarity_idea = {
+		
+			modifier = {
+				consumer_goods_factor = 0.05
+				unity_factor = 0.1
+				army_morale_factor = 0.05
+			}
+			picture = generic_deal_with_the_devil2
+		}
+		
+		SER_pk_ljotic_idea = {
+			modifier = {
+				national_populist_drift = 0.1
+				unity_factor = 0.1
+				army_core_defence_factor = 0.1
+			}
+			picture = generic_infantry_bonus
+		}
+		
+		SER_pk_zbor_idea = {
+			modifier = {
+				unity_factor = 0.1
+				army_core_defence_factor = 0.15
+				army_core_attack_factor = 0.15
+				army_morale_factor = -0.05
+			}
+			picture = generic_infantry_bonus
+		}
+		
+		SER_pk_muslim_unrest_idea = {
+			modifier = {
+				unity_factor = -0.25
+				conscription = -0.02
+				political_power_gain = -0.5
+			}
+			picture = raj_marginalized_muslim_community_angry
+		}
+		
+		SER_pk_russian_sympathy1_idea = {
+			modifier = {
+				army_org_factor = 0.10
+				planning_speed = 0.15
+				
+			}
+			picture = generic_morale_bonus
+		}
+		
+		SER_pk_russian_sympathy2_idea = {
+			modifier = {
+				research_time_factor = -0.05
+			}
+			picture = generic_morale_bonus
+		}
+		
+		SER_pk_russian_sympathy3_idea = {
+			modifier = {
+				political_power_gain = 0.5
+			}
+			picture = generic_morale_bonus
+		}
+		
+		SER_pk_religious_schools_idea = {
+			modifier = {
+				political_power_gain = 0.1
+				conscription = 0.01
+				totalist_drift = -0.01
+				syndicalist_drift = -0.01
+				radical_socialist_drift = -0.01
+				social_democrat_drift = -0.01
+				social_liberal_drift = -0.01
+			}
+			picture = ENG_the_war_to_end_all_wars
+		}
+		
+		SER_pk_bastion_of_orthodoxy_idea = {
+			modifier = {
+				unity_factor = 0.15
+				political_power_gain = 0.15
+				research_time_factor = -0.015
+				army_morale_factor = 0.1
+			}
+			picture = YUG_orthodox_church_support
+		}
+		
+		SER_pk_socialist_zeal_idea = {
+			modifier = {
+				conscription = 0.03
+				army_morale_factor = 0.15
+				experience_gain_army = -0.05
+				planning_speed = -0.5
+				unity_factor = 0.1
+			}
+			picture = UoB_militia_idea
+		}
+		
+		SER_pk_police_state_idea = {
+			modifier = {
+				unity_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.025
+			}
+			picture = generic_intel_bonus
+		}
+		
+		SER_pk_ozna_idea = {
+			modifier = {
+				enemy_partisan_effect = -0.2
+				political_power_cost = -0.1
+				army_morale_factor = 0.1
+			}
+			picture = generic_spy_intel
+		}
+		
+		SER_pk_new_nationalism_idea = {
+			modifier = {
+				unity_factor = 0.1
+				political_power_gain = 0.25
+			}
+			picture = generic_intel_bonus
+		}
+		
+		SER_pk_support_syndicates_idea = {
+			modifier = {
+				production_factory_max_efficiency_factor = 0.05
+				consumer_goods_factor = -0.05
+			}
+			picture = generic_production_bonus
+		}
+		
+		SER_pk_milunka_laws_idea = {
+			modifier = {
+				conscription = 0.03
+				unity_factor = -0.05
+				paternal_autocrat_drift = -0.01
+				national_populist_drift = -0.01
+				authoritarian_democrat_drift = -0.01
+			}
+			picture = generic_production_bonus
+		}
+		
+		SER_pk_glorified_military_idea = {
+			modifier = {
+				conscription = 0.01
+				army_morale_factor = 0.1
+			}
+			picture = UoB_militia_idea
+		}
+		
+		SER_pk_socialist_zeal_upgraded_idea = {
+			modifier = {
+				conscription = 0.045
+				army_morale_factor = 0.20
+				unity_factor = 0.1
+			}
+			picture = UoB_militia_idea
+		}
+		
+		SER_pk_beacon_of_syndicalism_idea = {
+			modifier = {
+				unity_factor = 0.1
+				syndicalist_drift = 0.03
+				industrial_capacity_factory = 0.1
+			}
+			picture = generic_morale_bonus
+		}
+		
+		SER_pk_tax_the_rich_idea = {
+			modifier = {
+				consumer_goods_factor = -0.1
+			}
+			picture = FRA_matignon_agreements
+		}
+		
+		SER_pk_farmer_idea = {
+			modifier = {
+				consumer_goods_factor = -0.1
+			}
+			picture = generic_agrarian_society
+		}
+		
+		SER_pk_work_extra_hard_idea = {
+			modifier = {
+				industrial_capacity_factory = 0.5
+			}
+			picture = generic_production_bonus
+		}
+		
+		SER_pk_french_help_idea = {
+			modifier = {
+				political_power_gain = 0.5
+			}
+			picture = generic_research_bonus
+		}
+		
+		SER_pk_minority_coexistance_idea = {
+			modifier = {
+				conscription = 0.02
+				unity_factor = 0.05
+			}
+			picture = raj_marginalized_muslim_community_happy
+		}
+		
+		SER_pk_serbian_socialism_idea = {
+			modifier = {
+				radical_socialist_drift = 0.03
+				political_power_gain = 0.25
+			}
+			picture = generic_morale_bonus
+		}
+		
+		SER_pk_social_safety_net_idea = {
+			modifier = {
+				consumer_goods_factor = 0.05
+				political_power_gain = 0.1
+				unity_factor = 0.05
+			}
+			picture = HUN_treaty_of_triannon
+		}
+		
+		SER_pk_pan_serbia_idea = {
+			modifier = {
+				army_core_defence_factor = 0.2
+				unity_factor = 0.05
+			}
+			picture = generic_pp_unity_bonus
+		}
+		
+		SER_pk_stojadinovic_critique_idea = {
+			modifier = {
+				unity_factor = -0.1
+				political_power_gain = -0.1
+			}
+			picture = generic_fascism_banned
+		}
+		
+		SER_pk_belgrade_pact_former_idea = {
+			modifier = {
+				political_power_gain = 1
+				research_time_factor = 0.05
+			}
+			picture = generic_morale_bonus
+		}
+		
+		SER_pk_belgrade_pact_former2_idea = {
+			modifier = {
+				political_power_gain = 1
+				research_time_factor = 0.05
+				production_speed_bunker_factor = 0.25
+				
+			}
+			picture = generic_morale_bonus
+		}
+		
+	}
+		
+##############
+# Companies
+##############
+
+#### General ####
+industrial_concern = {
+
+	sartid = {
+		allowed = { original_tag = SER }
+		traits = { industrial_manufacturer }
+		modifier = {
+			production_speed_arms_factory_factor = 0.1
+			production_speed_industrial_complex_factor = 0.1
+		}
+		research_bonus = {
+			industry = 0.1
+		}
+	}
+
+	univerzitet_beogradu = {
+		allowed = {original_tag = SER }
+		traits = {electronics_manufacturer }
+		modifier = {}
+		research_bonus = {
+			electronics = 0.1
+		}
+	}
+
+	galenika = {
+		allowed = {original_tag = SER }
+		traits = {chemical_producer }
+		research_bonus = {
+			synth_resources = 0.1
+		}
+	}
+
+}
+
+#### Weapons Manufacturer ####
+weapons_manufacturer = {
+	designer = yes
+
+	fabrika_uzice = {
+		allowed = { original_tag = SER }
+		traits = { infantry_equipment_producer_offense_1 }
+		modifier = {}
+		research_bonus = {
+			infantry_weapons = 0.1
+		}
+	}
+
+	zastava = {
+		allowed = { original_tag = SER }
+		traits = { infantry_equipment_producer_defense_1 }
+		modifier = {}
+		research_bonus = {
+			infantry_weapons = 0.1
+		}
+	}
+}
+
+#### Heavy Equipment Manufacturer ####
+tank_manufacturer = {
+	designer = yes
+
+	vojnotehnicki_beograd = {
+		allowed = { original_tag = SER }
+		traits = { artillery_producer_defense_1 }
+		modifier = {}
+		research_bonus = {
+			artillery = 0.05
+		}
+	}
+
+	ikarbus = {
+		allowed = { original_tag = SER }
+		traits = { motorised_equipment_producer_mass_1 }
+		modifier = {}
+		research_bonus = {
+			motorized_equipment = 0.05
+		}
+	}
+
+	industrija_masina_komponenata = {
+		allowed = { original_tag = SER }
+		traits = { small_tank_producer_defense_0 }
+		modifier = {}
+		research_bonus = {
+			armor = 0.05
+		}
+	}
+}
+
+#### Air and Naval Manufacturer ####
+air_naval_manufacturer = {
+	designer = yes
+
+	ikarus = {
+		allowed = { original_tag = SER }
+		traits = { fighter_producer_offense_1 }
+		modifier = {}
+		research_bonus = {
+			air_equipment = 0.05
+		}
+	}
+
+	utva = {
+		allowed = { original_tag = SER }
+		traits = { fighter_producer_mass_0 }
+		modifier = {}
+		research_bonus = {
+			air_equipment = 0.05
+		}
+	}
+
+	rogozarski = {
+		allowed = { original_tag = SER }
+		traits = { bomber_producer_offense_1 }
+		modifier = {}
+		research_bonus = {
+			air_equipment = 0.05
+		}
+	}
+
+	aeroput = {
+		allowed = { original_tag = SER }
+		traits = { nav_cas_producer_defense_1 }
+		modifier = {}
+		research_bonus = {
+			air_equipment = 0.05
+		}
+	}
+}
+
+##############
+# Theorist
+##############
+theorist = {
+
+
+}
+}
