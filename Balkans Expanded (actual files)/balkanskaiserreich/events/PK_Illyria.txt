@@ -1,0 +1,3799 @@
+﻿###########################
+# Illyria events
+###########################
+# By Kornilov and Dracula Nation
+###########################
+
+add_namespace = illyria
+
+#############
+#Initial events
+#############
+
+country_event = { #Kingdom of Illyria
+	id = illyria.1
+	title = illyria.1.t
+	desc = illyria.1.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		date > 1936.1.5
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = illyria.1.a
+		add_political_power = 15
+	}
+}
+
+country_event = { #Matica ilirska
+	id = illyria.2
+	title = illyria.2.t
+	desc = illyria.2.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		date > 1936.6.6
+	}
+	mean_time_to_happen = {
+		days = 7
+	}
+	option = {
+		name = illyria.2.a
+		add_political_power = 30
+	}
+}
+
+country_event = { #Status of Montenegro
+	id = illyria.3
+	title = illyria.3.t
+	desc = illyria.3.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		date > 1936.3.5
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = illyria.3.a
+		add_political_power = -10
+	}
+}
+
+country_event = { #Sarajevo Agreement
+	id = illyria.4
+	title = illyria.4.t
+	desc = illyria.4.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = illyria.4.a
+		ai_chance = { factor = 30 }
+		add_political_power = 20
+		add_stability = 0.01
+	}
+	option = {
+		name = illyria.4.b
+		ai_chance = { factor = 50 }
+		add_political_power = 40
+		add_stability = 0.02
+	}
+	option = {
+		name = illyria.4.c
+		ai_chance = { factor = 20 }
+		add_political_power = -20 #What is this name?
+		add_stability = 0.05
+	}
+}
+
+country_event = { #Highway 'Unity'
+	id = illyria.5
+	title = illyria.5.t
+	desc = illyria.5.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = illyria.5.a
+		add_political_power = 60
+		104 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		105 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		109 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+	}
+}
+
+country_event = { # Illyria's New Rulers - Sarkotic's old age
+	id = illyria.6
+	title = illyria.6.t
+	desc = illyria.6.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.6.a # Karl I
+		ai_chance = { factor = 75 }
+		ILL = {
+			create_country_leader = {
+				name = "Karlo IV Habsburško-Lorenski"
+				desc = "POLITICS_KARL_DESC"
+				picture = "Portrait_Austria_Karl_I.tga"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+				traits = { }
+			}
+		}
+	}
+	
+	option = {
+		name = illyria.6.b # Otto I, because he likes Croatia
+		ai_chance = { factor = 25 }
+		ILL = {
+			create_country_leader = {
+				name = "Otto I Habsburško-Lorenski"
+				desc = "POLITICS_OTTO_DESC"
+				picture = "Portrait_Austria_Otto_I.tga"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+				traits = { }
+			}
+		}
+	}
+}
+
+country_event = { #PP Bonus for Austria
+	id = illyria.7
+	title = illyria.7.t
+	desc = illyria.7.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.7.a
+		add_political_power = 70
+	}
+}
+
+country_event = { #PP Bonus for Austria 2
+	id = illyria.8
+	title = illyria.8.t
+	desc = illyria.8.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.8.a
+		add_political_power = 40
+	}
+}
+
+country_event = { #Sarkotic dies, Radic takes power
+	id = illyria.9
+	title = illyria.9.t
+	desc = illyria.9.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		has_country_flag = sarkotic_can_die_radic
+		NOT = { has_country_flag = illyria_sarkotic_dead }
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	option = {
+		name = illyria.9.a
+		kill_country_leader = yes
+		set_politics = { ruling_party = social_conservative elections_allowed = no }
+		hidden_effect = {
+			AUS = { country_event = { id = illyria.10 } }
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = ILL_pk_paternal_autocrat_party2
+				long_name = ILL_pk_paternal_autocrat_party2_long
+			}
+			create_country_leader = {
+				name = "Aleksandar Horvat"
+				desc = "POLITICS_ALEKSANDAR_HORVAT_DESC"
+				picture = "Aleksandar_Horvat.tga"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+				traits = { }
+			}
+			create_country_leader = {
+				name = "Stjepan Radić"
+				desc = "CROATIA_STJEPAN_RADIC_DESC"
+				picture = "Portrait_Croatia_Stjepan_Radic.tga"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "Djuro Pucar"
+				desc = "DJURO_PUCAR_DESC"
+				picture = "Djuro_Pucar.tga"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+			set_country_flag = illyria_sarkotic_dead
+		}
+	}
+}
+
+country_event = { #PP Malus for Austria
+	id = illyria.10
+	title = illyria.10.t
+	desc = illyria.10.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.10.a
+		add_political_power = -25
+	}
+}
+
+country_event = { #Granting Autonomy to Illyria
+	id = illyria.11
+	title = illyria.11.t
+	desc = illyria.11.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.11.a
+		ai_chance = { factor = 50 }
+		add_political_power = 15
+		set_autonomy = { target = ILL autonomy_state = kr_autonomous_puppet }
+	}
+	
+	option = {
+		name = illyria.11.b
+		ai_chance = { factor = 50 
+			modifier = {
+				factor = 0.5
+				has_political_power < 10
+			}
+		}
+		add_political_power = -60
+	}
+}
+
+country_event = { #PP Malus for Austria 2
+	id = illyria.12
+	title = illyria.12.t
+	desc = illyria.12.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.12.a
+		add_political_power = -50
+	}
+}
+
+country_event = { #PP Malus for Austria 3 + negative idea
+	id = illyria.13
+	title = illyria.13.t
+	desc = illyria.13.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.13.a
+		add_political_power = -50
+		add_timed_idea = { idea = ILL_pk_slovenian_nationalist_revival_idea days = 365 }
+	}
+}
+
+country_event = { #Illyrian Support - Russia
+	id = illyria.14
+	title = illyria.14.t
+	desc = illyria.14.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.14.a
+		ai_chance = { factor = 40 }
+		reverse_add_opinion_modifier = { target = AUS modifier = ILL_pk_supported_independence_austria }
+		reverse_add_opinion_modifier = { target = ILL modifier = ILL_pk_supported_independence_illyria }
+		hidden_effect = { ILL = { modify_country_flag = { flag = ILL_pk_independence_support value = 1 } } }
+		hidden_effect = {
+			if = {
+				limit = { country_exists = ITA }
+				ITA = { country_event = { id = illyria.15 days = 1 } }
+				else = {
+					if = {
+						limit = { country_exists = GER }
+						GER = { country_event = { id = illyria.16 days = 1 } }
+						else = {
+							if = {
+								limit = { country_exists = CAN }
+								CAN = { country_event = { id = illyria.17 days = 1 } }
+								else = {
+									if = {
+										limit = { country_exists = SER }
+										SER = { country_event = { id = illyria.18 days = 1 } }
+										else = { ILL = { set_country_flag = illyria_international_recognition_end } } 
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	option = {
+		name = illyria.14.b
+		ai_chance = { factor = 60
+		modifier = {
+				factor = 0
+					is_in_faction_with = AUS
+			}
+		}
+		add_political_power = 10
+		hidden_effect = {
+			if = {
+				limit = { country_exists = ITA }
+				ITA = { country_event = { id = illyria.15 days = 1 } }
+				else = {
+					if = {
+						limit = { country_exists = GER }
+						GER = { country_event = { id = illyria.16 days = 1 } }
+						else = {
+							if = {
+								limit = { country_exists = CAN }
+								CAN = { country_event = { id = illyria.17 days = 1 } }
+								else = {
+									if = {
+										limit = { country_exists = SER }
+										SER = { country_event = { id = illyria.18 days = 1 } }
+										else = { ILL = { set_country_flag = illyria_international_recognition_end } } 
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Illyrian Support - Italian Federation
+	id = illyria.15
+	title = illyria.15.t
+	desc = illyria.15.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.15.a
+		ai_chance = { factor = 30 }
+		reverse_add_opinion_modifier = { target = AUS modifier = ILL_pk_supported_independence_austria }
+		reverse_add_opinion_modifier = { target = ILL modifier = ILL_pk_supported_independence_illyria }
+		hidden_effect = { ILL = { modify_country_flag = { flag = ILL_pk_independence_support value = 1 } } }
+		hidden_effect = {
+			if = {
+				limit = { country_exists = GER }
+				GER = { country_event = { id = illyria.16 days = 1 } }
+				else = {
+					if = {
+						limit = { country_exists = CAN }
+						CAN = { country_event = { id = illyria.17 days = 1 } }
+						else = {
+							if = {
+								limit = { country_exists = SER }
+								SER = { country_event = { id = illyria.18 days = 1 } }
+								else = { ILL = { set_country_flag = illyria_international_recognition_end } } 
+							}
+						}
+					}
+				}
+			}			
+		}
+	}
+	
+	option = {
+		name = illyria.15.b
+		ai_chance = { factor = 70
+		modifier = {
+				factor = 0
+				OR = {
+				is_in_faction_with = AUS
+				is_subject_of = AUS
+			} } }
+		add_political_power = 10
+		hidden_effect = {
+			if = {
+				limit = { country_exists = GER }
+				GER = { country_event = { id = illyria.16 days = 1 } }
+				else = {
+					if = {
+						limit = { country_exists = CAN }
+						CAN = { country_event = { id = illyria.17 days = 1 } }
+						else = {
+							if = {
+								limit = { country_exists = SER }
+								SER = { country_event = { id = illyria.18 days = 1 } }
+								else = { ILL = { set_country_flag = illyria_international_recognition_end } } 
+							}
+						}
+					}
+				}
+			}			
+		}
+	}
+}
+
+country_event = { #Illyrian Support - Germany
+	id = illyria.16
+	title = illyria.16.t
+	desc = illyria.16.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.16.a
+		ai_chance = { factor = 20 }
+		add_political_power = -20
+		reverse_add_opinion_modifier = { target = AUS modifier = ILL_pk_supported_independence_austria }
+		reverse_add_opinion_modifier = { target = ILL modifier = ILL_pk_supported_independence_illyria }
+		hidden_effect = { ILL = { modify_country_flag = { flag = ILL_pk_independence_support value = 1 } } }
+		hidden_effect = {
+			if = {
+				limit = { country_exists = CAN }
+				CAN = { country_event = { id = illyria.17 days = 1 } }
+				else = {
+					if = {
+						limit = { country_exists = SER }
+						SER = { country_event = { id = illyria.18 days = 1 } }
+						else = { ILL = { set_country_flag = illyria_international_recognition_end } } 
+					}
+				}
+			}			
+		}
+	}
+	
+	option = {
+		name = illyria.16.b
+		ai_chance = { factor = 80
+		modifier = {
+				factor = 0
+					is_in_faction_with = AUS
+			}
+		}
+		add_political_power = 25
+		hidden_effect = {
+			if = {
+				limit = { country_exists = CAN }
+				CAN = { country_event = { id = illyria.17 days = 1 } }
+				else = {
+					if = {
+						limit = { country_exists = SER }
+						SER = { country_event = { id = illyria.18 days = 1 } }
+						else = { ILL = { set_country_flag = illyria_international_recognition_end } } 
+					}
+				}
+			}			
+		}
+	}
+}
+
+country_event = { #Illyrian Support - Canada
+	id = illyria.17
+	title = illyria.17.t
+	desc = illyria.17.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.17.a
+		ai_chance = { factor = 25 }
+		reverse_add_opinion_modifier = { target = AUS modifier = ILL_pk_supported_independence_austria }
+		reverse_add_opinion_modifier = { target = ILL modifier = ILL_pk_supported_independence_illyria }
+		hidden_effect = { ILL = { modify_country_flag = { flag = ILL_pk_independence_support value = 1 } } }
+		hidden_effect = {
+			if = {
+				limit = { country_exists = SER }
+				SER = { country_event = { id = illyria.18 days = 1 } }
+				else = { ILL = { set_country_flag = illyria_international_recognition_end } } 
+			}	
+		}
+	}
+	
+	option = {
+		name = illyria.17.b
+		ai_chance = { factor = 75
+		modifier = {
+				factor = 0
+					is_in_faction_with = AUS
+			}
+		}
+		hidden_effect = {
+			if = {
+				limit = { country_exists = SER }
+				SER = { country_event = { id = illyria.18 days = 1 } }
+				else = { ILL = { set_country_flag = illyria_international_recognition_end } } 
+			}	
+		}
+	}
+}
+
+country_event = { #Illyrian Support - Serbia
+	id = illyria.18
+	title = illyria.18.t
+	desc = illyria.18.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.18.a
+		ai_chance = { factor = 25 }
+		reverse_add_opinion_modifier = { target = AUS modifier = ILL_pk_supported_independence_austria }
+		reverse_add_opinion_modifier = { target = ILL modifier = ILL_pk_supported_independence_illyria }
+		hidden_effect = { ILL = { modify_country_flag = { flag = ILL_pk_independence_support value = 1 } } }
+		hidden_effect = {
+			ILL = { set_country_flag = illyria_international_recognition_end }
+		}
+	}
+	
+	option = {
+		name = illyria.18.b
+		ai_chance = { factor = 75
+		modifier = {
+				factor = 0
+				is_in_faction_with = AUS
+			}
+		}
+		hidden_effect = {
+			ILL = { set_country_flag = illyria_international_recognition_end }
+		}
+	}
+}
+
+country_event = { #Illyrian Independence is a failure
+	id = illyria.19
+	title = illyria.19.t
+	desc = illyria.19.d
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = ILL
+		has_country_flag = illyria_international_recognition_end
+		NOT = { has_country_flag = { flag = ILL_pk_independence_support value > 1 } }
+	}
+	
+	option = {
+		name = illyria.19.a
+		add_political_power = -50
+		set_country_flag = illyria_independence_failed
+	}
+}
+
+country_event = { #Illyrian Independence is a succ
+	id = illyria.20
+	title = illyria.20.t
+	desc = illyria.20.d
+	fire_only_once = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	trigger = {
+		tag = ILL
+		has_country_flag = illyria_international_recognition_end
+		has_country_flag = { flag = ILL_pk_independence_support value > 1 }
+	}
+	
+	option = {
+		name = illyria.20.a
+		add_political_power = 70
+	}
+}
+
+country_event = { #Organizing a Plebiscite
+	id = illyria.21
+	title = illyria.21.t
+	desc = illyria.21.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.21.a
+		ai_chance = { factor = 60 }
+		random_list = {
+			90 = { country_event = { days = 7 id = illyria.22 }}
+			10 = { country_event = { days = 7 id = illyria.24 }}
+		}
+	}
+	
+	option = {
+		name = illyria.21.b
+		ai_chance = { factor = 40 }
+		random_list = {
+			60 = {
+				country_event = { days = 7 id = illyria.22 }
+				hidden_effect = {
+				AUS = { country_event = { days = 7 id = illyria.25 } }
+				}
+			}
+			40 = { country_event = { days = 7 id = illyria.24 }}
+		}
+	}
+}
+
+country_event = { #Illyrian Plebiscite is a succ
+	id = illyria.22
+	title = illyria.22.t
+	desc = illyria.22.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.22.a
+		add_stability = 0.05
+	}
+}
+
+country_event = { #Slovenians not allowed to secede
+	id = illyria.23
+	title = illyria.23.t
+	desc = illyria.23.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.22.a
+		add_political_power = -15
+	}
+}
+
+country_event = { #Illyrian Plebiscite is a failure
+	id = illyria.24
+	title = illyria.24.t
+	desc = illyria.24.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.24.a
+		add_political_power = -50
+		add_stability = -0.05
+		hidden_effect = { set_country_flag = illyria_independence_failed }
+	}
+}
+
+country_event = { #Austria - Let Slovenia go?
+	id = illyria.25
+	title = illyria.25.t
+	desc = illyria.25.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.25.a
+		ai_chance = { factor = 60 }
+		ILL = {
+			transfer_state = 102
+			add_state_core = 102
+		}
+	}
+	
+	option = {
+		name = illyria.25.b
+		ai_chance = { factor = 40 }
+		add_political_power = -50
+		ILL = { country_event = { days = 1 id = illyria.23 } }
+		add_timed_idea = { idea = ILL_pk_slovenian_nationalist_revival_idea days = 365}
+	}
+}
+
+country_event = { #Hungary - Illyria offers a deal
+	id = illyria.26
+	title = illyria.26.t
+	desc = illyria.26.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.26.a
+		ai_chance = { factor = 40 }
+		ILL = { country_event = { days = 1 id = illyria.27 } }
+	}
+	
+	option = {
+		name = illyria.26.b
+		ai_chance = { factor = 60 
+		modifier = {
+				factor = 0
+				has_war = yes
+			}
+		}
+		add_political_power = 70
+		ILL = { country_event = { days = 1 id = illyria.28 } }
+	}
+}
+
+country_event = { #Illyria - Hungary offers a deal Syrmia's ID - 794
+	id = illyria.27
+	title = illyria.27.t
+	desc = illyria.27.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.27.a
+		ai_chance = { factor = 80 }
+		if = {
+			limit = { has_war_with = HUN }
+			white_peace = HUN
+			diplomatic_relation = { country = HUN relation = non_aggression_pact }
+		}
+		add_timed_idea = { idea = ILL_pk_hungary_reparations_idea days = 730}
+		HUN = {
+			transfer_state = 794
+			country_event = { days = 1 id = illyria.29 }
+		}
+	}
+	
+	option = {
+		name = illyria.27.b
+		ai_chance = { factor = 20 }
+		add_political_power = -140
+		HUN = { country_event = { days = 1 id = illyria.30 } }
+	}
+}
+
+country_event = { #Illyria - Hungary Refuses
+	id = illyria.28
+	title = illyria.28.t
+	desc = illyria.28.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.28.a
+		add_political_power = -140
+	}
+}
+
+country_event = { #Hungary - Illyria caves in
+	id = illyria.29
+	title = illyria.29.t
+	desc = illyria.29.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.29.a
+		add_timed_idea = { idea = ILL_pk_hungary_reparations2_idea days = 730}
+		add_state_core = 794
+		every_state = {
+			limit = {
+				is_owned_by = ILL
+				is_claimed_by = HUN
+			}
+			remove_state_claim = PREV
+		}
+	}
+}
+
+country_event = { #Hungary - Illyria refuses
+	id = illyria.30
+	title = illyria.30.t
+	desc = illyria.30.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.30.a
+		add_political_power = 70
+	}
+}
+
+country_event = { #Austria - cutting ties with Illyria
+	id = illyria.31
+	title = illyria.31.t
+	desc = illyria.31.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.31.a
+		ai_chance = { factor = 50 }
+		add_political_power = 70
+		ILL = { country_event = { days = 1 id = illyria.32 } }
+	}
+	
+	option = {
+		name = illyria.31.b
+		ai_chance = { factor = 50
+		modifier = {
+				factor = 0.5
+				has_political_power < 20
+			}
+		}
+		add_political_power = -70
+		ILL = { country_event = { days = 1 id = illyria.33 } }
+	}
+}
+
+country_event = { #Austria plays along
+	id = illyria.32
+	title = illyria.32.t
+	desc = illyria.32.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.32.a
+		add_political_power = 35
+		add_ideas = ILL_pk_increased_autonomy_idea
+	}
+}
+
+country_event = { #Austria plays naughty
+	id = illyria.33
+	title = illyria.33.t
+	desc = illyria.33.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.33.a
+		add_political_power = -70
+	}
+}
+
+country_event = { #Austria - declare war on Illyria?
+	id = illyria.34
+	title = illyria.34.t
+	desc = illyria.34.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.34.a
+		ai_chance = { factor = 60 }
+		add_political_power = -10
+	}
+	
+	option = {
+		name = illyria.34.b
+		ai_chance = { factor = 40
+		modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+		}
+		add_political_power = 100
+		declare_war_on = { target = ILL type = annex_everything }
+		hidden_effect = { ILL = { country_event = { days = 1 id = illyria.35 } } }
+	}
+}
+
+country_event = { #MODERNI USKOCI
+	id = illyria.35
+	title = illyria.35.t
+	desc = illyria.35.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.35.a
+		add_political_power = 50
+		load_oob = ILL_austrian_war
+	}
+}
+
+country_event = { #Sarkotic dies, Spaho takes power
+	id = illyria.36
+	title = illyria.36.t
+	desc = illyria.36.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		has_country_flag = sarkotic_can_die_spaho
+		has_government = paternal_autocrat
+		NOT = { has_country_flag = illyria_sarkotic_dead }
+	}
+	mean_time_to_happen = {
+		months = 1
+	}
+	option = {
+		name = illyria.36.a
+		kill_country_leader = yes
+		set_politics = { ruling_party = social_liberal elections_allowed = no }
+		hidden_effect = {
+			AUS = { country_event = { id = illyria.37 } }
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = ILL_pk_paternal_autocrat_party2
+				long_name = ILL_pk_paternal_autocrat_party2_long
+			}
+			create_country_leader = {
+				name = "Aleksandar Horvat"
+				desc = "POLITICS_ALEKSANDAR_HORVAT_DESC"
+				picture = "Aleksandar_Horvat.tga"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+				traits = { }
+			}
+			create_country_leader = {
+				name = "Stjepan Radić"
+				desc = "CROATIA_STJEPAN_RADIC_DESC"
+				picture = "Portrait_Croatia_Stjepan_Radic.tga"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "Djuro Pucar"
+				desc = "DJURO_PUCAR_DESC"
+				picture = "Djuro_Pucar.tga"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+		set_country_flag = illyria_sarkotic_dead
+		}
+	}
+}
+
+country_event = { #Minor PP Malus for Austria
+	id = illyria.37
+	title = illyria.37.t
+	desc = illyria.37.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.37.a
+		add_political_power = -5
+	}
+}
+
+### 1937 first elections: Republic 
+country_event = {
+	id = illyria.38
+	title = illyria.38.t
+	desc = illyria.38.d
+
+	trigger = {
+		tag = ILL
+
+		NOT = { has_country_flag = first_elections_passed_illyria }
+		
+		has_completed_focus = ILL_pk_hold_elections
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_country_flag = first_elections_passed_illyria
+	}
+
+	option = {
+		name = illyria.38.a # Mehmed Spaho, social liberals
+
+		ai_chance = { factor = 35 }
+
+		add_political_power = 60
+
+		set_politics = { ruling_party = social_liberal elections_allowed = yes }
+		add_popularity = { ideology = social_liberal popularity = 0.1 }
+
+		hidden_effect = {
+			remove_ideas_with_trait = head_of_government
+			remove_ideas_with_trait = foreign_minister
+			remove_ideas_with_trait = economy_minister
+			remove_ideas_with_trait = security_minister
+		}
+	
+		add_ideas = ILL_Ivan_Subasic_hog_sco
+		add_ideas = ILL_Ivo_Andric_for_sli
+		add_ideas = ILL_Dimitrije_Mitrinovic_eco_mli
+		add_ideas = ILL_Srdjan_Budisavljevic_sec_mli
+	}
+
+	option = {
+		name = illyria.38.b # Social Conservatives, Croat oriented
+
+		ai_chance = { factor = 35 }
+
+		add_political_power = 40
+
+		set_politics = { ruling_party = social_conservative elections_allowed = yes }
+		add_popularity = { ideology = social_conservative popularity = 0.4 }
+
+		hidden_effect = {
+			remove_ideas_with_trait = head_of_government
+			remove_ideas_with_trait = foreign_minister
+			remove_ideas_with_trait = economy_minister
+			remove_ideas_with_trait = security_minister
+		}
+
+		add_ideas = ILL_Vladko_Macek_hog_sco
+		add_ideas = ILL_Juraj_Krnjevic_for_sco
+		add_ideas = ILL_Ivan_Andres_eco_sco
+		add_ideas = ILL_Djuro_Basaricek_sec_sco	
+	}
+
+	option = {
+		name = illyria.38.c # Social Democrats, lead by Djuro Pucar
+
+		ai_chance = { factor = 30 }
+
+		add_political_power = -30
+
+		set_politics = { ruling_party = social_democrat elections_allowed = no }
+		add_popularity = { ideology = social_democrat popularity = 0.4 }
+
+		hidden_effect = {
+			remove_ideas_with_trait = head_of_government
+			remove_ideas_with_trait = foreign_minister
+			remove_ideas_with_trait = economy_minister
+			remove_ideas_with_trait = security_minister
+		}
+
+		add_ideas = ILL_Mehmed_Spaho_hog_sco
+		add_ideas = ILL_Miroslav_Krleza_for_rso
+		add_ideas = ILL_Ivan_Ribar_eco_syn
+		add_ideas = ILL_Nurija_Pozderac_sec_sde
+	}
+}
+
+### 1937 first elections: Republic
+country_event = {
+	id = illyria.39
+	title = illyria.39.t
+	desc = illyria.39.d
+
+	trigger = {
+		tag = ILL
+
+		has_country_flag = first_elections_passed_illyria
+		
+		has_completed_focus = ILL_pk_hold_elections
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		name = illyria.39.a # Social liberals
+
+		ai_chance = { factor = 35 }
+
+		add_political_power = 30
+
+		set_politics = { ruling_party = social_liberal elections_allowed = yes }
+		add_popularity = { ideology = social_liberal popularity = 0.25 }
+
+		hidden_effect = {
+			remove_ideas_with_trait = head_of_government
+			remove_ideas_with_trait = foreign_minister
+			remove_ideas_with_trait = economy_minister
+			remove_ideas_with_trait = security_minister
+		}
+	
+		add_ideas = ILL_Ivan_Subasic_hog_sco
+		if = {
+			limit = { NOT = { has_country_flag = ivo_andric_party_ruler } }
+			add_ideas = ILL_Ivo_Andric_for_sli
+			else = { add_ideas = ILL_Dzemaludin_ef_Causevic_for_sco }
+		}
+		add_ideas = ILL_Dimitrije_Mitrinovic_eco_mli
+		add_ideas = ILL_Srdjan_Budisavljevic_sec_mli
+	}
+
+	option = {
+		name = illyria.39.b # Social Conservatives
+
+		ai_chance = { factor = 35 }
+
+		add_political_power = 20
+
+		set_politics = { ruling_party = social_conservative elections_allowed = yes }
+		add_popularity = { ideology = social_conservative popularity = 0.25 }
+
+		hidden_effect = {
+			remove_ideas_with_trait = head_of_government
+			remove_ideas_with_trait = foreign_minister
+			remove_ideas_with_trait = economy_minister
+			remove_ideas_with_trait = security_minister
+		}
+
+		add_ideas = ILL_Vladko_Macek_hog_sco
+		add_ideas = ILL_Juraj_Krnjevic_for_sco
+		add_ideas = ILL_Ivan_Andres_eco_sco
+		add_ideas = ILL_Djuro_Basaricek_sec_sco	
+	}
+
+	option = {
+		name = illyria.39.c # Social Democrats
+
+		ai_chance = { factor = 30 }
+
+		add_political_power = -15
+
+		set_politics = { ruling_party = social_democrat elections_allowed = no }
+		add_popularity = { ideology = social_democrat popularity = 0.25 }
+
+		hidden_effect = {
+			remove_ideas_with_trait = head_of_government
+			remove_ideas_with_trait = foreign_minister
+			remove_ideas_with_trait = economy_minister
+			remove_ideas_with_trait = security_minister
+		}
+
+		add_ideas = ILL_Mehmed_Spaho_hog_sco
+		add_ideas = ILL_Miroslav_Krleza_for_rso
+		add_ideas = ILL_Ivan_Ribar_eco_syn
+		add_ideas = ILL_Nurija_Pozderac_sec_sde
+	}
+}
+
+country_event = { # Education reform
+	id = illyria.40
+	title = illyria.40.t
+	desc = illyria.40.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.40.a # Non-biased
+		ai_chance = { factor = 20 }
+		add_political_power = 70
+		add_stability = -0.025
+	}
+	
+	option = {
+		name = illyria.40.b # Unity
+		ai_chance = { factor = 50 }
+		add_political_power = 35
+		add_stability = 0.05
+	}
+	
+	option = {
+		name = illyria.40.c # Sugarcoating
+		ai_chance = { factor = 30 }
+		add_stability = 0.075
+	}
+}
+
+country_event = { # Minority resistance on centralizing the government
+	id = illyria.41
+	title = illyria.41.t
+	desc = illyria.41.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		has_completed_focus = ILL_pk_centralize_the_government
+	}
+	mean_time_to_happen = {
+		days = 14
+	}
+	
+	option = {
+		name = illyria.41.a # Continue the centralization
+		ai_chance = { factor = 50 }
+		add_political_power = -50
+	}
+	
+	option = {
+		name = illyria.41.b # Let it go
+		ai_chance = { factor = 50 }
+		add_stability = -0.05
+	}
+}
+
+country_event = { # Syrmia defects - Illyria
+	id = illyria.42
+	title = illyria.42.t
+	desc = illyria.42.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.42.a # Damn them!
+		ai_chance = { factor = 100 }
+		add_political_power = -25
+		remove_state_core = 794
+		add_state_claim = 794
+		SER = { transfer_state = 794 }
+		hidden_effect = { SER = { country_event = { id = illyria.43 days = 1 } } }
+		if = {
+		limit = { owns_state = 105 }
+		hidden_effect = { ILL = { country_event = { id = illyria.44 days = 12 } } }
+		}
+		hidden_effect = { ILL = { country_event = { id = illyria.48 days = 24 } } }
+	}
+}
+
+country_event = { # Syrmia defects - Serbia
+	id = illyria.43
+	title = illyria.43.t
+	desc = illyria.43.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.43.a # Welcome, brothers
+		ai_chance = { factor = 100 }
+		add_political_power = 50
+		add_state_core = 794
+	}
+}
+
+country_event = { # Montenegro defects
+	id = illyria.44
+	title = illyria.44.t
+	desc = illyria.44.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.44.a # Welp
+		ai_chance = { factor = 100 }
+		remove_state_core = 105
+		release = MTN
+		remove_ideas = { ILL_pk_montenegrin_nationalism_idea }
+		hidden_effect = { country_event = { id = illyria.45 days = 1 } }
+	}
+}
+
+country_event = { # Declare war on Montenegro?
+	id = illyria.45
+	title = illyria.45.t
+	desc = illyria.45.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.45.a # Yes
+		ai_chance = { factor = 50 }
+		declare_war_on = { target = MTN type = annex_everything }
+		add_political_power = 50
+		hidden_effect = { AUS = { end_puppet = ILL } }
+		hidden_effect = {
+			set_country_flag = ILL_civil_war_montenegro_mixed
+			SER = { country_event = { id = illyria.46 days = 1 } }
+		}
+	}
+	option = {
+		name = illyria.45.b # No
+		ai_chance = { factor = 50 }
+		add_political_power = -10
+	}
+}
+
+country_event = { # Serbia - Protect Montenegro?
+	id = illyria.46
+	title = illyria.46.t
+	desc = illyria.46.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.46.a # Yes
+		ai_chance = { factor = 15 }
+		add_to_war = { targeted_alliance = MTN enemy = ILL }
+		add_political_power = 60
+		hidden_effect = {
+			ILL = { country_event = { id = illyria.49 days = 1 } }
+			set_country_flag = SER_helped_montenegro_vs_illyria
+		}
+		
+	}
+	option = {
+		name = illyria.46.b # No
+		ai_chance = { factor = 40 }
+		add_political_power = -25
+	}
+}
+
+country_event = { # Austria - Chaos in Illyria
+	id = illyria.47
+	title = illyria.47.t
+	desc = illyria.47.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.47.a # Let them go
+		ai_chance = { factor = 45 }
+		add_political_power = 100
+	}
+	option = {
+		name = illyria.47.b # Let them fight it out
+		ai_chance = { factor = 40 }
+		add_political_power = -10
+		hidden_effect = { set_country_flag = AUS_annex_illyria_attempt_civilwar }
+	}
+	option = {
+		name = illyria.47.c # Intervene - help Illyria and annex them later
+		ai_chance = { factor = 10 }
+		add_political_power = -25
+		if = {
+			limit = { 
+			ILL = { has_war_with = MTN }
+			}
+			add_to_war = { targeted_alliance = ILL enemy = MTN }
+		}
+		add_to_war = { targeted_alliance = ILL enemy = BOS }
+		hidden_effect = { set_country_flag = AUS_can_rightfully_annex_illyria }
+	}
+	option = {
+		name = illyria.47.e # Intervene - Declare war on Illyria and everyone else
+		ai_chance = { factor = 5 }
+		add_political_power = -25
+		if = {
+			limit = { 
+			ILL = { has_war_with = MTN }
+			}
+			declare_war_on = { target = MTN type = annex_everything }
+		}
+		declare_war_on = { target = ILL type = annex_everything }
+		declare_war_on = { target = BOS type = annex_everything }
+	}
+}
+
+country_event = { # Send Spaho away
+	id = illyria.48
+	title = illyria.48.t
+	desc = illyria.48.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.48.a # rip
+		ai_chance = { factor = 85 }
+		add_political_power = -15
+		hidden_effect = { country_event = { id = illyria.52 days = 7 } }
+	}
+}
+
+country_event = { # Serbia joins the war
+	id = illyria.49
+	title = illyria.49.t
+	desc = illyria.49.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.49.a # Oh well
+		ai_chance = { factor = 85 }
+		add_political_power = -15
+	}
+}
+
+country_event = { # Austria helps
+	id = illyria.50
+	title = illyria.50.t
+	desc = illyria.50.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.50.a # Oh well
+		ai_chance = { factor = 85 }
+		add_political_power = 50
+	}
+}
+
+country_event = { # Austria fights
+	id = illyria.51
+	title = illyria.51.t
+	desc = illyria.51.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.51.a # Oh well
+		ai_chance = { factor = 85 }
+		add_political_power = -25
+	}
+}
+
+country_event = { # Spaho's Revolt - Civil War start
+	id = illyria.52
+	title = illyria.52.t
+	desc = illyria.52.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.52.a
+		ai_chance = { factor = 100 }
+		remove_state_core = 104
+		add_state_claim = 104
+		BOS = { transfer_state = 104 }
+		declare_war_on = { target = BOS type = annex_everything }
+		add_political_power = 50
+		add_ideas = ILL_pk_civil_war_ongoing_idea
+		hidden_effect = {
+			set_country_flag = illyria_civil_war_started
+			set_cosmetic_tag = ILL_greatercroatia
+			AUS = { end_puppet = ILL }
+			BOS = { set_politics = { ruling_party = authoritarian_democrat elections_allowed = no } }
+			BOS = { set_cosmetic_tag = BOS_spahorevolt }
+			BOS = {
+				create_country_leader = {
+					name = "Vladimir Dvorniković"
+					desc = "POLITICS_VLADIMIR_DVORNIKOVIC_DESC"
+					picture = "Vladimir_Dvornikovic.tga"
+					expire = "1965.1.1"
+					ideology = authoritarian_democrat_subtype
+					traits = { }
+				}
+			}
+			remove_ideas = ILL_pk_minority_unrest
+			remove_ideas = ILL_pk_minorities_outraged
+			remove_ideas = ILL_pk_minorities_ignored
+			BOS = { country_event = { id = illyria.53 days = 1 } }
+			AUS = { country_event = { id = illyria.47 days = 1 } }
+			ILL = { country_event = { id = illyria.97 days = 1 } }
+			news_event = { id = illyria.91 }
+		}
+	}
+}
+
+country_event = { # Spaho's Revolt - Load Oobs
+	id = illyria.53
+	title = illyria.53.t
+	desc = illyria.53.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.53.a
+		ai_chance = { factor = 85 }
+		load_oob = ILL_spaho_revolt_oob
+		add_ideas = ILL_pk_rebel_zeal_idea
+		hidden_effect = { country_event = { id = illyria.54 days = 1 } }
+	}
+}
+
+country_event = { # Spaho's Revolt - Serbian Minority Revolts
+	id = illyria.54
+	title = illyria.54.t
+	desc = illyria.54.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.54.a
+		ai_chance = { factor = 85 }
+		load_oob = ILL_serb_minority_revolt_oob
+	}
+}
+
+country_event = { # Greater Croatia capitulating
+	id = illyria.55
+	title = illyria.55.t
+	desc = illyria.55.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		OR = {
+			ILL = { surrender_progress > 0.65 }
+			ILL = { has_capitulated = yes }
+		}
+		has_country_flag = illyria_civil_war_started
+		NOT = { OR = {
+			has_country_flag = illyria_civil_war_spaho_won
+			has_country_flag = illyria_civil_war_pavelic_won
+		} }
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_country_flag = illyria_civil_war_spaho_won
+		set_cosmetic_tag = ILL_independent
+		annex_country = { target = BOS }
+	}
+	
+	option = {
+		name = illyria.55.a # Spaho has won the Civil War
+		ai_chance = { factor = 50 }
+		remove_unit_leader = 9086
+		remove_unit_leader = 9087
+		add_political_power = 100
+		remove_ideas = AUS_part_of_the_Empire
+		AUS = { remove_from_faction = ILL }
+		hidden_effect = { 
+			set_party_name = {
+				ideology = authoritarian_democrat
+				name = ILL_pk_authoritarian_democrat_party2
+				long_name = ILL_pk_authoritarian_democrat_party2_long
+			}
+		}
+		create_country_leader = {
+			name = "Vladimir Dvorniković"
+			desc = "POLITICS_VLADIMIR_DVORNIKOVIC_DESC"
+			picture = "Vladimir_Dvornikovic.tga"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = { }
+		}
+		set_politics = { ruling_party = authoritarian_democrat elections_allowed = no }
+		if {
+			limit = { has_war_with = MTN }
+			white_peace = MTN
+		}
+		if {
+			limit = { has_war_with = SER }
+			white_peace = SER
+		}
+		remove_ideas = ILL_pk_civil_war_ongoing_idea
+		hidden_effect = { news_event = { id = illyria.93 } }
+	}
+}
+
+country_event = { # Greater Croatia wins
+	id = illyria.56
+	title = illyria.56.t
+	desc = illyria.56.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		has_full_control_of_state = 104
+		has_country_flag = illyria_civil_war_started
+		NOT = { OR = {
+			has_country_flag = illyria_civil_war_spaho_won
+			has_country_flag = illyria_civil_war_pavelic_won
+		} }
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	immediate = {
+		set_country_flag = illyria_civil_war_pavelic_won
+	}
+	
+	option = {
+		name = illyria.56.a # Pavelic has won the Civil War
+		ai_chance = { factor = 50 }
+		add_political_power = 100
+		add_popularity = { ideology = national_populist popularity = 0.05 }
+		annex_country = { target = BOS }
+		remove_ideas = ILL_pk_civil_war_ongoing_idea
+		add_ideas = ILL_pk_greater_croatia_minority_idea
+		remove_ideas = AUS_part_of_the_Empire
+		AUS = { remove_from_faction = ILL }
+		hidden_effect = {
+			create_country_leader = {
+				name = "Alojzije Stepinac"
+				desc = "POLITICS_ALOJZIJE_STEPINAC_DESC"
+				picture = "Portrait_Croatia_Alojzije_Stepinac.tga"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = { }
+			}
+			set_party_name = {
+				ideology = social_conservative
+				name = ILL_pk_greatercroatia_social_conservative_party
+				long_name = ILL_pk_greatercroatia_social_conservative_party_long
+			}
+			set_party_name = {
+				ideology = authoritarian_democrat
+				name = ILL_pk_greatercroatia_authoritarian_democrat_party
+				long_name = ILL_pk_greatercroatia_authoritarian_democrat_party_long
+			}
+			news_event = { id = illyria.92 }
+		}
+	}
+}
+
+country_event = { # Austria demands annexation
+	id = illyria.57
+	title = illyria.57.t
+	desc = illyria.57.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		OR = {
+			has_country_flag = illyria_civil_war_spaho_won
+			has_country_flag = illyria_civil_war_pavelic_won
+		}
+		AUS = { has_country_flag = AUS_annex_illyria_attempt_civilwar }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = illyria.57.a
+		ai_chance = { factor = 25 }
+		AUS = { annex_country = {  target = ILL } }
+	}
+	
+	option = {
+		name = illyria.57.b
+		ai_chance = { factor = 75 }
+		AUS = { country_event = { id = illyria.58 days = 1 } }
+	}
+}
+
+country_event = { # Austria - Illyria refuses annexation
+	id = illyria.58
+	title = illyria.58.t
+	desc = illyria.58.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.58.a # things are too destabilized anyways
+		ai_chance = { factor = 85 }
+		add_political_power = -50
+	}
+}
+
+country_event = { # Austria rightfully demands annexation
+	id = illyria.59
+	title = illyria.59.t
+	desc = illyria.59.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		has_country_flag = illyria_civil_war_pavelic_won
+		AUS = { has_country_flag = AUS_can_rightfully_annex_illyria }
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	
+	option = {
+		name = illyria.59.a
+		ai_chance = { factor = 50 }
+		AUS = { annex_country = {  target = ILL } }
+	}
+	
+	option = {
+		name = illyria.59.a
+		ai_chance = { factor = 50 }
+		add_political_power = -300
+		AUS = { country_event = { id = illyria.60 days = 1 } }
+	}
+}
+
+country_event = { # Austria - Illyria refuses rightful annexation
+	id = illyria.60
+	title = illyria.60.t
+	desc = illyria.60.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.60.a # Let them have their independence
+		ai_chance = { factor = 80 }
+		add_political_power = 50
+	}
+	
+	option = {
+		name = illyria.60.b # War
+		ai_chance = { factor = 20 }
+		add_political_power = -50
+		declare_war_on = { target = ILL type = annex_everything }
+	}
+}
+
+country_event = { # Sentence Pavelic
+	id = illyria.61
+	title = illyria.61.t
+	desc = illyria.61.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		has_country_flag = illyria_civil_war_spaho_won
+	}
+	
+	mean_time_to_happen = { months = 3 }
+	option = {
+		name = illyria.61.a # Normal court
+		ai_chance = { factor = 50 }
+		add_political_power = 25
+	}
+	
+	option = {
+		name = illyria.61.b # Kangaroo court
+		ai_chance = { factor = 50 }
+		add_popularity = { ideology = social_liberal popularity = 0.05 }
+	}
+}
+
+country_event = { # Pavelic can step down in favor of Stepinac
+	id = illyria.62
+	title = illyria.62.t
+	desc = illyria.62.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.62.a # Pavelic STEPINACs down that was a terrible joke pls don't hurt me
+		ai_chance = { factor = 30 }
+		add_political_power = -25
+		add_popularity = { ideology = national_populist popularity = -0.40 }
+		add_popularity = { ideology = authoritarian_democrat popularity = 0.40 }
+		set_politics = { ruling_party = authoritarian_democrat elections_allowed = no }
+		create_country_leader = {
+			name = "Alojzije Stepinac"
+			desc = "POLITICS_ALOJZIJE_STEPINAC_DESC"
+			picture = "Portrait_Croatia_Alojzije_Stepinac.tga"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = { }
+		}
+		hidden_effect = {
+			set_country_flag = pavelic_stepped_down_stepinac
+			set_cosmetic_tag = ILL_theocracy
+		}
+	}
+	
+	option = {
+		name = illyria.62.b # We don't have to step down
+		ai_chance = { factor = 70 }
+	}
+}
+
+country_event = { # Orthodox Banished - Pavelic/Horvat
+	id = illyria.63
+	title = illyria.63.t
+	desc = illyria.63.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.63.a
+		ai_chance = { factor = 85 }
+		add_manpower = -10000
+		add_political_power = 50
+		reverse_add_opinion_modifier = { target = SER modifier = ILL_orthodox_discriminated }
+		reverse_add_opinion_modifier = { target = RUS modifier = ILL_orthodox_discriminated }
+		reverse_add_opinion_modifier = { target = ROM modifier = ILL_orthodox_discriminated }
+		reverse_add_opinion_modifier = { target = RRM modifier = ILL_orthodox_discriminated }
+		reverse_add_opinion_modifier = { target = MTN modifier = ILL_orthodox_discriminated }
+		reverse_add_opinion_modifier = { target = GRE modifier = ILL_orthodox_discriminated }
+		reverse_add_opinion_modifier = { target = UKR modifier = ILL_orthodox_discriminated }
+	}
+}
+
+country_event = { # Orthodox Forcefully Converted - Stepinac
+	id = illyria.64
+	title = illyria.64.t
+	desc = illyria.64.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.64.a
+		ai_chance = { factor = 85 }
+		add_manpower = -10000
+		add_political_power = -50
+		add_state_core = 104
+		add_state_core = 105
+		if = { 
+			limit = { owns_state = 794 }
+			add_state_core = 794
+		}
+		if = { 
+			limit = { owns_state = 45 }
+			add_state_core = 45
+		}
+		if = { 
+			limit = { owns_state = 875 }
+			add_state_core = 875
+		}
+		reverse_add_opinion_modifier = { target = SER modifier = ILL_orthodox_discriminated }
+		reverse_add_opinion_modifier = { target = RUS modifier = ILL_orthodox_discriminated }
+		reverse_add_opinion_modifier = { target = ROM modifier = ILL_orthodox_discriminated }
+		reverse_add_opinion_modifier = { target = RRM modifier = ILL_orthodox_discriminated }
+		reverse_add_opinion_modifier = { target = MTN modifier = ILL_orthodox_discriminated }
+		reverse_add_opinion_modifier = { target = GRE modifier = ILL_orthodox_discriminated }
+		reverse_add_opinion_modifier = { target = UKR modifier = ILL_orthodox_discriminated }
+	}
+}
+
+country_event = { # Historical Revisionism - A rightful Croatia?
+	id = illyria.65
+	title = illyria.65.t
+	desc = illyria.65.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.65.a # Pavelic steps down for Horvat
+		ai_chance = { factor = 30 }
+		add_political_power = -25
+		add_popularity = { ideology = national_populist popularity = -0.40 }
+		add_popularity = { ideology = paternal_autocrat popularity = 0.40 }
+		set_politics = { ruling_party = paternal_autocrat elections_allowed = no }
+		hidden_effect = {
+			set_country_flag = pavelic_stepped_down_horvat
+		}
+	}
+	
+	option = {
+		name = illyria.65.b # We don't have to step down
+		ai_chance = { factor = 70 }
+	}
+}
+
+country_event = { # Italian Federation - Pressure Croatia?
+	id = illyria.66
+	title = illyria.66.t
+	desc = illyria.66.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.66.a # Puppet them
+		ai_chance = { factor = 20 }
+		add_political_power = -100
+		puppet = ILL
+	}
+	
+	option = {
+		name = illyria.66.b # Not worth the hassle
+		ai_chance = { factor = 80 }
+	}
+}
+
+country_event = { # Citizens Protest
+	id = illyria.67
+	title = illyria.67.t
+	desc = illyria.67.d
+	trigger = {
+		tag = ILL
+		has_completed_focus = ILL_pk_workers_rebellions
+		NOT = { has_completed_focus = ILL_pk_assassination_of_sarkotic }
+	}
+	mean_time_to_happen = {
+		months = 2
+	}
+	
+	option = {
+		name = illyria.67.a # Damn
+		ai_chance = { factor = 20 }
+		add_political_power = -25
+		add_popularity = { ideology = radical_socialist popularity = 0.025 }
+		add_popularity = { ideology = syndicalist popularity = 0.025 }
+	}
+}
+
+country_event = { # Government Criticized
+	id = illyria.68
+	title = illyria.68.t
+	desc = illyria.68.d
+	trigger = {
+		tag = ILL
+		has_completed_focus = ILL_pk_workers_rebellions
+		NOT = { has_completed_focus = ILL_pk_assassination_of_sarkotic }
+	}
+	mean_time_to_happen = {
+		months = 2
+	}
+	
+	option = {
+		name = illyria.68.a # Damn
+		ai_chance = { factor = 20 }
+		add_political_power = -25
+		add_popularity = { ideology = paternal_autocrat popularity = -0.05 }
+	}
+}
+
+country_event = { # Peasant Protests
+	id = illyria.69
+	title = illyria.69.t
+	desc = illyria.69.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.69.a # Carry Out Reforms
+		ai_chance = { factor = 50 }
+		add_political_power = -25
+		add_popularity = { ideology = radical_socialist popularity = 0.05 }
+	}
+	
+	option = {
+		name = illyria.69.b # Play tough
+		ai_chance = { factor = 50 }
+		add_political_power = 50
+	}
+}
+
+country_event = { # Threats of Secession
+	id = illyria.70
+	title = illyria.70.t
+	desc = illyria.70.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.70.a # Don't lose the grip
+		ai_chance = { factor = 50 }
+		add_political_power = 25
+		add_popularity = { ideology = totalist popularity = 0.15 }
+	}
+	
+	option = {
+		name = illyria.70.b # Grant them Autonomy
+		ai_chance = { factor = 50 }
+		add_political_power = 25
+		add_popularity = { ideology = syndicalist popularity = 0.025 }
+		add_popularity = { ideology = radical_socialist popularity = 0.025 }
+	}
+}
+
+country_event = { # Assassination of Sarkotic
+	id = illyria.71
+	title = illyria.71.t
+	desc = illyria.71.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.71.a # Long live Socialist Illyria
+		ai_chance = { factor = 50 }
+		add_political_power = 250
+		add_popularity = { ideology = totalist popularity = 0.25 }
+		set_politics = { ruling_party = totalist elections_allowed = no }
+		remove_ideas = ILL_pk_worker_rebellions_idea
+		remove_ideas = ILL_pk_socialist_threat_idea
+		remove_ideas = AUS_part_of_the_Empire
+		AUS = { remove_from_faction = ILL }
+		AUS = { end_puppet = ILL }
+		hidden_effect = {
+			remove_ideas_with_trait = head_of_government
+			remove_ideas_with_trait = foreign_minister
+			remove_ideas_with_trait = economy_minister
+			remove_ideas_with_trait = security_minister
+		}
+		add_ideas = ILL_Andrija_Hebrang_hog_tot
+		add_ideas = ILL_Aleksa_Dundic_for_tot
+		add_ideas = ILL_Ivan_Ribar_eco_syn
+		add_ideas = ILL_Vladimir_Copic_sec_rso
+		hidden_effect = {
+			AUS = { country_event = { id = illyria.80 } }
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = ILL_pk_paternal_autocrat_party2
+				long_name = ILL_pk_paternal_autocrat_party2_long
+			}
+			create_country_leader = {
+				name = "Aleksandar Horvat"
+				desc = "POLITICS_ALEKSANDAR_HORVAT_DESC"
+				picture = "Aleksandar_Horvat.tga"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+				traits = { }
+			}
+			create_country_leader = {
+				name = "Stjepan Radić"
+				desc = "CROATIA_STJEPAN_RADIC_DESC"
+				picture = "Portrait_Croatia_Stjepan_Radic.tga"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "Djuro Pucar"
+				desc = "DJURO_PUCAR_DESC"
+				picture = "Djuro_Pucar.tga"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+		set_cosmetic_tag = ILL_independent
+		set_country_flag = illyria_sarkotic_dead
+		remove_unit_leader = 9082
+		remove_unit_leader = 9083
+		remove_unit_leader = 9084
+		remove_unit_leader = 9085
+		}
+		create_field_marshal = {
+			name = "Josip Broz Tito"
+			portrait_path = "gfx/leaders/ILL/Josip_Broz_Tito.tga"
+			traits = {
+				logistics_wizard
+			}
+			skill = 3
+		}
+
+		create_field_marshal = {
+			name = "Pavle Gregorić"
+			portrait_path = "gfx/leaders/ILL/Pavle_Gregoric.tga"
+			traits = {
+			}
+			skill = 2
+		}
+
+		create_corps_commander = {
+			name = "Ante Ciliga"
+			portrait_path = "gfx/leaders/ILL/Ante_Ciliga.tga"
+			traits = {
+			}
+			skill = 2
+		}
+
+		create_corps_commander = {
+			name = "Vladimir Ćopić"
+			portrait_path = "gfx/leaders/ILL/Vladimir_Copic.tga"
+			traits = {
+			}
+			skill = 2
+		}
+
+		create_corps_commander = {
+			name = "Ognjen Prica"
+			portrait_path = "gfx/leaders/ILL/Ognjen_Prica.tga"
+			traits = {
+			}
+			skill = 2
+		}
+	}
+}
+
+country_event = { # Illyria's New Rulers - Dragicevic can resign
+	id = illyria.72
+	title = illyria.72.t
+	desc = illyria.72.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.72.a # Karl I
+		ai_chance = { factor = 75 }
+		ILL = {
+			create_country_leader = {
+				name = "Karlo IV Habsburško-Lorenski"
+				desc = "POLITICS_KARL_DESC"
+				picture = "Portrait_Austria_Karl_I.tga"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+				traits = { }
+			}
+		}
+	}
+	
+	option = {
+		name = illyria.72.b # Otto I, because he likes Croatia
+		ai_chance = { factor = 25 }
+		ILL = {
+			create_country_leader = {
+				name = "Otto I Habsburško-Lorenski"
+				desc = "POLITICS_OTTO_DESC"
+				picture = "Portrait_Austria_Otto_I.tga"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+				traits = { }
+			}
+		}
+	}
+	
+	option = {
+		name = illyria.72.c # Keep Dragicevic
+		ai_chance = { factor = 25 }
+		ILL = {
+			add_stability = 0.05
+		}
+	}
+}
+
+country_event = { #Sarkotic dies, normal version
+	id = illyria.73
+	title = illyria.73.t
+	desc = illyria.73.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		has_country_flag = sarkotic_can_die_inactive
+		NOT = { has_country_flag = illyria_sarkotic_dead }
+	}
+	mean_time_to_happen = {
+		months = 2
+	}
+	option = {
+		name = illyria.73.a #He had a long life
+	}
+}
+
+country_event = { #Spaho Dies, Democratic Illyria
+	id = illyria.74
+	title = illyria.74.t
+	desc = illyria.74.d
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		date > 1939.4.1
+		has_completed_focus = ILL_pk_illyrian_republicanism
+		NOT = { has_country_flag = mehmed_spaho_dead }
+	}
+	mean_time_to_happen = {
+		months = 2
+	}
+	immediate = { set_country_flag = mehmed_spaho_dead }
+	option = {
+		name = illyria.74.a #Vladimir Nazor will rule the party
+		add_political_power = -2
+		ai_chance = { factor = 33 }
+		if = { 
+			limit = { has_government = social_liberal }
+			kill_country_leader = yes
+		}
+		create_country_leader = {
+			name = "Vladimir Nazor"
+			desc = "POLITICS_VLADIMIR_NAZOR_DESC"
+			picture = "Vladimir_Nazor.tga"
+			expire = "1965.1.1"
+			ideology = social_liberal_subtype
+			traits = { }
+		}
+	}
+	option = {
+		name = illyria.74.b #Hamdija Karamehmedovic will rule the party
+		add_political_power = -15
+		ai_chance = { factor = 33 }
+		if = { 
+			limit = { has_government = social_liberal }
+			kill_country_leader = yes
+		}
+		create_country_leader = {
+			name = "Hamdija Karamehmedović"
+			desc = "POLITICS_HAMDIJA_KARAMEHMEDOVIC_DESC"
+			picture = "Hamdija_Karamehmedovic.tga"
+			expire = "1965.1.1"
+			ideology = social_liberal_subtype
+			traits = { }
+		}
+	}
+	option = {
+		name = illyria.74.c #Ivo Andric will rule the party
+		add_political_power = -20
+		ai_chance = { factor = 33 }
+		if = { 
+			limit = { has_government = social_liberal }
+			kill_country_leader = yes
+		}
+		create_country_leader = {
+			name = "Ivo Andrić"
+			desc = "POLITICS_IVO_ANDRIC_DESC"
+			picture = "Ivo_Andric.tga"
+			expire = "1965.1.1"
+			ideology = social_liberal_subtype
+			traits = { }
+		}
+		hidden_effect = { 
+			set_country_flag = ivo_andric_party_ruler
+		}
+	}
+}
+
+#country_event = { #Spaho Dies, Vladimir Dvornikovic takes control
+#	id = illyria.75
+#	title = illyria.75.t
+#	desc = illyria.75.d
+#	fire_only_once = yes
+#	trigger = {
+#		tag = ILL
+#		date > 1939.4.1
+#		has_completed_focus = ILL_pk_spaho_won_civil_war
+#		NOT = { has_country_flag = mehmed_spaho_dead }
+#	}
+#	mean_time_to_happen = {
+#		months = 2
+#	}
+#	immediate = { set_country_flag = mehmed_spaho_dead }
+#	option = {
+#		name = illyria.75.a #Vladimir Dvornikovic takes control
+#		add_political_power = -35
+#		ai_chance = { factor = 100 }
+#		kill_country_leader = yes
+#		create_country_leader = {
+#			name = "Vladimir Dvorniković"
+#			desc = "POLITICS_VLADIMIR_DVORNIKOVIC_DESC"
+#			picture = "Vladimir_Dvornikovic.tga"
+#			expire = "1965.1.1"
+#			ideology = auhtoritarian_democrat_subtype
+#			traits = { }
+#		}
+#	}
+#}
+
+country_event = { # Croatian muslim question
+	id = illyria.75
+	title = illyria.75.t
+	desc = illyria.75.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.75.a # As long as they're Croatian
+		ai_chance = { factor = 50 }
+		add_political_power = 50
+	}
+	
+	option = {
+		name = illyria.75.b # Enforce Catholicism
+		ai_chance = { factor = 50 }
+		add_stability = 0.05
+	}
+}
+
+country_event = { # Yugoslav Convention 1 - Industiralization Process?
+	id = illyria.76
+	title = illyria.76.t
+	desc = illyria.76.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	immediate = { 
+		set_country_flag = {
+			flag = ILL_tito_popularity
+			value = 0
+		}
+		set_country_flag = {
+			flag = ILL_gregoric_popularity
+			value = 0
+		}
+		set_country_flag = {
+			flag = ILL_socialist_popularity
+			value = 0
+		}
+	}
+	
+	option = {
+		name = illyria.76.a # Partial Nationalization, Partial Collectivisation
+		ai_chance = { factor = 50 }
+		add_political_power = 20
+		add_popularity = { ideology = syndicalist popularity = 0.075 }
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ILL_tito_popularity
+				value = 1
+			}
+			country_event = { id = illyria.77 days = 3 }
+		}
+	}
+	
+	option = {
+		name = illyria.76.b # State controls everything, over the workers
+		ai_chance = { factor = 50 }
+		add_political_power = 5
+		add_popularity = { ideology = totalist popularity = 0.075 }
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ILL_gregoric_popularity
+				value = 1
+			}
+		country_event = { id = illyria.77 days = 3 }
+		}
+	}
+	
+	option = {
+		name = illyria.76.c # Collectivisation, also Agrarianism
+		ai_chance = { factor = 50 }
+		add_political_power = -10
+		add_popularity = { ideology = radical_socialist popularity = 0.075 }
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ILL_socialist_popularity
+				value = 1
+			}
+			country_event = { id = illyria.77 days = 3 }
+		}
+	}
+}
+
+country_event = { # Yugoslav Convention 2 - National Identity?
+	id = illyria.77
+	title = illyria.77.t
+	desc = illyria.77.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.77.a # Treat them rightfully as Illyrians
+		ai_chance = { factor = 50 }
+		add_political_power = 5
+		add_popularity = { ideology = syndicalist popularity = 0.075 }
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ILL_tito_popularity
+				value = 1
+			}
+			country_event = { id = illyria.78 days = 3 }
+		}
+	}
+	
+	option = {
+		name = illyria.77.b # Illyrianization policy
+		ai_chance = { factor = 50 }
+		add_political_power = -10
+		add_popularity = { ideology = totalist popularity = 0.075 }
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ILL_gregoric_popularity
+				value = 1
+			}
+			country_event = { id = illyria.78 days = 3 }
+		}
+	}
+	
+	option = {
+		name = illyria.77.c # Recognize other national identities
+		ai_chance = { factor = 50 }
+		add_political_power = 20
+		add_popularity = { ideology = radical_socialist popularity = 0.075 }
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ILL_socialist_popularity
+				value = 1
+			}
+			country_event = { id = illyria.78 days = 3 }
+		}
+	}
+}
+
+country_event = { # Yugoslav Convention 3 - Religion
+	id = illyria.78
+	title = illyria.78.t
+	desc = illyria.78.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.78.a # Allow religion but separate the church and the state
+		ai_chance = { factor = 50 }
+		add_political_power = -10
+		add_popularity = { ideology = syndicalist popularity = 0.075 }
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ILL_tito_popularity
+				value = 1
+			}
+			if = {
+				limit = { has_country_flag = illyria_socialist_french_help }
+				country_event = { id = illyria.85 days = 3 }
+				else = { country_event = { id = illyria.79 days = 3 } }
+			}
+		}
+	}
+	
+	option = {
+		name = illyria.78.b # Religion has no place in Illyria
+		ai_chance = { factor = 50 }
+		add_political_power = 20
+		add_popularity = { ideology = totalist popularity = 0.075 }
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ILL_gregoric_popularity
+				value = 1
+			}
+			if = {
+				limit = { has_country_flag = illyria_socialist_french_help }
+				country_event = { id = illyria.85 days = 3 }
+				else = { country_event = { id = illyria.79 days = 3 } }
+			}
+		}
+	}
+	
+	option = {
+		name = illyria.78.c # Slowly root out religious thoughts
+		ai_chance = { factor = 50 }
+		add_political_power = 5
+		add_popularity = { ideology = radical_socialist popularity = 0.075 }
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ILL_socialist_popularity
+				value = 1
+			}
+			if = {
+				limit = { has_country_flag = illyria_socialist_french_help }
+				country_event = { id = illyria.85 days = 3 }
+				else = { country_event = { id = illyria.79 days = 3 } }
+			}
+		}
+	}
+}
+
+country_event = { # Choosing a leader
+	id = illyria.79
+	title = illyria.79.t
+	desc = illyria.79.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.79.a # Josip Broz Tito
+		ai_chance = { factor = 60 }
+		add_popularity = { ideology = syndicalist popularity = 0.1 }
+		set_politics = { ruling_party = syndicalist elections_allowed = no }
+		if = {
+			limit = {
+				has_country_flag = { flag = ILL_tito_popularity value > 2 }
+			}
+			add_political_power = 50
+			else = { add_political_power = 25 }
+		}
+		hidden_effect = {
+		remove_ideas_with_trait = head_of_government
+		remove_ideas_with_trait = foreign_minister
+		set_country_flag = illyria_socialist_convention_ended
+		}
+		add_ideas = ILL_Ivan_Ribar_hog_syn
+		add_ideas = ILL_Milovan_Djilas_for_syn
+	}
+	
+	option = {
+		name = illyria.79.b # Keep Gregoric
+		ai_chance = { factor = 20 }
+		add_popularity = { ideology = totalist popularity = 0.1 }
+		set_politics = { ruling_party = totalist elections_allowed = no }
+		if = {
+			limit = {
+				has_country_flag = { flag = ILL_gregoric_popularity value > 2 }
+			}
+			add_political_power = 40
+			else = { add_political_power = 5 }
+		}
+		hidden_effect = { set_country_flag = illyria_socialist_convention_ended }
+	}
+	
+	option = {
+		name = illyria.79.c # Socialist Party
+		ai_chance = { factor = 50 }
+		add_popularity = { ideology = radical_socialist popularity = 0.1 }
+		set_politics = { ruling_party = radical_socialist elections_allowed = no }
+		if = {
+			limit = {
+				has_country_flag = { flag = ILL_socialist_popularity value > 2 }
+			}
+			add_political_power = 50
+			else = { add_political_power = 10 }
+		}
+		hidden_effect = {
+		remove_ideas_with_trait = head_of_government
+		remove_ideas_with_trait = foreign_minister
+		set_country_flag = illyria_socialist_convention_ended
+		}
+		add_ideas = ILL_Ante_Ciliga_hog_syn
+		add_ideas = ILL_Miroslav_Krleza_for_rso
+	}
+}
+
+country_event = { #Austria - declare war on communist Illyria?
+	id = illyria.80
+	title = illyria.80.t
+	desc = illyria.80.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.80.a
+		ai_chance = { factor = 60 }
+		if = {
+			limit = { NOT = { has_government = social_democrat } }
+			add_political_power = -50
+			else = { add_political_power = 25 }
+		}
+	}
+	
+	option = {
+		name = illyria.80.b
+		ai_chance = { factor = 40
+		modifier = {
+				factor = 0.5
+				has_war = yes
+			}
+		}
+		add_political_power = 100
+		declare_war_on = { target = ILL type = annex_everything }
+		hidden_effect = { 
+			if = {
+				limit = { country_exists = FRA }
+				ILL = { country_event = { days = 1 id = illyria.81 } } 
+			}
+		}
+	}
+}
+
+country_event = { # Illyria - Seek help from the 3rd Internationale?
+	id = illyria.81
+	title = illyria.81.t
+	desc = illyria.81.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.81.a #Yes
+		ai_chance = { factor = 60 }
+		FRA = { country_event = { days = 1 id = illyria.82 } }
+		hidden_effect = { country_event = { id = illyria.97 days = 1 } }
+	}
+	
+	option = {
+		name = illyria.81.b #No
+		ai_chance = { factor = 40 }
+		add_political_power = -30
+		hidden_effect = { country_event = { id = illyria.97 days = 1 } }
+	}
+}
+
+country_event = { # France - Illyria seeks our help!
+	id = illyria.82
+	title = illyria.82.t
+	desc = illyria.82.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.82.a #Help them, put french friendly government after election
+		ai_chance = { factor = 60 
+		modifier = {
+			factor = 0.5
+			has_war = yes
+			}
+		}
+		add_political_power = 100
+		add_to_faction = ILL
+		ILL = { country_event = { days = 1 id = illyria.83 } }
+		hidden_effect = { ILL = { set_country_flag = illyria_socialist_french_help } }
+	}
+	
+	option = {
+		name = illyria.82.b #Don't help them
+		ai_chance = { factor = 30 }
+		add_political_power = -10
+		ILL = { country_event = { days = 1 id = illyria.84 } }
+	}
+	
+	option = {
+		name = illyria.82.a #Help them, puppet them later
+		ai_chance = { factor = 10 
+		modifier = {
+			factor = 0.5
+			has_war = yes
+			}
+		}
+		add_political_power = -50
+		add_to_faction = ILL
+		ILL = { country_event = { days = 1 id = illyria.83 } }
+		hidden_effect = { 
+			ILL = { set_country_flag = illyria_socialist_french_help } 
+			ILL = { set_country_flag = illyria_socialist_french_puppet } 
+		}
+	}
+}
+
+country_event = { # Illyria - French will help us
+	id = illyria.83
+	title = illyria.83.t
+	desc = illyria.83.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.83.a #Yes!
+		add_political_power = 60
+		ai_chance = { factor = 100 }
+	}
+}
+
+country_event = { # Illyria - French refuse
+	id = illyria.84
+	title = illyria.84.t
+	desc = illyria.84.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.84.a #Dammit
+		add_political_power = -25
+		ai_chance = { factor = 100 }
+	}
+}
+
+country_event = { # Internationale friendly government
+	id = illyria.85
+	title = illyria.85.t
+	desc = illyria.85.d
+	fire_only_once = yes
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.85.a # French Friendly Socialists
+		ai_chance = { factor = 90 }
+		add_popularity = { ideology = radical_socialist popularity = 0.1 }
+		set_politics = { ruling_party = radical_socialist elections_allowed = no }
+		if = {
+			limit = {
+				has_country_flag = { flag = ILL_socialist_popularity value > 2 }
+			}
+			add_political_power = 50
+			else = { add_political_power = 10 }
+		}
+		if = {
+			limit = {
+				has_country_flag = illyria_socialist_french_puppet
+			}
+			FRA = { puppet = ILL }
+		}
+		hidden_effect = {
+		remove_ideas_with_trait = head_of_government
+		remove_ideas_with_trait = foreign_minister
+		set_country_flag = illyria_socialist_convention_ended
+		}
+		add_ideas = ILL_Ante_Ciliga_hog_syn
+		add_ideas = ILL_Miroslav_Krleza_for_rso
+	}
+	
+	option = {
+		name = illyria.85.b # Break the deal, place Gregoric
+		ai_chance = { factor = 5 }
+		add_popularity = { ideology = totalist popularity = 0.1 }
+		set_politics = { ruling_party = totalist elections_allowed = no }
+		if = {
+			limit = {
+				has_country_flag = { flag = ILL_gregoric_popularity value > 2 }
+			}
+			add_political_power = -20
+			else = { add_political_power = -50 }
+		}
+		FRA = { remove_from_faction = ILL }
+		reverse_add_opinion_modifier = { target = FRA modifier = ILL_french_prombroken }
+		FRA = { country_event = { days = 1 id = illyria.86 } }
+		hidden_effect = { set_country_flag = illyria_socialist_convention_ended }
+	}
+	
+	option = {
+		name = illyria.85.c # Break the deal, place Tito
+		ai_chance = { factor = 5 }
+		add_popularity = { ideology = syndicalist popularity = 0.1 }
+		set_politics = { ruling_party = syndicalist elections_allowed = no }
+		if = {
+			limit = {
+				has_country_flag = { flag = ILL_tito_popularity value > 2 }
+			}
+			add_political_power = -15
+			else = { add_political_power = -40 }
+		}
+		FRA = { remove_from_faction = ILL }
+		reverse_add_opinion_modifier = { target = FRA modifier = ILL_french_prombroken }
+		FRA = { country_event = { days = 1 id = illyria.86 } }
+		hidden_effect = {
+		remove_ideas_with_trait = head_of_government
+		remove_ideas_with_trait = foreign_minister
+		set_country_flag = illyria_socialist_convention_ended 
+		}
+		add_ideas = ILL_Ivan_Ribar_hog_syn
+		add_ideas = ILL_Milovan_Djilas_for_syn
+	}
+}
+
+country_event = { # France - Illyria breaks their promise
+	id = illyria.86
+	title = illyria.86.t
+	desc = illyria.86.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.86.a #War
+		ai_chance = { factor = 66 }
+		add_political_power = -20
+		declare_war_on = { target = ILL type = annex_everything }
+	}
+	
+	option = {
+		name = illyria.86.b #Not worth it
+		ai_chance = { factor = 13 }
+		add_political_power = -25
+	}
+	
+	option = {
+		name = illyria.86.c #Negotiate peace with Austria
+		ai_chance = { factor = 20 }
+		add_political_power = 5
+		AUS = { country_event = { days = 1 id = illyria.87 } }
+		set_country_flag = illyria_french_austrian_war_austria_win
+		set+country_flag = illyria_french_betrayal_end
+	}
+}
+
+country_event = { # Austria - White peace with France
+	id = illyria.87
+	title = illyria.87.t
+	desc = illyria.87.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.87.a #Reparations
+		ai_chance = { factor = 66 }
+		add_timed_idea = { idea = ILL_pk_austria_french_reparations_idea days = 365}
+		if = {
+			limit = {
+				NOT = { 
+					has_country_flag = illyria_french_betrayal_end
+				}
+			}
+			ILL = { add_timed_idea = { idea = ILL_pk_austria_french_reparations_idea days = 365} }
+		}
+		white_peace = FRA
+	}
+	
+	option = {
+		name = illyria.87.b #White peace
+		ai_chance = { factor = 33 }
+		add_political_power = 70
+		white_peace = FRA
+	}
+	
+	option = {
+		name = illyria.87.c #Negotiate peace with Austria
+		ai_chance = { factor = 1 }
+		add_political_power = -25
+	}
+	
+}
+
+country_event = { # Form Autonomous Regions?
+	id = illyria.88
+	title = illyria.88.t
+	desc = illyria.88.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.88.a #Yes
+		swap_ideas = {
+			remove_idea = ILL_pk_federalized_idea
+			add_idea = ILL_pk_autonomous_regions_idea
+		}
+		ai_chance = { factor = 50 }
+	}
+	
+	option = {
+		name = illyria.88.b #No
+		swap_ideas = {
+			remove_idea = ILL_pk_federalized_idea
+			add_idea = ILL_pk_federalized2_idea
+		}
+		ai_chance = { factor = 50 }
+	}
+}
+
+country_event = { # Illyria in the 4th\3rd International?
+	id = illyria.89
+	title = illyria.89.t
+	desc = illyria.89.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.89.a #Yeah
+		ai_chance = { factor = 65 }
+		add_to_faction = ILL
+		add_political_power = 50
+	}
+	
+	option = {
+		name = illyria.89.b #Nope
+		ai_chance = { factor = 35 }
+	}
+
+}
+
+news_event = {
+	id = illyria.90 #Illyria gains independence
+	title = illyria.90.t
+	desc = illyria.90.d
+	picture = GFX_news_event_ITA_big_crowd
+
+	major = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		NOT = { tag = ILL }
+	}
+
+	option = {
+		name = illyria.90.a
+		
+		trigger = { NOT = { tag = AUS } }
+	}
+	
+	option = {
+		name = illyria.90.b
+		
+		trigger = {
+			tag = AUS
+		}
+	}
+}
+
+news_event = {
+	id = illyria.91 #Illyria gains independence
+	title = illyria.91.t
+	desc = illyria.91.d
+	picture = GFX_news_event_soldiers_marching
+
+	major = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		NOT = { tag = ILL }
+		NOT = { tag = MTN }
+		NOT = { tag = BOS }
+	}
+
+	option = {
+		name = illyria.91.a
+		
+		trigger = { 
+			NOT = { tag = AUS } 
+			NOT = { tag = SER }
+			NOT = { tag = BUL }
+			NOT = { is_in_faction_with = SER }
+		}
+	}
+	
+	option = {
+		name = illyria.91.b
+		
+		trigger = {
+			OR = {
+				tag = AUS
+				tag = SER
+				tag = BUL
+				is_in_faction_with = SER
+			}
+		}
+	}
+}
+
+news_event = {
+	id = illyria.92 #Pavelic wins
+	title = illyria.92.t
+	desc = illyria.92.d
+	picture = GFX_news_event_SPR_victory
+
+	major = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		NOT = { tag = ILL }
+		NOT = { tag = MTN }
+	}
+
+	option = {
+		name = illyria.92.a
+	}
+}
+
+news_event = {
+	id = illyria.93 #Dvornikovic wins
+	title = illyria.93.t
+	desc = illyria.93.d
+	picture = GFX_news_event_SPR_victory
+
+	major = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		NOT = { tag = ILL }
+		NOT = { tag = MTN }
+	}
+
+	option = {
+		name = illyria.93.a
+	}
+}
+
+news_event = {
+	id = illyria.94 #Sarkotic assassinated
+	title = illyria.94.t
+	desc = illyria.94.d
+	picture = GFX_news_event_SPR_victory
+
+	major = yes
+
+	is_triggered_only = yes
+	
+	trigger = {
+		wants_world_news = yes
+	}
+	
+	show_major = {
+		NOT = { tag = ILL }
+	}
+
+	option = {
+		name = illyria.94.a
+	}
+}
+
+country_event = {
+	id = illyria.95 #Black Monday hits Illyria
+	title = illyria.95.t
+	desc = illyria.95.d
+	picture = Blackweekover
+	fire_only_once = yes
+	trigger = {
+		tag = ILL
+		AUS = { has_idea = AUS_black_monday }
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = illyria.95.a
+		add_ideas = ILL_pk_black_monday_idea
+		add_political_power = -100
+	}
+}
+
+country_event = {
+	id = illyria.96 # Serbia - Illyria wants to trade
+	title = illyria.96.t
+	desc = illyria.96.d
+	picture = Blackweekover
+	fire_only_once = yes
+	is_triggered_only = yes
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = illyria.96.a
+		add_ideas = ILL_pk_economic_cooperation_serbia_idea
+		add_political_power = 40
+	}
+}
+
+country_event = { #City garrisons
+	id = illyria.97
+	title = illyria.97.t
+	desc = illyria.97.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.97.a
+		add_political_power = 10
+		load_oob = ILL_pk_city_garrisons
+		if = { 
+			limit = { OR = { 
+				has_government = totalist
+				has_government = syndicalist
+				has_government = radical_socialist
+			} } 
+			load_oob = ILL_pk_syndie_militiamen
+			else = { if = {
+				limit = { OR = { 
+					has_government = national_populist 
+					has_government = paternal_autocrat } }
+				load_oob = ILL_pk_domobrans
+				else = { load_oob = ILL_pk_starting_army }
+			} }
+		}
+	}
+}
+
+country_event = { #Tito flavor event - Spiridon Merkas
+	id = illyria.98
+	title = illyria.98.t
+	desc = illyria.98.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.98.a
+		add_political_power = 50
+		add_popularity = { ideology = syndicalist popularity = 0.05 }
+	}
+}
+
+country_event = { #Austria - Illyria asks for Slovenia
+	id = illyria.99
+	title = illyria.99.t
+	desc = illyria.99.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #Give it to them
+		ai_chance = { factor = 40 }
+		name = illyria.99.a
+		add_political_power = 50
+		ILL = {
+			transfer_state = 102
+		}
+		ILL = { country_event = { id = illyria.100 days = 1 } }
+	}
+	
+	option = { #Nope
+		name = illyria.99.b
+		ai_chance = { factor = 60 }
+		add_political_power = -25
+		if = {
+			limit = { NOT = { has_idea = ILL_pk_slovenian_nationalist_revival_idea } }
+			add_timed_idea = { idea = ILL_pk_slovenian_nationalist_revival_idea days = 365 }
+		}
+		ILL = { country_event = { id = illyria.101 days = 1 } }
+	}
+}
+
+country_event = { #Illyria - Austria agrees
+	id = illyria.100
+	title = illyria.100.t
+	desc = illyria.100.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.100.a
+		add_political_power = 50
+		hidden_effect = { set_country_flag = SLO_CONQ }
+		add_state_core = 102
+	}
+}
+
+country_event = { #Illyria - Austria disagrees
+	id = illyria.101
+	title = illyria.101.t
+	desc = illyria.101.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.101.a
+		add_political_power = -25
+		hidden_effect = { set_country_flag = SLO_CONQ }
+		add_state_claim = 102
+		add_state_core = 102
+	}
+}
+
+country_event = { #Serbian Issue
+	id = illyria.102
+	title = illyria.102.t
+	desc = illyria.102.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #Invite them
+		name = illyria.102.a
+		ai_chance = { factor = 40 }
+		trigger = { 
+			NOT = { has_country_flag = illyria_civil_war_pavelic_won }
+			NOT = {
+				SER = {
+					has_government = national_populist
+					has_government = paternal_autocrat
+				}
+			}
+		}
+		SER = { country_event = { id = illyria.103 days = 1 } }
+		hidden_effect = { set_country_flag = SER_CONQ }
+	}
+	
+	option = { #Attack them
+		name = illyria.102.b
+		ai_chance = { factor = 40 }
+		declare_war_on = { target = SER type = annex_everything }
+		hidden_effect = { set_country_flag = SER_CONQ }
+	}
+	
+	option = { #Leave them alone
+		name = illyria.102.c
+		ai_chance = { factor = 20 }
+		trigger = {
+			NOT = { has_country_flag = illyria_civil_war_spaho_won }
+		}
+		add_political_power = 100
+	}
+}
+
+country_event = { #Serbia - Illyria invites us
+	id = illyria.103
+	title = illyria.103.t
+	desc = illyria.103.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #Agree
+		ai_chance = { 
+			factor = 40 
+			modifier = {
+				factor = 2
+				AND = { OR = {
+					has_government = syndicalist
+					has_government = radical_socialist
+				}
+				ILL = {
+					OR = {
+						has_government = totalist
+						has_government = syndicalist
+						has_government = radical_socialist
+					}
+				}
+			} }
+		}
+		name = illyria.103.a
+		if = {
+			limit = { is_faction_leader = yes }
+			add_to_faction = ILL
+		}
+		ILL = { country_event = { id = illyria.104 days = 1 } }
+	}
+	
+	option = { #Agree, with compromises
+		name = illyria.103.b
+		ai_chance = { 
+			factor = 40 
+			modifier = {
+				factor = 0.1
+				AND = { OR = {
+					has_government = syndicalist
+					has_government = radical_socialist
+				}
+				ILL = {
+					OR = {
+						has_government = totalist
+						has_government = syndicalist
+						has_government = radical_socialist
+					}
+				}
+			} }
+		}
+		if = {
+			limit = {
+				ILL = { owns_state = 104 }
+			}
+			transfer_state = 104
+		}
+		if = {
+			limit = {
+				ILL = { owns_state = 794 }
+			}
+			transfer_state = 794
+		}
+		if = {
+			limit = {
+				ILL = { owns_state = 105 }
+			}
+			transfer_state = 105
+		}
+		if = {
+			limit = { is_faction_leader = yes }
+			add_to_faction = ILL
+		}
+		ILL = { country_event = { id = illyria.105 days = 1 } }
+	}
+	
+	option = { #Refuse
+		name = illyria.103.c
+		ai_chance = { 
+			factor = 20 
+			modifier = {
+				factor = 0.1
+				AND = { OR = {
+					has_government = syndicalist
+					has_government = radical_socialist
+				}
+				ILL = {
+					OR = {
+						has_government = totalist
+						has_government = syndicalist
+						has_government = radical_socialist
+					}
+				} }
+			}
+		}
+		add_political_power = 50
+		ILL = { country_event = { id = illyria.106 days = 1 } }
+	}
+}
+
+country_event = { #Illyria - Serbia Agrees
+	id = illyria.104
+	title = illyria.104.t
+	desc = illyria.104.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.104.a
+		add_political_power = 100
+		annex_country = { target = SER }
+		every_state = {
+		    limit = {
+			    is_core_of = SER
+			}
+			add_core_of = ILL
+		}
+		set_country_flag = illyria_serbia_willingly_integrated
+	}
+}
+
+country_event = { #Illyria - Serbia Agrees with compromises
+	id = illyria.105
+	title = illyria.105.t
+	desc = illyria.105.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.105.a
+		add_political_power = 50
+		puppet = SER
+	}
+}
+
+country_event = { #Illyria - Serbia disagrees
+	id = illyria.106
+	title = illyria.106.t
+	desc = illyria.106.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #War
+		name = illyria.106.a
+		add_political_power = 30
+		declare_war_on = { target = SER type = annex_everything }
+	}
+	
+	option = { #Peace for now
+		name = illyria.106.b
+		add_political_power = -50
+		every_state = {
+		    limit = {
+			    is_core_of = SER
+			}
+			add_claim_of = ILL
+		}
+	}
+}
+
+country_event = { #Approaching Albania
+	id = illyria.107
+	title = illyria.107.t
+	desc = illyria.107.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #Recognize them as Illyrian
+		name = illyria.107.a
+		ai_chance = { factor = 40 }
+		ALB = { country_event = { id = illyria.108 days = 1 } }
+		add_political_power = -25
+	}
+	
+	option = { #Attack them
+		name = illyria.107.b
+		ai_chance = { factor = 40 }
+		declare_war_on = { target = ALB type = annex_everything }
+	}
+	
+	option = { #Leave them alone
+		name = illyria.107.c
+		ai_chance = { factor = 20 }
+		add_political_power = 50
+	}
+}
+
+country_event = { #Albania - Illyria asks for unification
+	id = illyria.108
+	title = illyria.108.t
+	desc = illyria.108.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #Yes
+		name = illyria.108.a
+		ai_chance = { factor = 10 }
+		ILL = {
+			annex_country = { target = ALB }
+			every_state = {
+				limit = {
+					is_core_of = ALB
+				}
+				add_state_core = PREV
+			}
+			country_event = { id = illyria.109 days = 1 } 
+			hidden_effect = { set_country_flag = ALB_CONQ }
+		}
+	}
+	
+	option = { #Yes, with autonomy
+		name = illyria.108.b
+		ai_chance = { factor = 20 }
+		ILL = {
+			puppet = ALB
+			country_event = { id = illyria.109 days = 1 }
+		}
+	}
+	
+	option = { #No
+		name = illyria.108.c
+		ai_chance = { factor = 70 }
+		add_political_power = 25
+		ILL = { country_event = { id = illyria.110 days = 1 }  }
+	}
+}
+
+country_event = { #Albania Yay
+	id = illyria.109
+	title = illyria.109.t
+	desc = illyria.109.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.109.a
+		add_political_power = 50
+	}
+}
+
+country_event = { #Albania Nay
+	id = illyria.110
+	title = illyria.110.t
+	desc = illyria.110.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = { #War
+		name = illyria.110.a
+		add_political_power = 30
+		declare_war_on = { target = ALB type = annex_everything }
+	}
+	
+	option = { #Peace for now
+		name = illyria.110.b
+		add_political_power = -10
+		every_state = {
+		    limit = {
+			    is_core_of = ALB
+			}
+			add_state_claim = PREV
+		}
+	}
+}
+
+country_event = { # Balkan Federation Flag Referendum
+	id = illyria.111
+	title = illyria.111.t
+	desc = illyria.111.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.111.a # Black White Red
+		ai_chance = { factor = 40 }
+		hidden_effect = {  set_cosmetic_tag = ILL_balkanfederation1 }
+	}
+	
+	option = {
+		name = illyria.111.b # Stand Out
+		ai_chance = { factor = 40 }
+		hidden_effect = { set_cosmetic_tag = ILL_balkanfederation2 }
+	}
+	
+	option = {
+		name = illyria.111.c # Stay
+		ai_chance = { factor = 20 }
+		hidden_effect = { set_cosmetic_tag = ILL_balkanfederation3 }
+	}
+	
+}
+
+country_event = { # Illyria in Belgrade Pact?
+	id = illyria.112
+	title = illyria.112.t
+	desc = illyria.112.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.112.a # Yay
+		ai_chance = { factor = 40 }
+		add_to_faction = ILL
+	}
+	
+	option = {
+		name = illyria.112.b # Nay
+		ai_chance = { factor = 60 }
+		
+	}
+	
+}
+
+country_event = { # Illyria in Mitteleuropa?
+	id = illyria.113
+	title = illyria.113.t
+	desc = illyria.113.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.113.a # Yay
+		ai_chance = { factor = 50 }
+		add_to_faction = ILL
+	}
+	
+	option = {
+		name = illyria.113.b # Nay
+		ai_chance = { factor = 50 }
+		
+	}
+	
+}
+
+country_event = { # Illyria with Austria?
+	id = illyria.114
+	title = illyria.114.t
+	desc = illyria.114.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.114.a # Yay
+		ai_chance = { factor = 70 }
+		add_to_faction = ILL
+	}
+	
+	option = {
+		name = illyria.114.b # Nay
+		ai_chance = { factor = 30 }
+		
+	}
+	
+}
+
+country_event = { # Illyria in Med Block
+	id = illyria.115
+	title = illyria.115.t
+	desc = illyria.115.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.115.a # Yay
+		ai_chance = { factor = 100 }
+		add_to_faction = ILL
+	}
+	
+	option = {
+		name = illyria.115.b # Nay
+		ai_chance = { factor = 0 }
+		
+	}
+	
+}
+country_event = { # Sarkotic/Dragicevic's demotion
+	id = illyria.116
+	title = illyria.116.t
+	desc = illyria.116.d
+	trigger = {
+		tag = ILL
+		is_subject = yes
+		NOT = { is_subject_of = AUS }
+		NOT = { has_country_flag = illyria_sarkotic_dead }
+	}
+	
+	option = {
+		name = illyria.116.a # Welp
+		ai_chance = { factor = 50 }
+		add_political_power = 250
+		remove_ideas = AUS_part_of_the_Empire
+		hidden_effect = {
+			set_party_name = {
+				ideology = paternal_autocrat
+				name = ILL_pk_paternal_autocrat_party2
+				long_name = ILL_pk_paternal_autocrat_party2_long
+			}
+			create_country_leader = {
+				name = "Aleksandar Horvat"
+				desc = "POLITICS_ALEKSANDAR_HORVAT_DESC"
+				picture = "Aleksandar_Horvat.tga"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+				traits = { }
+			}
+			create_country_leader = {
+				name = "Stjepan Radić"
+				desc = "CROATIA_STJEPAN_RADIC_DESC"
+				picture = "Portrait_Croatia_Stjepan_Radic.tga"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "Djuro Pucar"
+				desc = "DJURO_PUCAR_DESC"
+				picture = "Djuro_Pucar.tga"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+		set_cosmetic_tag = ILL_independent
+		set_country_flag = illyria_sarkotic_dead
+		}
+	}
+}
+
+country_event = { #Spaho Dies, Bosnia
+	id = illyria.117
+	title = illyria.74.t
+	desc = illyria.74.d
+	fire_only_once = yes
+	trigger = {
+		tag = BOS
+		date > 1939.4.1
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	option = {
+		name = illyria.74.b #Hamdija Karamehmedovic will rule the party
+		add_political_power = -15
+		ai_chance = { factor = 33 }
+		if = { 
+			limit = { has_government = social_liberal }
+			kill_country_leader = yes
+		}
+		create_country_leader = {
+			name = "Hamdija Karamehmedović"
+			desc = "POLITICS_HAMDIJA_KARAMEHMEDOVIC_DESC"
+			picture = "Hamdija_Karamehmedovic.tga"
+			expire = "1965.1.1"
+			ideology = social_liberal_subtype
+			traits = { }
+		}
+	}
+	option = {
+		name = illyria.74.c #Ivo Andric will rule the party
+		add_political_power = -20
+		ai_chance = { factor = 33 }
+		if = { 
+			limit = { has_government = social_liberal }
+			kill_country_leader = yes
+		}
+		create_country_leader = {
+			name = "Ivo Andrić"
+			desc = "POLITICS_IVO_ANDRIC_DESC"
+			picture = "Ivo_Andric.tga"
+			expire = "1965.1.1"
+			ideology = social_liberal_subtype
+			traits = { }
+		}
+		hidden_effect = { 
+			set_country_flag = ivo_andric_party_ruler
+		}
+	}
+}
+
+country_event = { # Austria: peace deal?
+	id = illyria.118
+	title = illyria.118.t
+	desc = illyria.118.d
+	fire_only_once = yes
+	trigger = {
+		tag = AUS
+		OR = {
+			AUS = { surrender_progress > 0.65 }
+			AUS = { has_capitulated = yes }
+		}
+		has_country_flag = illyria_socialist_french_help
+		NOT = { OR = {
+			has_country_flag = illyria_french_austrian_war_france_win
+			has_country_flag = illyria_french_austrian_war_austria_win
+			has_country_flag = illyria_french_austrian_war_nosurrender
+		} }
+		has_war_with = FRA
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = illyria.118.b #Peace deal
+		ai_chance = { factor = 13 }
+		add_political_power = -50
+		FRA = { country_event = { days = 1 id = illyria.87 } }
+		set_country_flag = illyria_french_austrian_war_france_win
+	}
+	
+	option = {
+		name = illyria.118.c #Never surrender
+		ai_chance = { factor = 20 }
+		add_political_power = -125
+		set_country_flag = illyria_french_austrian_war_nosurrender
+	}
+}
+
+country_event = { # France: Austrian Reparations
+	id = illyria.119
+	title = illyria.119.t
+	desc = illyria.119.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = illyria.119.a #Reparations + Recognize Illyria
+		ai_chance = { factor = 33 }
+		add_timed_idea = { idea = ILL_pk_austria_french_reparations_idea days = 365}
+		ILL = { add_timed_idea = { idea = ILL_pk_austria_french_reparations_idea days = 365} }
+		white_peace = AUS
+		AUS = { white_peace = ILL }
+	}
+	
+	option = {
+		name = illyria.119.b #White peace
+		ai_chance = { factor = 33 }
+		add_political_power = 70
+		ILL = { add_political_power = 70 }
+		white_peace = AUS
+		AUS = { white_peace = ILL }
+	}
+	
+	option = {
+		name = illyria.119.c #No
+		ai_chance = { factor = 1 }
+		add_political_power = -25
+	}
+	
+	option = {
+		name = illyria.119.e #Cede Slovenia
+		ai_chance = { factor = 33 }
+		ILL = {
+			add_state_core = 102
+			transfer_state = 102
+		}
+		white_peace = AUS
+		AUS = { white_peace = ILL }
+	}
+}
+
+country_event = { # France: peace deal?
+	id = illyria.120
+	title = illyria.120.t
+	desc = illyria.120.d
+	fire_only_once = yes
+	trigger = {
+		tag = FRA
+		OR = {
+			FRA = { surrender_progress > 0.65 }
+			FRA = { has_capitulated = yes }
+		}
+		ILL = { has_capitulated = yes }
+		has_country_flag = illyria_socialist_french_help
+		NOT = { OR = {
+			has_country_flag = illyria_french_austrian_war_france_win
+			has_country_flag = illyria_french_austrian_war_austria_win
+			has_country_flag = illyria_french_austrian_war_nosurrender
+		} }
+		has_war_with = AUS
+	}
+	mean_time_to_happen = {
+		days = 1
+	}
+	
+	option = {
+		name = illyria.120.b #Peace deal
+		ai_chance = { factor = 13 }
+		add_political_power = -50
+		AUS = { country_event = { days = 1 id = illyria.87 } }
+		set_country_flag = illyria_french_austrian_war_austria_win
+	}
+	
+	option = {
+		name = illyria.120.c #Never surrender
+		ai_chance = { factor = 20 }
+		add_political_power = -125
+		set_country_flag = illyria_french_austrian_war_nosurrender
+	}
+}
