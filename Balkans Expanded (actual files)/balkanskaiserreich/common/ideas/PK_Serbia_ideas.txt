@@ -7,7 +7,7 @@ ideas = {
 	country = {
 		SER_pk_jingoism = {
 			modifier = {
-				unity_factor = 0.1
+				stability_factor = 0.1
 				conscription = 0.03
 			}
 			picture = FRA_scw_intervention_nationalists_focus
@@ -23,7 +23,7 @@ ideas = {
 
 		SER_pk_strong_state_idea = {
 			modifier = {
-				unity_factor = 0.1
+				stability_factor = 0.1
 				political_power_gain = 0.2
 			}
 			picture = generic_intel_bonus
@@ -172,7 +172,7 @@ ideas = {
 		
 		SER_pk_chaos_idea = {
 			modifier = {
-				unity_factor = -0.2
+				stability_factor = -0.2
 				authoritarian_democrat_drift = -0.1
 				political_power_gain = -0.25
 			}
@@ -212,7 +212,7 @@ ideas = {
 		
 			modifier = {
 				conscription = 0.015
-				unity_factor = -0.05
+				stability_factor = -0.05
 			}
 			picture = generic_manpower_bonus
 		}
@@ -221,7 +221,7 @@ ideas = {
 		
 			modifier = {
 				consumer_goods_factor = 0.05
-				unity_factor = 0.1
+				stability_factor = 0.1
 				army_morale_factor = 0.05
 			}
 			picture = generic_deal_with_the_devil2
@@ -230,7 +230,7 @@ ideas = {
 		SER_pk_ljotic_idea = {
 			modifier = {
 				national_populist_drift = 0.1
-				unity_factor = 0.1
+				stability_factor = 0.1
 				army_core_defence_factor = 0.1
 			}
 			picture = generic_infantry_bonus
@@ -238,7 +238,7 @@ ideas = {
 		
 		SER_pk_zbor_idea = {
 			modifier = {
-				unity_factor = 0.1
+				stability_factor = 0.1
 				army_core_defence_factor = 0.15
 				army_core_attack_factor = 0.15
 				army_morale_factor = -0.05
@@ -248,7 +248,7 @@ ideas = {
 		
 		SER_pk_muslim_unrest_idea = {
 			modifier = {
-				unity_factor = -0.25
+				stability_factor = -0.25
 				conscription = -0.02
 				political_power_gain = -0.5
 			}
@@ -293,7 +293,7 @@ ideas = {
 		
 		SER_pk_bastion_of_orthodoxy_idea = {
 			modifier = {
-				unity_factor = 0.15
+				stability_factor = 0.15
 				political_power_gain = 0.15
 				research_time_factor = -0.015
 				army_morale_factor = 0.1
@@ -307,14 +307,14 @@ ideas = {
 				army_morale_factor = 0.15
 				experience_gain_army = -0.05
 				planning_speed = -0.5
-				unity_factor = 0.1
+				stability_factor = 0.1
 			}
 			picture = UoB_militia_idea
 		}
 		
 		SER_pk_police_state_idea = {
 			modifier = {
-				unity_factor = 0.05
+				stability_factor = 0.05
 				production_factory_efficiency_gain_factor = 0.025
 			}
 			picture = generic_intel_bonus
@@ -331,7 +331,7 @@ ideas = {
 		
 		SER_pk_new_nationalism_idea = {
 			modifier = {
-				unity_factor = 0.1
+				stability_factor = 0.1
 				political_power_gain = 0.25
 			}
 			picture = generic_intel_bonus
@@ -348,7 +348,7 @@ ideas = {
 		SER_pk_milunka_laws_idea = {
 			modifier = {
 				conscription = 0.03
-				unity_factor = -0.05
+				stability_factor = -0.05
 				paternal_autocrat_drift = -0.01
 				national_populist_drift = -0.01
 				authoritarian_democrat_drift = -0.01
@@ -368,14 +368,14 @@ ideas = {
 			modifier = {
 				conscription = 0.045
 				army_morale_factor = 0.20
-				unity_factor = 0.1
+				stability_factor = 0.1
 			}
 			picture = UoB_militia_idea
 		}
 		
 		SER_pk_beacon_of_syndicalism_idea = {
 			modifier = {
-				unity_factor = 0.1
+				stability_factor = 0.1
 				syndicalist_drift = 0.03
 				industrial_capacity_factory = 0.1
 			}
@@ -413,7 +413,7 @@ ideas = {
 		SER_pk_minority_coexistance_idea = {
 			modifier = {
 				conscription = 0.02
-				unity_factor = 0.05
+				stability_factor = 0.05
 			}
 			picture = raj_marginalized_muslim_community_happy
 		}
@@ -430,7 +430,7 @@ ideas = {
 			modifier = {
 				consumer_goods_factor = 0.05
 				political_power_gain = 0.1
-				unity_factor = 0.05
+				stability_factor = 0.05
 			}
 			picture = HUN_treaty_of_triannon
 		}
@@ -438,14 +438,14 @@ ideas = {
 		SER_pk_pan_serbia_idea = {
 			modifier = {
 				army_core_defence_factor = 0.2
-				unity_factor = 0.05
+				stability_factor = 0.05
 			}
 			picture = generic_pp_unity_bonus
 		}
 		
 		SER_pk_stojadinovic_critique_idea = {
 			modifier = {
-				unity_factor = -0.1
+				stability_factor = -0.1
 				political_power_gain = -0.1
 			}
 			picture = generic_fascism_banned

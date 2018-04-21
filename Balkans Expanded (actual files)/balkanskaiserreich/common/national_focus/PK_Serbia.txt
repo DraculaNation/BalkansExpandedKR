@@ -1,0 +1,5115 @@
+focus_tree = {
+	id = powderkeg_serbia_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 100
+			tag = SER
+		}
+	}
+
+	default = no
+
+	#######################
+	### Government form ###
+	#######################
+	
+	### Stability vs Instability ###
+	
+	focus = {
+		id = SER_pk_everything_is_fine
+		icon = GFX_goal_generic_radar
+		x = 4
+		y = 0
+
+		cost = 1
+
+		mutually_exclusive = { focus = SER_pk_the_country_in_chaos }
+
+		available = { date > 1937.2.1 }
+
+		bypass = { 	date > 1937.2.1 }
+
+		ai_will_do = { factor = 0 }
+
+		completion_reward = {
+			effect_tooltip = {
+				add_popularity = { ideology = authoritarian_democrat popularity = 0.01 }
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_the_country_in_chaos
+		icon = GFX_goal_generic_attack_allies
+		x = 21
+		y = 0
+
+		cost = 1
+
+		mutually_exclusive = { focus = SER_pk_everything_is_fine }
+
+		ai_will_do = { factor = 6 }
+
+		completion_reward = {
+			add_ideas = SER_pk_chaos_idea
+			set_country_flag = serbia_in_chaos
+		}
+	}
+	
+	
+	
+	### Regent ###
+	focus = {
+		id = SER_pk_keep_regent
+		icon = GFX_focus_generic_home_defense
+		x = 1
+		y = 1
+
+		cost = 1
+
+		prerequisite = { focus = SER_pk_everything_is_fine }
+		
+		mutually_exclusive = {
+			focus = SER_pk_crown_the_king
+			focus = SER_pk_declare_republic
+		}
+
+		ai_will_do = { factor = 100 }
+
+		available = {
+			is_subject = no
+			date > 1937.2.1
+		}
+
+		completion_reward = {
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.1 }
+		}
+	}
+
+	focus = {
+		id = SER_pk_strengthen_regent_rule
+		icon = GFX_goal_generic_demand_territory
+		x = 1
+		y = 2
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_keep_regent }
+
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+				add_popularity = { ideology = authoritarian_democrat popularity = 0.2 }
+				add_political_power = 50
+		}
+	}
+	
+	focus = {
+		id = SER_pk_military_schools
+		icon = GFX_goal_generic_army_doctrines
+		x = 1
+		y = 3
+
+		cost = 5
+
+		prerequisite = { focus = SER_pk_strengthen_regent_rule }
+
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 0.5
+				uses = 1
+				category = land_doctrine
+			}
+			army_experience = 10
+		}
+	}
+
+	focus = {
+		id = SER_pk_larger_army_role
+		icon = GFX_goal_generic_major_alliance
+		x = 1
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_military_schools }
+
+		ai_will_do = {
+			factor = 15
+
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		completion_reward = {
+			add_ideas = SER_pk_army_command
+		}
+	}
+	
+	focus = {
+		id = SER_pk_quality_workforce
+		icon = GFX_goal_generic_production
+		x = 1
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_larger_army_role }
+
+		ai_will_do = {
+			factor = 15
+
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		completion_reward = {
+			add_ideas = SER_pk_quality_workforce_idea
+			add_popularity = { ideology = syndicalist popularity = 0.05 }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_kosovo_chromium
+		icon = GFX_goal_chromium
+		x = 1
+		y = 6
+
+		cost = 5
+
+		prerequisite = { focus = SER_pk_quality_workforce }
+
+		ai_will_do = { factor = 20 }
+
+		available = {
+			owns_state = 765
+		}
+		
+		completion_reward = {
+			add_resource = { type = chromium amount = 4 state = 765 }
+		}
+	}
+
+	### King ###
+	focus = {
+		id = SER_pk_crown_the_king
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 4
+		y = 1
+
+		cost = 1
+		
+		prerequisite = { focus = SER_pk_everything_is_fine }
+		
+		mutually_exclusive = {
+			focus = SER_pk_keep_regent
+			focus = SER_pk_declare_republic
+		}
+
+		ai_will_do = { factor = 500 }
+
+		available = {
+			is_subject = no
+			date > 1937.2.1
+		}
+
+		completion_reward = {
+			country_event = { id = serbia.5 } # Form of the monarchy
+
+			if = {
+				limit = {
+					NOT = { has_completed_focus = SER_pk_form_yugoslavia }
+				}
+				set_cosmetic_tag = SER_kingdom
+			}
+
+			retire_country_leader = yes
+
+			create_country_leader = {
+				name = "Alexander II"
+				desc = "POLITICS_ALEXANDER_II_DESC"
+				picture = "Alexander_II.tga"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = { }
+			}
+
+			hidden_effect = {
+				### Set all other democratic party leaders to Alexander II
+				create_country_leader = {
+					name = "Alexander II"
+					desc = "POLITICS_ALEXANDER_II_DESC"
+					picture = "Alexander_II.tga"
+					expire = "1965.1.1"
+					ideology = social_conservative_subtype
+					traits = { }
+				}
+				create_country_leader = {
+					name = "Alexander II"
+					desc = "POLITICS_ALEXANDER_II_DESC"
+					picture = "Alexander_II.tga"
+					expire = "1965.1.1"
+					ideology = market_liberal_subtype
+					traits = { }
+				}
+				create_country_leader = {
+					name = "Alexander II"
+					desc = "POLITICS_ALEXANDER_II_DESC"
+					picture = "Alexander_II.tga"
+					expire = "1965.1.1"
+					ideology = social_liberal_subtype
+					traits = { }
+				}
+				create_country_leader = {
+					name = "Alexander II"
+					desc = "POLITICS_ALEXANDER_II_DESC"
+					picture = "Alexander_II.tga"
+					expire = "1965.1.1"
+					ideology = social_democrat_subtype
+					traits = { }
+				}
+			}
+
+			hidden_effect = { news_event = { id = worldnews.117 } }
+		}
+	}
+
+	focus = {
+		id = SER_pk_absolutism
+		icon = GFX_goal_authoritarian
+		x = 3
+		y = 2
+
+		cost = 1
+
+		prerequisite = { focus = SER_pk_crown_the_king }
+
+		mutually_exclusive = { focus = SER_pk_constitutionalism }
+
+		available = { has_country_flag = absolute_monarchy }
+
+		bypass = { has_country_flag = absolute_monarchy }
+
+		ai_will_do = { factor = 0 }
+
+		completion_reward = {
+			effect_tooltip = {
+				add_political_power = -40
+				set_politics = { ruling_party = paternal_autocrat elections_allowed = no }
+				add_ideas = SER_Petar_Zivkovic_hog_pau
+				add_ideas = SER_Bogoljub_Jevtic_for_ade
+				add_ideas = SER_Svetislav_Milosavljevic_eco_ade
+				add_ideas = SER_Milan_Srskic_sec_ade
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_monument_to_the_unknown_hero
+		icon = GFX_goal_generic_alliance
+		x = 3
+		y = 3
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_absolutism	}
+
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+			add_ideas = SER_pk_heroic_spirit
+		}
+	}
+	
+	focus = {
+		id = SER_pk_orthodox_church_cooperation
+		icon = GFX_goal_tax_church
+		x = 3
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_monument_to_the_unknown_hero }
+
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+			add_ideas = SER_pk_orthodox_cooperation
+			add_stability = 0.05
+		}
+	}
+
+	focus = {
+		id = SER_pk_glory_to_the_king
+		icon = GFX_goal_generic_propaganda
+		x = 3
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_orthodox_church_cooperation }
+
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_stability = 0.05
+			add_political_power = 150
+		}
+	}
+	
+	focus = {
+		id = SER_pk_purge_the_opposition
+		icon = GFX_goal_generic_political_pressure
+		x = 3
+		y = 6
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_glory_to_the_king }
+
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_popularity = { ideology = authoritarian_democrat popularity = -0.05 }
+			add_popularity = { ideology = social_conservative popularity = -0.05 }
+			add_popularity = { ideology = social_liberal popularity = -0.05 }
+			add_popularity = { ideology = market_liberal popularity = -0.05 }
+			add_popularity = { ideology = social_democrat popularity = -0.05 }
+		}
+	}
+
+	focus = {
+		id = SER_pk_a_strong_state
+		icon = GFX_focus_generic_little_entente
+		x = 2
+		y = 7
+
+		cost = 10
+
+		prerequisite = {
+			focus = SER_pk_purge_the_opposition
+			focus = SER_pk_kosovo_chromium
+		}
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = SER_pk_strong_state_idea
+		}
+	}
+
+	focus = {
+		id = SER_pk_constitutionalism
+		icon = GFX_goal_generic_neutrality_focus
+		x = 5
+		y = 2
+
+		cost = 1
+
+		prerequisite = { focus = SER_pk_crown_the_king }
+		mutually_exclusive = { focus = SER_pk_absolutism }
+
+		available = { has_country_flag = constitutional_monarchy }
+
+		bypass = { has_country_flag = constitutional_monarchy }
+
+		ai_will_do = { factor = 0 }
+
+		completion_reward = {
+			effect_tooltip = {
+				add_political_power = -40
+				set_politics = { ruling_party = social_conservative elections_allowed = yes }
+				add_ideas = SER_Nikola_Uzunovic_hog_sco
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_free_society
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 5
+		y = 3
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_constitutionalism }
+
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+			add_ideas = SER_pk_free_society_idea
+		}
+	}
+	
+	focus = {
+		id = SER_pk_modernize_schools
+		icon = GFX_focus_generic_self_management
+		x = 5
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_free_society }
+
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+			add_ideas = SER_pk_schools_idea
+		}
+	}
+
+	focus = {
+		id = SER_pk_private_companies
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 5
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_modernize_schools }
+
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = 50
+
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_encourage_industrialization
+		icon = GFX_goal_generic_construct_civilian
+		x = 5
+		y = 6
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_private_companies }
+
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+			add_ideas = SER_pk_industrialization_idea
+		}
+	}
+	
+	### Republic ###
+	focus = {
+		id = SER_pk_declare_republic
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		x = 8
+		y = 1
+
+		cost = 1
+		
+		prerequisite = { focus = SER_pk_everything_is_fine }
+		
+		mutually_exclusive = {
+			focus = SER_pk_crown_the_king
+			focus = SER_pk_keep_regent
+		}
+
+		ai_will_do = { factor = 200 }
+
+		available = {
+			is_subject = no
+			date > 1937.2.1
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = { has_completed_focus = SER_pk_form_yugoslavia }
+				}
+				set_cosmetic_tag = SER_republic
+			}
+
+			hidden_effect = { add_popularity = { ideology = market_liberal popularity = 0.4 } }
+			set_politics = { ruling_party = market_liberal elections_allowed = no }
+
+			hidden_effect = {	remove_ideas_with_trait = head_of_government }
+			add_ideas = SER_Ljubomir_Davidovic_hog_sli
+
+			hidden_effect = { news_event = { id = worldnews.118 } }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_hold_elections
+		icon = GFX_goal_anschluss
+		x = 8
+		y = 2
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_declare_republic }
+
+		ai_will_do = { factor = 20 }
+
+		available = {
+			is_subject = no
+		}
+
+		completion_reward = {
+			hidden_effect = {
+				set_politics = { ruling_party = market_liberal elections_allowed = yes }
+			}
+			custom_effect_tooltip = SER_pk_first_elections_tooltip
+			add_political_power = 40
+		}
+	}
+
+	focus = {
+		id = SER_pk_freedom
+		icon = GFX_goal_support_democracy
+		x = 8
+		y = 3
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_hold_elections }
+
+		available = {
+			NOT = {
+				has_government = authoritarian_democrat
+			}
+		}
+		
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+			add_stability = 0.10
+			add_political_power = 100
+			add_popularity = { ideology = radical_socialist popularity = 0.05 }
+			add_popularity = { ideology = syndicalist popularity = 0.03 }
+			add_popularity = { ideology = totalist popularity = 0.01 }
+			add_popularity = { ideology = national_populist popularity = 0.05 }
+			add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
+		}
+	}
+
+	focus = {
+		id = SER_pk_adaptive_economy
+		icon = GFX_goal_generic_neutrality_focus
+		x = 7
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_freedom }
+
+		mutually_exclusive = {
+			focus = SER_pk_libertarian_state
+		}
+		
+		available = {
+			has_government = social_conservative
+		}
+		
+		bypass = {
+			NOT {
+			has_government = social_conservative
+			has_government = social_liberal
+			has_government = authoritarian_democrat
+			}
+		}
+		
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+			add_ideas = SER_pk_adaptive_economy_idea
+			add_popularity = { ideology = social_conservative popularity = 0.2 }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_libertarian_state
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 9
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_freedom }
+
+		mutually_exclusive = {
+			focus = SER_pk_adaptive_economy
+		}
+		
+		available = {
+			has_government = social_liberal
+		}
+		
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+			add_ideas = SER_pk_libertarian_state_idea
+			add_popularity = { ideology = social_liberal popularity = 0.2 }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_scientific_effort
+		icon = GFX_goal_generic_scientific_exchange
+		x = 8
+		y = 6
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_state_factory_opening}
+
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_ideas = SER_pk_science_idea
+		}
+	}
+	
+	focus = {
+		id = SER_pk_state_factory_opening
+		icon = GFX_goal_generic_construction
+		x = 8
+		y = 5
+
+		cost = 5
+		
+		prerequisite = {
+			focus = SER_pk_libertarian_state
+			focus = SER_pk_adaptive_economy 
+		}
+
+		available = {
+			owns_state = 107
+		}
+		
+		ai_will_do = { factor = 500 }
+
+		available = {
+			is_subject = no
+			date > 1937.2.1
+		}
+
+		completion_reward = {
+			country_event = { id = serbia.31 } # Opening a factory
+		}
+	}
+
+	focus = {
+		id = SER_pk_democracy_on_balkans
+		icon = GFX_goal_government_icon
+		x = 7
+		y = 7
+
+		cost = 10
+
+		prerequisite = {
+			focus = SER_pk_encourage_industrialization
+			focus = SER_pk_scientific_effort
+		}
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = SER_pk_beacon_of_liberty
+		}
+	}
+		### Royalist Coup ###
+		
+	focus = {
+		id = SER_pk_make_the_king_proud
+		icon = GFX_focus_rom_royal_dictatorship
+		x = 11
+		y = 3
+
+		cost = 10
+
+		prerequisite = {
+			focus = SER_pk_hold_elections
+		}
+
+		available = {
+			has_government = authoritarian_democrat
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			set_politics = { ruling_party = authoritarian_democrat elections_allowed = no }
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.25 }
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = SER_pk_larger_army_role_draza
+		icon = GFX_goal_generic_major_alliance
+		x = 11
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_make_the_king_proud }
+
+		ai_will_do = {
+			factor = 15
+
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		completion_reward = {
+			add_ideas = SER_pk_army_command
+		}
+	}
+	
+	focus = {
+		id = SER_pk_purge_syndicalists
+		icon = GFX_goal_generic_war_with_comintern
+		x = 11
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_larger_army_role_draza }
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			add_popularity = { ideology = totalist popularity = -0.15 }
+			add_popularity = { ideology = syndicalist popularity = -0.15 }
+			add_popularity = { ideology = radical_socialist popularity = -0.15 }
+			add_political_power = 100
+			add_stability = 0.05
+			every_country = {
+				limit = {
+					OR = { 
+						has_government = radical_socialist
+						has_government = totalist
+						has_government = syndicalist
+					}
+				}
+			add_opinion_modifier = { target = SER modifier = SER_pk_purged_syndicalists }
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_return_of_the_king
+		icon = GFX_focus_hun_elect_a_king
+		x = 10
+		y = 6
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_purge_syndicalists }
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			create_country_leader = {
+				name = "Peter II"
+				desc = "POLITICS_PETER_II_DESC"
+				picture = "Peter_II.tga"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = { }
+			}
+			if = {
+				limit = {
+					NOT = { has_completed_focus = SER_pk_form_yugoslavia }
+				}
+				set_cosmetic_tag = SER_kingdom
+			}
+		add_political_power = 100
+		add_stability = 0.1
+		
+		}
+	}
+	
+	focus = {
+		id = SER_pk_reverse_the_reforms
+		icon = GFX_goal_generic_forceful_treaty
+		x = 12
+		y = 6
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_purge_syndicalists }
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			add_ideas = SER_pk_strong_state_idea
+			add_political_power = -50
+		}
+	}
+
+	### CHAOS ###
+	
+	focus = {
+		id = SER_pk_military_coup
+		icon = GFX_focus_rom_handle_king
+		x = 16
+		y = 1
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_the_country_in_chaos
+		}
+		
+		mutually_exclusive = {
+			focus = SER_pk_syndie_coup
+		}
+		
+		ai_will_do = { factor = 400 }
+
+		completion_reward = {
+			country_event = { id = serbia.37 } # Military coup event
+			hidden_effect = { news_event = { id = serbia.68 } }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_nedic_rule
+		icon = GFX_focus_secret_rearmament
+		x = 15
+		y = 2
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_military_coup }
+
+		available = {
+			has_government = paternal_autocrat
+		}
+		
+		mutually_exclusive = { focus = SER_pk_ljotic_rule }
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			add_ideas = SER_pk_nedic_idea
+			add_political_power = -50
+		}
+	}
+	
+	focus = {
+		id = SER_pk_every_able_man
+		icon = GFX_goal_generic_small_arms
+		x = 15
+		y = 3
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_nedic_rule }
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			if = {
+				limit = {OR = {
+					has_idea = limited_conscription
+					has_idea = volunteer_only
+					has_idea = disarmed_nation
+				} }
+				remove_ideas = limited_conscription
+				remove_ideas = volunteer_only
+				remove_ideas = disarmed_nation
+				add_ideas = extensive_conscription
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_collective_identity
+		icon = GFX_goal_support_fascism
+		x = 15
+		y = 4
+
+		cost = 5
+
+		prerequisite = { focus = SER_pk_every_able_man }
+
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+		remove_ideas = SER_pk_chaos_idea
+		add_political_power = 40
+		hidden_effect = { set_country_flag = serbia_chaos_over }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_minority_compromise
+		icon = GFX_goal_compromise_with_albania
+		x = 14
+		y = 5
+
+		cost = 5
+
+		prerequisite = { focus = SER_pk_collective_identity }
+
+		mutually_exclusive = {
+			focus = SER_pk_found_religious_schools
+			focus = SER_pk_agrarianism
+		}
+		
+		available = { country_exists = ALB }
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+		ALB = {
+		country_event = { id = serbia.39 days = 1 }
+		}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_pass_militaristic_reforms
+		icon = GFX_goal_generic_forceful_treaty
+		x = 14
+		y = 6
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_minority_compromise }
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+		add_ideas = SER_pk_militaristic_laws_idea
+		add_political_power = 50
+		}
+	}
+	
+	focus = {
+		id = SER_pk_mitteleuropa_sympathy
+		icon = GFX_goal_generic_dangerous_deal
+		x = 14
+		y = 7
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_pass_militaristic_reforms }
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = { country_exists = GER }
+		
+		completion_reward = {
+			add_ideas = SER_pk_mitteleuropa_solidarity_idea 
+			diplomatic_relation = { 
+				country = GER
+				relation = non_aggression_pact 
+			}
+		}
+	}	
+	
+	### LJOTIC ###
+	
+	focus = {
+		id = SER_pk_ljotic_rule
+		icon = GFX_focus_generic_support_the_left_right
+		x = 17
+		y = 2
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_military_coup }
+
+		mutually_exclusive = { focus = SER_pk_nedic_rule }
+		
+		available = {
+			has_government = national_populist
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			add_ideas = SER_pk_ljotic_idea
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zbor
+		icon = GFX_goal_incorporate_zbor
+		x = 17
+		y = 3
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_ljotic_rule }
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SER_pk_ljotic_idea
+				add_idea = SER_pk_zbor_idea
+			}
+			load_oob = SER_zbor_troops
+			add_political_power = 40
+		}
+	}
+	
+	focus = {
+		id = SER_pk_expel_muslims
+		icon = GFX_goal_generic_secret_weapon
+		x = 17
+		y = 4
+
+		cost = 5
+
+		prerequisite = { focus = SER_pk_zbor }
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			add_political_power = -25
+			remove_ideas = SER_pk_chaos_idea
+			add_timed_idea = { idea = SER_pk_muslim_unrest_idea days = 90 }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_agrarianism
+		icon = GFX_goal_agrarian_reform
+		x = 18
+		y = 5
+
+		cost = 5
+
+		prerequisite = { focus = SER_pk_expel_muslims }
+		
+		mutually_exclusive = {
+			focus = SER_pk_found_religious_schools
+			focus = SER_pk_minority_compromise
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			add_political_power = 50
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_practical_rifles
+		icon = GFX_goal_generic_small_arms
+		x = 18
+		y = 6
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_agrarianism }
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = infantry_weapons_bonus
+				bonus = 0.5
+				uses = 2
+				category = infantry_weapons
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_russia_sympathy
+		icon = GFX_goal_generic_major_alliance
+		x = 18
+		y = 7
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_practical_rifles }
+
+		ai_will_do = {
+			factor = 10
+		}
+
+		available = { country_exists = RUS }
+		
+		completion_reward = {
+			RUS = {
+			country_event = { id = serbia.42 days = 1 }
+			}
+		}
+	}
+	
+	### MIDDLE PATH ###
+	
+	focus = {
+		id = SER_pk_found_religious_schools
+		icon = GFX_goal_constitutional_guarantees
+		x = 16
+		y = 5
+
+		cost = 5
+
+		prerequisite = {
+		focus = SER_pk_collective_identity 
+		focus = SER_pk_expel_muslims
+		}
+		
+		mutually_exclusive = {
+			focus = SER_pk_agrarianism
+			focus = SER_pk_minority_compromise
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			add_ideas = SER_pk_religious_schools_idea
+		}
+	}
+	
+	focus = {
+		id = SER_pk_condemn_the_syndicalists
+		icon = GFX_goal_anti_comintern_pact
+		x = 16
+		y = 6
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_found_religious_schools }
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			add_political_power = 200
+			add_popularity = { ideology = totalist popularity = -0.05 }
+			add_popularity = { ideology = syndicalist popularity = -0.05 }
+			add_popularity = { ideology = radical_socialist popularity = -0.05 }
+			every_country = {
+				limit = {
+					OR = { 
+						has_government = radical_socialist
+						has_government = totalist
+						has_government = syndicalist
+					}
+				}
+			add_opinion_modifier = { target = SER modifier = SER_pk_condemned_us }
+			} 
+		}
+	}
+	
+	focus = {
+		id = SER_pk_beacon_of_orthodoxy
+		icon = GFX_goal_orthodox_state
+		x = 16
+		y = 7
+
+		cost = 5
+
+		prerequisite = { focus = SER_pk_condemn_the_syndicalists }
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			add_ideas = SER_pk_bastion_of_orthodoxy_idea
+		}
+	}
+	
+	### SYNDICALIST COUP ###
+	
+	focus = {
+		id = SER_pk_syndie_coup
+		icon = GFX_focus_rom_abdicate
+		x = 25
+		y = 1
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_the_country_in_chaos
+		}
+		
+		mutually_exclusive = {
+			focus = SER_pk_military_coup
+		}
+		
+		ai_will_do = { factor = 400 }
+
+		completion_reward = {
+			country_event = { id = serbia.46 } # Military coup event
+			set_country_flag = serbia_syndicalist
+			hidden_effect = { news_event = { id = serbia.69 } }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_syndie_militias
+		icon = GFX_goal_generic_military_sphere
+		x = 27
+		y = 2
+
+		cost = 5
+		
+		prerequisite = {
+			focus = SER_pk_syndie_coup
+		}
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SER_pk_jingoism
+				add_idea = SER_pk_socialist_zeal_idea
+			}
+			set_country_flag = serbia_syndie_militias
+			load_oob = SER_syndicalist_troops
+		}
+	}
+	
+	focus = {
+		id = SER_pk_syndie_elections
+		icon = GFX_goal_commune_politics
+		x = 25
+		y = 2
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_syndie_coup
+		}
+		
+		ai_will_do = { factor = 25 }
+
+		completion_reward = {
+			country_event = { id = serbia.47 } # Election event
+		}
+	}
+	
+	focus = {
+		id = SER_pk_rankovic_rule
+		icon = GFX_goal_ideology_totalist
+		x = 21
+		y = 3
+
+		cost = 5
+		
+		prerequisite = {
+			focus = SER_pk_syndie_elections
+		}
+		
+		mutually_exclusive = {
+			focus = SER_pk_koncar_rule 
+			focus = SER_pk_zecevic_rule
+		}
+		
+		available = {
+			has_government = totalist
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = SER_pk_chaos_idea
+			add_popularity = { ideology = totalist popularity = 0.10 }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_rankovic_police_state
+		icon = GFX_focus_generic_little_entente
+		x = 20
+		y = 4
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_rankovic_rule
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = SER_pk_police_state_idea
+		}
+	}
+	
+	focus = {
+		id = SER_pk_rankovic_solidify_power
+		icon = GFX_goal_generic_dangerous_deal
+		x = 22
+		y = 4
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_rankovic_rule
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_popularity = { ideology = totalist popularity = 0.25 }
+			add_popularity = { ideology = national_populist popularity = 0.07 }
+			add_political_power = 80
+		}
+	}
+	
+	focus = {
+		id = SER_pk_rankovic_ozna
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 21
+		y = 5
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_rankovic_solidify_power }
+		prerequisite = { focus = SER_pk_rankovic_police_state }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = SER_pk_ozna_idea
+			add_tech_bonus = {
+				name = computer_bonus
+				bonus = 0.5
+				uses = 1
+				category = decryption_tech
+			}
+			hidden_effect = {
+				remove_ideas_with_trait = military_intelligence
+			}
+			add_ideas = SER_Aleksandar_Rankovic_int_syn
+		}
+	}
+	
+	focus = {
+		id = SER_pk_rankovic_hunt_down_royalists
+		icon = GFX_goal_generic_attack_allies
+		x = 21
+		y = 6
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_rankovic_ozna }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 50
+			add_popularity = { ideology = paternal_autocrat popularity = -0.25 }
+			add_popularity = { ideology = authoritarian_democrat popularity = -0.25 }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_rankovic_purge_albanians
+		icon = GFX_goal_generic_secret_weapon
+		x = 21
+		y = 7
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_rankovic_hunt_down_royalists }
+		
+		bypass = { is_in_faction_with = ALB }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = -100
+			add_stability = 0.15
+			add_manpower = -250000
+			ALB = {
+			country_event = { id = serbia.48 days = 1 }
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_rankovic_nationalist_syndicalism
+		icon = GFX_goal_demand_sudetenland
+		x = 20
+		y = 8
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_rankovic_purge_albanians }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = SER_pk_new_nationalism_idea
+		}
+	}
+	
+	focus = {
+		id = SER_pk_rankovic_party_dominance
+		icon = GFX_goal_generic_demand_territory
+		x = 22
+		y = 8
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_rankovic_purge_albanians }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 200
+			add_popularity = { ideology = totalist popularity = 0.1 }
+			add_popularity = { ideology = radical_socialist popularity = -0.15 }
+			add_popularity = { ideology = syndicalist popularity = -0.15 }
+			if = {
+				limit =  {
+					has_cosmetic_tag = SER_YUG
+					}
+				set_party_name = { ideology = totalist long_name = SER_pk_YUG_totalist_new_long name = SER_pk_YUG_totalist_new}
+			}
+			if = {
+				limit =  {
+					NOT { has_cosmetic_tag = SER_YUG }
+					}
+				set_party_name = { ideology = totalist long_name = SER_pk_totalist_new_long name = SER_pk_totalist_new}
+			}
+			
+		}
+	}
+	
+	### KONCAR ###
+
+	focus = {
+		id = SER_pk_koncar_rule
+		icon = GFX_goal_ideology_syndicalist
+		x = 25
+		y = 3
+
+		cost = 5
+		
+		prerequisite = {
+			focus = SER_pk_syndie_elections
+		}
+		
+		mutually_exclusive = {
+			focus = SER_pk_rankovic_rule 
+			focus = SER_pk_zecevic_rule
+		}
+		
+		available = {
+			has_government = syndicalist
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = SER_pk_chaos_idea
+			add_popularity = { ideology = syndicalist popularity = 0.10 }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_koncar_syndicates
+		icon = GFX_goal_tripartite_pact
+		x = 25
+		y = 4
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_koncar_rule
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = SER_pk_support_syndicates_idea
+		}
+	}
+	
+	focus = {
+		id = SER_pk_koncar_trade_union_hall
+		icon = GFX_goal_generic_soviet_construction
+		x = 25
+		y = 5
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_koncar_syndicates
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 100
+			add_popularity = { ideology = syndicalist popularity = 0.05 }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_koncar_electronics
+		icon = GFX_goal_generic_propaganda
+		x = 25
+		y = 6
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_koncar_trade_union_hall
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = electronics_bonus
+				bonus = 0.25
+				uses = 3
+				category = electronics
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_koncar_industry
+		icon = GFX_goal_generic_construction
+		x = 23
+		y = 6
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_koncar_trade_union_hall
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industry_bonus
+				bonus = 0.25
+				uses = 3
+				category = industry
+			}	
+		}
+	}
+	
+	focus = {
+		id = SER_pk_koncar_milunka
+		icon = GFX_IRE_women_industry
+		x = 27
+		y = 6
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_koncar_trade_union_hall
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = SER_pk_milunka_laws_idea
+			add_political_power = -80
+		}
+	}
+	
+	focus = {
+		id = SER_pk_koncar_glorify_military_service
+		icon = GFX_goal_generic_military_sphere
+		x = 25
+		y = 7
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_koncar_industry }
+		prerequisite = { focus = SER_pk_koncar_electronics }
+		prerequisite = { focus = SER_pk_koncar_milunka }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = { has_country_flag = serbia_syndie_militias } 
+				swap_ideas = {
+					remove_idea = SER_pk_socialist_zeal_idea
+					add_idea = SER_pk_socialist_zeal_upgraded_idea
+				}
+			}
+			if = {
+				limit = { NOT = { has_country_flag = serbia_syndie_militias } } 
+				add_ideas = SER_pk_glorified_military_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_koncar_beacon_of_syndicalism
+		icon = GFX_goal_syndicalist_congress
+		x = 25
+		y = 8
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_koncar_glorify_military_service
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 200
+			add_ideas = SER_pk_beacon_of_syndicalism_idea
+		}
+	}
+	
+	### ZECEVIC ###
+	
+	focus = {
+		id = SER_pk_zecevic_rule
+		icon = GFX_goal_ideology_radical_socialist
+		x = 29
+		y = 3
+
+		cost = 5
+		
+		prerequisite = {
+			focus = SER_pk_syndie_elections
+		}
+		
+		mutually_exclusive = {
+			focus = SER_pk_koncar_rule 
+			focus = SER_pk_rankovic_rule
+		}
+		
+		available = {
+			has_government = radical_socialist
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = SER_pk_chaos_idea
+			add_popularity = { ideology = radical_socialist popularity = 0.10 }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zecevic_church
+		icon = GFX_goal_tax_church
+		x = 29
+		y = 4
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_zecevic_rule
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.1
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zecevic_tax_the_rich
+		icon = GFX_goal_generic_forceful_treaty
+		x = 27
+		y = 4
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_zecevic_rule
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = SER_pk_tax_the_rich_idea
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zecevic_favor_the_farmer
+		icon = GFX_goal_agriculture
+		x = 29
+		y = 5
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_zecevic_tax_the_rich }
+		prerequisite = { focus = SER_pk_zecevic_church }
+		
+		mutually_exclusive = { focus = SER_pk_zecevic_political_pardon }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			set_country_flag = serbia_radsoc_committed
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zecevic_help_from_france
+		icon = GFX_focus_generic_concessions
+		x = 29
+		y = 6
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_zecevic_favor_the_farmer }
+		
+		available = {
+		country_exists = FRA
+		FRA = { OR = {
+			has_government = syndicalist
+			has_government = radical_socialist
+			has_government = totalist
+		} } }
+		
+		bypass = {
+			NOT = { country_exists = FRA }
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			FRA = {
+			country_event = { id = serbia.49 days = 1 }
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zecevic_rural_communities
+		icon = GFX_goal_generic_improve_relations
+		x = 29
+		y = 7
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_zecevic_help_from_france }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 70
+			add_manpower = 15000
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zecevic_peace_with_minorities
+		icon = GFX_goal_generic_national_unity
+		x = 27
+		y = 8
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_zecevic_rural_communities
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 150
+			add_ideas = SER_pk_minority_coexistance_idea
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zecevic_serbian_socialism
+		icon = GFX_goal_commune_politics
+		x = 29
+		y = 8
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_zecevic_rural_communities
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 150
+			add_ideas = SER_pk_serbian_socialism_idea
+		}
+	}
+	
+	### ZECEVIC DEMOCRATIC ###
+	
+	focus = {
+		id = SER_pk_zecevic_welfare
+		icon = GFX_goal_generic_major_alliance
+		x = 31
+		y = 4
+
+		cost = 10
+		
+		prerequisite = {
+			focus = SER_pk_zecevic_rule
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_popularity = { ideology = social_democrat popularity = 0.1 }
+			add_ideas = SER_pk_social_safety_net_idea
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zecevic_political_pardon
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 31
+		y = 5
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_zecevic_welfare }
+		prerequisite = { focus = SER_pk_zecevic_church }
+		
+		mutually_exclusive = { focus = SER_pk_zecevic_favor_the_farmer }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 200
+			add_stability = 0.1
+			add_popularity = { ideology = authoritarian_democrat popularity = 0.05 }
+			add_popularity = { ideology = paternal_autocrat popularity = 0.05 }
+			add_popularity = { ideology = national_populist popularity = 0.05 }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zecevic_democratic_reforms
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 31
+		y = 6
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_zecevic_political_pardon }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 100
+			add_stability = 0.1
+			add_popularity = { ideology = social_democrat popularity = 0.15 }
+			set_politics = { ruling_party = social_democrat elections_allowed = no }
+			set_country_flag = serbia_socdem_chance
+		hidden_effect = {
+			remove_ideas_with_trait = head_of_government
+			remove_ideas_with_trait = foreign_minister
+			remove_ideas_with_trait = economy_minister
+			remove_ideas_with_trait = security_minister
+			set_country_flag = serbia_socdem_path
+		}
+		add_ideas = SER_Milan_Grol_hog_sli
+		add_ideas = SER_Milos_Moskovljevic_for_sde
+		add_ideas = SER_Dragisa_Lapcevic_eco_sde
+		add_ideas = SER_Dragoljub_Jovanovic_sec_sde
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zecevic_elections
+		icon = GFX_goal_anschluss
+		x = 31
+		y = 7
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_zecevic_democratic_reforms }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			custom_effect_tooltip = SER_pk_first_elections_tooltip
+			add_political_power = 50
+			add_popularity = { ideology = social_democrat popularity = 0.15 }
+			hidden_effect = {
+				set_politics = { ruling_party = social_democrat elections_allowed = yes }
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zecevic_liberty
+		icon = GFX_goal_support_democracy
+		x = 31
+		y = 8
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_zecevic_elections }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = SER_pk_beacon_of_liberty
+		}
+	}
+	
+	focus = {
+		id = SER_pk_zecevic_science
+		icon = GFX_focus_research
+		x = 33
+		y = 8
+
+		cost = 10
+		
+		prerequisite = { focus = SER_pk_zecevic_elections }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = SER_pk_science_idea
+		}
+	}
+	
+	######################
+	### Foreign Policy ###
+	######################
+
+	### Belgrade Pact
+	focus = {
+		id = SER_pk_congress_of_belgrade
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 41
+		y = 0
+
+		cost = 2
+
+		available = {
+			is_subject = no
+			is_in_faction = no
+			has_war = no
+			date > 1937.5.1
+		}
+
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+			add_political_power = 50
+
+			country_event = { id = pact.1 }
+		}
+	}
+
+	focus = {
+		id = SER_pk_ultimatum_to_bulgaria
+		icon = GFX_goal_generic_political_pressure
+		x = 35
+		y = 1
+
+		cost = 4
+
+		prerequisite = { focus = SER_pk_congress_of_belgrade }
+
+		available = {
+			is_subject = no
+		}
+
+		will_lead_to_war_with = BUL
+		will_lead_to_war_with = OTT
+
+		ai_will_do = {
+			factor = 100
+
+			modifier = {
+				factor = 0
+
+				has_war = yes
+			}
+		}
+
+		completion_reward = {
+			country_event = { id = pact.16 }
+		}
+	}
+
+	focus = {
+		id = SER_pk_occupation_of_bulgaria
+		icon = GFX_goal_generic_position_armies
+		x = 34
+		y = 2
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_ultimatum_to_bulgaria }
+
+		available = {
+			NOT = {
+				country_exists = BUL
+			}
+			any_owned_state = { is_core_of = BUL }
+			has_idea = SER_occupation_of_bulgaria_idea
+		}
+
+		ai_will_do = { factor = 25 }
+
+		completion_reward = {
+			country_event = { id = pact.67 }
+
+			remove_ideas = SER_occupation_of_bulgaria_idea
+		}
+	}
+
+	focus = {
+		id = SER_pk_develop_bulgaria
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 34
+		y = 3
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_occupation_of_bulgaria }
+
+		available = {
+			BUL = { is_subject_of = ROOT }
+		}
+
+		ai_will_do = { factor = 7 }
+
+		completion_reward = {
+			# 1x civ factory, 2x 1 infrastructure
+			BUL = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = industrial_complex
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_extra_state_shared_building_slots = 1
+					add_building_construction = {
+						type = industrial_complex
+						level = 1
+						instant_build = yes
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = infrastructure
+							size > 0
+						}
+					}
+
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = infrastructure
+							size > 0
+						}
+					}
+
+					add_building_construction = {
+						type = infrastructure
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_democratic_bulgaria
+		icon = GFX_goal_generic_national_unity
+		x = 33
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_develop_bulgaria }
+
+		available = {
+			BUL = { is_subject_of = ROOT }
+			OR = {
+				has_government = social_conservative
+				has_government = social_liberal
+				has_government = market_liberal
+				has_government = social_democrat
+			}
+		}
+
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = 50
+
+			BUL = {
+				if = {
+					limit = { has_government = social_conservative }
+					add_popularity = { ideology = social_conservative popularity = 0.2 }
+				}
+				if = {
+					limit = { has_government = market_liberal }
+					add_popularity = { ideology = market_liberal popularity = 0.2 }
+				}
+				if = {
+					limit = { has_government = social_liberal }
+					add_popularity = { ideology = social_liberal popularity = 0.2 }
+				}
+				if = {
+					limit = { has_government = social_democrat }
+					add_popularity = { ideology = social_democrat popularity = 0.2 }
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_government = social_conservative
+								has_government = market_liberal
+								has_government = social_liberal
+								has_government = social_democrat
+							}
+						}
+					}
+					add_political_power = 100
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_rightfully_annex_bulgaria
+		icon = GFX_goal_generic_alliance
+		x = 35
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_develop_bulgaria }
+
+		available = {
+			BUL = { is_subject_of = ROOT }
+			OR = {
+				has_country_flag = serbia_formed_empire
+				has_country_flag = serbia_formed_yugoslavia
+			}
+		}
+
+		ai_will_do = { factor = 15 }
+
+		completion_reward = {
+			add_political_power = -50
+			every_state = {
+				limit = {
+					is_core_of = BUL
+				}
+				add_core_of = SER
+			}
+			annex_country = {
+				target = BUL
+				transfer_troops = yes
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_integrate_macedonia
+		icon = GFX_goal_generic_major_alliance
+		x = 36
+		y = 2
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_ultimatum_to_bulgaria }
+
+		available = {
+			owns_state = 106
+		}
+
+		bypass = {
+			106 = { is_core_of = ROOT }
+			841 = { is_core_of = ROOT }
+		}
+
+		ai_will_do = { factor = 40 }
+
+		completion_reward = {
+			add_state_core = 106
+			add_state_core = 841
+		}
+	}
+
+	focus = {
+		id = SER_pk_develop_macedonia
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 36
+		y = 3
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_integrate_macedonia }
+
+		available = {
+			owns_state = 106
+		}
+
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+			106 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	### Expansion
+	
+	focus = {
+		id = SER_pk_serbian_empire
+		icon = GFX_goal_generic_territory_or_war
+		x = 38
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_congress_of_belgrade }
+
+		mutually_exclusive = {
+		focus = SER_pk_slavic_federation
+		focus = SER_pk_pan_serbia
+		focus = SER_pk_greater_serbia
+		}
+
+		ai_will_do = { factor = 800 }
+		
+
+		available = {
+			is_subject = no
+			NOT = { is_in_faction_with = GRE }
+			OR = {
+				has_government = authoritarian_democrat
+				has_government = paternal_autocrat
+				has_government = national_populist
+			}
+			OR = {
+				has_country_flag = serbia_anti_greece
+				AND = {
+					owns_state = 731 # South Macedonia
+					NOT = { has_country_flag = founded_belgradepact }
+				}
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = SER_pk_serbian_empire_tooltip
+			set_country_flag = serbia_choice_empire
+			add_political_power = -100
+			hidden_effect = {
+				HUN = { add_opinion_modifier = { target = SER modifier = SER_pk_conceded_vojvodina } }
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_greater_serbia
+		icon = GFX_focus_generic_support_the_left_right
+		x = 41
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_congress_of_belgrade }
+
+		mutually_exclusive = {
+		focus = SER_pk_slavic_federation
+		focus = SER_pk_pan_serbia
+		focus = SER_pk_serbian_empire
+		}
+
+		ai_will_do = { factor = 300 }
+
+		available = { is_subject = no }
+
+		completion_reward = {
+			custom_effect_tooltip = SER_pk_greater_serbia_tooltip
+			set_country_flag = serbia_choice_greater
+			add_political_power = 100
+		}
+	}
+	
+	focus = {
+		id = SER_pk_pan_serbia
+		icon = GFX_goal_generic_national_unity
+		x = 43
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_congress_of_belgrade }
+
+		mutually_exclusive = {
+		focus = SER_pk_slavic_federation
+		focus = SER_pk_greater_serbia
+		focus = SER_pk_serbian_empire
+		}
+
+		ai_will_do = { factor = 300 }
+
+		available = { is_subject = no }
+
+		completion_reward = {
+			custom_effect_tooltip = SER_pk_pan_serbia_tooltip
+			set_country_flag = serbia_choice_pan
+			add_political_power = 200
+		}
+	}
+	
+	focus = {
+		id = SER_pk_slavic_federation
+		icon = GFX_goal_tripartite_pact
+		x = 46
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_congress_of_belgrade }
+
+		mutually_exclusive = {
+		focus = SER_pk_serbian_empire
+		focus = SER_pk_pan_serbia
+		focus = SER_pk_greater_serbia
+		}
+
+		available = { is_subject = no }
+
+		ai_will_do = {
+			factor = 100
+
+			modifier = {
+				factor = 2
+				NOT = { country_exists = ILL } # Yugoslavia will be the *real* Slavic federation
+			}
+		}
+
+		completion_reward = {
+			custom_effect_tooltip = SER_pk_slavic_federation_tooltip
+			set_country_flag = serbia_choice_yugoslavia
+			add_political_power = -75
+		}
+	}
+
+	focus = {
+		id = SER_pk_conquer_vojvodina
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 44
+		y = 2
+
+		cost = 10
+
+		prerequisite = {
+			focus = SER_pk_greater_serbia
+			focus = SER_pk_pan_serbia
+			focus = SER_pk_slavic_federation
+		}
+
+		available = { is_subject = no }
+
+		bypass = { owns_state = 45 } # Vojvodina
+
+		will_lead_to_war_with = HUN
+		will_lead_to_war_with = AUS
+		will_lead_to_war_with = ILL
+
+		ai_will_do = {
+			factor = 30
+
+			modifier = {
+				factor = 0.1
+
+				HUN = {
+					is_subject_of = AUS
+					owns_state = 45
+				}
+			}
+
+			modifier = {
+				factor = 5
+
+				HUN = {
+					has_war_with = AUS
+					owns_state = 45
+				}
+			}
+
+			modifier = {
+				factor = 2
+
+				OR = {
+					ROM = { is_in_faction_with = ROOT }
+					RRM = { is_in_faction_with = ROOT }
+				}
+			}
+
+			modifier = {
+				factor = 0
+
+				has_war = yes
+			}
+
+			modifier = {
+				factor = 0
+
+				NOT = { owns_state = 767 } # Nis
+			}
+
+			modifier = {
+				factor = 0.1
+
+				NOT = { is_faction_leader = yes }
+			}
+		}
+
+		completion_reward = {
+			add_state_claim = 45
+			add_state_claim = 875
+
+			every_country = {
+				limit = { owns_state = 45 } # Vojvodina
+				ROOT = {
+					create_wargoal = {
+						target = PREV
+						type = take_state_focus
+						generator = { 45 875 }
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_conquer_romanian_banat
+		icon = GFX_goal_generic_attack_allies
+		x = 44
+		y = 3
+
+		cost = 10
+
+		prerequisite = {
+			focus = SER_pk_conquer_vojvodina
+		}
+
+		available = {
+		is_subject = no
+		has_country_flag = serbia_choice_greater
+			NOT = {
+				OR = {
+					is_in_faction_with = ROM
+					is_in_faction_with = RRM
+				}
+			}
+			NOT = { has_country_flag = serbia_belgrade_pact_dissolved_focus}
+		}
+
+		bypass = { owns_state = 82 } # Banat
+
+		will_lead_to_war_with = HUN
+		will_lead_to_war_with = ROM
+		will_lead_to_war_with = RRM
+
+		ai_will_do = {
+			factor = 30
+
+			modifier = {
+				factor = 0.1
+
+				HUN = {
+					is_subject_of = AUS
+					owns_state = 82
+				}
+			}
+
+			modifier = {
+				factor = 5
+
+				HUN = {
+					has_war_with = AUS
+					owns_state = 82
+				}
+			}
+
+			modifier = {
+				factor = 0
+
+				has_war = yes
+			}
+
+			modifier = {
+				factor = 0
+
+				NOT = { owns_state = 875 } # West Banat
+			}
+
+			modifier = {
+				factor = 0.1
+
+				NOT = { is_faction_leader = yes }
+			}
+		}
+
+		completion_reward = {
+			add_state_claim = 82
+
+			every_country = {
+				limit = { owns_state = 82 } # West Banat
+				ROOT = {
+					create_wargoal = {
+						target = PREV
+						type = take_state_focus
+						generator = { 82 }
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_albanian_question
+		icon = GFX_goal_generic_forceful_treaty
+		x = 40
+		y = 2
+
+		cost = 10
+
+		prerequisite = { 
+		focus = SER_pk_greater_serbia
+		focus = SER_pk_serbian_empire
+		}
+
+		available = {
+			is_subject = no
+			owns_state = 765 # Kosovo
+		}
+
+		ai_will_do = {
+			factor = 15
+
+			modifier = {
+				factor = 0.5
+
+				ALB = { is_subject = yes }
+			}
+
+			modifier = {
+				factor = 0
+
+				has_war = yes
+			}
+		}
+
+		will_lead_to_war_with = ALB
+
+		bypass = { owns_state = 44 } # Tirana
+
+		completion_reward = {
+			if = {
+				limit = { NOT = { owns_state = 44 } } # Failsafe for when the focus can be bypassed
+
+				if = {
+					limit = { country_exists = ALB }
+
+					# Annex wargoal against Albania if it exists
+					create_wargoal = {
+						target = ALB
+						type = annex_everything
+					}
+
+					# Otherwise, create a wargoal against the country that holds Tirana
+					else = {
+						every_country = {
+							limit = { owns_state = 44 } # Tirana
+							ROOT = {
+								create_wargoal = {
+									target = PREV
+									type = take_state_focus
+									generator = { 44 }
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_free_bosnia
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 42
+		y = 3
+
+		cost = 10
+
+		prerequisite = {
+			focus = SER_pk_status_of_montenegro
+		}
+
+		available = { is_subject = no }
+
+		will_lead_to_war_with = ILL
+		will_lead_to_war_with = BOS
+		will_lead_to_war_with = AUS
+		will_lead_to_war_with = HUN
+
+		bypass = { owns_state = 104 }
+
+		ai_will_do = {
+			factor = 20
+
+			modifier = {
+				factor = 0.1
+
+				AND = {
+					ILL = { is_subject_of = AUS }
+					ILL = { owns_state = 104 }
+				}
+			}
+
+			modifier = {
+				factor = 2
+
+				AND = {
+					ILL = { has_war_with = AUS }
+					ILL = { owns_state = 104 }
+				}
+			}
+
+			modifier = {
+				factor = 0
+
+				has_war = yes
+			}
+
+			modifier = {
+				factor = 0
+
+				NOT = { owns_state = 767 } # Nis
+			}
+
+			modifier = {
+				factor = 0.1
+
+				NOT = { is_faction_leader = yes }
+			}
+		}
+
+		completion_reward = {
+			add_state_claim = 104
+			add_state_claim = 1029
+
+			# Create a wargoal against the country that holds Bosnia
+			every_country = {
+				limit = { owns_state = 104 } # Bosnia
+				ROOT = {
+					create_wargoal = {
+						target = PREV
+						type = take_state_focus
+						generator = { 104 1029 }
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_integrate_bosnia
+		icon = GFX_goal_generic_improve_relations
+		x = 41
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_free_bosnia }
+
+		available = { owns_state = 104 } # Bosnia
+
+		bypass= { 104 = { is_core_of = ROOT } }
+
+		ai_will_do = { factor = 40 }
+
+		completion_reward = {
+			add_state_core = 104 # Bosnia
+			if = {
+					limit = { NOT = { has_country_flag = serbia_choice_pan } }
+					add_state_core = 1029
+				}
+			add_political_power = 100
+		}
+	}
+
+	focus = {
+		id = SER_pk_claim_dalmatia
+		icon = GFX_goal_generic_political_pressure
+		x = 43
+		y = 4
+
+		cost = 10
+
+		prerequisite = {
+		focus = SER_pk_free_bosnia }
+
+		available = {
+		is_subject = no
+		OR = {
+			has_country_flag = serbia_choice_yugoslavia
+			has_country_flag = serbia_choice_greater
+			}
+		}
+
+		will_lead_to_war_with = ILL
+		will_lead_to_war_with = BOS
+		will_lead_to_war_with = AUS
+		will_lead_to_war_with = HUN
+
+		bypass = { owns_state = 163 }
+
+		ai_will_do = {
+			factor = 10
+
+			modifier = {
+				factor = 0
+
+				has_war = yes
+			}
+
+			modifier = {
+				factor = 0
+
+				NOT = { owns_state = 767 } # Nis
+			}
+
+			modifier = {
+				factor = 0.1
+
+				NOT = { is_faction_leader = yes }
+			}
+
+			# AI will not do it when it doesn't have a land connection
+			modifier = {
+				factor = 0
+
+				NOT = {
+					OR = {
+						owns_state = 105 # Montenegro
+						owns_state = 104 # Bosnia
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_state_claim = 163 # Dalmatia
+			add_state_claim = 103 # Lika
+
+			# Create a wargoal against the country that holds Dalmatia
+			every_country = {
+				limit = { owns_state = 163 } # Dalmatia
+				ROOT = {
+					create_wargoal = {
+						target = PREV
+						type = take_state_focus
+						generator = { 163 103 }
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_claim_greek_lands
+		icon = GFX_focus_generic_strike_at_democracy1
+		x = 38
+		y = 3
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_serbian_empire }
+		prerequisite = { focus = SER_pk_albanian_question }
+
+		available = {
+		is_subject = no
+		}
+
+		will_lead_to_war_with = GRE
+		will_lead_to_war_with = BUL
+		
+		bypass = {
+			owns_state = 731 # Southern Macedonia
+			owns_state = 769 # Eastern Macedonia
+			owns_state = 184 # Gyugyurdzhina
+			owns_state = 768 # Thessalia
+			owns_state = 185 # Epirus
+		}
+
+		ai_will_do = {
+			factor = 10
+
+			modifier = {
+				factor = 0
+
+				has_war = yes
+			}
+
+			modifier = {
+				factor = 0
+
+				NOT = { owns_state = 767 } # Nis
+			}
+
+			modifier = {
+				factor = 0.1
+
+				NOT = { is_faction_leader = yes }
+			}
+
+			# AI will not do it when it doesn't have a land connection
+			modifier = {
+				factor = 0
+
+				NOT = {
+					OR = {
+						owns_state = 106 # Macedonia
+						owns_state = 766 # South Albania
+						owns_state = 212 # Plovdiv
+					}
+				}
+			}
+		}
+
+		completion_reward = {
+			add_state_claim = 731 # Southern Macedonia
+			add_state_claim = 769 # Eastern Macedonia
+			add_state_claim = 184 # Gyumyurdzhina
+			add_state_claim = 768 # Thessalia
+			add_state_claim = 185 # Epirus
+
+			# Create a wargoal against the country that holds Dalmatia
+			every_country = {
+				limit = { owns_state = 185 } # Epirus since it was the Greek province where the Serbian influence was the strongest
+				ROOT = {
+					create_wargoal = {
+						target = PREV
+						type = take_state_focus
+						generator = { 731 769 184 168 185 }
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_status_of_montenegro
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 42
+		y = 2
+
+		cost = 10
+
+		bypass = {
+			OR = {
+				owns_state = 105
+				MTN = { is_subject_of = ROOT }
+			}
+		}
+
+		prerequisite = {
+			focus = SER_pk_serbian_empire
+			focus = SER_pk_greater_serbia
+			focus = SER_pk_pan_serbia
+			focus = SER_pk_slavic_federation
+		}
+
+		available = { is_subject = no }
+
+		will_lead_to_war_with = ILL
+		will_lead_to_war_with = BOS
+		will_lead_to_war_with = AUS
+		will_lead_to_war_with = HUN
+
+		ai_will_do = {
+			factor = 50
+
+			modifier = {
+				factor = 0
+
+				has_war = yes
+			}
+
+			modifier = {
+				factor = 0
+
+				NOT = { owns_state = 767 } # Nis
+			}
+
+			modifier = {
+				factor = 0.1
+
+				NOT = { is_faction_leader = yes }
+			}
+
+			modifier = {
+				factor = 2
+
+				ILL = { has_war = yes }
+			}
+		}
+
+		completion_reward = {
+			# Trigger the event for Austria if it's played by a player
+			if = {
+				limit = {
+					any_country = {
+						is_subject_of = AUS
+						owns_state = 105
+					}
+
+					AUS = { is_ai = no }
+				}
+
+				AUS = { country_event = { id = serbia.16 hours = 2 } }
+
+				else = {
+					every_country = {
+						limit = { owns_state = 105 } # Montenegro
+						country_event = { id = serbia.16 hours = 2 }
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_form_yugoslavia
+		icon = GFX_goal_SER_form_yugoslavia
+		x = 46
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_slavic_federation }
+		prerequisite = { focus = SER_pk_integrate_bosnia }
+		prerequisite = { focus = SER_pk_claim_dalmatia }
+
+		available = {
+			AND = {
+				owns_state = 45 # Vojvodina
+				owns_state = 109 # Eastern Croatia
+				owns_state = 104 # Bosnia
+			}
+			OR = {
+				owns_state = 105 # Montenegro
+				MTN = { is_subject_of = ROOT }
+			}
+			NOT = {
+				country_exists = ILL
+				country_exists = CRO
+				country_exists = BOS
+			}
+		}
+
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+			custom_effect_tooltip = SER_pk_form_yugoslavia_tooltip
+
+			# Yugoslavia is just a cosmetic tag for now
+			set_cosmetic_tag = SER_YUG
+
+			# Change all party names with "Serbian" in their name
+			hidden_effect = {
+				set_party_name = {
+					ideology = authoritarian_democrat
+					name = SER_pk_YUG_authoritarian_democrat_party
+					long_name = SER_pk_YUG_authoritarian_democrat_party_long
+				}
+
+				set_party_name = {
+					ideology = paternal_autocrat
+					name = SER_pk_YUG_paternal_autocrat_party
+					long_name = SER_pk_YUG_paternal_autocrat_party_long
+				}
+
+				set_party_name = {
+					ideology = national_populist
+					name = SER_pk_YUG_national_populist_party
+					long_name = SER_pk_YUG_national_populist_party_long
+				}
+			}
+
+			# Core all Yugoslavian states
+			add_state_core = 45 # Vojvodina
+			add_state_core = 875 # Eastern Banat
+			add_state_core = 794 # Srijem
+			add_state_core = 105 # Montenegro
+			add_state_core = 104 # Bosnia
+			add_state_core = 109 # Croatia
+			add_state_core = 163 # Dalmatia
+			add_state_core = 103 # Lika
+			add_state_core = 1029 # Herzegovina
+			if = {
+				limit = { owns_state = 102 }
+				add_state_core = 102 # Slovenia
+			}
+			if = {
+				limit = { owns_state = 736 }
+				add_state_core = 736 # Küstenland
+			}
+
+			# Inherit Montenegro if it is a puppet
+			if = {
+				limit = { MTN = { is_subject_of = ROOT } }
+				annex_country = { target = MTN }
+			}
+
+			set_country_flag = serbia_formed_yugoslavia
+			
+			hidden_effect = { news_event = { id = worldnews.119 } }
+		}
+	}
+
+	focus = {
+		id = SER_pk_claim_slovenia
+		icon = GFX_goal_generic_major_war
+		x = 46
+		y = 6
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_form_yugoslavia }
+
+		available = { is_subject = no }
+
+		will_lead_to_war_with = AUS
+
+		bypass = { 102 = { is_core_of = ROOT } } # Slovenia
+
+		ai_will_do = {
+			factor = 10
+
+			modifier = {
+				factor = 0
+
+				has_war = yes
+			}
+		}
+
+		completion_reward = {
+			add_state_core = 102
+			add_state_core = 736
+
+			if = {
+				limit = { NOT = { owns_state = 102 } }
+				# Create a wargoal against the country that holds Slovenia
+				every_country = {
+					limit = { owns_state = 102 } # Slovenia
+					ROOT = {
+						create_wargoal = {
+							target = PREV
+							type = take_state_focus
+							generator = { 102 736 }
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_form_serbian_empire
+		icon = GFX_focus_rom_royal_dictatorship
+		x = 38
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_claim_greek_lands }
+		prerequisite = { focus = SER_pk_albanian_question }
+
+		available = {
+			AND = {
+				owns_state = 44 # Tirana
+				owns_state = 766 # North Epirus
+				owns_state = 731 # South Macedonia
+				owns_state = 769 # Kavala
+				owns_state = 184 # Gyumyurdzhina (God I love typing this name)
+				owns_state = 768 # Thessalia
+				owns_state = 185 # Epirus
+			}
+			OR = {
+				owns_state = 105 # Montenegro
+				MTN = { is_subject_of = ROOT }
+			}
+			OR = {
+				AND = {
+					owns_state = 48 # Sofia
+					owns_state = 770 # Ploven
+					owns_state = 771 # Varna
+					owns_state = 211 # Burgas
+					owns_state = 212 # Plovdiv
+					}
+				BUL = { is_subject_of = ROOT }
+			}
+		}
+
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+			custom_effect_tooltip = SER_pk_form_serbian_empire_tooltip
+
+			country_event = { id = serbia.71 }
+			# Core all Imperial states
+			add_state_core = 44 # IGNORE THE NAMES BELOW
+			add_state_core = 766 # Eastern Banat
+			add_state_core = 731 # Srijem
+			add_state_core = 769 # Montenegro
+			add_state_core = 768 # Croatia
+			add_state_core = 185 # Dalmatia
+			
+			if = {
+				limit = { owns_state = 103 }
+				add_state_core = 103 # Montenegro
+			}
+
+			# Inherit Montenegro if it is a puppet
+			if = {
+				limit = { MTN = { is_subject_of = ROOT } }
+				annex_country = { target = MTN }
+			}
+						if = {
+				limit = { BOS = { is_subject_of = ROOT } }
+				annex_country = { target = BOS }
+			}
+
+			hidden_effect = { news_event = { id = serbia.56 } }
+			
+			set_country_flag = serbia_formed_empire
+			
+		}
+	}
+
+	focus = {
+		id = SER_pk_retake_tsarigrad
+		icon = GFX_focus_generic_little_entente
+		x = 38
+		y = 6
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_form_serbian_empire }
+
+		available = {
+			is_subject = no
+			NOT = { is_in_faction_with = OTT }
+			NOT = { is_in_faction_with = TUR }
+		}
+
+		will_lead_to_war_with = OTT
+		will_lead_to_war_with = TUR
+
+		bypass = {
+			AND = {
+				owns_state = 341 # Edirne
+				owns_state = 773 # Constantinople
+			} 
+		}
+
+		ai_will_do = {
+			factor = 10
+
+			modifier = {
+				factor = 0
+
+				has_war = yes
+			}
+		}
+
+		completion_reward = {
+			add_state_claim = 341
+			add_state_claim = 773
+
+			if = {
+				limit = { NOT = { owns_state = 773 } }
+				# Create a wargoal against the country that holds Constantinople
+				every_country = {
+					limit = { owns_state = 773 } # Constantinople
+					ROOT = {
+						create_wargoal = {
+							target = PREV
+							type = take_state_focus
+							generator = { 341 773 }
+						}
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_a_serbian_nation
+		icon = GFX_goal_generic_dangerous_deal
+		x = 43
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_claim_dalmatia }
+		prerequisite = { focus = SER_pk_integrate_bosnia }
+
+		available = {
+			AND = {
+				owns_state = 45 # Vojvodina
+				owns_state = 104 # Bosnia
+				owns_state = 1029 # Herzegovina
+			}
+			NOT = { country_exists = BOS }
+			has_country_flag = serbia_choice_greater
+		}
+
+		ai_will_do = { factor = 50 }
+
+		completion_reward = {
+			# Core all of Greater Serbia
+			add_state_core = 45 # Vojvodina
+			add_state_core = 875 # Eastern Banat
+			add_state_core = 794 # Srijem
+			add_state_core = 105 # Montenegro
+			add_state_core = 163 # Dalmatia
+		}
+	}
+	
+	focus = {
+		id = SER_pk_a_serbian_nation_real
+		icon = GFX_goal_generic_major_alliance
+		x = 41
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_integrate_bosnia }
+
+		available = {
+			AND = {
+				owns_state = 45 # Vojvodina
+				owns_state = 104 # Bosnia
+				owns_state = 105 # Crna Gora
+				owns_state = 875 # Zapadni Banat
+			}
+			has_country_flag = serbia_choice_pan
+		}
+
+		ai_will_do = { factor = 50 }
+
+		completion_reward = {
+			# Core all of Pan-Serbia
+			add_state_core = 45 # Vojvodina
+			add_state_core = 875 # Eastern Banat
+			add_state_core = 794 # Srijem
+			add_state_core = 105 # Montenegro
+			swap_ideas = {
+				remove_idea = SER_pk_jingoism
+				add_idea = SER_pk_pan_serbia_idea
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_extra_research_slot_ii
+		icon = GFX_focus_research
+		x = 42
+		y = 6
+
+		cost = 10
+
+		prerequisite = {
+			focus = SER_pk_a_serbian_nation
+			focus = SER_pk_form_yugoslavia
+			focus = SER_pk_a_serbian_nation_real
+			focus = SER_pk_form_serbian_empire
+		}
+
+		ai_will_do = { factor = 20 }
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	###############
+	### Economy ###
+	###############
+
+	focus = {
+		id = SER_pk_new_economic_policy
+		icon = GFX_goal_generic_consumer_goods
+		x = 49
+		y = 0
+
+		cost = 10
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+		}
+	}
+
+	# Agriculture
+	focus = {
+		id = SER_pk_agriculture
+		icon = GFX_goal_generic_construct_civilian
+		x = 48
+		y = 1
+
+		cost = 10
+
+		ai_will_do = { factor = 30 }
+
+		prerequisite = { focus = SER_pk_new_economic_policy }
+
+		mutually_exclusive = { focus = SER_pk_industry }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+
+			# 2x 1 civ factory & 2 building slots
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_invest_in_railroads
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 49
+		y = 2
+
+		cost = 10
+
+		ai_will_do = { factor = 7 }
+
+		prerequisite = {
+			focus = SER_pk_industry
+			focus = SER_pk_agriculture
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_support_peasants
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 48
+		y = 3
+
+		cost = 10
+
+		ai_will_do = { factor = 10 }
+
+		prerequisite = { focus = SER_pk_agriculture }
+		prerequisite = { focus = SER_pk_invest_in_railroads }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_mechanisation
+		icon = GFX_goal_generic_production2
+		x = 48
+		y = 4
+
+		cost = 10
+
+		ai_will_do = { factor = 5 }
+
+		prerequisite = { focus = SER_pk_support_peasants }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = industrial_bonus
+				bonus = 0.5
+				uses = 1
+				category = industry
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+			}
+		}
+	}
+
+	# Industry
+	focus = {
+		id = SER_pk_industry
+		icon = GFX_goal_generic_construction
+		x = 50
+		y = 1
+
+		cost = 10
+
+		ai_will_do = { factor = 30 }
+
+		prerequisite = { focus = SER_pk_new_economic_policy }
+
+		mutually_exclusive = { focus = SER_pk_agriculture }
+
+		completion_reward = {
+			# 1x civ, 2x military factories
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_war_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 50
+		y = 3
+
+		cost = 10
+
+		ai_will_do = { factor = 7 }
+
+		prerequisite = { focus = SER_pk_industry }
+		prerequisite = { focus = SER_pk_invest_in_railroads }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_expand_bor_mining_complex
+		icon = GFX_goal_generic_construction2
+		x = 50
+		y = 4
+
+		cost = 10
+
+		ai_will_do = { factor = 7 }
+
+		prerequisite = { focus = SER_pk_war_industry }
+
+		completion_reward = {
+			add_resource = { type = steel amount = 10 state = 767 }
+			add_resource = { type = tungsten amount = 5 state = 767 }
+		}
+	}
+
+	focus = {
+		id = SER_pk_extra_research_slot
+		icon = GFX_focus_research
+		x = 49
+		y = 5
+
+		cost = 10
+
+		ai_will_do = { factor = 20 }
+
+		prerequisite = {
+			focus = SER_pk_mechanisation
+			focus = SER_pk_expand_bor_mining_complex
+		}
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	###################
+	### Army Reform ###
+	###################
+
+	focus = {
+		id = SER_pk_army_reform_nedic
+		icon = GFX_goal_generic_army_artillery
+		x = 52
+		y = 0
+
+		cost = 10
+
+		mutually_exclusive = { focus = SER_pk_army_reform_mihailovic }
+
+		ai_will_do = { factor = 20 }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 20
+
+			add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 0.5
+				uses = 1
+				category = cat_superior_firepower
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_expand_artillery_factories
+		icon = GFX_goal_generic_army_artillery2
+		x = 52
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_army_reform_nedic }
+
+		ai_will_do = { factor = 10 }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			add_tech_bonus = {
+				name = artillery_bonus
+				bonus = 0.5
+				uses = 1
+				category = artillery
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_motorisation_effort
+		icon = GFX_goal_generic_army_motorized
+		x = 52
+		y = 2
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_expand_artillery_factories }
+
+		ai_will_do = { factor = 7 }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = motorized_bonus
+				bonus = 0.5
+				uses = 1
+				category = motorized_equipment
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_army_tactics_nedic
+		icon = GFX_goal_generic_army_doctrines
+		x = 52
+		y = 3
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_motorisation_effort }
+
+		ai_will_do = { factor = 10 }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+
+			add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 0.5
+				uses = 2
+				category = cat_superior_firepower
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_armour_effort
+		icon = GFX_goal_generic_army_tanks
+		x = 52
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_army_tactics_nedic }
+
+		ai_will_do = { factor = 7 }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = armor_bonus
+				bonus = 0.5
+				uses = 1
+				category = armor
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_patriotic_spirit
+		icon = GFX_goal_generic_build_tank
+		x = 52
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_armour_effort }
+
+		available_if_capitulated = yes
+
+		ai_will_do = {
+			factor = 15
+
+			modifier = {
+				factor = 3
+				has_war = yes
+			}
+		}
+
+		completion_reward = {
+			add_ideas = SER_pk_patriotic_spirit_idea
+		}
+	}
+
+	# Mihailovic
+	focus = {
+		id = SER_pk_army_reform_mihailovic
+		icon = GFX_goal_generic_defence
+		x = 54
+		y = 0
+
+		cost = 10
+
+		mutually_exclusive = { focus = SER_pk_army_reform_nedic }
+
+		ai_will_do = { factor = 20 }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 20
+
+			add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 0.5
+				uses = 1
+				category = cat_grand_battle_plan
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_special_forces
+		icon = GFX_goal_generic_special_forces
+		x = 54
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_army_reform_mihailovic }
+
+		ai_will_do = { factor = 7 }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				uses = 1
+				technology = paratroopers
+				technology = paratroopers2
+				technology = marines
+				technology = marines2
+				technology = tech_mountaineers
+				technology = tech_mountaineers2
+				technology = tech_mountaineers3
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_expand_infantry_weapons_factories
+		icon = GFX_goal_generic_small_arms
+		x = 54
+		y = 2
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_special_forces }
+
+		ai_will_do = {
+			factor = 20
+
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			add_tech_bonus = {
+				name = infantry_weapons_bonus
+				bonus = 0.5
+				uses = 1
+				category = infantry_weapons
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_bunker_focus
+		icon = GFX_goal_generic_fortify_city
+		x = 54
+		y = 3
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_expand_infantry_weapons_factories }
+
+		ai_will_do = {
+			factor = 10
+
+			modifier = {
+				factor = 2
+				has_war = yes
+			}
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			if = {
+				limit = { SER = { controls_state = 107 } }
+				107 = {
+					add_building_construction = {
+						type = bunker
+						level = 1
+						province = 11586
+						instant_build = yes
+					}
+				}
+			}
+
+			add_ideas = SER_pk_bunker_focus_idea
+		}
+	}
+
+	focus = {
+		id = SER_pk_army_tactics_mihailovic
+		icon = GFX_goal_generic_army_doctrines
+		x = 54
+		y = 4
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_bunker_focus }
+
+		ai_will_do = { factor = 10 }
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			army_experience = 5
+
+			add_tech_bonus = {
+				name = doctrine_bonus
+				bonus = 0.5
+				uses = 2
+				category = cat_grand_battle_plan
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_mobilisation_of_the_masses
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 54
+		y = 5
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_army_tactics_mihailovic }
+
+		ai_will_do = {
+			factor = 15
+
+			modifier = {
+				factor = 3
+				has_war = yes
+			}
+		}
+
+		completion_reward = {
+			add_ideas = SER_pk_mobilisation_of_the_masses_idea
+		}
+	}
+
+	#################
+	### Air Force ###
+	#################
+
+	focus = {
+		id = SER_pk_expand_air_force
+		icon = GFX_goal_generic_build_airforce
+		x = 59
+		y = 0
+
+		cost = 10
+
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			air_experience = 25
+
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+
+			add_tech_bonus = {
+				name =  air_doc_bonus
+				bonus = 0.5
+				uses = 1
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_fighter_focus
+		icon = GFX_goal_generic_air_fighter
+		x = 58
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_expand_air_force }
+		mutually_exclusive = { focus = SER_pk_heavy_fighter_focus }
+
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = fighter_bonus
+				bonus = 0.5
+				uses = 1
+				category = light_fighter
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_heavy_fighter_focus
+		icon = GFX_goal_generic_air_fighter2
+		x = 56
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_expand_air_force }
+		mutually_exclusive = { focus = SER_pk_fighter_focus }
+
+		ai_will_do = { factor = 2 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SER_pk_heavy_fighter_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				category = cat_heavy_fighter
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_bomber_focus
+		icon = GFX_goal_generic_air_bomber
+		x = 60
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_expand_air_force }
+		mutually_exclusive = { focus = SER_pk_cas_effort }
+
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = bomber_bonus
+				bonus = 0.5
+				uses = 1
+				category = tactical_bomber
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_cas_effort
+		icon = GFX_goal_generic_CAS
+		x = 62
+		y = 1
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_expand_air_force }
+		mutually_exclusive = { focus = SER_pk_bomber_focus }
+
+		ai_will_do = { factor = 2 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = CAS_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_air_tactics
+		icon = GFX_goal_generic_air_doctrine
+		x = 56
+		y = 2
+
+		cost = 10
+
+		prerequisite = {
+			focus = SER_pk_fighter_focus
+			focus = SER_pk_heavy_fighter_focus
+		}
+		prerequisite = {
+			focus = SER_pk_bomber_focus
+			focus = SER_pk_cas_effort
+		}
+
+		ai_will_do = { factor = 3 }
+
+		completion_reward = {
+			air_experience = 25
+
+			add_tech_bonus = {
+				name = air_doc_bonus
+				bonus = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_expand_airfields
+		icon = GFX_goal_generic_air_production
+		x = 58
+		y = 2
+
+		cost = 10
+
+		prerequisite = {
+			focus = SER_pk_fighter_focus
+			focus = SER_pk_heavy_fighter_focus
+		}
+		prerequisite = {
+			focus = SER_pk_bomber_focus
+			focus = SER_pk_cas_effort
+		}
+
+		ai_will_do = { factor = 3 }
+
+		completion_reward = {
+			air_experience = 20
+
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = air_base
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = air_base
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_rocket_effort
+		icon = GFX_focus_rocketry
+		x = 60
+		y = 2
+
+		cost = 10
+
+		prerequisite = {
+			focus = SER_pk_fighter_focus
+			focus = SER_pk_heavy_fighter_focus
+		}
+		prerequisite = {
+			focus = SER_pk_bomber_focus
+			focus = SER_pk_cas_effort
+		}
+
+		ai_will_do = {
+			factor = 1
+
+			modifier = {
+				factor = 5
+				date > 1942.1.1
+			}
+			modifier = {
+				factor = 2
+				date > 1944.1.1
+			}
+		}
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = jet_rocket_bonus
+				ahead_reduction = 0.5
+				bonus = 0.5
+				uses = 2
+				category = rocketry
+				category = jet_technology
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_paratrooper_effort
+		icon = GFX_focus_generic_paratrooper
+		x = 62
+		y = 2
+
+		cost = 10
+
+		prerequisite = {
+			focus = SER_pk_fighter_focus
+			focus = SER_pk_heavy_fighter_focus
+		}
+		prerequisite = {
+			focus = SER_pk_bomber_focus
+			focus = SER_pk_cas_effort
+		}
+
+		ai_will_do = { factor = 1 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = special_forces_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = paratroopers
+				technology = paratroopers2
+				technology = paratroopers3
+			}
+		}
+	}
+
+	############
+	### Navy ###
+	############
+
+	focus = {
+		id = SER_pk_birth_of_the_navy
+		icon = GFX_goal_generic_build_navy
+		x = 58
+		y = 3
+
+		cost = 10
+
+		available = {
+			any_owned_state = { is_coastal = yes }
+		}
+
+		ai_will_do = {
+			factor = 3
+
+			modifier = {
+				factor = 5
+
+				date > 1942.1.1
+			}
+
+			modifier = {
+				factor = 5
+
+				date > 1943.6.1
+			}
+
+			modifier = {
+				factor = 5
+
+				has_completed_focus = SER_pk_form_yugoslavia
+			}
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 2
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 3
+				add_building_construction = {
+					type = dockyard
+					level = 3
+					instant_build = yes
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = { naval_base > 1 }
+
+				add_building_construction = {
+					type = naval_base
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+						level > 1
+					}
+					level = 1
+					instant_build = yes
+				}
+			}
+
+			navy_experience = 15
+		}
+	}
+
+
+	focus = {
+		id = SER_pk_build_first_ships
+		icon = GFX_goal_generic_navy_cruiser
+		x = 60
+		y = 3
+
+		cost = 10
+		
+		available = {
+			any_owned_state = { is_coastal = yes }
+		}
+
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			country_event = { id = serbia.19 } # Event to choose to build ships or not
+
+			# Unlocks 1936 level cruisers & destroyers
+			set_technology = { early_destroyer = 1 }
+			set_technology = { basic_destroyer = 1 }
+			set_technology = { early_light_cruiser = 1 }
+			set_technology = { basic_light_cruiser = 1 }
+		}
+	}
+
+	focus = {
+		id = SER_pk_expand_ports
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 56
+		y = 4
+
+		cost = 10
+
+		ai_will_do = { factor = 3 }
+
+		prerequisite = { focus = SER_pk_build_first_ships }
+		prerequisite = { focus = SER_pk_birth_of_the_navy }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = { naval_base > 1 }
+
+				add_building_construction = {
+					type = naval_base
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+						level > 1
+					}
+					level = 2
+					instant_build = yes
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = { naval_base > 0 }
+
+				add_building_construction = {
+					type = naval_base
+					province = {
+						all_provinces = yes
+						limit_to_naval_base = yes
+						level > 0
+					}
+					level = 2
+					instant_build = yes
+				}
+			}
+
+			random_owned_controlled_state = {
+				limit = {
+					is_coastal = yes
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_fleet_maneuvers
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 58
+		y = 4
+
+		cost = 10
+
+		ai_will_do = { factor = 2 }
+
+		prerequisite = { focus = SER_pk_build_first_ships }
+		prerequisite = { focus = SER_pk_birth_of_the_navy }
+
+		completion_reward = {
+			navy_experience = 25
+
+			add_tech_bonus = {
+				name = SER_pk_fleet_maneuvers
+				bonus = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_buy_hms_lion
+		icon = GFX_goal_generic_navy_battleship
+		x = 60
+		y = 4
+
+		cost = 10
+
+		ai_will_do = { factor = 10 }
+
+		prerequisite = { focus = SER_pk_build_first_ships }
+		prerequisite = { focus = SER_pk_birth_of_the_navy }
+		
+		mutually_exclusive = { focus = SER_pk_cruiser_effort }
+
+		completion_reward = {
+			if = {
+				limit = {
+					CAN = {
+						exists = yes
+						is_subject = no
+					}
+				}
+
+				CAN = { country_event = { id = serbia.20 hours = 6 } }
+
+				else = {
+					add_tech_bonus = {
+						name = ROM_light_cruiser_bonus
+						bonus = 0.5
+						ahead_reduction = 1
+						uses = 1
+						category = cl_tech
+					}
+				}
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_cruiser_effort
+		icon = GFX_goal_generic_occupy_states_coastal
+		x = 62
+		y = 4
+
+		cost = 10
+
+		ai_will_do = { factor = 3 }
+
+		prerequisite = { focus = SER_pk_build_first_ships }
+		prerequisite = { focus = SER_pk_birth_of_the_navy }
+		
+		mutually_exclusive = { focus = SER_pk_buy_hms_lion }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = SER_pk_cruiser_effort
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				category = ca_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_focus_on_submarines
+		icon = GFX_goal_generic_navy_submarine
+		x = 56
+		y = 5
+
+		cost = 10
+
+		ai_will_do = { factor = 8 }
+
+		prerequisite = { focus = SER_pk_expand_ports }
+
+		completion_reward = {
+			set_technology = { early_submarine = 1 }
+
+			add_tech_bonus = {
+				name = ss_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				category = ss_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_build_destroyers
+		icon = GFX_goal_generic_wolf_pack
+		x = 61
+		y = 5
+
+		cost = 10
+
+		ai_will_do = { factor = 3 }
+
+		prerequisite = { focus = SER_pk_buy_hms_lion focus = SER_pk_cruiser_effort }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = dd_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				category = dd_tech
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_invest_in_light_cruisers
+		icon = GFX_goal_generic_navy_cruiser
+		x = 58
+		y = 5
+
+		cost = 10
+
+		ai_will_do = { factor = 2 }
+
+		prerequisite = { focus = SER_pk_fleet_maneuvers }
+
+		completion_reward = {
+			navy_experience = 25
+
+			add_tech_bonus = {
+				name = ROM_light_cruiserbonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				category = cl_tech
+			}
+		}
+	}
+	
+	###################
+	## BELGRADE PACT ##
+	###################
+	
+	focus = {
+		id = SER_pk_belgrade_pact_future
+		icon = GFX_goal_generic_military_deal
+		x = 3
+		y = 8
+
+		cost = 1
+
+		available = {
+			OR ={
+				BUL = { is_subject = yes }
+				NOT = { country_exists = BUL }
+			}
+			OR ={
+				AUS = { is_subject = yes }
+				NOT = { country_exists = AUS }
+			}
+			is_faction_leader = yes
+		}
+
+		mutually_exclusive = { focus = SER_pk_belgrade_pact_end }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			country_event = { id = serbia.60 }
+		}
+	}
+	
+	focus = {
+		id = SER_pk_belgrade_pact_science
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 2
+		y = 9
+		
+		prerequisite = { focus = SER_pk_belgrade_pact_future }
+		
+		mutually_exclusive = { focus = SER_pk_belgrade_pact_forts }
+		
+		available = { 
+			is_faction_leader = yes
+			has_country_flag = serbia_belgrade_pact_kept
+		}
+		
+		cost = 10
+		
+		ai_will_do = {
+			factor = 100
+		}
+		completion_reward = {
+			add_to_tech_sharing_group = tesla_collab_research
+			every_country = {
+				limit = { 
+					OR = {
+						is_in_faction_with = SER 
+						is_subject_of = SER
+					}
+				}
+				country_event = { id = serbia.61 }
+			}
+		}
+	}
+
+	focus = {
+		id = SER_pk_belgrade_pact_attack_germany
+		icon = GFX_goal_generic_occupy_start_war
+		x = 2
+		y = 10
+
+		cost = 10
+
+		prerequisite = { 
+		focus = SER_pk_belgrade_pact_science
+		}
+
+		available = {
+			is_subject = no
+			country_exists = GER
+		}
+
+		ai_will_do = {
+			factor = 15
+
+			modifier = {
+				factor = 0
+
+				has_war = yes
+			}
+		}
+
+		will_lead_to_war_with = GER
+
+		completion_reward = {
+			create_wargoal = {
+				target = GER
+				type = annex_everything
+			}	
+		}
+	}
+	
+	focus = {
+		id = SER_pk_belgrade_pact_forts
+		icon = GFX_goal_generic_fortify_city
+		x = 4
+		y = 9
+
+		cost = 10
+
+		prerequisite = { focus = SER_pk_belgrade_pact_future }
+		
+		available = { 
+			has_country_flag = serbia_belgrade_pact_dissolved_focus
+		}
+		
+		mutually_exclusive = { focus = SER_pk_belgrade_pact_science }
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			swap_ideas = {
+				remove_idea = SER_pk_belgrade_pact_former_idea
+				add_idea = SER_pk_belgrade_pact_former2_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_pk_belgrade_pact_end
+		icon = GFX_goal_generic_forceful_treaty
+		x = 7
+		y = 8
+
+		cost = 1
+
+		mutually_exclusive = { focus = SER_pk_belgrade_pact_future }
+		
+		available = {
+			NOT = { is_in_faction_with = ROM }
+			NOT = { is_in_faction_with = RRM }
+			NOT = { is_in_faction_with = GRE }
+			NOT = { is_in_faction_with = OTT }
+			has_country_flag = founded_belgradepact
+		}
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			dismantle_faction = yes
+			add_political_power = 10
+		}
+	}
+	
+	focus = {
+		id = SER_pk_third_internationale_join
+		icon = GFX_goal_generic_attack_allies
+		cost = 5
+		
+		mutually_exclusive = { focus = SER_pk_fourth_internationale_join }
+		
+		prerequisite = { focus = SER_pk_belgrade_pact_end }
+		
+		x = 6
+		y = 9
+
+		ai_will_do = {
+			factor = 50
+		}
+
+		completion_reward = {
+			
+			FRA = {
+				country_event = {
+					id = serbia.62
+				}
+			}
+		}
+
+		available = {
+			country_exists = FRA
+			FRA = {
+				is_subject = no
+			}
+			FRA = {
+				is_faction_leader = yes
+			}
+			SER = {
+				has_war = no
+			}
+			is_subject = no
+			is_in_faction = no
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+				has_country_flag = serbia_radsoc_committed
+			}
+		}
+		bypass = {
+			SER = {
+				is_in_faction_with = FRA
+			}
+		}
+		available_if_capitulated = no
+	}
+	
+	focus = {
+		id = SER_pk_fourth_internationale_join
+		icon = GFX_goal_support_fourth_int
+		cost = 5
+		
+		mutually_exclusive = { focus = SER_pk_third_internationale_join }
+		
+		prerequisite = { focus = SER_pk_belgrade_pact_end }
+		
+		x = 8
+		y = 9
+
+		ai_will_do = {
+			factor = 50
+		}
+
+		completion_reward = {
+			
+			SOV = {
+				country_event = {
+					id = serbia.65
+				}
+			}
+		}
+
+		available = {
+			country_exists = SOV
+			SOV = {
+				is_subject = no
+			}
+			SOV = {
+				is_faction_leader = yes
+			}
+			SER = {
+				has_war = no
+			}
+			is_subject = no
+			is_in_faction = no
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+				has_country_flag = serbia_radsoc_committed
+			}
+		}
+		bypass = {
+			SER = {
+				is_in_faction_with = SOV
+			}
+		}
+		available_if_capitulated = no
+
+	}
+	
+}
