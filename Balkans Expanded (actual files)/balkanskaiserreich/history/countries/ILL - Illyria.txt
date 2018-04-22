@@ -23,9 +23,9 @@ set_technology = {
 }
 
 add_ideas = { 
-    ILL_pk_croatian_command
-	ILL_pk_montenegrin_nationalism_idea
-	ILL_pk_bosnian_issue_idea
+    ILL_croatian_command
+	ILL_montenegrin_nationalism_idea
+	ILL_bosnian_issue_idea
 	#medium_economy
 	ILL_Dzafer_beg_Kulenovic_hog_pau
 	ILL_Mehmed_Alajbegovic_for_npo

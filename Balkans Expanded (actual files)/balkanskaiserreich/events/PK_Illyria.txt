@@ -818,7 +818,7 @@ country_event = { #Hungary - Illyria caves in
 		name = illyria.29.a
 		add_timed_idea = { idea = ILL_hungary_reparations2_idea days = 730}
 		add_state_core = 794
-		every_state = {
+		any_state = {
 			limit = {
 				is_owned_by = ILL
 				is_claimed_by = HUN
@@ -2762,7 +2762,7 @@ country_event = { # France - Illyria breaks their promise
 		add_political_power = 5
 		AUS = { country_event = { days = 1 id = illyria.87 } }
 		set_country_flag = illyria_french_austrian_war_austria_win
-		set+country_flag = illyria_french_betrayal_end
+		set_country_flag = illyria_french_betrayal_end
 	}
 }
 
@@ -3348,7 +3348,7 @@ country_event = { #Illyria - Serbia disagrees
 		    limit = {
 			    is_core_of = SER
 			}
-			add_claim_of = ILL
+			add_claim_by = ILL
 		}
 	}
 }
@@ -3394,7 +3394,7 @@ country_event = { #Albania - Illyria asks for unification
 		ai_chance = { factor = 10 }
 		ILL = {
 			annex_country = { target = ALB }
-			every_state = {
+			any_state = {
 				limit = {
 					is_core_of = ALB
 				}
