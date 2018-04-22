@@ -3084,3 +3084,81 @@ country_event = { # Flag Referendum
 	}
 	
 }
+
+country_event = { # Welcome to Balkans Upgraded
+	id = serbia.72
+	title = serbia.72.t
+	desc = serbia.72.d
+	
+	trigger = {
+		OR = {
+			tag = SER 
+			tag = ILL
+		}
+		is_ai = no
+		
+	}
+	
+	mean_time_to_happen = { days = 1 }
+	fire_only_once = yes
+	
+	option = {
+		name = serbia.72.a # Proceed normally
+		ai_chance = { factor = 100 }
+
+	}
+	
+	option = {
+		name = serbia.72.b # I was promised 2pac and Morgan Freeman
+		ai_chance = { factor = 0 }
+		country_event = { days = 1 id = serbia.73 }
+	}
+	
+}
+
+country_event = { # Welcome to Balkans Upgraded
+	id = serbia.73
+	title = serbia.73.t
+	desc = serbia.73.d
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = serbia.73.a
+		ai_chance = { factor = 100 }
+		SER = {
+			kill_country_leader = yes
+			set_politics = { ruling_party = social_liberal elections_allowed = no }
+			create_country_leader = {
+				name = "Tupac Shakur"
+				picture = "Tupac.tga"
+				expire = "1965.1.1"
+				ideology = social_liberal
+				traits = { }
+			}
+			add_popularity = { ideology = social_liberal popularity = 1 }
+			add_popularity = { ideology = national_populist popularity = -1 }
+			add_popularity = { ideology = paternal_autocrat popularity = -1 }
+			add_popularity = { ideology = authoritarian_democrat popularity = -1 }
+			add_popularity = { ideology = social_conservative popularity = -1 }
+		}
+		ILL = {
+			kill_country_leader = yes
+			set_politics = { ruling_party = social_liberal elections_allowed = no }
+			create_country_leader = {
+				name = "God"
+				picture = "Morgan_Freeman.tga"
+				expire = "1965.1.1"
+				ideology = social_liberal
+				traits = { }
+			}
+			add_popularity = { ideology = social_liberal popularity = 1 }
+			add_popularity = { ideology = national_populist popularity = -1 }
+			add_popularity = { ideology = paternal_autocrat popularity = -1 }
+			add_popularity = { ideology = authoritarian_democrat popularity = -1 }
+			add_popularity = { ideology = social_conservative popularity = -1 }
+		}
+	}
+	
+}
