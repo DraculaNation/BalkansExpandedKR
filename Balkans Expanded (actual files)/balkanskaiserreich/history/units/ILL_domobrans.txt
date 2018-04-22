@@ -1,0 +1,54 @@
+﻿########
+#Templates
+########
+
+division_template = {
+	name = "Domobrani"	
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		
+	}
+}
+
+
+########
+units = {
+########
+
+#### INF ####
+	division= {	
+		name = "Domobrani I"
+		location = 11581
+		division_template = "Domobrani"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "Domobrani II"
+		location = 11564
+		division_template = "Domobrani"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "Domobrani III"
+		location = 9894
+		division_template = "Domobrani"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "Domobrani IV"
+		location = 3924
+		division_template = "Domobrani"
+		start_experience_factor = 0.4
+	}
+}

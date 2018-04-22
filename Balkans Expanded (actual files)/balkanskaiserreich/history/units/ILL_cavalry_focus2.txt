@@ -1,0 +1,54 @@
+﻿########
+#Templates
+########
+
+division_template = {
+	name = "Konjica"	
+
+	regiments = {
+		cavalry = { x = 0 y = 0 }
+		cavalry = { x = 0 y = 1 }
+		cavalry = { x = 0 y = 2 }
+		cavalry = { x = 1 y = 0 }
+		cavalry = { x = 1 y = 1 }
+		cavalry = { x = 1 y = 2 }
+		cavalry = { x = 2 y = 0 }
+		cavalry = { x = 2 y = 1 }
+		cavalry = { x = 2 y = 2 }
+	}
+	support = {
+		
+	}
+}
+
+
+########
+units = {
+########
+
+#### INF ####
+	division= {	
+		name = "Konjica I"
+		location = 11581
+		division_template = "Konjica"
+		start_experience_factor = 0.8
+	}
+	division= {	
+		name = "Konjica II"
+		location = 11564
+		division_template = "Konjica"
+		start_experience_factor = 0.8
+	}
+	division= {	
+		name = "Konjica III"
+		location = 9894
+		division_template = "Konjica"
+		start_experience_factor = 0.8
+	}
+	division= {	
+		name = "Konjica IV"
+		location = 3924
+		division_template = "Konjica"
+		start_experience_factor = 0.8
+	}
+}

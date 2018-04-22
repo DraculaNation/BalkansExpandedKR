@@ -1878,7 +1878,7 @@ focus_tree = {
 	
 	focus = {
 		id = ILL_catholic_supremacy
-		icon = GFX_goal_KTG_Colonial_Trinity2
+		icon = GFX_PAP_holy_war
 		x = 17
 		y = 7
 
@@ -2111,7 +2111,7 @@ focus_tree = {
 	
 	focus = {
 		id = ILL_religious_oligarchy
-		icon = GFX_goal_government_icon
+		icon = GFX_goal_KTG_Colonial_Trinity2
 		x = 19
 		y = 10
 
@@ -2133,7 +2133,7 @@ focus_tree = {
 	
 	focus = {
 		id = ILL_god_protects_us
-		icon = GFX_focus_generic_self_management
+		icon = GFX_goal_government_icon
 		x = 19
 		y = 11
 
@@ -2912,7 +2912,7 @@ focus_tree = {
 	
 	focus = {
 		id = ILL_the_romani
-		icon = GFX_goal_LBR_whiter_pale
+		icon = GFX_goal_POR_burden_empire
 		x = 31
 		y = 8
 
@@ -4791,7 +4791,7 @@ focus_tree = {
 	
 	focus = {
 		id = ILL_slavic_federation
-		icon = GFX_goal_AUS_slav_king
+		icon = GFX_goal_generic_national_unity
 		x = 19
 		y = 13
 
@@ -4817,7 +4817,7 @@ focus_tree = {
 	
 	focus = {
 		id = ILL_unite_the_balkans
-		icon = GFX_goal_generic_national_unity
+		icon = GFX_goal_balkan_fist
 		x = 21
 		y = 13
 

@@ -1,0 +1,48 @@
+﻿########
+#Templates
+########
+
+division_template = {
+	name = "Združena Borbena Organizacija Rada"	
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+		militia = { x = 2 y = 2 }
+	}
+	support = {
+		
+	}
+}
+
+
+########
+units = {
+########
+
+#### INF ####
+	division= {	
+		name = "ZBOR Dobrovoljci 1"
+		location = 3984
+		division_template = "Združena Borbena Organizacija Rada"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "ZBOR Dobrovoljci 2"
+		location = 6953
+		division_template = "Združena Borbena Organizacija Rada"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "ZBOR Dobrovoljci 3"
+		location = 937
+		division_template = "Združena Borbena Organizacija Rada"
+		start_experience_factor = 0.4
+	}
+}
