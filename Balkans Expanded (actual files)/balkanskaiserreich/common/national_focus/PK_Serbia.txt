@@ -1,10 +1,15 @@
+###########################
+# Serbia Focus Tree
+# By Wyandotte and Dracula Nation
+###########################
+
 focus_tree = {
-	id = powderkeg_serbia_focus
+	id = serbia_focus
 
 	country = {
 		factor = 0
 		modifier = {
-			add = 100
+			add = 10
 			tag = SER
 		}
 	}
@@ -18,14 +23,14 @@ focus_tree = {
 	### Stability vs Instability ###
 	
 	focus = {
-		id = SER_pk_everything_is_fine
+		id = SER_everything_is_fine
 		icon = GFX_goal_generic_radar
 		x = 4
 		y = 0
 
 		cost = 1
 
-		mutually_exclusive = { focus = SER_pk_the_country_in_chaos }
+		mutually_exclusive = { focus = SER_the_country_in_chaos }
 
 		available = { date > 1937.2.1 }
 
@@ -41,19 +46,19 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_the_country_in_chaos
+		id = SER_the_country_in_chaos
 		icon = GFX_goal_generic_attack_allies
 		x = 21
 		y = 0
 
 		cost = 1
 
-		mutually_exclusive = { focus = SER_pk_everything_is_fine }
+		mutually_exclusive = { focus = SER_everything_is_fine }
 
 		ai_will_do = { factor = 6 }
 
 		completion_reward = {
-			add_ideas = SER_pk_chaos_idea
+			add_ideas = SER_chaos_idea
 			set_country_flag = serbia_in_chaos
 		}
 	}
@@ -62,18 +67,18 @@ focus_tree = {
 	
 	### Regent ###
 	focus = {
-		id = SER_pk_keep_regent
+		id = SER_keep_regent
 		icon = GFX_focus_generic_home_defense
 		x = 1
 		y = 1
 
 		cost = 1
 
-		prerequisite = { focus = SER_pk_everything_is_fine }
+		prerequisite = { focus = SER_everything_is_fine }
 		
 		mutually_exclusive = {
-			focus = SER_pk_crown_the_king
-			focus = SER_pk_declare_republic
+			focus = SER_crown_the_king
+			focus = SER_declare_republic
 		}
 
 		ai_will_do = { factor = 100 }
@@ -89,14 +94,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_strengthen_regent_rule
+		id = SER_strengthen_regent_rule
 		icon = GFX_goal_generic_demand_territory
 		x = 1
 		y = 2
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_keep_regent }
+		prerequisite = { focus = SER_keep_regent }
 
 		ai_will_do = { factor = 20 }
 
@@ -107,14 +112,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_military_schools
+		id = SER_military_schools
 		icon = GFX_goal_generic_army_doctrines
 		x = 1
 		y = 3
 
 		cost = 5
 
-		prerequisite = { focus = SER_pk_strengthen_regent_rule }
+		prerequisite = { focus = SER_strengthen_regent_rule }
 
 		ai_will_do = { factor = 20 }
 
@@ -130,14 +135,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_larger_army_role
+		id = SER_larger_army_role
 		icon = GFX_goal_generic_major_alliance
 		x = 1
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_military_schools }
+		prerequisite = { focus = SER_military_schools }
 
 		ai_will_do = {
 			factor = 15
@@ -149,19 +154,19 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = SER_pk_army_command
+			add_ideas = SER_army_command
 		}
 	}
 	
 	focus = {
-		id = SER_pk_quality_workforce
+		id = SER_quality_workforce
 		icon = GFX_goal_generic_production
 		x = 1
 		y = 5
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_larger_army_role }
+		prerequisite = { focus = SER_larger_army_role }
 
 		ai_will_do = {
 			factor = 15
@@ -173,20 +178,20 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = SER_pk_quality_workforce_idea
+			add_ideas = SER_quality_workforce_idea
 			add_popularity = { ideology = syndicalist popularity = 0.05 }
 		}
 	}
 	
 	focus = {
-		id = SER_pk_kosovo_chromium
+		id = SER_kosovo_chromium
 		icon = GFX_goal_chromium
 		x = 1
 		y = 6
 
 		cost = 5
 
-		prerequisite = { focus = SER_pk_quality_workforce }
+		prerequisite = { focus = SER_quality_workforce }
 
 		ai_will_do = { factor = 20 }
 
@@ -201,18 +206,18 @@ focus_tree = {
 
 	### King ###
 	focus = {
-		id = SER_pk_crown_the_king
+		id = SER_crown_the_king
 		icon = GFX_goal_tfv_strengthen_commonwealth_ties
 		x = 4
 		y = 1
 
 		cost = 1
 		
-		prerequisite = { focus = SER_pk_everything_is_fine }
+		prerequisite = { focus = SER_everything_is_fine }
 		
 		mutually_exclusive = {
-			focus = SER_pk_keep_regent
-			focus = SER_pk_declare_republic
+			focus = SER_keep_regent
+			focus = SER_declare_republic
 		}
 
 		ai_will_do = { factor = 500 }
@@ -227,7 +232,7 @@ focus_tree = {
 
 			if = {
 				limit = {
-					NOT = { has_completed_focus = SER_pk_form_yugoslavia }
+					NOT = { has_completed_focus = SER_form_yugoslavia }
 				}
 				set_cosmetic_tag = SER_kingdom
 			}
@@ -284,16 +289,16 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_absolutism
+		id = SER_absolutism
 		icon = GFX_goal_authoritarian
 		x = 3
 		y = 2
 
 		cost = 1
 
-		prerequisite = { focus = SER_pk_crown_the_king }
+		prerequisite = { focus = SER_crown_the_king }
 
-		mutually_exclusive = { focus = SER_pk_constitutionalism }
+		mutually_exclusive = { focus = SER_constitutionalism }
 
 		available = { has_country_flag = absolute_monarchy }
 
@@ -314,49 +319,49 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_monument_to_the_unknown_hero
+		id = SER_monument_to_the_unknown_hero
 		icon = GFX_goal_generic_alliance
 		x = 3
 		y = 3
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_absolutism	}
+		prerequisite = { focus = SER_absolutism	}
 
 		ai_will_do = { factor = 20 }
 
 		completion_reward = {
-			add_ideas = SER_pk_heroic_spirit
+			add_ideas = SER_heroic_spirit
 		}
 	}
 	
 	focus = {
-		id = SER_pk_orthodox_church_cooperation
+		id = SER_orthodox_church_cooperation
 		icon = GFX_goal_tax_church
 		x = 3
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_monument_to_the_unknown_hero }
+		prerequisite = { focus = SER_monument_to_the_unknown_hero }
 
 		ai_will_do = { factor = 20 }
 
 		completion_reward = {
-			add_ideas = SER_pk_orthodox_cooperation
+			add_ideas = SER_orthodox_cooperation
 			add_stability = 0.05
 		}
 	}
 
 	focus = {
-		id = SER_pk_glory_to_the_king
+		id = SER_glory_to_the_king
 		icon = GFX_goal_generic_propaganda
 		x = 3
 		y = 5
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_orthodox_church_cooperation }
+		prerequisite = { focus = SER_orthodox_church_cooperation }
 
 		ai_will_do = { factor = 15 }
 
@@ -367,14 +372,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_purge_the_opposition
+		id = SER_purge_the_opposition
 		icon = GFX_goal_generic_political_pressure
 		x = 3
 		y = 6
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_glory_to_the_king }
+		prerequisite = { focus = SER_glory_to_the_king }
 
 		ai_will_do = { factor = 15 }
 
@@ -388,7 +393,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_a_strong_state
+		id = SER_a_strong_state
 		icon = GFX_focus_generic_little_entente
 		x = 2
 		y = 7
@@ -396,27 +401,27 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = SER_pk_purge_the_opposition
-			focus = SER_pk_kosovo_chromium
+			focus = SER_purge_the_opposition
+			focus = SER_kosovo_chromium
 		}
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = SER_pk_strong_state_idea
+			add_ideas = SER_strong_state_idea
 		}
 	}
 
 	focus = {
-		id = SER_pk_constitutionalism
+		id = SER_constitutionalism
 		icon = GFX_goal_generic_neutrality_focus
 		x = 5
 		y = 2
 
 		cost = 1
 
-		prerequisite = { focus = SER_pk_crown_the_king }
-		mutually_exclusive = { focus = SER_pk_absolutism }
+		prerequisite = { focus = SER_crown_the_king }
+		mutually_exclusive = { focus = SER_absolutism }
 
 		available = { has_country_flag = constitutional_monarchy }
 
@@ -434,48 +439,48 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_free_society
+		id = SER_free_society
 		icon = GFX_focus_generic_the_giant_wakes
 		x = 5
 		y = 3
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_constitutionalism }
+		prerequisite = { focus = SER_constitutionalism }
 
 		ai_will_do = { factor = 20 }
 
 		completion_reward = {
-			add_ideas = SER_pk_free_society_idea
+			add_ideas = SER_free_society_idea
 		}
 	}
 	
 	focus = {
-		id = SER_pk_modernize_schools
+		id = SER_modernize_schools
 		icon = GFX_focus_generic_self_management
 		x = 5
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_free_society }
+		prerequisite = { focus = SER_free_society }
 
 		ai_will_do = { factor = 20 }
 
 		completion_reward = {
-			add_ideas = SER_pk_schools_idea
+			add_ideas = SER_schools_idea
 		}
 	}
 
 	focus = {
-		id = SER_pk_private_companies
+		id = SER_private_companies
 		icon = GFX_goal_generic_intelligence_exchange
 		x = 5
 		y = 5
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_modernize_schools }
+		prerequisite = { focus = SER_modernize_schools }
 
 		ai_will_do = { factor = 15 }
 
@@ -501,36 +506,36 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_encourage_industrialization
+		id = SER_encourage_industrialization
 		icon = GFX_goal_generic_construct_civilian
 		x = 5
 		y = 6
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_private_companies }
+		prerequisite = { focus = SER_private_companies }
 
 		ai_will_do = { factor = 20 }
 
 		completion_reward = {
-			add_ideas = SER_pk_industrialization_idea
+			add_ideas = SER_industrialization_idea
 		}
 	}
 	
 	### Republic ###
 	focus = {
-		id = SER_pk_declare_republic
+		id = SER_declare_republic
 		icon = GFX_goal_tfv_sever_ties_with_uk
 		x = 8
 		y = 1
 
 		cost = 1
 		
-		prerequisite = { focus = SER_pk_everything_is_fine }
+		prerequisite = { focus = SER_everything_is_fine }
 		
 		mutually_exclusive = {
-			focus = SER_pk_crown_the_king
-			focus = SER_pk_keep_regent
+			focus = SER_crown_the_king
+			focus = SER_keep_regent
 		}
 
 		ai_will_do = { factor = 200 }
@@ -543,7 +548,7 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = {
-					NOT = { has_completed_focus = SER_pk_form_yugoslavia }
+					NOT = { has_completed_focus = SER_form_yugoslavia }
 				}
 				set_cosmetic_tag = SER_republic
 			}
@@ -559,14 +564,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_hold_elections
+		id = SER_hold_elections
 		icon = GFX_goal_anschluss
 		x = 8
 		y = 2
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_declare_republic }
+		prerequisite = { focus = SER_declare_republic }
 
 		ai_will_do = { factor = 20 }
 
@@ -578,20 +583,20 @@ focus_tree = {
 			hidden_effect = {
 				set_politics = { ruling_party = market_liberal elections_allowed = yes }
 			}
-			custom_effect_tooltip = SER_pk_first_elections_tooltip
+			custom_effect_tooltip = SER_first_elections_tooltip
 			add_political_power = 40
 		}
 	}
 
 	focus = {
-		id = SER_pk_freedom
+		id = SER_freedom
 		icon = GFX_goal_support_democracy
 		x = 8
 		y = 3
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_hold_elections }
+		prerequisite = { focus = SER_hold_elections }
 
 		available = {
 			NOT = {
@@ -603,6 +608,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_stability = 0.10
+			add_war_support = 0.05
 			add_political_power = 100
 			add_popularity = { ideology = radical_socialist popularity = 0.05 }
 			add_popularity = { ideology = syndicalist popularity = 0.03 }
@@ -613,17 +619,17 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_adaptive_economy
+		id = SER_adaptive_economy
 		icon = GFX_goal_generic_neutrality_focus
 		x = 7
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_freedom }
+		prerequisite = { focus = SER_freedom }
 
 		mutually_exclusive = {
-			focus = SER_pk_libertarian_state
+			focus = SER_libertarian_state
 		}
 		
 		available = {
@@ -641,23 +647,23 @@ focus_tree = {
 		ai_will_do = { factor = 20 }
 
 		completion_reward = {
-			add_ideas = SER_pk_adaptive_economy_idea
+			add_ideas = SER_adaptive_economy_idea
 			add_popularity = { ideology = social_conservative popularity = 0.2 }
 		}
 	}
 	
 	focus = {
-		id = SER_pk_libertarian_state
+		id = SER_libertarian_state
 		icon = GFX_focus_generic_the_giant_wakes
 		x = 9
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_freedom }
+		prerequisite = { focus = SER_freedom }
 
 		mutually_exclusive = {
-			focus = SER_pk_adaptive_economy
+			focus = SER_adaptive_economy
 		}
 		
 		available = {
@@ -667,30 +673,30 @@ focus_tree = {
 		ai_will_do = { factor = 20 }
 
 		completion_reward = {
-			add_ideas = SER_pk_libertarian_state_idea
+			add_ideas = SER_libertarian_state_idea
 			add_popularity = { ideology = social_liberal popularity = 0.2 }
 		}
 	}
 	
 	focus = {
-		id = SER_pk_scientific_effort
+		id = SER_scientific_effort
 		icon = GFX_goal_generic_scientific_exchange
 		x = 8
 		y = 6
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_state_factory_opening}
+		prerequisite = { focus = SER_state_factory_opening}
 
 		ai_will_do = { factor = 15 }
 
 		completion_reward = {
-			add_ideas = SER_pk_science_idea
+			add_ideas = SER_science_idea
 		}
 	}
 	
 	focus = {
-		id = SER_pk_state_factory_opening
+		id = SER_state_factory_opening
 		icon = GFX_goal_generic_construction
 		x = 8
 		y = 5
@@ -698,8 +704,8 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite = {
-			focus = SER_pk_libertarian_state
-			focus = SER_pk_adaptive_economy 
+			focus = SER_libertarian_state
+			focus = SER_adaptive_economy 
 		}
 
 		available = {
@@ -719,7 +725,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_democracy_on_balkans
+		id = SER_democracy_on_balkans
 		icon = GFX_goal_government_icon
 		x = 7
 		y = 7
@@ -727,20 +733,20 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = SER_pk_encourage_industrialization
-			focus = SER_pk_scientific_effort
+			focus = SER_encourage_industrialization
+			focus = SER_scientific_effort
 		}
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = SER_pk_beacon_of_liberty
+			add_ideas = SER_beacon_of_liberty
 		}
 	}
 		### Royalist Coup ###
 		
 	focus = {
-		id = SER_pk_make_the_king_proud
+		id = SER_make_the_king_proud
 		icon = GFX_focus_rom_royal_dictatorship
 		x = 11
 		y = 3
@@ -748,7 +754,7 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = SER_pk_hold_elections
+			focus = SER_hold_elections
 		}
 
 		available = {
@@ -765,14 +771,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_larger_army_role_draza
+		id = SER_larger_army_role_draza
 		icon = GFX_goal_generic_major_alliance
 		x = 11
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_make_the_king_proud }
+		prerequisite = { focus = SER_make_the_king_proud }
 
 		ai_will_do = {
 			factor = 15
@@ -784,19 +790,19 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = SER_pk_army_command
+			add_ideas = SER_army_command
 		}
 	}
 	
 	focus = {
-		id = SER_pk_purge_syndicalists
+		id = SER_purge_syndicalists
 		icon = GFX_goal_generic_war_with_comintern
 		x = 11
 		y = 5
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_larger_army_role_draza }
+		prerequisite = { focus = SER_larger_army_role_draza }
 
 		ai_will_do = {
 			factor = 10
@@ -816,20 +822,20 @@ focus_tree = {
 						has_government = syndicalist
 					}
 				}
-			add_opinion_modifier = { target = SER modifier = SER_pk_purged_syndicalists }
+			add_opinion_modifier = { target = SER modifier = SER_purged_syndicalists }
 			}
 		}
 	}
 	
 	focus = {
-		id = SER_pk_return_of_the_king
+		id = SER_return_of_the_king
 		icon = GFX_focus_hun_elect_a_king
 		x = 10
 		y = 6
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_purge_syndicalists }
+		prerequisite = { focus = SER_purge_syndicalists }
 
 		ai_will_do = {
 			factor = 10
@@ -846,7 +852,7 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					NOT = { has_completed_focus = SER_pk_form_yugoslavia }
+					NOT = { has_completed_focus = SER_form_yugoslavia }
 				}
 				set_cosmetic_tag = SER_kingdom
 			}
@@ -857,21 +863,21 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_reverse_the_reforms
+		id = SER_reverse_the_reforms
 		icon = GFX_goal_generic_forceful_treaty
 		x = 12
 		y = 6
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_purge_syndicalists }
+		prerequisite = { focus = SER_purge_syndicalists }
 
 		ai_will_do = {
 			factor = 10
 		}
 
 		completion_reward = {
-			add_ideas = SER_pk_strong_state_idea
+			add_ideas = SER_strong_state_idea
 			add_political_power = -50
 		}
 	}
@@ -879,7 +885,7 @@ focus_tree = {
 	### CHAOS ###
 	
 	focus = {
-		id = SER_pk_military_coup
+		id = SER_military_coup
 		icon = GFX_focus_rom_handle_king
 		x = 16
 		y = 1
@@ -887,11 +893,11 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_the_country_in_chaos
+			focus = SER_the_country_in_chaos
 		}
 		
 		mutually_exclusive = {
-			focus = SER_pk_syndie_coup
+			focus = SER_syndie_coup
 		}
 		
 		ai_will_do = { factor = 400 }
@@ -903,40 +909,40 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_nedic_rule
+		id = SER_nedic_rule
 		icon = GFX_focus_secret_rearmament
 		x = 15
 		y = 2
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_military_coup }
+		prerequisite = { focus = SER_military_coup }
 
 		available = {
 			has_government = paternal_autocrat
 		}
 		
-		mutually_exclusive = { focus = SER_pk_ljotic_rule }
+		mutually_exclusive = { focus = SER_ljotic_rule }
 		
 		ai_will_do = {
 			factor = 10
 		}
 
 		completion_reward = {
-			add_ideas = SER_pk_nedic_idea
+			add_ideas = SER_nedic_idea
 			add_political_power = -50
 		}
 	}
 	
 	focus = {
-		id = SER_pk_every_able_man
+		id = SER_every_able_man
 		icon = GFX_goal_generic_small_arms
 		x = 15
 		y = 3
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_nedic_rule }
+		prerequisite = { focus = SER_nedic_rule }
 
 		ai_will_do = {
 			factor = 10
@@ -958,14 +964,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_collective_identity
+		id = SER_collective_identity
 		icon = GFX_goal_support_fascism
 		x = 15
 		y = 4
 
 		cost = 5
 
-		prerequisite = { focus = SER_pk_every_able_man }
+		prerequisite = { focus = SER_every_able_man }
 
 		
 		ai_will_do = {
@@ -973,25 +979,25 @@ focus_tree = {
 		}
 
 		completion_reward = {
-		remove_ideas = SER_pk_chaos_idea
+		remove_ideas = SER_chaos_idea
 		add_political_power = 40
 		hidden_effect = { set_country_flag = serbia_chaos_over }
 		}
 	}
 	
 	focus = {
-		id = SER_pk_minority_compromise
+		id = SER_minority_compromise
 		icon = GFX_goal_compromise_with_albania
 		x = 14
 		y = 5
 
 		cost = 5
 
-		prerequisite = { focus = SER_pk_collective_identity }
+		prerequisite = { focus = SER_collective_identity }
 
 		mutually_exclusive = {
-			focus = SER_pk_found_religious_schools
-			focus = SER_pk_agrarianism
+			focus = SER_found_religious_schools
+			focus = SER_agrarianism
 		}
 		
 		available = { country_exists = ALB }
@@ -1008,34 +1014,34 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_pass_militaristic_reforms
+		id = SER_pass_militaristic_reforms
 		icon = GFX_goal_generic_forceful_treaty
 		x = 14
 		y = 6
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_minority_compromise }
+		prerequisite = { focus = SER_minority_compromise }
 
 		ai_will_do = {
 			factor = 10
 		}
 
 		completion_reward = {
-		add_ideas = SER_pk_militaristic_laws_idea
+		add_ideas = SER_militaristic_laws_idea
 		add_political_power = 50
 		}
 	}
 	
 	focus = {
-		id = SER_pk_mitteleuropa_sympathy
+		id = SER_mitteleuropa_sympathy
 		icon = GFX_goal_generic_dangerous_deal
 		x = 14
 		y = 7
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_pass_militaristic_reforms }
+		prerequisite = { focus = SER_pass_militaristic_reforms }
 
 		ai_will_do = {
 			factor = 10
@@ -1044,7 +1050,7 @@ focus_tree = {
 		available = { country_exists = GER }
 		
 		completion_reward = {
-			add_ideas = SER_pk_mitteleuropa_solidarity_idea 
+			add_ideas = SER_mitteleuropa_solidarity_idea 
 			diplomatic_relation = { 
 				country = GER
 				relation = non_aggression_pact 
@@ -1055,16 +1061,16 @@ focus_tree = {
 	### LJOTIC ###
 	
 	focus = {
-		id = SER_pk_ljotic_rule
+		id = SER_ljotic_rule
 		icon = GFX_focus_generic_support_the_left_right
 		x = 17
 		y = 2
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_military_coup }
+		prerequisite = { focus = SER_military_coup }
 
-		mutually_exclusive = { focus = SER_pk_nedic_rule }
+		mutually_exclusive = { focus = SER_nedic_rule }
 		
 		available = {
 			has_government = national_populist
@@ -1075,19 +1081,19 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = SER_pk_ljotic_idea
+			add_ideas = SER_ljotic_idea
 		}
 	}
 	
 	focus = {
-		id = SER_pk_zbor
+		id = SER_zbor
 		icon = GFX_goal_incorporate_zbor
 		x = 17
 		y = 3
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_ljotic_rule }
+		prerequisite = { focus = SER_ljotic_rule }
 		
 		ai_will_do = {
 			factor = 10
@@ -1095,8 +1101,8 @@ focus_tree = {
 
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = SER_pk_ljotic_idea
-				add_idea = SER_pk_zbor_idea
+				remove_idea = SER_ljotic_idea
+				add_idea = SER_zbor_idea
 			}
 			load_oob = SER_zbor_troops
 			add_political_power = 40
@@ -1104,14 +1110,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_expel_muslims
+		id = SER_expel_muslims
 		icon = GFX_goal_generic_secret_weapon
 		x = 17
 		y = 4
 
 		cost = 5
 
-		prerequisite = { focus = SER_pk_zbor }
+		prerequisite = { focus = SER_zbor }
 		
 		ai_will_do = {
 			factor = 10
@@ -1119,24 +1125,24 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = -25
-			remove_ideas = SER_pk_chaos_idea
-			add_timed_idea = { idea = SER_pk_muslim_unrest_idea days = 90 }
+			remove_ideas = SER_chaos_idea
+			add_timed_idea = { idea = SER_muslim_unrest_idea days = 90 }
 		}
 	}
 	
 	focus = {
-		id = SER_pk_agrarianism
+		id = SER_agrarianism
 		icon = GFX_goal_agrarian_reform
 		x = 18
 		y = 5
 
 		cost = 5
 
-		prerequisite = { focus = SER_pk_expel_muslims }
+		prerequisite = { focus = SER_expel_muslims }
 		
 		mutually_exclusive = {
-			focus = SER_pk_found_religious_schools
-			focus = SER_pk_minority_compromise
+			focus = SER_found_religious_schools
+			focus = SER_minority_compromise
 		}
 		
 		ai_will_do = {
@@ -1188,14 +1194,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_practical_rifles
+		id = SER_practical_rifles
 		icon = GFX_goal_generic_small_arms
 		x = 18
 		y = 6
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_agrarianism }
+		prerequisite = { focus = SER_agrarianism }
 		
 		ai_will_do = {
 			factor = 10
@@ -1212,14 +1218,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_russia_sympathy
+		id = SER_russia_sympathy
 		icon = GFX_goal_generic_major_alliance
 		x = 18
 		y = 7
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_practical_rifles }
+		prerequisite = { focus = SER_practical_rifles }
 
 		ai_will_do = {
 			factor = 10
@@ -1237,7 +1243,7 @@ focus_tree = {
 	### MIDDLE PATH ###
 	
 	focus = {
-		id = SER_pk_found_religious_schools
+		id = SER_found_religious_schools
 		icon = GFX_goal_constitutional_guarantees
 		x = 16
 		y = 5
@@ -1245,13 +1251,13 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-		focus = SER_pk_collective_identity 
-		focus = SER_pk_expel_muslims
+		focus = SER_collective_identity 
+		focus = SER_expel_muslims
 		}
 		
 		mutually_exclusive = {
-			focus = SER_pk_agrarianism
-			focus = SER_pk_minority_compromise
+			focus = SER_agrarianism
+			focus = SER_minority_compromise
 		}
 		
 		ai_will_do = {
@@ -1259,19 +1265,19 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = SER_pk_religious_schools_idea
+			add_ideas = SER_religious_schools_idea
 		}
 	}
 	
 	focus = {
-		id = SER_pk_condemn_the_syndicalists
+		id = SER_condemn_the_syndicalists
 		icon = GFX_goal_anti_comintern_pact
 		x = 16
 		y = 6
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_found_religious_schools }
+		prerequisite = { focus = SER_found_religious_schools }
 		
 		ai_will_do = {
 			factor = 10
@@ -1290,34 +1296,34 @@ focus_tree = {
 						has_government = syndicalist
 					}
 				}
-			add_opinion_modifier = { target = SER modifier = SER_pk_condemned_us }
+			add_opinion_modifier = { target = SER modifier = SER_condemned_us }
 			} 
 		}
 	}
 	
 	focus = {
-		id = SER_pk_beacon_of_orthodoxy
+		id = SER_beacon_of_orthodoxy
 		icon = GFX_goal_orthodox_state
 		x = 16
 		y = 7
 
 		cost = 5
 
-		prerequisite = { focus = SER_pk_condemn_the_syndicalists }
+		prerequisite = { focus = SER_condemn_the_syndicalists }
 		
 		ai_will_do = {
 			factor = 10
 		}
 
 		completion_reward = {
-			add_ideas = SER_pk_bastion_of_orthodoxy_idea
+			add_ideas = SER_bastion_of_orthodoxy_idea
 		}
 	}
 	
 	### SYNDICALIST COUP ###
 	
 	focus = {
-		id = SER_pk_syndie_coup
+		id = SER_syndie_coup
 		icon = GFX_focus_rom_abdicate
 		x = 25
 		y = 1
@@ -1325,11 +1331,11 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_the_country_in_chaos
+			focus = SER_the_country_in_chaos
 		}
 		
 		mutually_exclusive = {
-			focus = SER_pk_military_coup
+			focus = SER_military_coup
 		}
 		
 		ai_will_do = { factor = 400 }
@@ -1342,7 +1348,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_syndie_militias
+		id = SER_syndie_militias
 		icon = GFX_goal_generic_military_sphere
 		x = 27
 		y = 2
@@ -1350,15 +1356,15 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite = {
-			focus = SER_pk_syndie_coup
+			focus = SER_syndie_coup
 		}
 		
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = SER_pk_jingoism
-				add_idea = SER_pk_socialist_zeal_idea
+				remove_idea = SER_jingoism
+				add_idea = SER_socialist_zeal_idea
 			}
 			set_country_flag = serbia_syndie_militias
 			load_oob = SER_syndicalist_troops
@@ -1366,7 +1372,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_syndie_elections
+		id = SER_syndie_elections
 		icon = GFX_goal_commune_politics
 		x = 25
 		y = 2
@@ -1374,7 +1380,7 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_syndie_coup
+			focus = SER_syndie_coup
 		}
 		
 		ai_will_do = { factor = 25 }
@@ -1385,7 +1391,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_rankovic_rule
+		id = SER_rankovic_rule
 		icon = GFX_goal_ideology_totalist
 		x = 21
 		y = 3
@@ -1393,12 +1399,12 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite = {
-			focus = SER_pk_syndie_elections
+			focus = SER_syndie_elections
 		}
 		
 		mutually_exclusive = {
-			focus = SER_pk_koncar_rule 
-			focus = SER_pk_zecevic_rule
+			focus = SER_koncar_rule 
+			focus = SER_zecevic_rule
 		}
 		
 		available = {
@@ -1408,13 +1414,13 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = SER_pk_chaos_idea
+			remove_ideas = SER_chaos_idea
 			add_popularity = { ideology = totalist popularity = 0.10 }
 		}
 	}
 	
 	focus = {
-		id = SER_pk_rankovic_police_state
+		id = SER_rankovic_police_state
 		icon = GFX_focus_generic_little_entente
 		x = 20
 		y = 4
@@ -1422,18 +1428,18 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_rankovic_rule
+			focus = SER_rankovic_rule
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = SER_pk_police_state_idea
+			add_ideas = SER_police_state_idea
 		}
 	}
 	
 	focus = {
-		id = SER_pk_rankovic_solidify_power
+		id = SER_rankovic_solidify_power
 		icon = GFX_goal_generic_dangerous_deal
 		x = 22
 		y = 4
@@ -1441,7 +1447,7 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_rankovic_rule
+			focus = SER_rankovic_rule
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -1454,20 +1460,20 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_rankovic_ozna
+		id = SER_rankovic_ozna
 		icon = GFX_goal_generic_intelligence_exchange
 		x = 21
 		y = 5
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_rankovic_solidify_power }
-		prerequisite = { focus = SER_pk_rankovic_police_state }
+		prerequisite = { focus = SER_rankovic_solidify_power }
+		prerequisite = { focus = SER_rankovic_police_state }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = SER_pk_ozna_idea
+			add_ideas = SER_ozna_idea
 			add_tech_bonus = {
 				name = computer_bonus
 				bonus = 0.5
@@ -1482,14 +1488,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_rankovic_hunt_down_royalists
+		id = SER_rankovic_hunt_down_royalists
 		icon = GFX_goal_generic_attack_allies
 		x = 21
 		y = 6
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_rankovic_ozna }
+		prerequisite = { focus = SER_rankovic_ozna }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1501,14 +1507,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_rankovic_purge_albanians
+		id = SER_rankovic_purge_albanians
 		icon = GFX_goal_generic_secret_weapon
 		x = 21
 		y = 7
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_rankovic_hunt_down_royalists }
+		prerequisite = { focus = SER_rankovic_hunt_down_royalists }
 		
 		bypass = { is_in_faction_with = ALB }
 		
@@ -1525,31 +1531,31 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_rankovic_nationalist_syndicalism
+		id = SER_rankovic_nationalist_syndicalism
 		icon = GFX_goal_demand_sudetenland
 		x = 20
 		y = 8
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_rankovic_purge_albanians }
+		prerequisite = { focus = SER_rankovic_purge_albanians }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = SER_pk_new_nationalism_idea
+			add_ideas = SER_new_nationalism_idea
 		}
 	}
 	
 	focus = {
-		id = SER_pk_rankovic_party_dominance
+		id = SER_rankovic_party_dominance
 		icon = GFX_goal_generic_demand_territory
 		x = 22
 		y = 8
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_rankovic_purge_albanians }
+		prerequisite = { focus = SER_rankovic_purge_albanians }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1562,13 +1568,13 @@ focus_tree = {
 				limit =  {
 					has_cosmetic_tag = SER_YUG
 					}
-				set_party_name = { ideology = totalist long_name = SER_pk_YUG_totalist_new_long name = SER_pk_YUG_totalist_new}
+				set_party_name = { ideology = totalist long_name = SER_YUG_totalist_new_long name = SER_YUG_totalist_new}
 			}
 			if = {
 				limit =  {
 					NOT { has_cosmetic_tag = SER_YUG }
 					}
-				set_party_name = { ideology = totalist long_name = SER_pk_totalist_new_long name = SER_pk_totalist_new}
+				set_party_name = { ideology = totalist long_name = SER_totalist_new_long name = SER_totalist_new}
 			}
 			
 		}
@@ -1577,7 +1583,7 @@ focus_tree = {
 	### KONCAR ###
 
 	focus = {
-		id = SER_pk_koncar_rule
+		id = SER_koncar_rule
 		icon = GFX_goal_ideology_syndicalist
 		x = 25
 		y = 3
@@ -1585,12 +1591,12 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite = {
-			focus = SER_pk_syndie_elections
+			focus = SER_syndie_elections
 		}
 		
 		mutually_exclusive = {
-			focus = SER_pk_rankovic_rule 
-			focus = SER_pk_zecevic_rule
+			focus = SER_rankovic_rule 
+			focus = SER_zecevic_rule
 		}
 		
 		available = {
@@ -1600,13 +1606,13 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = SER_pk_chaos_idea
+			remove_ideas = SER_chaos_idea
 			add_popularity = { ideology = syndicalist popularity = 0.10 }
 		}
 	}
 	
 	focus = {
-		id = SER_pk_koncar_syndicates
+		id = SER_koncar_syndicates
 		icon = GFX_goal_tripartite_pact
 		x = 25
 		y = 4
@@ -1614,18 +1620,18 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_koncar_rule
+			focus = SER_koncar_rule
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = SER_pk_support_syndicates_idea
+			add_ideas = SER_support_syndicates_idea
 		}
 	}
 	
 	focus = {
-		id = SER_pk_koncar_trade_union_hall
+		id = SER_koncar_trade_union_hall
 		icon = GFX_goal_generic_soviet_construction
 		x = 25
 		y = 5
@@ -1633,7 +1639,7 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_koncar_syndicates
+			focus = SER_koncar_syndicates
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -1645,7 +1651,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_koncar_electronics
+		id = SER_koncar_electronics
 		icon = GFX_goal_generic_propaganda
 		x = 25
 		y = 6
@@ -1653,7 +1659,7 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_koncar_trade_union_hall
+			focus = SER_koncar_trade_union_hall
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -1669,7 +1675,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_koncar_industry
+		id = SER_koncar_industry
 		icon = GFX_goal_generic_construction
 		x = 23
 		y = 6
@@ -1677,7 +1683,7 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_koncar_trade_union_hall
+			focus = SER_koncar_trade_union_hall
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -1693,7 +1699,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_koncar_milunka
+		id = SER_koncar_milunka
 		icon = GFX_IRE_women_industry
 		x = 27
 		y = 6
@@ -1701,28 +1707,28 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_koncar_trade_union_hall
+			focus = SER_koncar_trade_union_hall
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = SER_pk_milunka_laws_idea
+			add_ideas = SER_milunka_laws_idea
 			add_political_power = -80
 		}
 	}
 	
 	focus = {
-		id = SER_pk_koncar_glorify_military_service
+		id = SER_koncar_glorify_military_service
 		icon = GFX_goal_generic_military_sphere
 		x = 25
 		y = 7
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_koncar_industry }
-		prerequisite = { focus = SER_pk_koncar_electronics }
-		prerequisite = { focus = SER_pk_koncar_milunka }
+		prerequisite = { focus = SER_koncar_industry }
+		prerequisite = { focus = SER_koncar_electronics }
+		prerequisite = { focus = SER_koncar_milunka }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1730,19 +1736,19 @@ focus_tree = {
 			if = {
 				limit = { has_country_flag = serbia_syndie_militias } 
 				swap_ideas = {
-					remove_idea = SER_pk_socialist_zeal_idea
-					add_idea = SER_pk_socialist_zeal_upgraded_idea
+					remove_idea = SER_socialist_zeal_idea
+					add_idea = SER_socialist_zeal_upgraded_idea
 				}
 			}
 			if = {
 				limit = { NOT = { has_country_flag = serbia_syndie_militias } } 
-				add_ideas = SER_pk_glorified_military_idea
+				add_ideas = SER_glorified_military_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = SER_pk_koncar_beacon_of_syndicalism
+		id = SER_koncar_beacon_of_syndicalism
 		icon = GFX_goal_syndicalist_congress
 		x = 25
 		y = 8
@@ -1750,21 +1756,21 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_koncar_glorify_military_service
+			focus = SER_koncar_glorify_military_service
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 200
-			add_ideas = SER_pk_beacon_of_syndicalism_idea
+			add_ideas = SER_beacon_of_syndicalism_idea
 		}
 	}
 	
 	### ZECEVIC ###
 	
 	focus = {
-		id = SER_pk_zecevic_rule
+		id = SER_zecevic_rule
 		icon = GFX_goal_ideology_radical_socialist
 		x = 29
 		y = 3
@@ -1772,12 +1778,12 @@ focus_tree = {
 		cost = 5
 		
 		prerequisite = {
-			focus = SER_pk_syndie_elections
+			focus = SER_syndie_elections
 		}
 		
 		mutually_exclusive = {
-			focus = SER_pk_koncar_rule 
-			focus = SER_pk_rankovic_rule
+			focus = SER_koncar_rule 
+			focus = SER_rankovic_rule
 		}
 		
 		available = {
@@ -1787,13 +1793,13 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = SER_pk_chaos_idea
+			remove_ideas = SER_chaos_idea
 			add_popularity = { ideology = radical_socialist popularity = 0.10 }
 		}
 	}
 	
 	focus = {
-		id = SER_pk_zecevic_church
+		id = SER_zecevic_church
 		icon = GFX_goal_tax_church
 		x = 29
 		y = 4
@@ -1801,7 +1807,7 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_zecevic_rule
+			focus = SER_zecevic_rule
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -1813,7 +1819,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_zecevic_tax_the_rich
+		id = SER_zecevic_tax_the_rich
 		icon = GFX_goal_generic_forceful_treaty
 		x = 27
 		y = 4
@@ -1821,28 +1827,28 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_zecevic_rule
+			focus = SER_zecevic_rule
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = SER_pk_tax_the_rich_idea
+			add_ideas = SER_tax_the_rich_idea
 		}
 	}
 	
 	focus = {
-		id = SER_pk_zecevic_favor_the_farmer
+		id = SER_zecevic_favor_the_farmer
 		icon = GFX_goal_agriculture
 		x = 29
 		y = 5
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_zecevic_tax_the_rich }
-		prerequisite = { focus = SER_pk_zecevic_church }
+		prerequisite = { focus = SER_zecevic_tax_the_rich }
+		prerequisite = { focus = SER_zecevic_church }
 		
-		mutually_exclusive = { focus = SER_pk_zecevic_political_pardon }
+		mutually_exclusive = { focus = SER_zecevic_political_pardon }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1880,14 +1886,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_zecevic_help_from_france
+		id = SER_zecevic_help_from_france
 		icon = GFX_focus_generic_concessions
 		x = 29
 		y = 6
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_zecevic_favor_the_farmer }
+		prerequisite = { focus = SER_zecevic_favor_the_farmer }
 		
 		available = {
 		country_exists = FRA
@@ -1911,14 +1917,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_zecevic_rural_communities
+		id = SER_zecevic_rural_communities
 		icon = GFX_goal_generic_improve_relations
 		x = 29
 		y = 7
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_zecevic_help_from_france }
+		prerequisite = { focus = SER_zecevic_help_from_france }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1942,7 +1948,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_zecevic_peace_with_minorities
+		id = SER_zecevic_peace_with_minorities
 		icon = GFX_goal_generic_national_unity
 		x = 27
 		y = 8
@@ -1950,19 +1956,19 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_zecevic_rural_communities
+			focus = SER_zecevic_rural_communities
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 150
-			add_ideas = SER_pk_minority_coexistance_idea
+			add_ideas = SER_minority_coexistance_idea
 		}
 	}
 	
 	focus = {
-		id = SER_pk_zecevic_serbian_socialism
+		id = SER_zecevic_serbian_socialism
 		icon = GFX_goal_commune_politics
 		x = 29
 		y = 8
@@ -1970,21 +1976,21 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_zecevic_rural_communities
+			focus = SER_zecevic_rural_communities
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 150
-			add_ideas = SER_pk_serbian_socialism_idea
+			add_ideas = SER_serbian_socialism_idea
 		}
 	}
 	
 	### ZECEVIC DEMOCRATIC ###
 	
 	focus = {
-		id = SER_pk_zecevic_welfare
+		id = SER_zecevic_welfare
 		icon = GFX_goal_generic_major_alliance
 		x = 31
 		y = 4
@@ -1992,29 +1998,29 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = SER_pk_zecevic_rule
+			focus = SER_zecevic_rule
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_popularity = { ideology = social_democrat popularity = 0.1 }
-			add_ideas = SER_pk_social_safety_net_idea
+			add_ideas = SER_social_safety_net_idea
 		}
 	}
 	
 	focus = {
-		id = SER_pk_zecevic_political_pardon
+		id = SER_zecevic_political_pardon
 		icon = GFX_focus_renounce_the_treaty_of_trianon
 		x = 31
 		y = 5
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_zecevic_welfare }
-		prerequisite = { focus = SER_pk_zecevic_church }
+		prerequisite = { focus = SER_zecevic_welfare }
+		prerequisite = { focus = SER_zecevic_church }
 		
-		mutually_exclusive = { focus = SER_pk_zecevic_favor_the_farmer }
+		mutually_exclusive = { focus = SER_zecevic_favor_the_farmer }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2028,14 +2034,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_zecevic_democratic_reforms
+		id = SER_zecevic_democratic_reforms
 		icon = GFX_focus_generic_the_giant_wakes
 		x = 31
 		y = 6
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_zecevic_political_pardon }
+		prerequisite = { focus = SER_zecevic_political_pardon }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2060,19 +2066,19 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_zecevic_elections
+		id = SER_zecevic_elections
 		icon = GFX_goal_anschluss
 		x = 31
 		y = 7
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_zecevic_democratic_reforms }
+		prerequisite = { focus = SER_zecevic_democratic_reforms }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			custom_effect_tooltip = SER_pk_first_elections_tooltip
+			custom_effect_tooltip = SER_first_elections_tooltip
 			add_political_power = 50
 			add_popularity = { ideology = social_democrat popularity = 0.15 }
 			hidden_effect = {
@@ -2082,36 +2088,36 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_zecevic_liberty
+		id = SER_zecevic_liberty
 		icon = GFX_goal_support_democracy
 		x = 31
 		y = 8
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_zecevic_elections }
+		prerequisite = { focus = SER_zecevic_elections }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = SER_pk_beacon_of_liberty
+			add_ideas = SER_beacon_of_liberty
 		}
 	}
 	
 	focus = {
-		id = SER_pk_zecevic_science
+		id = SER_zecevic_science
 		icon = GFX_focus_research
 		x = 33
 		y = 8
 
 		cost = 10
 		
-		prerequisite = { focus = SER_pk_zecevic_elections }
+		prerequisite = { focus = SER_zecevic_elections }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = SER_pk_science_idea
+			add_ideas = SER_science_idea
 		}
 	}
 	
@@ -2121,7 +2127,7 @@ focus_tree = {
 
 	### Belgrade Pact
 	focus = {
-		id = SER_pk_congress_of_belgrade
+		id = SER_congress_of_belgrade
 		icon = GFX_focus_generic_diplomatic_treaty
 		x = 41
 		y = 0
@@ -2135,7 +2141,35 @@ focus_tree = {
 			date > 1937.5.1
 		}
 
-		ai_will_do = { factor = 100 }
+		ai_will_do = {
+			factor = 15
+
+			# Much more likely to create the Pact if Romania is not in a civil war
+			modifier = {
+				factor = 100
+
+				OR = {
+					AND = {
+						country_exists = RRM
+						NOT = { country_exists = ROM }
+					}
+					AND = {
+						country_exists = ROM
+						NOT = { country_exists = RRM }
+					}
+					NOT = {
+						country_exists = ROM
+						country_exists = RRM
+					}
+				}
+			}
+
+			modifier = {
+				factor = 10
+
+				BUL = { has_war = yes }
+			}
+		}
 
 		completion_reward = {
 			add_political_power = 50
@@ -2145,14 +2179,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_ultimatum_to_bulgaria
+		id = SER_ultimatum_to_bulgaria
 		icon = GFX_goal_generic_political_pressure
 		x = 35
 		y = 1
 
 		cost = 4
 
-		prerequisite = { focus = SER_pk_congress_of_belgrade }
+		prerequisite = { focus = SER_congress_of_belgrade }
 
 		available = {
 			is_subject = no
@@ -2162,7 +2196,7 @@ focus_tree = {
 		will_lead_to_war_with = OTT
 
 		ai_will_do = {
-			factor = 100
+			factor = 1000
 
 			modifier = {
 				factor = 0
@@ -2177,14 +2211,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_occupation_of_bulgaria
+		id = SER_occupation_of_bulgaria
 		icon = GFX_goal_generic_position_armies
 		x = 34
 		y = 2
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_ultimatum_to_bulgaria }
+		prerequisite = { focus = SER_ultimatum_to_bulgaria }
 
 		available = {
 			NOT = {
@@ -2204,14 +2238,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_develop_bulgaria
+		id = SER_develop_bulgaria
 		icon = GFX_goal_generic_construct_infrastructure
 		x = 34
 		y = 3
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_occupation_of_bulgaria }
+		prerequisite = { focus = SER_occupation_of_bulgaria }
 
 		available = {
 			BUL = { is_subject_of = ROOT }
@@ -2272,14 +2306,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_democratic_bulgaria
+		id = SER_democratic_bulgaria
 		icon = GFX_goal_generic_national_unity
 		x = 33
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_develop_bulgaria }
+		prerequisite = { focus = SER_develop_bulgaria }
 
 		available = {
 			BUL = { is_subject_of = ROOT }
@@ -2331,14 +2365,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_rightfully_annex_bulgaria
+		id = SER_rightfully_annex_bulgaria
 		icon = GFX_goal_generic_alliance
 		x = 35
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_develop_bulgaria }
+		prerequisite = { focus = SER_develop_bulgaria }
 
 		available = {
 			BUL = { is_subject_of = ROOT }
@@ -2366,14 +2400,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_integrate_macedonia
+		id = SER_integrate_macedonia
 		icon = GFX_goal_generic_major_alliance
 		x = 36
 		y = 2
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_ultimatum_to_bulgaria }
+		prerequisite = { focus = SER_ultimatum_to_bulgaria }
 
 		available = {
 			owns_state = 106
@@ -2393,14 +2427,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_develop_macedonia
+		id = SER_develop_macedonia
 		icon = GFX_goal_generic_construct_infrastructure
 		x = 36
 		y = 3
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_integrate_macedonia }
+		prerequisite = { focus = SER_integrate_macedonia }
 
 		available = {
 			owns_state = 106
@@ -2433,19 +2467,19 @@ focus_tree = {
 	### Expansion
 	
 	focus = {
-		id = SER_pk_serbian_empire
+		id = SER_serbian_empire
 		icon = GFX_goal_generic_territory_or_war
 		x = 38
 		y = 1
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_congress_of_belgrade }
+		prerequisite = { focus = SER_congress_of_belgrade }
 
 		mutually_exclusive = {
-		focus = SER_pk_slavic_federation
-		focus = SER_pk_pan_serbia
-		focus = SER_pk_greater_serbia
+		focus = SER_slavic_federation
+		focus = SER_pan_serbia
+		focus = SER_greater_serbia
 		}
 
 		ai_will_do = { factor = 800 }
@@ -2469,29 +2503,29 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = SER_pk_serbian_empire_tooltip
+			custom_effect_tooltip = SER_serbian_empire_tooltip
 			set_country_flag = serbia_choice_empire
 			add_political_power = -100
 			hidden_effect = {
-				HUN = { add_opinion_modifier = { target = SER modifier = SER_pk_conceded_vojvodina } }
+				HUN = { add_opinion_modifier = { target = SER modifier = SER_conceded_vojvodina } }
 			}
 		}
 	}
 	
 	focus = {
-		id = SER_pk_greater_serbia
+		id = SER_greater_serbia
 		icon = GFX_focus_generic_support_the_left_right
 		x = 41
 		y = 1
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_congress_of_belgrade }
+		prerequisite = { focus = SER_congress_of_belgrade }
 
 		mutually_exclusive = {
-		focus = SER_pk_slavic_federation
-		focus = SER_pk_pan_serbia
-		focus = SER_pk_serbian_empire
+		focus = SER_slavic_federation
+		focus = SER_pan_serbia
+		focus = SER_serbian_empire
 		}
 
 		ai_will_do = { factor = 300 }
@@ -2499,26 +2533,26 @@ focus_tree = {
 		available = { is_subject = no }
 
 		completion_reward = {
-			custom_effect_tooltip = SER_pk_greater_serbia_tooltip
+			custom_effect_tooltip = SER_greater_serbia_tooltip
 			set_country_flag = serbia_choice_greater
 			add_political_power = 100
 		}
 	}
 	
 	focus = {
-		id = SER_pk_pan_serbia
+		id = SER_pan_serbia
 		icon = GFX_goal_generic_national_unity
 		x = 43
 		y = 1
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_congress_of_belgrade }
+		prerequisite = { focus = SER_congress_of_belgrade }
 
 		mutually_exclusive = {
-		focus = SER_pk_slavic_federation
-		focus = SER_pk_greater_serbia
-		focus = SER_pk_serbian_empire
+		focus = SER_slavic_federation
+		focus = SER_greater_serbia
+		focus = SER_serbian_empire
 		}
 
 		ai_will_do = { factor = 300 }
@@ -2526,26 +2560,26 @@ focus_tree = {
 		available = { is_subject = no }
 
 		completion_reward = {
-			custom_effect_tooltip = SER_pk_pan_serbia_tooltip
+			custom_effect_tooltip = SER_pan_serbia_tooltip
 			set_country_flag = serbia_choice_pan
 			add_political_power = 200
 		}
 	}
 	
 	focus = {
-		id = SER_pk_slavic_federation
+		id = SER_slavic_federation
 		icon = GFX_goal_tripartite_pact
 		x = 46
 		y = 1
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_congress_of_belgrade }
+		prerequisite = { focus = SER_congress_of_belgrade }
 
 		mutually_exclusive = {
-		focus = SER_pk_serbian_empire
-		focus = SER_pk_pan_serbia
-		focus = SER_pk_greater_serbia
+		focus = SER_serbian_empire
+		focus = SER_pan_serbia
+		focus = SER_greater_serbia
 		}
 
 		available = { is_subject = no }
@@ -2560,14 +2594,14 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			custom_effect_tooltip = SER_pk_slavic_federation_tooltip
+			custom_effect_tooltip = SER_slavic_federation_tooltip
 			set_country_flag = serbia_choice_yugoslavia
 			add_political_power = -75
 		}
 	}
 
 	focus = {
-		id = SER_pk_conquer_vojvodina
+		id = SER_conquer_vojvodina
 		icon = GFX_goal_generic_occupy_states_ongoing_war
 		x = 44
 		y = 2
@@ -2575,9 +2609,9 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = SER_pk_greater_serbia
-			focus = SER_pk_pan_serbia
-			focus = SER_pk_slavic_federation
+			focus = SER_greater_serbia
+			focus = SER_pan_serbia
+			focus = SER_slavic_federation
 		}
 
 		available = { is_subject = no }
@@ -2655,7 +2689,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_conquer_romanian_banat
+		id = SER_conquer_romanian_banat
 		icon = GFX_goal_generic_attack_allies
 		x = 44
 		y = 3
@@ -2663,7 +2697,7 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = SER_pk_conquer_vojvodina
+			focus = SER_conquer_vojvodina
 		}
 
 		available = {
@@ -2741,7 +2775,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_albanian_question
+		id = SER_albanian_question
 		icon = GFX_goal_generic_forceful_treaty
 		x = 40
 		y = 2
@@ -2749,8 +2783,8 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = { 
-		focus = SER_pk_greater_serbia
-		focus = SER_pk_serbian_empire
+		focus = SER_greater_serbia
+		focus = SER_serbian_empire
 		}
 
 		available = {
@@ -2810,7 +2844,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_free_bosnia
+		id = SER_free_bosnia
 		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
 		x = 42
 		y = 3
@@ -2818,7 +2852,7 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = SER_pk_status_of_montenegro
+			focus = SER_status_of_montenegro
 		}
 
 		available = { is_subject = no }
@@ -2872,6 +2906,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_state_claim = 104
+			add_state_claim = 1028
 			add_state_claim = 1029
 
 			# Create a wargoal against the country that holds Bosnia
@@ -2881,7 +2916,7 @@ focus_tree = {
 					create_wargoal = {
 						target = PREV
 						type = take_state_focus
-						generator = { 104 1029 }
+						generator = { 104 1029 1028 }
 					}
 				}
 			}
@@ -2889,14 +2924,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_integrate_bosnia
+		id = SER_integrate_bosnia
 		icon = GFX_goal_generic_improve_relations
 		x = 41
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_free_bosnia }
+		prerequisite = { focus = SER_free_bosnia }
 
 		available = { owns_state = 104 } # Bosnia
 
@@ -2906,6 +2941,7 @@ focus_tree = {
 
 		completion_reward = {
 			add_state_core = 104 # Bosnia
+			add_state_core = 1028 # Banja Luka
 			if = {
 					limit = { NOT = { has_country_flag = serbia_choice_pan } }
 					add_state_core = 1029
@@ -2915,7 +2951,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_claim_dalmatia
+		id = SER_claim_dalmatia
 		icon = GFX_goal_generic_political_pressure
 		x = 43
 		y = 4
@@ -2923,7 +2959,7 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-		focus = SER_pk_free_bosnia }
+		focus = SER_free_bosnia }
 
 		available = {
 		is_subject = no
@@ -2993,15 +3029,15 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_claim_greek_lands
+		id = SER_claim_greek_lands
 		icon = GFX_focus_generic_strike_at_democracy1
 		x = 38
 		y = 3
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_serbian_empire }
-		prerequisite = { focus = SER_pk_albanian_question }
+		prerequisite = { focus = SER_serbian_empire }
+		prerequisite = { focus = SER_albanian_question }
 
 		available = {
 		is_subject = no
@@ -3075,7 +3111,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_status_of_montenegro
+		id = SER_status_of_montenegro
 		icon = GFX_goal_generic_more_territorial_claims
 		x = 42
 		y = 2
@@ -3090,10 +3126,10 @@ focus_tree = {
 		}
 
 		prerequisite = {
-			focus = SER_pk_serbian_empire
-			focus = SER_pk_greater_serbia
-			focus = SER_pk_pan_serbia
-			focus = SER_pk_slavic_federation
+			focus = SER_serbian_empire
+			focus = SER_greater_serbia
+			focus = SER_pan_serbia
+			focus = SER_slavic_federation
 		}
 
 		available = { is_subject = no }
@@ -3127,28 +3163,33 @@ focus_tree = {
 			modifier = {
 				factor = 2
 
-				ILL = { has_war = yes }
+				105 = {
+					owner = {
+						has_war = yes
+					}
+				}
 			}
 		}
 
 		completion_reward = {
-			# Trigger the event for Austria if it's played by a player
-			if = {
-				limit = {
-					any_country = {
-						is_subject_of = AUS
-						owns_state = 105
-					}
-
-					AUS = { is_ai = no }
-				}
-
-				AUS = { country_event = { id = serbia.16 hours = 2 } }
-
-				else = {
-					every_country = {
-						limit = { owns_state = 105 } # Montenegro
-						country_event = { id = serbia.16 hours = 2 }
+			105 = {
+				owner = {
+					if = {
+						limit = {
+							is_subject = yes
+						}
+						overlord = {
+							country_event = {
+								id = serbia.16
+								hours = 2
+							}
+						}
+						else = {
+							country_event = {
+								id = serbia.16
+								hours = 2
+							}
+						}
 					}
 				}
 			}
@@ -3156,16 +3197,16 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_form_yugoslavia
+		id = SER_form_yugoslavia
 		icon = GFX_goal_SER_form_yugoslavia
 		x = 46
 		y = 5
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_slavic_federation }
-		prerequisite = { focus = SER_pk_integrate_bosnia }
-		prerequisite = { focus = SER_pk_claim_dalmatia }
+		prerequisite = { focus = SER_slavic_federation }
+		prerequisite = { focus = SER_integrate_bosnia }
+		prerequisite = { focus = SER_claim_dalmatia }
 
 		available = {
 			AND = {
@@ -3187,7 +3228,7 @@ focus_tree = {
 		ai_will_do = { factor = 100 }
 
 		completion_reward = {
-			custom_effect_tooltip = SER_pk_form_yugoslavia_tooltip
+			custom_effect_tooltip = SER_form_yugoslavia_tooltip
 
 			# Yugoslavia is just a cosmetic tag for now
 			set_cosmetic_tag = SER_YUG
@@ -3196,20 +3237,20 @@ focus_tree = {
 			hidden_effect = {
 				set_party_name = {
 					ideology = authoritarian_democrat
-					name = SER_pk_YUG_authoritarian_democrat_party
-					long_name = SER_pk_YUG_authoritarian_democrat_party_long
+					name = SER_YUG_authoritarian_democrat_party
+					long_name = SER_YUG_authoritarian_democrat_party_long
 				}
 
 				set_party_name = {
 					ideology = paternal_autocrat
-					name = SER_pk_YUG_paternal_autocrat_party
-					long_name = SER_pk_YUG_paternal_autocrat_party_long
+					name = SER_YUG_paternal_autocrat_party
+					long_name = SER_YUG_paternal_autocrat_party_long
 				}
 
 				set_party_name = {
 					ideology = national_populist
-					name = SER_pk_YUG_national_populist_party
-					long_name = SER_pk_YUG_national_populist_party_long
+					name = SER_YUG_national_populist_party
+					long_name = SER_YUG_national_populist_party_long
 				}
 			}
 
@@ -3223,6 +3264,7 @@ focus_tree = {
 			add_state_core = 163 # Dalmatia
 			add_state_core = 103 # Lika
 			add_state_core = 1029 # Herzegovina
+			add_state_core = 1028 # Banja Luka
 			if = {
 				limit = { owns_state = 102 }
 				add_state_core = 102 # Slovenia
@@ -3245,14 +3287,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_claim_slovenia
+		id = SER_claim_slovenia
 		icon = GFX_goal_generic_major_war
 		x = 46
 		y = 6
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_form_yugoslavia }
+		prerequisite = { focus = SER_form_yugoslavia }
 
 		available = { is_subject = no }
 
@@ -3292,15 +3334,15 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_form_serbian_empire
+		id = SER_form_serbian_empire
 		icon = GFX_focus_rom_royal_dictatorship
 		x = 38
 		y = 5
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_claim_greek_lands }
-		prerequisite = { focus = SER_pk_albanian_question }
+		prerequisite = { focus = SER_claim_greek_lands }
+		prerequisite = { focus = SER_albanian_question }
 
 		available = {
 			AND = {
@@ -3331,7 +3373,7 @@ focus_tree = {
 		ai_will_do = { factor = 100 }
 
 		completion_reward = {
-			custom_effect_tooltip = SER_pk_form_serbian_empire_tooltip
+			custom_effect_tooltip = SER_form_serbian_empire_tooltip
 
 			country_event = { id = serbia.71 }
 			# Core all Imperial states
@@ -3365,14 +3407,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_retake_tsarigrad
+		id = SER_retake_tsarigrad
 		icon = GFX_focus_generic_little_entente
 		x = 38
 		y = 6
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_form_serbian_empire }
+		prerequisite = { focus = SER_form_serbian_empire }
 
 		available = {
 			is_subject = no
@@ -3422,21 +3464,22 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_a_serbian_nation
+		id = SER_a_serbian_nation
 		icon = GFX_goal_generic_dangerous_deal
 		x = 43
 		y = 5
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_claim_dalmatia }
-		prerequisite = { focus = SER_pk_integrate_bosnia }
+		prerequisite = { focus = SER_claim_dalmatia }
+		prerequisite = { focus = SER_integrate_bosnia }
 
 		available = {
 			AND = {
 				owns_state = 45 # Vojvodina
 				owns_state = 104 # Bosnia
 				owns_state = 1029 # Herzegovina
+				owns_state = 1028 # Banja Luka
 			}
 			NOT = { country_exists = BOS }
 			has_country_flag = serbia_choice_greater
@@ -3455,14 +3498,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_a_serbian_nation_real
+		id = SER_a_serbian_nation_real
 		icon = GFX_goal_generic_major_alliance
 		x = 41
 		y = 5
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_integrate_bosnia }
+		prerequisite = { focus = SER_integrate_bosnia }
 
 		available = {
 			AND = {
@@ -3483,14 +3526,14 @@ focus_tree = {
 			add_state_core = 794 # Srijem
 			add_state_core = 105 # Montenegro
 			swap_ideas = {
-				remove_idea = SER_pk_jingoism
-				add_idea = SER_pk_pan_serbia_idea
+				remove_idea = SER_jingoism
+				add_idea = SER_pan_serbia_idea
 			}
 		}
 	}
 
 	focus = {
-		id = SER_pk_extra_research_slot_ii
+		id = SER_extra_research_slot_ii
 		icon = GFX_focus_research
 		x = 42
 		y = 6
@@ -3498,10 +3541,10 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = SER_pk_a_serbian_nation
-			focus = SER_pk_form_yugoslavia
-			focus = SER_pk_a_serbian_nation_real
-			focus = SER_pk_form_serbian_empire
+			focus = SER_a_serbian_nation
+			focus = SER_form_yugoslavia
+			focus = SER_a_serbian_nation_real
+			focus = SER_form_serbian_empire
 		}
 
 		ai_will_do = { factor = 20 }
@@ -3516,7 +3559,7 @@ focus_tree = {
 	###############
 
 	focus = {
-		id = SER_pk_new_economic_policy
+		id = SER_new_economic_policy
 		icon = GFX_goal_generic_consumer_goods
 		x = 49
 		y = 0
@@ -3537,7 +3580,7 @@ focus_tree = {
 
 	# Agriculture
 	focus = {
-		id = SER_pk_agriculture
+		id = SER_agriculture
 		icon = GFX_goal_generic_construct_civilian
 		x = 48
 		y = 1
@@ -3546,9 +3589,9 @@ focus_tree = {
 
 		ai_will_do = { factor = 30 }
 
-		prerequisite = { focus = SER_pk_new_economic_policy }
+		prerequisite = { focus = SER_new_economic_policy }
 
-		mutually_exclusive = { focus = SER_pk_industry }
+		mutually_exclusive = { focus = SER_industry }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -3593,7 +3636,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_invest_in_railroads
+		id = SER_invest_in_railroads
 		icon = GFX_goal_generic_construct_infrastructure
 		x = 49
 		y = 2
@@ -3603,8 +3646,8 @@ focus_tree = {
 		ai_will_do = { factor = 7 }
 
 		prerequisite = {
-			focus = SER_pk_industry
-			focus = SER_pk_agriculture
+			focus = SER_industry
+			focus = SER_agriculture
 		}
 
 		completion_reward = {
@@ -3638,7 +3681,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_support_peasants
+		id = SER_support_peasants
 		icon = GFX_goal_generic_construct_civ_factory
 		x = 48
 		y = 3
@@ -3647,8 +3690,8 @@ focus_tree = {
 
 		ai_will_do = { factor = 10 }
 
-		prerequisite = { focus = SER_pk_agriculture }
-		prerequisite = { focus = SER_pk_invest_in_railroads }
+		prerequisite = { focus = SER_agriculture }
+		prerequisite = { focus = SER_invest_in_railroads }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -3692,7 +3735,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_mechanisation
+		id = SER_mechanisation
 		icon = GFX_goal_generic_production2
 		x = 48
 		y = 4
@@ -3701,7 +3744,7 @@ focus_tree = {
 
 		ai_will_do = { factor = 5 }
 
-		prerequisite = { focus = SER_pk_support_peasants }
+		prerequisite = { focus = SER_support_peasants }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -3736,7 +3779,7 @@ focus_tree = {
 
 	# Industry
 	focus = {
-		id = SER_pk_industry
+		id = SER_industry
 		icon = GFX_goal_generic_construction
 		x = 50
 		y = 1
@@ -3745,9 +3788,9 @@ focus_tree = {
 
 		ai_will_do = { factor = 30 }
 
-		prerequisite = { focus = SER_pk_new_economic_policy }
+		prerequisite = { focus = SER_new_economic_policy }
 
-		mutually_exclusive = { focus = SER_pk_agriculture }
+		mutually_exclusive = { focus = SER_agriculture }
 
 		completion_reward = {
 			# 1x civ, 2x military factories
@@ -3785,7 +3828,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_war_industry
+		id = SER_war_industry
 		icon = GFX_goal_generic_construct_mil_factory
 		x = 50
 		y = 3
@@ -3794,8 +3837,8 @@ focus_tree = {
 
 		ai_will_do = { factor = 7 }
 
-		prerequisite = { focus = SER_pk_industry }
-		prerequisite = { focus = SER_pk_invest_in_railroads }
+		prerequisite = { focus = SER_industry }
+		prerequisite = { focus = SER_invest_in_railroads }
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -3832,7 +3875,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_expand_bor_mining_complex
+		id = SER_expand_bor_mining_complex
 		icon = GFX_goal_generic_construction2
 		x = 50
 		y = 4
@@ -3841,7 +3884,7 @@ focus_tree = {
 
 		ai_will_do = { factor = 7 }
 
-		prerequisite = { focus = SER_pk_war_industry }
+		prerequisite = { focus = SER_war_industry }
 
 		completion_reward = {
 			add_resource = { type = steel amount = 10 state = 767 }
@@ -3850,7 +3893,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_extra_research_slot
+		id = SER_extra_research_slot
 		icon = GFX_focus_research
 		x = 49
 		y = 5
@@ -3860,8 +3903,8 @@ focus_tree = {
 		ai_will_do = { factor = 20 }
 
 		prerequisite = {
-			focus = SER_pk_mechanisation
-			focus = SER_pk_expand_bor_mining_complex
+			focus = SER_mechanisation
+			focus = SER_expand_bor_mining_complex
 		}
 
 		completion_reward = {
@@ -3874,14 +3917,14 @@ focus_tree = {
 	###################
 
 	focus = {
-		id = SER_pk_army_reform_nedic
+		id = SER_army_reform_nedic
 		icon = GFX_goal_generic_army_artillery
 		x = 52
 		y = 0
 
 		cost = 10
 
-		mutually_exclusive = { focus = SER_pk_army_reform_mihailovic }
+		mutually_exclusive = { focus = SER_army_reform_mihailovic }
 
 		ai_will_do = { factor = 20 }
 
@@ -3900,14 +3943,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_expand_artillery_factories
+		id = SER_expand_artillery_factories
 		icon = GFX_goal_generic_army_artillery2
 		x = 52
 		y = 1
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_army_reform_nedic }
+		prerequisite = { focus = SER_army_reform_nedic }
 
 		ai_will_do = { factor = 10 }
 
@@ -3940,14 +3983,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_motorisation_effort
+		id = SER_motorisation_effort
 		icon = GFX_goal_generic_army_motorized
 		x = 52
 		y = 2
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_expand_artillery_factories }
+		prerequisite = { focus = SER_expand_artillery_factories }
 
 		ai_will_do = { factor = 7 }
 
@@ -3964,14 +4007,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_army_tactics_nedic
+		id = SER_army_tactics_nedic
 		icon = GFX_goal_generic_army_doctrines
 		x = 52
 		y = 3
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_motorisation_effort }
+		prerequisite = { focus = SER_motorisation_effort }
 
 		ai_will_do = { factor = 10 }
 
@@ -3990,14 +4033,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_armour_effort
+		id = SER_armour_effort
 		icon = GFX_goal_generic_army_tanks
 		x = 52
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_army_tactics_nedic }
+		prerequisite = { focus = SER_army_tactics_nedic }
 
 		ai_will_do = { factor = 7 }
 
@@ -4014,14 +4057,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_patriotic_spirit
+		id = SER_patriotic_spirit
 		icon = GFX_goal_generic_build_tank
 		x = 52
 		y = 5
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_armour_effort }
+		prerequisite = { focus = SER_armour_effort }
 
 		available_if_capitulated = yes
 
@@ -4035,20 +4078,20 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = SER_pk_patriotic_spirit_idea
+			add_ideas = SER_patriotic_spirit_idea
 		}
 	}
 
 	# Mihailovic
 	focus = {
-		id = SER_pk_army_reform_mihailovic
+		id = SER_army_reform_mihailovic
 		icon = GFX_goal_generic_defence
 		x = 54
 		y = 0
 
 		cost = 10
 
-		mutually_exclusive = { focus = SER_pk_army_reform_nedic }
+		mutually_exclusive = { focus = SER_army_reform_nedic }
 
 		ai_will_do = { factor = 20 }
 
@@ -4067,14 +4110,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_special_forces
+		id = SER_special_forces
 		icon = GFX_goal_generic_special_forces
 		x = 54
 		y = 1
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_army_reform_mihailovic }
+		prerequisite = { focus = SER_army_reform_mihailovic }
 
 		ai_will_do = { factor = 7 }
 
@@ -4097,14 +4140,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_expand_infantry_weapons_factories
+		id = SER_expand_infantry_weapons_factories
 		icon = GFX_goal_generic_small_arms
 		x = 54
 		y = 2
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_special_forces }
+		prerequisite = { focus = SER_special_forces }
 
 		ai_will_do = {
 			factor = 20
@@ -4144,14 +4187,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_bunker_focus
+		id = SER_bunker_focus
 		icon = GFX_goal_generic_fortify_city
 		x = 54
 		y = 3
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_expand_infantry_weapons_factories }
+		prerequisite = { focus = SER_expand_infantry_weapons_factories }
 
 		ai_will_do = {
 			factor = 10
@@ -4177,19 +4220,19 @@ focus_tree = {
 				}
 			}
 
-			add_ideas = SER_pk_bunker_focus_idea
+			add_ideas = SER_bunker_focus_idea
 		}
 	}
 
 	focus = {
-		id = SER_pk_army_tactics_mihailovic
+		id = SER_army_tactics_mihailovic
 		icon = GFX_goal_generic_army_doctrines
 		x = 54
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_bunker_focus }
+		prerequisite = { focus = SER_bunker_focus }
 
 		ai_will_do = { factor = 10 }
 
@@ -4208,14 +4251,14 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_mobilisation_of_the_masses
+		id = SER_mobilisation_of_the_masses
 		icon = GFX_goal_generic_allies_build_infantry
 		x = 54
 		y = 5
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_army_tactics_mihailovic }
+		prerequisite = { focus = SER_army_tactics_mihailovic }
 
 		ai_will_do = {
 			factor = 15
@@ -4227,7 +4270,7 @@ focus_tree = {
 		}
 
 		completion_reward = {
-			add_ideas = SER_pk_mobilisation_of_the_masses_idea
+			add_ideas = SER_mobilisation_of_the_masses_idea
 		}
 	}
 
@@ -4236,7 +4279,7 @@ focus_tree = {
 	#################
 
 	focus = {
-		id = SER_pk_expand_air_force
+		id = SER_expand_air_force
 		icon = GFX_goal_generic_build_airforce
 		x = 59
 		y = 0
@@ -4272,15 +4315,15 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_fighter_focus
+		id = SER_fighter_focus
 		icon = GFX_goal_generic_air_fighter
 		x = 58
 		y = 1
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_expand_air_force }
-		mutually_exclusive = { focus = SER_pk_heavy_fighter_focus }
+		prerequisite = { focus = SER_expand_air_force }
+		mutually_exclusive = { focus = SER_heavy_fighter_focus }
 
 		ai_will_do = { factor = 5 }
 
@@ -4295,21 +4338,21 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_heavy_fighter_focus
+		id = SER_heavy_fighter_focus
 		icon = GFX_goal_generic_air_fighter2
 		x = 56
 		y = 1
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_expand_air_force }
-		mutually_exclusive = { focus = SER_pk_fighter_focus }
+		prerequisite = { focus = SER_expand_air_force }
+		mutually_exclusive = { focus = SER_fighter_focus }
 
 		ai_will_do = { factor = 2 }
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SER_pk_heavy_fighter_bonus
+				name = SER_heavy_fighter_bonus
 				bonus = 0.5
 				ahead_reduction = 1
 				uses = 1
@@ -4319,15 +4362,15 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_bomber_focus
+		id = SER_bomber_focus
 		icon = GFX_goal_generic_air_bomber
 		x = 60
 		y = 1
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_expand_air_force }
-		mutually_exclusive = { focus = SER_pk_cas_effort }
+		prerequisite = { focus = SER_expand_air_force }
+		mutually_exclusive = { focus = SER_cas_effort }
 
 		ai_will_do = { factor = 5 }
 
@@ -4342,15 +4385,15 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_cas_effort
+		id = SER_cas_effort
 		icon = GFX_goal_generic_CAS
 		x = 62
 		y = 1
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_expand_air_force }
-		mutually_exclusive = { focus = SER_pk_bomber_focus }
+		prerequisite = { focus = SER_expand_air_force }
+		mutually_exclusive = { focus = SER_bomber_focus }
 
 		ai_will_do = { factor = 2 }
 
@@ -4366,7 +4409,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_air_tactics
+		id = SER_air_tactics
 		icon = GFX_goal_generic_air_doctrine
 		x = 56
 		y = 2
@@ -4374,12 +4417,12 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = SER_pk_fighter_focus
-			focus = SER_pk_heavy_fighter_focus
+			focus = SER_fighter_focus
+			focus = SER_heavy_fighter_focus
 		}
 		prerequisite = {
-			focus = SER_pk_bomber_focus
-			focus = SER_pk_cas_effort
+			focus = SER_bomber_focus
+			focus = SER_cas_effort
 		}
 
 		ai_will_do = { factor = 3 }
@@ -4397,7 +4440,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_expand_airfields
+		id = SER_expand_airfields
 		icon = GFX_goal_generic_air_production
 		x = 58
 		y = 2
@@ -4405,12 +4448,12 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = SER_pk_fighter_focus
-			focus = SER_pk_heavy_fighter_focus
+			focus = SER_fighter_focus
+			focus = SER_heavy_fighter_focus
 		}
 		prerequisite = {
-			focus = SER_pk_bomber_focus
-			focus = SER_pk_cas_effort
+			focus = SER_bomber_focus
+			focus = SER_cas_effort
 		}
 
 		ai_will_do = { factor = 3 }
@@ -4449,7 +4492,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_rocket_effort
+		id = SER_rocket_effort
 		icon = GFX_focus_rocketry
 		x = 60
 		y = 2
@@ -4457,12 +4500,12 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = SER_pk_fighter_focus
-			focus = SER_pk_heavy_fighter_focus
+			focus = SER_fighter_focus
+			focus = SER_heavy_fighter_focus
 		}
 		prerequisite = {
-			focus = SER_pk_bomber_focus
-			focus = SER_pk_cas_effort
+			focus = SER_bomber_focus
+			focus = SER_cas_effort
 		}
 
 		ai_will_do = {
@@ -4491,7 +4534,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_paratrooper_effort
+		id = SER_paratrooper_effort
 		icon = GFX_focus_generic_paratrooper
 		x = 62
 		y = 2
@@ -4499,12 +4542,12 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = SER_pk_fighter_focus
-			focus = SER_pk_heavy_fighter_focus
+			focus = SER_fighter_focus
+			focus = SER_heavy_fighter_focus
 		}
 		prerequisite = {
-			focus = SER_pk_bomber_focus
-			focus = SER_pk_cas_effort
+			focus = SER_bomber_focus
+			focus = SER_cas_effort
 		}
 
 		ai_will_do = { factor = 1 }
@@ -4527,7 +4570,7 @@ focus_tree = {
 	############
 
 	focus = {
-		id = SER_pk_birth_of_the_navy
+		id = SER_birth_of_the_navy
 		icon = GFX_goal_generic_build_navy
 		x = 58
 		y = 3
@@ -4556,7 +4599,7 @@ focus_tree = {
 			modifier = {
 				factor = 5
 
-				has_completed_focus = SER_pk_form_yugoslavia
+				has_completed_focus = SER_form_yugoslavia
 			}
 		}
 
@@ -4599,7 +4642,7 @@ focus_tree = {
 
 
 	focus = {
-		id = SER_pk_build_first_ships
+		id = SER_build_first_ships
 		icon = GFX_goal_generic_navy_cruiser
 		x = 60
 		y = 3
@@ -4624,7 +4667,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_expand_ports
+		id = SER_expand_ports
 		icon = GFX_goal_generic_construct_naval_dockyard
 		x = 56
 		y = 4
@@ -4633,8 +4676,8 @@ focus_tree = {
 
 		ai_will_do = { factor = 3 }
 
-		prerequisite = { focus = SER_pk_build_first_ships }
-		prerequisite = { focus = SER_pk_birth_of_the_navy }
+		prerequisite = { focus = SER_build_first_ships }
+		prerequisite = { focus = SER_birth_of_the_navy }
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -4687,7 +4730,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_fleet_maneuvers
+		id = SER_fleet_maneuvers
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		x = 58
 		y = 4
@@ -4696,14 +4739,14 @@ focus_tree = {
 
 		ai_will_do = { factor = 2 }
 
-		prerequisite = { focus = SER_pk_build_first_ships }
-		prerequisite = { focus = SER_pk_birth_of_the_navy }
+		prerequisite = { focus = SER_build_first_ships }
+		prerequisite = { focus = SER_birth_of_the_navy }
 
 		completion_reward = {
 			navy_experience = 25
 
 			add_tech_bonus = {
-				name = SER_pk_fleet_maneuvers
+				name = SER_fleet_maneuvers
 				bonus = 0.5
 				uses = 2
 				category = naval_doctrine
@@ -4712,7 +4755,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_buy_hms_lion
+		id = SER_buy_hms_lion
 		icon = GFX_goal_generic_navy_battleship
 		x = 60
 		y = 4
@@ -4721,10 +4764,10 @@ focus_tree = {
 
 		ai_will_do = { factor = 10 }
 
-		prerequisite = { focus = SER_pk_build_first_ships }
-		prerequisite = { focus = SER_pk_birth_of_the_navy }
+		prerequisite = { focus = SER_build_first_ships }
+		prerequisite = { focus = SER_birth_of_the_navy }
 		
-		mutually_exclusive = { focus = SER_pk_cruiser_effort }
+		mutually_exclusive = { focus = SER_cruiser_effort }
 
 		completion_reward = {
 			if = {
@@ -4751,7 +4794,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_cruiser_effort
+		id = SER_cruiser_effort
 		icon = GFX_goal_generic_occupy_states_coastal
 		x = 62
 		y = 4
@@ -4760,14 +4803,14 @@ focus_tree = {
 
 		ai_will_do = { factor = 3 }
 
-		prerequisite = { focus = SER_pk_build_first_ships }
-		prerequisite = { focus = SER_pk_birth_of_the_navy }
+		prerequisite = { focus = SER_build_first_ships }
+		prerequisite = { focus = SER_birth_of_the_navy }
 		
-		mutually_exclusive = { focus = SER_pk_buy_hms_lion }
+		mutually_exclusive = { focus = SER_buy_hms_lion }
 
 		completion_reward = {
 			add_tech_bonus = {
-				name = SER_pk_cruiser_effort
+				name = SER_cruiser_effort
 				bonus = 0.5
 				ahead_reduction = 1
 				uses = 1
@@ -4777,7 +4820,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_focus_on_submarines
+		id = SER_focus_on_submarines
 		icon = GFX_goal_generic_navy_submarine
 		x = 56
 		y = 5
@@ -4786,7 +4829,7 @@ focus_tree = {
 
 		ai_will_do = { factor = 8 }
 
-		prerequisite = { focus = SER_pk_expand_ports }
+		prerequisite = { focus = SER_expand_ports }
 
 		completion_reward = {
 			set_technology = { early_submarine = 1 }
@@ -4802,7 +4845,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_build_destroyers
+		id = SER_build_destroyers
 		icon = GFX_goal_generic_wolf_pack
 		x = 61
 		y = 5
@@ -4811,7 +4854,7 @@ focus_tree = {
 
 		ai_will_do = { factor = 3 }
 
-		prerequisite = { focus = SER_pk_buy_hms_lion focus = SER_pk_cruiser_effort }
+		prerequisite = { focus = SER_buy_hms_lion focus = SER_cruiser_effort }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -4825,7 +4868,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_invest_in_light_cruisers
+		id = SER_invest_in_light_cruisers
 		icon = GFX_goal_generic_navy_cruiser
 		x = 58
 		y = 5
@@ -4834,7 +4877,7 @@ focus_tree = {
 
 		ai_will_do = { factor = 2 }
 
-		prerequisite = { focus = SER_pk_fleet_maneuvers }
+		prerequisite = { focus = SER_fleet_maneuvers }
 
 		completion_reward = {
 			navy_experience = 25
@@ -4854,7 +4897,7 @@ focus_tree = {
 	###################
 	
 	focus = {
-		id = SER_pk_belgrade_pact_future
+		id = SER_belgrade_pact_future
 		icon = GFX_goal_generic_military_deal
 		x = 3
 		y = 8
@@ -4873,7 +4916,7 @@ focus_tree = {
 			is_faction_leader = yes
 		}
 
-		mutually_exclusive = { focus = SER_pk_belgrade_pact_end }
+		mutually_exclusive = { focus = SER_belgrade_pact_end }
 		
 		ai_will_do = { factor = 10 }
 
@@ -4883,14 +4926,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_belgrade_pact_science
+		id = SER_belgrade_pact_science
 		icon = GFX_goal_tfv_generic_tech_sharing
 		x = 2
 		y = 9
 		
-		prerequisite = { focus = SER_pk_belgrade_pact_future }
+		prerequisite = { focus = SER_belgrade_pact_future }
 		
-		mutually_exclusive = { focus = SER_pk_belgrade_pact_forts }
+		mutually_exclusive = { focus = SER_belgrade_pact_forts }
 		
 		available = { 
 			is_faction_leader = yes
@@ -4917,7 +4960,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_pk_belgrade_pact_attack_germany
+		id = SER_belgrade_pact_attack_germany
 		icon = GFX_goal_generic_occupy_start_war
 		x = 2
 		y = 10
@@ -4925,7 +4968,7 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = { 
-		focus = SER_pk_belgrade_pact_science
+		focus = SER_belgrade_pact_science
 		}
 
 		available = {
@@ -4954,20 +4997,20 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_belgrade_pact_forts
+		id = SER_belgrade_pact_forts
 		icon = GFX_goal_generic_fortify_city
 		x = 4
 		y = 9
 
 		cost = 10
 
-		prerequisite = { focus = SER_pk_belgrade_pact_future }
+		prerequisite = { focus = SER_belgrade_pact_future }
 		
 		available = { 
 			has_country_flag = serbia_belgrade_pact_dissolved_focus
 		}
 		
-		mutually_exclusive = { focus = SER_pk_belgrade_pact_science }
+		mutually_exclusive = { focus = SER_belgrade_pact_science }
 		
 		ai_will_do = {
 			factor = 10
@@ -4975,21 +5018,21 @@ focus_tree = {
 
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = SER_pk_belgrade_pact_former_idea
-				add_idea = SER_pk_belgrade_pact_former2_idea
+				remove_idea = SER_belgrade_pact_former_idea
+				add_idea = SER_belgrade_pact_former2_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = SER_pk_belgrade_pact_end
+		id = SER_belgrade_pact_end
 		icon = GFX_goal_generic_forceful_treaty
 		x = 7
 		y = 8
 
 		cost = 1
 
-		mutually_exclusive = { focus = SER_pk_belgrade_pact_future }
+		mutually_exclusive = { focus = SER_belgrade_pact_future }
 		
 		available = {
 			NOT = { is_in_faction_with = ROM }
@@ -5008,13 +5051,13 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_third_internationale_join
+		id = SER_third_internationale_join
 		icon = GFX_goal_generic_attack_allies
 		cost = 5
 		
-		mutually_exclusive = { focus = SER_pk_fourth_internationale_join }
+		mutually_exclusive = { focus = SER_fourth_internationale_join }
 		
-		prerequisite = { focus = SER_pk_belgrade_pact_end }
+		prerequisite = { focus = SER_belgrade_pact_end }
 		
 		x = 6
 		y = 9
@@ -5060,13 +5103,13 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_pk_fourth_internationale_join
+		id = SER_fourth_internationale_join
 		icon = GFX_goal_support_fourth_int
 		cost = 5
 		
-		mutually_exclusive = { focus = SER_pk_third_internationale_join }
+		mutually_exclusive = { focus = SER_third_internationale_join }
 		
-		prerequisite = { focus = SER_pk_belgrade_pact_end }
+		prerequisite = { focus = SER_belgrade_pact_end }
 		
 		x = 8
 		y = 9

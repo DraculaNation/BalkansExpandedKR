@@ -5,7 +5,7 @@ ideas = {
 ##############
 	country = {
 		
-		ILL_pk_nationalist_crisis = {
+		ILL_nationalist_crisis = {
 			allowed = {
 				always = no
 			}
@@ -16,7 +16,7 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_nationalist_crisis_over = {
+		ILL_nationalist_crisis_over = {
 			allowed = {
 				always = no
 			}
@@ -35,7 +35,7 @@ ideas = {
 				political_power_gain = 0.25
 			}
 		}
-		ILL_pk_croatian_command = {
+		ILL_croatian_command = {
 			picture = country_focus_army
 			modifier = {
 				planning_speed = 0.1
@@ -45,7 +45,7 @@ ideas = {
 			}
 		}
 
-		ILL_pk_federated_army = {
+		ILL_federated_army = {
 			picture = raj_indian_gentlemen_officers
 			modifier = {
 				stability_factor = 0.05
@@ -55,7 +55,7 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_regional_command_idea = {
+		ILL_regional_command_idea = {
 			picture = raj_indian_gentlemen_officers
 			modifier = {
 				stability_factor = -0.05
@@ -65,14 +65,14 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_economic_cooperation_austria_idea = {
+		ILL_economic_cooperation_austria_idea = {
 			picture = generic_goods_red_bonus
 			modifier = {
 				consumer_goods_factor = -0.05
 			}
 		}
 		
-		ILL_pk_montenegrin_nationalism_idea = {
+		ILL_montenegrin_nationalism_idea = {
 			picture = FRA_scw_intervention_republicans_focus
 			available = {
 				ILL = {
@@ -85,7 +85,7 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_bosnian_issue_idea = {
+		ILL_bosnian_issue_idea = {
 			picture = generic_production_bonus
 			available = {
 				ILL = {
@@ -101,7 +101,7 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_montenegrin_nationalism2_idea = {
+		ILL_montenegrin_nationalism2_idea = {
 			picture = FRA_scw_intervention_republicans_focus
 			available = {
 				ILL = {
@@ -114,7 +114,7 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_economic_dependency_idea = {
+		ILL_economic_dependency_idea = {
 			picture = generic_goods_red_bonus
 			available = {
 				ILL = {
@@ -128,7 +128,7 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_austrian_education_idea = {
+		ILL_austrian_education_idea = {
 			picture = generic_research_bonus
 			available = {
 				ILL = {
@@ -142,7 +142,7 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_slovenian_nationalist_revival_idea = {
+		ILL_slovenian_nationalist_revival_idea = {
 			picture = fra_scw_intervention_republicans_focus
 			available = {
 				AUS = {
@@ -156,7 +156,7 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_economic_independency1_idea = {
+		ILL_economic_independency1_idea = {
 			picture = generic_local_self_management
 			modifier = {
 				production_factory_max_efficiency_factor = -0.025
@@ -164,7 +164,7 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_economic_independency2_idea = {
+		ILL_economic_independency2_idea = {
 			picture = generic_local_self_management
 			modifier = {
 				production_factory_max_efficiency_factor = -0.05
@@ -172,7 +172,7 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_economic_independency3_idea = {
+		ILL_economic_independency3_idea = {
 			picture = generic_local_self_management
 			modifier = {
 				production_factory_max_efficiency_factor = -0.1
@@ -180,28 +180,28 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_hungary_reparations_idea = {
+		ILL_hungary_reparations_idea = {
 			picture = generic_goods_red_bonus
 			modifier = {
 				consumer_goods_factor = 0.05
 			}
 		}
 		
-		ILL_pk_hungary_reparations2_idea = {
+		ILL_hungary_reparations2_idea = {
 			picture = generic_goods_red_bonus
 			modifier = {
 				consumer_goods_factor = -0.05
 			}
 		}
 		
-		ILL_pk_increased_autonomy_idea = {
+		ILL_increased_autonomy_idea = {
 			modifier = {
 				political_power_gain = 0.5
 			}
 			picture = generic_morale_bonus
 		}
 		
-		ILL_pk_republicanism_idea = {
+		ILL_republicanism_idea = {
 			modifier = {
 				drift_defence_factor = 0.25
 				political_power_gain = 0.1
@@ -209,7 +209,7 @@ ideas = {
 			picture = generic_morale_bonus
 		}
 		
-		ILL_pk_secularization_effort_idea = {
+		ILL_secularization_effort_idea = {
 			modifier = {
 				stability_factor = 0.05
 				national_populist_drift = -0.01
@@ -219,7 +219,7 @@ ideas = {
 			picture = generic_pp_unity_bonus
 		}
 		
-		ILL_pk_tolerance_idea = {
+		ILL_tolerance_idea = {
 			modifier = {
 				political_power_gain = 0.1
 				research_time_factor = -0.01
@@ -227,7 +227,7 @@ ideas = {
 			picture = generic_pp_unity_bonus
 		}
 		
-		ILL_pk_croat_focused_idea = {
+		ILL_croat_focused_idea = {
 			modifier = {
 				stability_factor = -0.1
 				political_power_gain = 0.25
@@ -235,14 +235,14 @@ ideas = {
 			picture = generic_pp_unity_bonus
 		}
 		
-		ILL_pk_decentralized_state_idea = {
+		ILL_decentralized_state_idea = {
 			modifier = {
 				stability_factor = 0.05
 			}
 			picture = generic_local_self_management
 		}
 		
-		ILL_pk_illyrian_patriotism_idea = {
+		ILL_illyrian_patriotism_idea = {
 			modifier = {
 				conscription = 0.01
 				army_morale_factor = 0.025
@@ -250,7 +250,7 @@ ideas = {
 			picture = generic_army_bonus
 		}
 		
-		ILL_pk_bosnian_investments_idea = {
+		ILL_bosnian_investments_idea = {
 		available = {
 				ILL = {
 					OR = {
@@ -266,7 +266,7 @@ ideas = {
 			picture = generic_goods_red_bonus
 		}
 		
-		ILL_pk_rural_exploitation_idea = {
+		ILL_rural_exploitation_idea = {
 			picture = generic_production_bonus
 			available = {
 				ILL = {
@@ -282,7 +282,7 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_minority_unrest_idea = {
+		ILL_minority_unrest_idea = {
 			modifier = {
 				stability_factor = -0.1
 				political_power_gain = -0.1
@@ -290,14 +290,14 @@ ideas = {
 			picture = fra_matignon_agreements
 		}
 		
-		ILL_pk_minorities_ignored_idea = {
+		ILL_minorities_ignored_idea = {
 			modifier = {
 				stability_factor = -0.15
 			}
 			picture = fra_matignon_agreements
 		}
 		
-		ILL_pk_minorities_outraged_idea = {
+		ILL_minorities_outraged_idea = {
 			modifier = {
 				stability_factor = -0.15
 				political_power_gain = -0.2
@@ -305,7 +305,7 @@ ideas = {
 			picture = fra_matignon_agreements
 		}
 		
-		ILL_pk_civil_war_ongoing_idea = {
+		ILL_civil_war_ongoing_idea = {
 			modifier = {
 				stability_factor = -0.05
 				political_power_gain = -0.05
@@ -313,7 +313,7 @@ ideas = {
 			picture = generic_fascism_drift_bonus
 		}
 		
-		ILL_pk_greater_croatia_minority_idea = {
+		ILL_greater_croatia_minority_idea = {
 			modifier = {
 				stability_factor = -0.15
 				political_power_gain = -0.25
@@ -321,7 +321,7 @@ ideas = {
 			picture = FRA_matignon_agreements
 		}
 		
-		ILL_pk_spaho_croatian_nationalism_idea = {
+		ILL_spaho_croatian_nationalism_idea = {
 			modifier = {
 				stability_factor = -0.15
 				political_power_gain = -0.25
@@ -329,7 +329,7 @@ ideas = {
 			picture = FRA_scw_intervention_republicans_focus
 		}
 		
-		ILL_pk_spaho_croatian_nationalism2_idea = {
+		ILL_spaho_croatian_nationalism2_idea = {
 			modifier = {
 				stability_factor = -0.07
 				political_power_gain = -0.1
@@ -337,7 +337,7 @@ ideas = {
 			picture = FRA_scw_intervention_republicans_focus
 		}
 		
-		ILL_pk_rebel_zeal_idea = {
+		ILL_rebel_zeal_idea = {
 			modifier = {
 				army_core_attack_factor = 0.15
 				army_core_defence_factor = 0.15
@@ -345,7 +345,7 @@ ideas = {
 			picture = fra_scw_intervention_nationalists_focus
 		}
 		
-		ILL_pk_strong_police_idea = {
+		ILL_strong_police_idea = {
 			modifier = {
 				army_core_defence_factor = 0.05
 				political_power_factor = 0.1
@@ -353,7 +353,7 @@ ideas = {
 			picture = generic_spy_coup
 		}
 		
-		ILL_pk_statism_idea = {
+		ILL_statism_idea = {
 			modifier = {
 				authoritarian_democrat_drift = 0.005
 				political_power_gain = 0.1
@@ -361,7 +361,7 @@ ideas = {
 			picture = generic_fortify_the_borders
 		}
 		
-		ILL_pk_illyrian_illyria_idea = {
+		ILL_illyrian_illyria_idea = {
 			modifier = {
 				army_core_defence_factor = 0.05
 				army_core_attack_factor = 0.05
@@ -370,7 +370,7 @@ ideas = {
 			picture = generic_reserve_divisions
 		}
 		
-		ILL_pk_catholics_favored_idea = {
+		ILL_catholics_favored_idea = {
 			modifier = {
 				stability_factor = -0.05
 				political_power_gain = 0.5
@@ -380,7 +380,7 @@ ideas = {
 			picture = IRE_catholic
 		}
 		
-		ILL_pk_catholics_favored2_idea = {
+		ILL_catholics_favored2_idea = {
 			modifier = {
 				political_power_gain = 0.5
 				conscription_factor = 0.2
@@ -389,7 +389,7 @@ ideas = {
 			picture = ire_catholic
 		}
 		
-		ILL_pk_catholics_favored3_idea = {
+		ILL_catholics_favored3_idea = {
 			modifier = {
 				stability_factor = 0.05
 				political_power_gain = 0.7
@@ -400,7 +400,7 @@ ideas = {
 			picture = ire_catholic
 		}
 		
-		ILL_pk_historical_revisionism_idea = {
+		ILL_historical_revisionism_idea = {
 			modifier = {
 				stability_factor = 0.025
 				political_power_factor = 0.2
@@ -413,7 +413,7 @@ ideas = {
 			picture = hun_treaty_of_trianon
 		}
 		
-		ILL_pk_military_youth_idea = {
+		ILL_military_youth_idea = {
 			modifier = {
 				conscription = 0.02
 				training_time_factor = -0.025
@@ -421,7 +421,7 @@ ideas = {
 			picture = generic_manpower_bonus
 		}
 		
-		ILL_pk_military_youth2_idea = {
+		ILL_military_youth2_idea = {
 			modifier = {
 				conscription = 0.025
 				training_time_factor = -0.05
@@ -429,7 +429,7 @@ ideas = {
 			picture = generic_manpower_bonus
 		}
 		
-		ILL_pk_pure_croatia_idea = {
+		ILL_pure_croatia_idea = {
 			modifier = {
 				stability_factor = 0.1
 				political_power_factor = 0.1
@@ -438,7 +438,7 @@ ideas = {
 			picture = generic_morale_bonus
 		}
 		
-		ILL_pk_pure_croatia2_idea = {
+		ILL_pure_croatia2_idea = {
 			modifier = {
 				stability_factor = 0.15
 				political_power_factor = 0.15
@@ -449,14 +449,14 @@ ideas = {
 			picture = generic_morale_bonus
 		}
 		
-		ILL_pk_religious_oligarchy_idea = {
+		ILL_religious_oligarchy_idea = {
 			modifier = {
 				authoritarian_democrat_drift = 0.005
 			}
 			picture = generic_constitutional_guarantee
 		}
 		
-		ILL_pk_croatian_theocracy_idea = {
+		ILL_croatian_theocracy_idea = {
 			modifier = {
 				stability_factor = 0.1
 				political_power_gain = 0.5
@@ -467,7 +467,7 @@ ideas = {
 			picture = the_war_to_end_all_wars
 		}
 		
-		ILL_pk_worker_rebellions_idea = {
+		ILL_worker_rebellions_idea = {
 			modifier = {
 				stability_factor = -0.25
 				political_power_gain = -0.5
@@ -479,7 +479,7 @@ ideas = {
 			picture = economic_control_icon
 		}
 		
-		ILL_pk_socialist_threat_idea = {
+		ILL_socialist_threat_idea = {
 			modifier = {
 				stability_factor = -0.1
 				political_power_factor = -0.25
@@ -488,7 +488,7 @@ ideas = {
 			picture = anti_soviet_pact
 		}
 		
-		ILL_pk_austria_french_reparations_idea = {
+		ILL_austria_french_reparations_idea = {
 			modifier = {
 				consumer_goods_factor = -0.05
 				army_core_defence_factor = 0.05
@@ -496,7 +496,7 @@ ideas = {
 			picture = anti_soviet_pact
 		}
 		
-		ILL_pk_federalized_idea = {
+		ILL_federalized_idea = {
 			modifier = {
 				stability_factor = 0.05
 				production_factory_max_efficiency_factor = 0.025
@@ -504,7 +504,7 @@ ideas = {
 			picture = generic_local_self_management
 		}
 		
-		ILL_pk_workers_councils_idea = {
+		ILL_workers_councils_idea = {
 			modifier = {
 				production_factory_efficiency_gain_factor = 0.05
 				production_speed_buildings_factor = 0.05
@@ -513,7 +513,7 @@ ideas = {
 			picture = generic_production_bonus
 		}
 		
-		ILL_pk_autonomous_regions_idea = {
+		ILL_autonomous_regions_idea = {
 			modifier = {
 				production_factory_max_efficiency_factor = 0.05
 				political_power_gain = 0.15
@@ -521,7 +521,7 @@ ideas = {
 			picture = generic_local_self_management
 		}
 		
-		ILL_pk_federalized2_idea = {
+		ILL_federalized2_idea = {
 			modifier = {
 				stability_factor = 0.1
 				production_factory_max_efficiency_factor = 0.025
@@ -529,7 +529,7 @@ ideas = {
 			picture = generic_local_self_management
 		}
 		
-		ILL_pk_favor_the_workers_idea = {
+		ILL_favor_the_workers_idea = {
 			modifier = {
 				production_speed_industrial_complex_factor = 0.10
 				consumer_goods_factor = 0.05
@@ -537,7 +537,7 @@ ideas = {
 			picture = generic_production_bonus
 		}
 		
-		ILL_pk_benevolent_dictatorship_idea = {
+		ILL_benevolent_dictatorship_idea = {
 			modifier = {
 				stability_factor = 0.05
 				production_speed_buildings_factor = 0.05
@@ -546,7 +546,7 @@ ideas = {
 			picture = generic_morale_bonus
 		}
 		
-		ILL_pk_brotherhood_and_unity_idea = {
+		ILL_brotherhood_and_unity_idea = {
 			modifier = {
 				stability_factor = 0.15
 				production_speed_buildings_factor = 0.1
@@ -555,7 +555,7 @@ ideas = {
 			picture = generic_morale_bonus
 		}
 		
-		ILL_pk_self_sustenance_idea = {
+		ILL_self_sustenance_idea = {
 			modifier = {
 				stability_factor = 0.05
 				army_core_attack_factor = 0.025
@@ -565,7 +565,7 @@ ideas = {
 			picture = generic_local_self_management
 		}
 		
-		ILL_pk_new_workers_culture_idea = {
+		ILL_new_workers_culture_idea = {
 			modifier = {
 				production_factory_efficiency_gain_factor = 0.05
 				stability_factor = 0.025
@@ -574,7 +574,7 @@ ideas = {
 			picture = generic_production_bonus
 		}
 
-		ILL_pk_rooting_out_reactionaries_idea = {
+		ILL_rooting_out_reactionaries_idea = {
 			modifier = {
 				national_populist_drift = -0.01
 				paternal_autocrat_drift = -0.01
@@ -583,7 +583,7 @@ ideas = {
 			picture = FRA_matignon_agreements
 		}
 		
-		ILL_pk_state_atheism_idea = {
+		ILL_state_atheism_idea = {
 			modifier = {
 				political_power_gain = 0.25
 				stability_factor = -0.05
@@ -591,7 +591,7 @@ ideas = {
 			picture = FRA_matignon_agreements
 		}
 		
-		ILL_pk_dictatorship_of_the_proletariat_idea = {
+		ILL_dictatorship_of_the_proletariat_idea = {
 			modifier = {
 				political_power_factor = 0.25
 				totalist_drift = 0.01
@@ -599,7 +599,7 @@ ideas = {
 			picture = generic_production_bonus
 		}
 		
-		ILL_pk_womens_rights_idea = {
+		ILL_womens_rights_idea = {
 			modifier = {
 				conscription_factor = 0.1
 				stability_factor = -0.05
@@ -608,7 +608,7 @@ ideas = {
 			picture = generic_production_bonus
 		}
 		
-		ILL_pk_turbofolk_idea = {
+		ILL_turbofolk_idea = {
 			modifier = {
 				political_power_gain = 0.1
 				stability_factor = 0.075
@@ -616,7 +616,7 @@ ideas = {
 			picture = generic_morale_bonus
 		}
 		
-		ILL_pk_decentralized_nation_idea = {
+		ILL_decentralized_nation_idea = {
 			modifier = {
 				stability_factor = 0.1
 				political_power_factor = -0.02
@@ -624,14 +624,14 @@ ideas = {
 			picture = generic_local_self_management
 		}
 		
-		ILL_pk_centralizing_idea = {
+		ILL_centralizing_idea = {
 			modifier = {
 				political_power_factor = -0.025
 			}
 			picture = generic_local_self_management
 		}
 		
-		ILL_pk_empowered_militias_idea = {
+		ILL_empowered_militias_idea = {
 			modifier = {
 				army_org_factor = -0.025
 				army_core_attack_factor = 0.025
@@ -640,21 +640,21 @@ ideas = {
 			picture = generic_army_bonus
 		}
 		
-		ILL_pk_romani_conscription_idea = {
+		ILL_romani_conscription_idea = {
 			modifier = {
 				conscription = 0.015
 			}
 			picture = generic_army_war_college
 		}
 		
-		ILL_pk_regulated_economy_idea = {
+		ILL_regulated_economy_idea = {
 			modifier = {
 				consumer_goods_factor = -0.1
 			}
 			picture = generic_local_self_management
 		}
 		
-		ILL_pk_revolution_in_the_balkans_idea = {
+		ILL_revolution_in_the_balkans_idea = {
 			modifier = {
 				radical_socialist_drift = 0.02
 				justify_war_goal_time = -0.25
@@ -663,7 +663,7 @@ ideas = {
 			picture = FRA_scw_intervention_republicans_focus
 		}
 		
-		ILL_pk_black_monday_idea = {
+		ILL_black_monday_idea = {
 			picture = great_depression
 			allowed = {
 				always = no
@@ -678,7 +678,7 @@ ideas = {
 			removal_cost = -1
 		}
 		
-		ILL_pk_black_monday11_idea = {
+		ILL_black_monday11_idea = {
 			picture = great_depression
 			allowed = {
 				always = no
@@ -693,7 +693,7 @@ ideas = {
 			removal_cost = -1
 		}
 		
-		ILL_pk_black_monday12_idea = {
+		ILL_black_monday12_idea = {
 			picture = great_depression
 			allowed = {
 				always = no
@@ -708,7 +708,7 @@ ideas = {
 			removal_cost = -1
 		}
 		
-		ILL_pk_black_monday13_idea = {
+		ILL_black_monday13_idea = {
 			picture = great_depression
 			allowed = {
 				always = no
@@ -723,7 +723,7 @@ ideas = {
 			removal_cost = -1
 		}
 		
-		ILL_pk_black_monday14_idea = {
+		ILL_black_monday14_idea = {
 			picture = great_depression
 			allowed = {
 				always = no
@@ -737,7 +737,7 @@ ideas = {
 			removal_cost = -1
 		}
 		
-		ILL_pk_black_monday21_idea = {
+		ILL_black_monday21_idea = {
 			picture = great_depression
 			allowed = {
 				always = no
@@ -752,7 +752,7 @@ ideas = {
 			removal_cost = -1
 		}
 		
-		ILL_pk_black_monday22_idea = {
+		ILL_black_monday22_idea = {
 			picture = great_depression
 			allowed = {
 				always = no
@@ -766,7 +766,7 @@ ideas = {
 			removal_cost = -1
 		}
 		
-		ILL_pk_black_monday23_idea = {
+		ILL_black_monday23_idea = {
 			picture = great_depression
 			allowed = {
 				always = no
@@ -780,49 +780,49 @@ ideas = {
 			removal_cost = -1
 		}
 		
-		ILL_pk_economic_cooperation_serbia_idea = {
+		ILL_economic_cooperation_serbia_idea = {
 			picture = generic_goods_red_bonus
 			modifier = {
 				consumer_goods_factor = -0.1
 			}
 		}
 		
-		ILL_pk_austrian_economic_dominance_idea = {
+		ILL_austrian_economic_dominance_idea = {
 			picture = generic_goods_red_bonus
 			modifier = {
 				consumer_goods_factor = 0.15
 			}
 		}
 		
-		ILL_pk_resource_exploitation_idea = {
+		ILL_resource_exploitation_idea = {
 			picture = generic_exploit_mines
 			modifier = {
 				local_resources_factor = 0.1
 			}
 		}
 		
-		ILL_pk_mass_production_idea = {
+		ILL_mass_production_idea = {
 			picture = generic_production_bonus
 			modifier = {
 				industrial_capacity_factory = 0.05
 			}
 		}
 
-		ILL_pk_unthinkable_idea = {
+		ILL_unthinkable_idea = {
 			picture = ast_naval_auxiliary_patrol
 			modifier = {
 				production_speed_bunker_factor = 0.125
 			}
 		}
 		
-		ILL_pk_further_industrialization_idea = {
+		ILL_further_industrialization_idea = {
 			picture = ast_naval_auxiliary_patrol
 			modifier = {
 				production_speed_buildings_factor = 0.05
 			}
 		}
 		
-		ILL_pk_license_production_idea = {
+		ILL_license_production_idea = {
 
 			picture = generic_license_production
 
@@ -835,7 +835,7 @@ ideas = {
 			}
 		}
 		
-		ILL_pk_coast_defense_idea = {
+		ILL_coast_defense_idea = {
 			picture = ast_naval_auxiliary_patrol
 			modifier = {
 				production_speed_coastal_bunker_factor = 0.15

@@ -18,7 +18,7 @@ focus_tree = {
 	### Obey Austria ###
 	
 	focus = {
-		id = ILL_pk_play_along
+		id = ILL_play_along
 		icon = GFX_goal_generic_dangerous_deal
 		x = 3
 		y = 0
@@ -26,9 +26,9 @@ focus_tree = {
 		cost = 1
 
 		mutually_exclusive = {
-			focus = ILL_pk_play_nice
-			focus = ILL_pk_play_naughty
-			focus = ILL_pk_we_were_wrong
+			focus = ILL_play_nice
+			focus = ILL_play_naughty
+			focus = ILL_we_were_wrong
 		}
 
 		available = {
@@ -44,7 +44,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_we_were_wrong
+		id = ILL_we_were_wrong
 		icon = GFX_focus_CZE_german_puppet
 		x = 1
 		y = 0
@@ -52,7 +52,7 @@ focus_tree = {
 		cost = 1
 
 		mutually_exclusive = {
-			focus = ILL_pk_play_along
+			focus = ILL_play_along
 		}
 
 		available = {
@@ -97,15 +97,15 @@ focus_tree = {
 			hidden_effect = { 
 				set_party_name = {
 					ideology = paternal_autocrat
-					name = ILL_pk_paternal_autocrat_party
-					long_name = ILL_pk_paternal_autocrat_party_long
+					name = ILL_paternal_autocrat_party
+					long_name = ILL_paternal_autocrat_party_long
 				}
 			}
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_recognize_austrian_governance
+		id = ILL_recognize_austrian_governance
 		icon = GFX_goal_generic_forceful_treaty
 		x = 2
 		y = 1
@@ -113,8 +113,8 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_we_were_wrong
-			focus = ILL_pk_play_along
+			focus = ILL_we_were_wrong
+			focus = ILL_play_along
 		}
 
 		available = { is_subject_of = AUS }
@@ -128,7 +128,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_strengthen_economic_ties
+		id = ILL_strengthen_economic_ties
 		icon = GFX_goal_generic_consumer_goods
 		x = 2
 		y = 2
@@ -136,7 +136,7 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_recognize_austrian_governance
+			focus = ILL_recognize_austrian_governance
 		}
 
 		available = { is_subject_of = AUS }
@@ -144,15 +144,15 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_timed_idea = { idea = ILL_pk_economic_cooperation_austria_idea days = 365 }
-			AUS = { add_timed_idea = { idea = ILL_pk_economic_cooperation_austria_idea days = 365 } }
+			add_timed_idea = { idea = ILL_economic_cooperation_austria_idea days = 365 }
+			AUS = { add_timed_idea = { idea = ILL_economic_cooperation_austria_idea days = 365 } }
 		}
 	}
 	
 	### Pro Austria path ###
 	
 	focus = {
-		id = ILL_pk_order_and_uniformity
+		id = ILL_order_and_uniformity
 		icon = GFX_goal_anschluss
 		x = 0
 		y = 3
@@ -160,10 +160,10 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_strengthen_economic_ties
+			focus = ILL_strengthen_economic_ties
 		}
 
-		mutually_exclusive = { focus = ILL_pk_save_what_can_be_saved }
+		mutually_exclusive = { focus = ILL_save_what_can_be_saved }
 		
 		available = { is_subject_of = AUS }
 		
@@ -176,7 +176,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_quench_minor_rebellions
+		id = ILL_quench_minor_rebellions
 		icon = GFX_goal_generic_political_pressure
 		x = 0
 		y = 4
@@ -184,13 +184,13 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_order_and_uniformity
+			focus = ILL_order_and_uniformity
 		}
 
 		available = { is_subject_of = AUS }
 		
 		bypass = {
-			NOT = { has_idea = ILL_pk_montenegrin_nationalism_idea }
+			NOT = { has_idea = ILL_montenegrin_nationalism_idea }
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -198,14 +198,14 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = 60
 			swap_ideas = {
-				remove_idea = ILL_pk_montenegrin_nationalism_idea
-				add_idea = ILL_pk_montenegrin_nationalism2_idea
+				remove_idea = ILL_montenegrin_nationalism_idea
+				add_idea = ILL_montenegrin_nationalism2_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_economic_dependency
+		id = ILL_economic_dependency
 		icon = GFX_goal_generic_trade
 		x = 0
 		y = 5
@@ -213,7 +213,7 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_quench_minor_rebellions
+			focus = ILL_quench_minor_rebellions
 		}
 
 		available = { is_subject_of = AUS }
@@ -221,12 +221,12 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_economic_dependency_idea
+			add_ideas = ILL_economic_dependency_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_negotiate_with_habsburgs
+		id = ILL_negotiate_with_habsburgs
 		icon = GFX_goal_generic_major_alliance
 		x = 0
 		y = 6
@@ -234,7 +234,7 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_economic_dependency
+			focus = ILL_economic_dependency
 		}
 
 		available = { is_subject_of = AUS }
@@ -256,7 +256,7 @@ focus_tree = {
 	### Save what you can path - Sarkotic dies prematurely and Radic takes control ###
 	
 	focus = {
-		id = ILL_pk_save_what_can_be_saved
+		id = ILL_save_what_can_be_saved
 		icon = GFX_goal_generic_attack_allies
 		x = 3
 		y = 3
@@ -264,7 +264,7 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_strengthen_economic_ties
+			focus = ILL_strengthen_economic_ties
 		}
 
 		available = {
@@ -272,7 +272,7 @@ focus_tree = {
 			NOT = { has_country_flag = illyria_independence_failed }
 		}
 		
-		mutually_exclusive = { focus = ILL_pk_order_and_uniformity }
+		mutually_exclusive = { focus = ILL_order_and_uniformity }
 		
 		ai_will_do = { factor = 60 }
 
@@ -284,7 +284,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_radic_in_power
+		id = ILL_radic_in_power
 		icon = GFX_focus_AST_squander_bug
 		x = 3
 		y = 4
@@ -292,7 +292,7 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_save_what_can_be_saved
+			focus = ILL_save_what_can_be_saved
 		}
 
 		available = { is_subject_of = AUS }
@@ -307,7 +307,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_resist_centralization_attempts
+		id = ILL_resist_centralization_attempts
 		icon = GFX_goal_support_democracy
 		x = 3
 		y = 5
@@ -315,7 +315,7 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_radic_in_power
+			focus = ILL_radic_in_power
 		}
 
 		available = { is_subject_of = AUS }
@@ -329,7 +329,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_let_montenegro_go
+		id = ILL_let_montenegro_go
 		icon = GFX_focus_generic_concessions
 		x = 2
 		y = 6
@@ -337,10 +337,10 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_resist_centralization_attempts
+			focus = ILL_resist_centralization_attempts
 		}
 
-		mutually_exclusive = { focus = ILL_pk_demand_slovenia }
+		mutually_exclusive = { focus = ILL_demand_slovenia }
 		
 		available = {
 			is_subject_of = AUS
@@ -350,7 +350,7 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = ILL_pk_montenegrin_nationalism_idea
+			remove_ideas = ILL_montenegrin_nationalism_idea
 			release = MTN
 			add_political_power = -50
 			AUS = { country_event = { id = illyria.12 days = 1 } }
@@ -358,7 +358,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_demand_slovenia
+		id = ILL_demand_slovenia
 		icon = GFX_goal_generic_political_pressure
 		x = 4
 		y = 6
@@ -366,10 +366,10 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_resist_centralization_attempts
+			focus = ILL_resist_centralization_attempts
 		}
 
-		mutually_exclusive = { focus = ILL_pk_let_montenegro_go }
+		mutually_exclusive = { focus = ILL_let_montenegro_go }
 		
 		available = {
 			is_subject_of = AUS
@@ -386,7 +386,7 @@ focus_tree = {
 	### Other Focuses ###
 	
 	focus = {
-		id = ILL_pk_austrian_education
+		id = ILL_austrian_education
 		icon = GFX_focus_research
 		x = 2
 		y = 7
@@ -394,9 +394,9 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_negotiate_with_habsburgs
-			focus = ILL_pk_let_montenegro_go
-			focus = ILL_pk_demand_slovenia
+			focus = ILL_negotiate_with_habsburgs
+			focus = ILL_let_montenegro_go
+			focus = ILL_demand_slovenia
 		}
 
 		available = { is_subject_of = AUS }
@@ -404,12 +404,12 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_austrian_education_idea
+			add_ideas = ILL_austrian_education_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_austrian_science
+		id = ILL_austrian_science
 		icon = GFX_goal_generic_scientific_exchange
 		x = 2
 		y = 8
@@ -417,7 +417,7 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_austrian_education
+			focus = ILL_austrian_education
 		}
 
 		available = { is_subject_of = AUS }
@@ -432,7 +432,7 @@ focus_tree = {
 	### PLAY NICE ###
 	
 	focus = {
-		id = ILL_pk_play_nice
+		id = ILL_play_nice
 		icon = GFX_goal_generic_improve_relations
 		x = 9
 		y = 0
@@ -440,8 +440,8 @@ focus_tree = {
 		cost = 1
 
 		mutually_exclusive = {
-			focus = ILL_pk_play_along
-			focus = ILL_pk_play_naughty
+			focus = ILL_play_along
+			focus = ILL_play_naughty
 		}
 
 		available = {
@@ -466,7 +466,7 @@ focus_tree = {
 	### Peaceful Secession ###
 	
 	focus = {
-		id = ILL_pk_peaceful_secession
+		id = ILL_peaceful_secession
 		icon = GFX_goal_tripartite_pact
 		x = 6
 		y = 1
@@ -479,11 +479,11 @@ focus_tree = {
 		}
 
 		mutually_exclusive = {
-			focus = ILL_pk_war_is_chaos
+			focus = ILL_war_is_chaos
 		}
 		
 		prerequisite = {
-			focus = ILL_pk_play_nice
+			focus = ILL_play_nice
 		}
 		
 		bypass = { NOT = { is_subject_of = AUS} }
@@ -496,7 +496,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_seek_international_backers
+		id = ILL_seek_international_backers
 		icon = GFX_goal_generic_intelligence_exchange
 		x = 4
 		y = 2
@@ -509,7 +509,7 @@ focus_tree = {
 		}
 		
 		prerequisite = {
-			focus = ILL_pk_peaceful_secession
+			focus = ILL_peaceful_secession
 		}
 
 		bypass = { NOT = { is_subject_of = AUS} }
@@ -519,7 +519,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -5
 			hidden_effect = {
-				set_country_flag = { flag = ILL_pk_independence_support value = 0 }
+				set_country_flag = { flag = ILL_independence_support value = 0 }
 			}
 			hidden_effect = {
 				if = {
@@ -556,7 +556,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_organize_a_plebiscite
+		id = ILL_organize_a_plebiscite
 		icon = GFX_focus_generic_support_the_left_right
 		x = 6
 		y = 2
@@ -564,7 +564,7 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_peaceful_secession
+			focus = ILL_peaceful_secession
 		}
 		
 		available = {
@@ -582,7 +582,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_economic_independency
+		id = ILL_economic_independency
 		icon = GFX_goal_generic_construction2
 		x = 8
 		y = 2
@@ -590,7 +590,7 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_peaceful_secession
+			focus = ILL_peaceful_secession
 		}
 		
 		available = {
@@ -604,24 +604,24 @@ focus_tree = {
 
 		completion_reward = {
 			random_list = {
-			25 = { add_timed_idea = { idea = ILL_pk_economic_independency1_idea days = 365} }
-			50 = { add_timed_idea = { idea = ILL_pk_economic_independency2_idea days = 365} }
-			25 = { add_timed_idea = { idea = ILL_pk_economic_independency3_idea days = 365} }
+			25 = { add_timed_idea = { idea = ILL_economic_independency1_idea days = 365} }
+			50 = { add_timed_idea = { idea = ILL_economic_independency2_idea days = 365} }
+			25 = { add_timed_idea = { idea = ILL_economic_independency3_idea days = 365} }
 			}
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_sever_ties_with_hungary
+		id = ILL_sever_ties_with_hungary
 		icon = GFX_goal_tfv_sever_ties_with_uk
 		x = 5
 		y = 3
 
 		cost = 3
 
-		prerequisite = { focus = ILL_pk_seek_international_backers }
-		prerequisite = { focus = ILL_pk_organize_a_plebiscite }
-		prerequisite = { focus = ILL_pk_economic_independency }
+		prerequisite = { focus = ILL_seek_international_backers }
+		prerequisite = { focus = ILL_organize_a_plebiscite }
+		prerequisite = { focus = ILL_economic_independency }
 		
 		available = {
 			is_subject_of = AUS
@@ -644,16 +644,16 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_sever_ties_with_austria
+		id = ILL_sever_ties_with_austria
 		icon = GFX_goal_tfv_sever_ties_with_uk
 		x = 7
 		y = 3
 
 		cost = 3
 
-		prerequisite = { focus = ILL_pk_seek_international_backers }
-		prerequisite = { focus = ILL_pk_organize_a_plebiscite }
-		prerequisite = { focus = ILL_pk_economic_independency }
+		prerequisite = { focus = ILL_seek_international_backers }
+		prerequisite = { focus = ILL_organize_a_plebiscite }
+		prerequisite = { focus = ILL_economic_independency }
 		
 		available = {
 			is_subject_of = AUS
@@ -673,15 +673,15 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_official_independence
+		id = ILL_official_independence
 		icon = GFX_focus_generic_the_giant_wakes
 		x = 6
 		y = 4
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_sever_ties_with_hungary }
-		prerequisite = { focus = ILL_pk_sever_ties_with_austria }
+		prerequisite = { focus = ILL_sever_ties_with_hungary }
+		prerequisite = { focus = ILL_sever_ties_with_austria }
 		
 		available = {
 			is_subject_of = AUS
@@ -689,8 +689,8 @@ focus_tree = {
 		}
 
 		mutually_exclusive = {
-			focus = ILL_pk_independence_at_last
-			focus = ILL_pk_escape_from_chaos
+			focus = ILL_independence_at_last
+			focus = ILL_escape_from_chaos
 		}
 		
 		bypass = {
@@ -705,7 +705,7 @@ focus_tree = {
 			AUS = { end_puppet = ILL }
 			remove_ideas = AUS_part_of_the_Empire
 			AUS = { remove_from_faction = ILL }
-			remove_ideas = ILL_pk_increased_autonomy_idea
+			remove_ideas = ILL_increased_autonomy_idea
 			set_cosmetic_tag = ILL_independent
 			hidden_effect = { AUS = { country_event = { id = illyria.34 days = 1 } } }
 			hidden_effect = { news_event = { id = illyria.90 } }
@@ -715,22 +715,22 @@ focus_tree = {
 	### Random Independence ###
 	
 	focus = {
-		id = ILL_pk_independence_at_last
+		id = ILL_independence_at_last
 		icon = GFX_goal_liberty
 		x = 9
 		y = 4
 
 		cost = 1
 		
-		prerequisite = { focus = ILL_pk_play_nice }
+		prerequisite = { focus = ILL_play_nice }
 		
 		available = {
 			is_subject = no
 		}
 
 		mutually_exclusive = {
-			focus = ILL_pk_official_independence
-			focus = ILL_pk_escape_from_chaos
+			focus = ILL_official_independence
+			focus = ILL_escape_from_chaos
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -747,7 +747,7 @@ focus_tree = {
 	### WAR IS CHAOS ###
 	
 	focus = {
-		id = ILL_pk_war_is_chaos
+		id = ILL_war_is_chaos
 		icon = GFX_focus_generic_strike_at_democracy2
 		x = 12
 		y = 1
@@ -755,10 +755,10 @@ focus_tree = {
 		cost = 5
 
 		mutually_exclusive = {
-			focus = ILL_pk_peaceful_secession
+			focus = ILL_peaceful_secession
 		}
 
-		prerequisite = { focus = ILL_pk_play_nice }
+		prerequisite = { focus = ILL_play_nice }
 		
 		available = {
 			is_subject_of = AUS
@@ -775,7 +775,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_discredit_the_habsburgs
+		id = ILL_discredit_the_habsburgs
 		icon = GFX_focus_rom_abdicate
 		x = 11
 		y = 2
@@ -783,10 +783,10 @@ focus_tree = {
 		cost = 5
 
 		mutually_exclusive = {
-			focus = ILL_pk_hastily_cut_ties
+			focus = ILL_hastily_cut_ties
 		}
 
-		prerequisite = { focus = ILL_pk_war_is_chaos }
+		prerequisite = { focus = ILL_war_is_chaos }
 		
 		available = {
 			is_subject_of = AUS
@@ -798,19 +798,19 @@ focus_tree = {
 
 		completion_reward = {
 			add_political_power = -50
-			AUS = { add_opinion_modifier = { target = ILL modifier = ILL_pk_habsburgs_discredited } }
+			AUS = { add_opinion_modifier = { target = ILL modifier = ILL_habsburgs_discredited } }
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_begin_secession
+		id = ILL_begin_secession
 		icon = GFX_goal_generic_alliance
 		x = 11
 		y = 3
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_discredit_the_habsburgs }
+		prerequisite = { focus = ILL_discredit_the_habsburgs }
 		
 		available = {
 			is_subject_of = AUS
@@ -823,15 +823,15 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -75
 			random_list = {
-			20 = { add_timed_idea = { idea = ILL_pk_economic_independency1_idea days = 365} }
-			40 = { add_timed_idea = { idea = ILL_pk_economic_independency2_idea days = 365} }
-			40 = { add_timed_idea = { idea = ILL_pk_economic_independency3_idea days = 365} }
+			20 = { add_timed_idea = { idea = ILL_economic_independency1_idea days = 365} }
+			40 = { add_timed_idea = { idea = ILL_economic_independency2_idea days = 365} }
+			40 = { add_timed_idea = { idea = ILL_economic_independency3_idea days = 365} }
 			}
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_hastily_cut_ties
+		id = ILL_hastily_cut_ties
 		icon = GFX_focus_renounce_the_treaty_of_trianon
 		x = 13
 		y = 2
@@ -839,10 +839,10 @@ focus_tree = {
 		cost = 1
 
 		mutually_exclusive = {
-			focus = ILL_pk_discredit_the_habsburgs
+			focus = ILL_discredit_the_habsburgs
 		}
 
-		prerequisite = { focus = ILL_pk_war_is_chaos }
+		prerequisite = { focus = ILL_war_is_chaos }
 		
 		available = {
 			is_subject_of = AUS
@@ -855,21 +855,21 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -75
 			random_list = {
-			40 = { add_timed_idea = { idea = ILL_pk_economic_independency2_idea days = 720} }
-			60 = { add_timed_idea = { idea = ILL_pk_economic_independency3_idea days = 720} }
+			40 = { add_timed_idea = { idea = ILL_economic_independency2_idea days = 720} }
+			60 = { add_timed_idea = { idea = ILL_economic_independency3_idea days = 720} }
 			}
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_public_declaration
+		id = ILL_public_declaration
 		icon = GFX_goal_generic_forceful_treaty
 		x = 13
 		y = 3
 
 		cost = 1
 
-		prerequisite = { focus = ILL_pk_hastily_cut_ties }
+		prerequisite = { focus = ILL_hastily_cut_ties }
 		
 		available = {
 			is_subject_of = AUS
@@ -885,7 +885,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_escape_from_chaos
+		id = ILL_escape_from_chaos
 		icon = GFX_goal_generic_secret_weapon
 		x = 12
 		y = 4
@@ -893,8 +893,8 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_begin_secession
-			focus = ILL_pk_public_declaration
+			focus = ILL_begin_secession
+			focus = ILL_public_declaration
 		}
 		
 		available = {
@@ -903,8 +903,8 @@ focus_tree = {
 		}
 
 		mutually_exclusive = {
-			focus = ILL_pk_independence_at_last
-			focus = ILL_pk_escape_from_chaos
+			focus = ILL_independence_at_last
+			focus = ILL_escape_from_chaos
 		}
 		
 		bypass = {
@@ -927,7 +927,7 @@ focus_tree = {
 	### REPUBLIC PATH ###
 	
 	focus = {
-		id = ILL_pk_illyrian_republicanism
+		id = ILL_illyrian_republicanism
 		icon = GFX_focus_generic_self_management
 		x = 9
 		y = 5
@@ -935,9 +935,9 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_official_independence
-			focus = ILL_pk_independence_at_last
-			focus = ILL_pk_escape_from_chaos
+			focus = ILL_official_independence
+			focus = ILL_independence_at_last
+			focus = ILL_escape_from_chaos
 		}
 		
 		available = {
@@ -952,12 +952,12 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_republicanism_idea
+			add_ideas = ILL_republicanism_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_hold_elections
+		id = ILL_hold_elections
 		icon = GFX_goal_anschluss
 		x = 9
 		y = 6
@@ -965,7 +965,7 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_illyrian_republicanism
+			focus = ILL_illyrian_republicanism
 		}
 		
 		available = {
@@ -991,7 +991,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_sarajevo_agreement
+		id = ILL_sarajevo_agreement
 		icon = GFX_goal_generic_national_unity
 		x = 9
 		y = 7
@@ -999,7 +999,7 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_hold_elections
+			focus = ILL_hold_elections
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -1010,7 +1010,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_education_reform
+		id = ILL_education_reform
 		icon = GFX_goal_KTG_Bookstack
 		x = 9
 		y = 8
@@ -1018,7 +1018,7 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_sarajevo_agreement
+			focus = ILL_sarajevo_agreement
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -1029,7 +1029,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_push_for_secularization
+		id = ILL_push_for_secularization
 		icon = GFX_goal_generic_improve_relations
 		x = 7
 		y = 9
@@ -1037,12 +1037,12 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_education_reform
+			focus = ILL_education_reform
 		}
 		
 		mutually_exclusive = {
-			focus = ILL_pk_tolerant_nation
-			focus = ILL_pk_rule_of_majority
+			focus = ILL_tolerant_nation
+			focus = ILL_rule_of_majority
 		}
 		
 		available = {
@@ -1052,12 +1052,12 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_secularization_effort_idea
+			add_ideas = ILL_secularization_effort_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_tolerant_nation
+		id = ILL_tolerant_nation
 		icon = GFX_goal_generic_improve_relations
 		x = 9
 		y = 9
@@ -1065,12 +1065,12 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_education_reform
+			focus = ILL_education_reform
 		}
 		
 		mutually_exclusive = {
-			focus = ILL_pk_push_for_secularization
-			focus = ILL_pk_rule_of_majority
+			focus = ILL_push_for_secularization
+			focus = ILL_rule_of_majority
 		}
 		
 		available = {
@@ -1083,12 +1083,12 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_tolerance_idea
+			add_ideas = ILL_tolerance_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_rule_of_majority
+		id = ILL_rule_of_majority
 		icon = GFX_focus_YUG_banovina_of_croatia
 		x = 11
 		y = 9
@@ -1096,12 +1096,12 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_education_reform
+			focus = ILL_education_reform
 		}
 		
 		mutually_exclusive = {
-			focus = ILL_pk_push_for_secularization
-			focus = ILL_pk_tolerant_nation
+			focus = ILL_push_for_secularization
+			focus = ILL_tolerant_nation
 		}
 		
 		available = {
@@ -1111,12 +1111,12 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_croat_focused_idea
+			add_ideas = ILL_croat_focused_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_limited_autonomy
+		id = ILL_limited_autonomy
 		icon = GFX_goal_government_icon
 		x = 8
 		y = 10
@@ -1124,25 +1124,25 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_rule_of_majority
-			focus = ILL_pk_tolerant_nation
-			focus = ILL_pk_push_for_secularization
+			focus = ILL_rule_of_majority
+			focus = ILL_tolerant_nation
+			focus = ILL_push_for_secularization
 		}
 		
 		mutually_exclusive = {
-			focus = ILL_pk_illyrian_patriotism
+			focus = ILL_illyrian_patriotism
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_decentralized_state_idea
+			add_ideas = ILL_decentralized_state_idea
 			add_political_power = 100
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_illyrian_patriotism
+		id = ILL_illyrian_patriotism
 		icon = GFX_goal_illyria
 		x = 10
 		y = 10
@@ -1150,24 +1150,24 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_rule_of_majority
-			focus = ILL_pk_tolerant_nation
-			focus = ILL_pk_push_for_secularization
+			focus = ILL_rule_of_majority
+			focus = ILL_tolerant_nation
+			focus = ILL_push_for_secularization
 		}
 		
 		mutually_exclusive = {
-			focus = ILL_pk_limited_autonomy
+			focus = ILL_limited_autonomy
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_illyrian_patriotism_idea
+			add_ideas = ILL_illyrian_patriotism_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_invest_in_bosnia
+		id = ILL_invest_in_bosnia
 		icon = GFX_goal_generic_intelligence_exchange
 		x = 8
 		y = 11
@@ -1175,8 +1175,8 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_limited_autonomy
-			focus = ILL_pk_illyrian_patriotism
+			focus = ILL_limited_autonomy
+			focus = ILL_illyrian_patriotism
 		}
 		
 		available = {
@@ -1185,14 +1185,14 @@ focus_tree = {
 		}
 		
 		mutually_exclusive = {
-			focus = ILL_pk_exploit_rural_resources
+			focus = ILL_exploit_rural_resources
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_timed_idea = { idea = ILL_pk_bosnian_investments_idea days = 60}
-			remove_ideas = ILL_pk_bosnian_issue_idea
+			add_timed_idea = { idea = ILL_bosnian_investments_idea days = 60}
+			remove_ideas = ILL_bosnian_issue_idea
 			1029 = {
 				limit = {
 					free_building_slots = {
@@ -1210,7 +1210,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_exploit_rural_resources
+		id = ILL_exploit_rural_resources
 		icon = GFX_goal_coffee_boom
 		x = 10
 		y = 11
@@ -1218,8 +1218,8 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_limited_autonomy
-			focus = ILL_pk_illyrian_patriotism
+			focus = ILL_limited_autonomy
+			focus = ILL_illyrian_patriotism
 		}
 		
 		available = {
@@ -1228,15 +1228,15 @@ focus_tree = {
 		}
 		
 		mutually_exclusive = {
-			focus = ILL_pk_invest_in_bosnia
+			focus = ILL_invest_in_bosnia
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = ILL_pk_bosnian_issue_idea
-				add_idea = ILL_pk_rural_exploitation_idea
+				remove_idea = ILL_bosnian_issue_idea
+				add_idea = ILL_rural_exploitation_idea
 			}
 			1029 = {
 				limit = {
@@ -1268,7 +1268,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_zupanija_of_zeta
+		id = ILL_zupanija_of_zeta
 		icon = GFX_goal_generic_major_alliance
 		x = 8
 		y = 12
@@ -1276,8 +1276,8 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_invest_in_bosnia
-			focus = ILL_pk_exploit_rural_resources
+			focus = ILL_invest_in_bosnia
+			focus = ILL_exploit_rural_resources
 		}
 		
 		available = {
@@ -1285,20 +1285,20 @@ focus_tree = {
 		}
 		
 		mutually_exclusive = {
-			focus = ILL_pk_quench_secessionists
+			focus = ILL_quench_secessionists
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = ILL_pk_montenegrin_nationalism_idea
+			remove_ideas = ILL_montenegrin_nationalism_idea
 			release_puppet = MTN 
 			set_autonomy = { target = MTN autonomy_state = kr_integrated_puppet }
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_quench_secessionists
+		id = ILL_quench_secessionists
 		icon = GFX_goal_generic_political_pressure
 		x = 10
 		y = 12
@@ -1306,8 +1306,8 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = {
-			focus = ILL_pk_invest_in_bosnia
-			focus = ILL_pk_exploit_rural_resources
+			focus = ILL_invest_in_bosnia
+			focus = ILL_exploit_rural_resources
 		}
 		
 		available = {
@@ -1315,15 +1315,15 @@ focus_tree = {
 		}
 		
 		mutually_exclusive = {
-			focus = ILL_pk_zupanija_of_zeta
+			focus = ILL_zupanija_of_zeta
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = ILL_pk_montenegrin_nationalism_idea
-				add_idea = ILL_pk_montenegrin_nationalism2_idea
+				remove_idea = ILL_montenegrin_nationalism_idea
+				add_idea = ILL_montenegrin_nationalism2_idea
 			}
 		}
 	}
@@ -1331,7 +1331,7 @@ focus_tree = {
 	### PLAY NAUGHTY ###
 	
 	focus = {
-		id = ILL_pk_play_naughty
+		id = ILL_play_naughty
 		icon = GFX_goal_generic_dangerous_deal
 		x = 21
 		y = 0
@@ -1339,8 +1339,8 @@ focus_tree = {
 		cost = 1
 
 		mutually_exclusive = {
-			focus = ILL_pk_play_along
-			focus = ILL_pk_play_nice
+			focus = ILL_play_along
+			focus = ILL_play_nice
 		}
 
 		available = {
@@ -1365,7 +1365,7 @@ focus_tree = {
 	### CIVIL WAR ROUTE ###
 	
 	focus = {
-		id = ILL_pk_provoking_minorities
+		id = ILL_provoking_minorities
 		icon = GFX_goal_demand_sudetenland
 		x = 16
 		y = 1
@@ -1373,16 +1373,16 @@ focus_tree = {
 		cost = 2
 
 		mutually_exclusive = {
-			focus = ILL_pk_workers_rebellions
+			focus = ILL_workers_rebellions
 		}
 
-		prerequisite = { focus = ILL_pk_play_naughty }
+		prerequisite = { focus = ILL_play_naughty }
 		
 		ai_will_do = { factor = 100 }
 
 		completion_reward = {
 			add_political_power = -25
-			add_ideas = ILL_pk_minority_unrest_idea
+			add_ideas = ILL_minority_unrest_idea
 			add_popularity = { ideology = national_populist popularity = 0.05 }
 		}
 	}
@@ -1390,7 +1390,7 @@ focus_tree = {
 	### EMPOWER CROATIA ROUTE ###
 	
 	focus = {
-		id = ILL_pk_blind_eye
+		id = ILL_blind_eye
 		icon = GFX_focus_generic_coastal_fort
 		x = 15
 		y = 2
@@ -1398,31 +1398,31 @@ focus_tree = {
 		cost = 5
 
 		mutually_exclusive = {
-			focus = ILL_pk_ban_cyrillic_alphabet
+			focus = ILL_ban_cyrillic_alphabet
 		}
 		
-		prerequisite = { focus = ILL_pk_provoking_minorities } 
+		prerequisite = { focus = ILL_provoking_minorities } 
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 75
 			swap_ideas = {
-				remove_idea = ILL_pk_minority_unrest_idea
-				add_idea = ILL_pk_minorities_ignored_idea
+				remove_idea = ILL_minority_unrest_idea
+				add_idea = ILL_minorities_ignored_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_develop_croatian_economy
+		id = ILL_develop_croatian_economy
 		icon = GFX_goal_forced_mil
 		x = 15
 		y = 3
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_blind_eye }
+		prerequisite = { focus = ILL_blind_eye }
 		
 		available = { controls_state = 103 }
 		
@@ -1465,17 +1465,17 @@ focus_tree = {
 	### EMPOWER MINORITIES ROUTE ###
 	
 	focus = {
-		id = ILL_pk_ban_cyrillic_alphabet
+		id = ILL_ban_cyrillic_alphabet
 		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
 		x = 17
 		y = 2
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_provoking_minorities }
+		prerequisite = { focus = ILL_provoking_minorities }
 		
 		mutually_exclusive = {
-			focus = ILL_pk_blind_eye
+			focus = ILL_blind_eye
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -1484,33 +1484,33 @@ focus_tree = {
 			add_political_power = -25
 			add_stability = -0.05
 			swap_ideas = {
-				remove_idea = ILL_pk_minority_unrest_idea
-				add_idea = ILL_pk_minorities_outraged_idea #Idea gives worse national unity
+				remove_idea = ILL_minority_unrest_idea
+				add_idea = ILL_minorities_outraged_idea #Idea gives worse national unity
 			}
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_centralize_the_government
+		id = ILL_centralize_the_government
 		icon = GFX_goal_generic_political_pressure
 		x = 17
 		y = 3
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_ban_cyrillic_alphabet }
+		prerequisite = { focus = ILL_ban_cyrillic_alphabet }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_centralizing_idea
+			add_ideas = ILL_centralizing_idea
 		}
 	}
 	
 	### PUTTING PAVELIC IN POWER ###
 	
 	focus = {
-		id = ILL_pk_pro_croatian_education
+		id = ILL_pro_croatian_education
 		icon = GFX_goal_KTG_Bookstack
 		x = 15
 		y = 4
@@ -1518,8 +1518,8 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_develop_croatian_economy
-			focus = ILL_pk_centralize_the_government
+			focus = ILL_develop_croatian_economy
+			focus = ILL_centralize_the_government
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -1532,7 +1532,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_promote_the_ustase
+		id = ILL_promote_the_ustase
 		icon = GFX_goal_support_fascism
 		x = 17
 		y = 4
@@ -1540,8 +1540,8 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = {
-			focus = ILL_pk_develop_croatian_economy
-			focus = ILL_pk_centralize_the_government
+			focus = ILL_develop_croatian_economy
+			focus = ILL_centralize_the_government
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -1571,15 +1571,15 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_pavelic_in_charge
+		id = ILL_pavelic_in_charge
 		icon = GFX_goal_rhineland
 		x = 16
 		y = 5
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_pro_croatian_education }
-		prerequisite = { focus = ILL_pk_promote_the_ustase }
+		prerequisite = { focus = ILL_pro_croatian_education }
+		prerequisite = { focus = ILL_promote_the_ustase }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1591,8 +1591,8 @@ focus_tree = {
 				country_event = { id = illyria.42 days = 23 }
 				set_party_name = {
 					ideology = paternal_autocrat
-					name = ILL_pk_paternal_autocrat_party2
-					long_name = ILL_pk_paternal_autocrat_party2_long
+					name = ILL_paternal_autocrat_party2
+					long_name = ILL_paternal_autocrat_party2_long
 				}
 				create_country_leader = {
 					name = "Aleksandar Horvat"
@@ -1626,17 +1626,17 @@ focus_tree = {
 	### MEHMED SPAHO AUTHORITARIAN ROUTE ###
 	
 	focus = {
-		id = ILL_pk_spaho_won_civil_war
+		id = ILL_spaho_won_civil_war
 		icon = GFX_focus_generic_anti_fascist_diplomacy
 		x = 14
 		y = 6
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_pavelic_in_charge }
+		prerequisite = { focus = ILL_pavelic_in_charge }
 		
 		mutually_exclusive = {
-			focus = ILL_pk_pavelic_won_civil_war
+			focus = ILL_pavelic_won_civil_war
 		}
 		
 		available = {
@@ -1652,14 +1652,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_fight_discrimination
+		id = ILL_fight_discrimination
 		icon = GFX_goal_generic_demand_territory
 		x = 13
 		y = 7
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_spaho_won_civil_war }
+		prerequisite = { focus = ILL_spaho_won_civil_war }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1670,14 +1670,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_take_back_montenegro
+		id = ILL_take_back_montenegro
 		icon = GFX_goal_poland_goal
 		x = 15
 		y = 7
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_spaho_won_civil_war }
+		prerequisite = { focus = ILL_spaho_won_civil_war }
 		
 		available = {
 			NOT = { owns_state = 105 }
@@ -1708,41 +1708,41 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_empower_the_police
+		id = ILL_empower_the_police
 		icon = GFX_focus_generic_little_entente
 		x = 13
 		y = 8
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_fight_discrimination }
-		prerequisite = { focus = ILL_pk_take_back_montenegro }
+		prerequisite = { focus = ILL_fight_discrimination }
+		prerequisite = { focus = ILL_take_back_montenegro }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_strong_police_idea
+			add_ideas = ILL_strong_police_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_we_are_all_illyrians
+		id = ILL_we_are_all_illyrians
 		icon = GFX_goal_generic_national_unity
 		x = 15
 		y = 8
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_fight_discrimination }
-		prerequisite = { focus = ILL_pk_take_back_montenegro }
+		prerequisite = { focus = ILL_fight_discrimination }
+		prerequisite = { focus = ILL_take_back_montenegro }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 25
 			swap_ideas = {
-				remove_idea = ILL_pk_spaho_croatian_nationalism_idea
-				add_idea = ILL_pk_spaho_croatian_nationalism2_idea
+				remove_idea = ILL_spaho_croatian_nationalism_idea
+				add_idea = ILL_spaho_croatian_nationalism2_idea
 			}
 			add_popularity = { ideology = national_populist popularity = -0.05 }
 			add_popularity = { ideology = authoritarian_democrat popularity = 0.10 }
@@ -1750,54 +1750,54 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_crack_down_on_nationalism
+		id = ILL_crack_down_on_nationalism
 		icon = GFX_goal_generic_political_pressure
 		x = 13
 		y = 9
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_empower_the_police }
-		prerequisite = { focus = ILL_pk_we_are_all_illyrians }
+		prerequisite = { focus = ILL_empower_the_police }
+		prerequisite = { focus = ILL_we_are_all_illyrians }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = ILL_pk_spaho_croatian_nationalism2_idea
+			remove_ideas = ILL_spaho_croatian_nationalism2_idea
 			add_popularity = { ideology = national_populist popularity = -0.075 }
 			add_popularity = { ideology = paternal_autocrat popularity = -0.075 }
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_enforce_statism
+		id = ILL_enforce_statism
 		icon = GFX_goal_authoritarian
 		x = 15
 		y = 9
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_empower_the_police }
-		prerequisite = { focus = ILL_pk_we_are_all_illyrians }
+		prerequisite = { focus = ILL_empower_the_police }
+		prerequisite = { focus = ILL_we_are_all_illyrians }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_popularity = { ideology = authoritarian_democrat popularity = 0.15 }
-			add_ideas = ILL_pk_statism_idea
+			add_ideas = ILL_statism_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_abolish_former_national_identities
+		id = ILL_abolish_former_national_identities
 		icon = GFX_goal_generic_forceful_treaty
 		x = 14
 		y = 10
 
 		cost = 20
 
-		prerequisite = { focus = ILL_pk_crack_down_on_nationalism }
-		prerequisite = { focus = ILL_pk_enforce_statism }
+		prerequisite = { focus = ILL_crack_down_on_nationalism }
+		prerequisite = { focus = ILL_enforce_statism }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1838,37 +1838,37 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_an_illyrian_illyria
+		id = ILL_an_illyrian_illyria
 		icon = GFX_goal_illyria
 		x = 14
 		y = 11
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_abolish_former_national_identities }
+		prerequisite = { focus = ILL_abolish_former_national_identities }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 100
-			add_ideas = ILL_pk_illyrian_illyria_idea
+			add_ideas = ILL_illyrian_illyria_idea
 		}
 	}
 	
 	### PAVELIC GREATER CROATIA ROUTE ###
 	
 	focus = {
-		id = ILL_pk_pavelic_won_civil_war
+		id = ILL_pavelic_won_civil_war
 		icon = GFX_goal_ideology_national_populist
 		x = 18
 		y = 6
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_pavelic_in_charge }
+		prerequisite = { focus = ILL_pavelic_in_charge }
 		
 		mutually_exclusive = {
-			focus = ILL_pk_spaho_won_civil_war
+			focus = ILL_spaho_won_civil_war
 		}
 		
 		available = {
@@ -1884,32 +1884,32 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_catholic_supremacy
+		id = ILL_catholic_supremacy
 		icon = GFX_goal_KTG_Colonial_Trinity2
 		x = 17
 		y = 7
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_pavelic_won_civil_war }
+		prerequisite = { focus = ILL_pavelic_won_civil_war }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_catholics_favored_idea
+			add_ideas = ILL_catholics_favored_idea
 			hidden_effect = { country_event = { id = illyria.62 days = 1 } }
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_croatian_muslims
+		id = ILL_croatian_muslims
 		icon = GFX_goal_OTT_gendarmerie
 		x = 19
 		y = 7
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_pavelic_won_civil_war }
+		prerequisite = { focus = ILL_pavelic_won_civil_war }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1920,15 +1920,15 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_status_of_orthodoxy
+		id = ILL_status_of_orthodoxy
 		icon = GFX_goal_tax_church
 		x = 17
 		y = 8
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_catholic_supremacy }
-		prerequisite = { focus = ILL_pk_croatian_muslims }
+		prerequisite = { focus = ILL_catholic_supremacy }
+		prerequisite = { focus = ILL_croatian_muslims }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1938,14 +1938,14 @@ focus_tree = {
 					has_government = authoritarian_democrat
 				}
 				swap_ideas = {
-					remove_idea = ILL_pk_catholics_favored_idea
-					add_idea = ILL_pk_catholics_favored3_idea
+					remove_idea = ILL_catholics_favored_idea
+					add_idea = ILL_catholics_favored3_idea
 				}
 				country_event = { id = illyria.64 days = 1 }
 				else = {
 					swap_ideas = {
-					remove_idea = ILL_pk_catholics_favored_idea
-					add_idea = ILL_pk_catholics_favored2_idea
+					remove_idea = ILL_catholics_favored_idea
+					add_idea = ILL_catholics_favored2_idea
 					}
 					country_event = { id = illyria.63 days = 1 }
 				}
@@ -1954,20 +1954,20 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_historical_revisionism
+		id = ILL_historical_revisionism
 		icon = GFX_goal_OTT_constitution
 		x = 19
 		y = 8
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_catholic_supremacy }
-		prerequisite = { focus = ILL_pk_croatian_muslims }
+		prerequisite = { focus = ILL_catholic_supremacy }
+		prerequisite = { focus = ILL_croatian_muslims }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_historical_revisionism_idea
+			add_ideas = ILL_historical_revisionism_idea
 			hidden_effect = { 
 				if = {
 					limit = {
@@ -1980,15 +1980,15 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_banish_minorities
+		id = ILL_banish_minorities
 		icon = GFX_goal_generic_secret_weapon
 		x = 17
 		y = 9
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_status_of_orthodoxy }
-		prerequisite = { focus = ILL_pk_historical_revisionism }
+		prerequisite = { focus = ILL_status_of_orthodoxy }
+		prerequisite = { focus = ILL_historical_revisionism }
 		
 		available = { NOT = { has_country_flag = pavelic_stepped_down_stepinac } }
 		
@@ -1997,7 +1997,7 @@ focus_tree = {
 		completion_reward = {
 			add_political_power = -100
 			add_manpower = -100000
-			remove_ideas = ILL_pk_greater_croatia_minority_idea
+			remove_ideas = ILL_greater_croatia_minority_idea
 		    every_owned_state = {
 			    limit = {
 				    is_core_of = MTN
@@ -2032,23 +2032,23 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_croatian_youth
+		id = ILL_croatian_youth
 		icon = GFX_focus_generic_military_mission
 		x = 19
 		y = 9
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_status_of_orthodoxy }
-		prerequisite = { focus = ILL_pk_historical_revisionism }
+		prerequisite = { focus = ILL_status_of_orthodoxy }
+		prerequisite = { focus = ILL_historical_revisionism }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			if = {
 				limit = { has_government = paternal_autocrat }
-				add_ideas = ILL_pk_military_youth2_idea
-				else = { add_ideas = ILL_pk_military_youth_idea }
+				add_ideas = ILL_military_youth2_idea
+				else = { add_ideas = ILL_military_youth_idea }
 			}
 		}
 	}
@@ -2056,19 +2056,19 @@ focus_tree = {
 	### GREATER CROATIA PATH ###
 	
 	focus = {
-		id = ILL_pk_begin_resettlement
+		id = ILL_begin_resettlement
 		icon = GFX_goal_famine
 		x = 17
 		y = 10
 
 		cost = 20
 
-		prerequisite = { focus = ILL_pk_banish_minorities }
-		prerequisite = { focus = ILL_pk_croatian_youth }
+		prerequisite = { focus = ILL_banish_minorities }
+		prerequisite = { focus = ILL_croatian_youth }
 		
 		available = { NOT = { has_country_flag = pavelic_stepped_down_stepinac } }
 		
-		mutually_exclusive = { focus = ILL_pk_religious_oligarchy }
+		mutually_exclusive = { focus = ILL_religious_oligarchy }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2093,22 +2093,22 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_a_pure_croatia
+		id = ILL_a_pure_croatia
 		icon = GFX_focus_YUG_banovina_of_croatia
 		x = 17
 		y = 11
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_begin_resettlement }
+		prerequisite = { focus = ILL_begin_resettlement }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			if = {
 				limit = { has_government = national_populist }
-				add_ideas = ILL_pk_pure_croatia2_idea
-				else = { add_ideas = ILL_pk_pure_croatia_idea }
+				add_ideas = ILL_pure_croatia2_idea
+				else = { add_ideas = ILL_pure_croatia_idea }
 			}
 		}
 	}
@@ -2116,41 +2116,41 @@ focus_tree = {
 	### THEOCRACY ROUTE ###
 	
 	focus = {
-		id = ILL_pk_religious_oligarchy
+		id = ILL_religious_oligarchy
 		icon = GFX_goal_government_icon
 		x = 19
 		y = 10
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_croatian_youth }
+		prerequisite = { focus = ILL_croatian_youth }
 		
 		available = { has_country_flag = pavelic_stepped_down_stepinac }
 		
-		mutually_exclusive = { focus = ILL_pk_begin_resettlement }
+		mutually_exclusive = { focus = ILL_begin_resettlement }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 50
-			add_ideas = ILL_pk_religious_oligarchy_idea
+			add_ideas = ILL_religious_oligarchy_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_god_protects_us
+		id = ILL_god_protects_us
 		icon = GFX_focus_generic_self_management
 		x = 19
 		y = 11
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_religious_oligarchy }
+		prerequisite = { focus = ILL_religious_oligarchy }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_croatian_theocracy_idea
+			add_ideas = ILL_croatian_theocracy_idea
 			hidden_effect = {
 				if = {
 					limit = {
@@ -2166,7 +2166,7 @@ focus_tree = {
 	### SYNDICALIST ROUTE ###
 	
 	focus = {
-		id = ILL_pk_workers_rebellions
+		id = ILL_workers_rebellions
 		icon = GFX_goal_HOL_military_union
 		x = 26
 		y = 1
@@ -2174,28 +2174,28 @@ focus_tree = {
 		cost = 5
 
 		mutually_exclusive = {
-			focus = ILL_pk_provoking_minorities
+			focus = ILL_provoking_minorities
 		}
 
-		prerequisite = { focus = ILL_pk_play_naughty }
+		prerequisite = { focus = ILL_play_naughty }
 		
 		ai_will_do = { factor = 150 }
 
 		completion_reward = {
 			add_political_power = -100
-			add_ideas = ILL_pk_worker_rebellions_idea
+			add_ideas = ILL_worker_rebellions_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_peasant_revolts
+		id = ILL_peasant_revolts
 		icon = GFX_focus_AUS_agriculture
 		x = 24
 		y = 2
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_workers_rebellions }
+		prerequisite = { focus = ILL_workers_rebellions }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2205,32 +2205,32 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_lessons_from_russian_revolution
+		id = ILL_lessons_from_russian_revolution
 		icon = GFX_goal_support_communism
 		x = 26
 		y = 2
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_workers_rebellions }
+		prerequisite = { focus = ILL_workers_rebellions }
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = -50
-			add_ideas = ILL_pk_socialist_threat_idea
+			add_ideas = ILL_socialist_threat_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_threats_of_secession
+		id = ILL_threats_of_secession
 		icon = GFX_goal_generic_attack_allies
 		x = 28
 		y = 2
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_workers_rebellions }
+		prerequisite = { focus = ILL_workers_rebellions }
 
 		ai_will_do = { factor = 10 }
 
@@ -2240,16 +2240,16 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_assassination_of_sarkotic
+		id = ILL_assassination_of_sarkotic
 		icon = GFX_goal_generic_CAS
 		x = 26
 		y = 3
 
 		cost = 2
 
-		prerequisite = { focus = ILL_pk_peasant_revolts }
-		prerequisite = { focus = ILL_pk_lessons_from_russian_revolution }
-		prerequisite = { focus = ILL_pk_threats_of_secession }
+		prerequisite = { focus = ILL_peasant_revolts }
+		prerequisite = { focus = ILL_lessons_from_russian_revolution }
+		prerequisite = { focus = ILL_threats_of_secession }
 
 		ai_will_do = { factor = 10 }
 
@@ -2260,20 +2260,20 @@ focus_tree = {
 	}
 
 	focus = {
-		id = ILL_pk_begin_industrialization
+		id = ILL_begin_industrialization
 		icon = GFX_goal_syndicalist_economy
 		x = 25
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_assassination_of_sarkotic }
+		prerequisite = { focus = ILL_assassination_of_sarkotic }
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = -30
-			remove_ideas = ILL_pk_bosnian_issue_idea
+			remove_ideas = ILL_bosnian_issue_idea
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -2304,34 +2304,34 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_end_of_supremacism
+		id = ILL_end_of_supremacism
 		icon = GFX_goal_generic_national_unity
 		x = 27
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_assassination_of_sarkotic }
+		prerequisite = { focus = ILL_assassination_of_sarkotic }
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = -30
-			remove_ideas = ILL_pk_montenegrin_nationalism_idea
+			remove_ideas = ILL_montenegrin_nationalism_idea
 			add_stability = 0.05
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_start_the_socialist_convention
+		id = ILL_start_the_socialist_convention
 		icon = GFX_goal_commune_politics
 		x = 26
 		y = 5
 
 		cost = 2
 
-		prerequisite = { focus = ILL_pk_begin_industrialization }
-		prerequisite = { focus = ILL_pk_end_of_supremacism }
+		prerequisite = { focus = ILL_begin_industrialization }
+		prerequisite = { focus = ILL_end_of_supremacism }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2341,18 +2341,18 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_comrade_tito
+		id = ILL_comrade_tito
 		icon = GFX_goal_red_star_green_wreath
 		x = 22
 		y = 6
 
 		cost = 1
 
-		prerequisite = { focus = ILL_pk_start_the_socialist_convention }
+		prerequisite = { focus = ILL_start_the_socialist_convention }
 		
 		mutually_exclusive = {
-		focus = ILL_pk_gregoric_renewal
-		focus = ILL_pk_the_socialist_party
+		focus = ILL_gregoric_renewal
+		focus = ILL_the_socialist_party
 		}
 		
 		available = { 
@@ -2368,49 +2368,49 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_federalization
+		id = ILL_federalization
 		icon = GFX_goal_new_treaty
 		x = 21
 		y = 7
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_comrade_tito }
+		prerequisite = { focus = ILL_comrade_tito }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_federalized_idea
+			add_ideas = ILL_federalized_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_form_workers_councils
+		id = ILL_form_workers_councils
 		icon = GFX_goal_syndicalist_industry
 		x = 23
 		y = 7
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_comrade_tito }
+		prerequisite = { focus = ILL_comrade_tito }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_workers_councils_idea
+			add_ideas = ILL_workers_councils_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_form_autonomous_regions
+		id = ILL_form_autonomous_regions
 		icon = GFX_goal_generic_forceful_treaty
 		x = 21
 		y = 8
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_federalization }
-		prerequisite = { focus = ILL_pk_form_workers_councils }
+		prerequisite = { focus = ILL_federalization }
+		prerequisite = { focus = ILL_form_workers_councils }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2420,80 +2420,80 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_favor_the_workers
+		id = ILL_favor_the_workers
 		icon = GFX_goal_syndicalist_workers
 		x = 23
 		y = 8
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_federalization }
-		prerequisite = { focus = ILL_pk_form_workers_councils }
+		prerequisite = { focus = ILL_federalization }
+		prerequisite = { focus = ILL_form_workers_councils }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_favor_the_workers_idea
+			add_ideas = ILL_favor_the_workers_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_secularization_effort
+		id = ILL_secularization_effort
 		icon = GFX_goal_generic_improve_relations
 		x = 22
 		y = 9
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_form_autonomous_regions }
-		prerequisite = { focus = ILL_pk_favor_the_workers }
+		prerequisite = { focus = ILL_form_autonomous_regions }
+		prerequisite = { focus = ILL_favor_the_workers }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_secularization_effort_idea
+			add_ideas = ILL_secularization_effort_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_benevolent_dictatorship
+		id = ILL_benevolent_dictatorship
 		icon = GFX_goal_generic_political_pressure
 		x = 22
 		y = 10
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_secularization_effort }
+		prerequisite = { focus = ILL_secularization_effort }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_benevolent_dictatorship_idea
+			add_ideas = ILL_benevolent_dictatorship_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_brotherhood_and_unity
+		id = ILL_brotherhood_and_unity
 		icon = GFX_goal_red_star_gold_wreath
 		x = 22
 		y = 11
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_benevolent_dictatorship }
+		prerequisite = { focus = ILL_benevolent_dictatorship }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = ILL_pk_benevolent_dictatorship_idea
-				add_idea = ILL_pk_brotherhood_and_unity_idea
+				remove_idea = ILL_benevolent_dictatorship_idea
+				add_idea = ILL_brotherhood_and_unity_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_self_sustenance
+		id = ILL_self_sustenance
 		icon = GFX_goal_illyria
 		x = 24
 		y = 12
@@ -2501,36 +2501,36 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = { 
-		focus = ILL_pk_brotherhood_and_unity
-		focus = ILL_pk_dictatorship_of_the_proletariat
+		focus = ILL_brotherhood_and_unity
+		focus = ILL_dictatorship_of_the_proletariat
 		}
 		
 		available = { is_in_faction = no }
 		
-		mutually_exclusive = { focus = ILL_pk_turn_to_russia }
+		mutually_exclusive = { focus = ILL_turn_to_russia }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_self_sustenance_idea
+			add_ideas = ILL_self_sustenance_idea
 		}
 	}
 	
 	### GREGORIC ROUTE ###
 	
 	focus = {
-		id = ILL_pk_gregoric_renewal
+		id = ILL_gregoric_renewal
 		icon = GFX_goal_ideology_totalist
 		x = 26
 		y = 6
 
 		cost = 1
 
-		prerequisite = { focus = ILL_pk_start_the_socialist_convention }
+		prerequisite = { focus = ILL_start_the_socialist_convention }
 		
 		mutually_exclusive = {
-		focus = ILL_pk_comrade_tito
-		focus = ILL_pk_the_socialist_party
+		focus = ILL_comrade_tito
+		focus = ILL_the_socialist_party
 		}
 		
 		available = { 
@@ -2546,31 +2546,31 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_new_workers_culture
+		id = ILL_new_workers_culture
 		icon = GFX_focus_YUG_pan_slavic_congress
 		x = 25
 		y = 7
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_gregoric_renewal }
+		prerequisite = { focus = ILL_gregoric_renewal }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_new_workers_culture_idea
+			add_ideas = ILL_new_workers_culture_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_vanguard_party
+		id = ILL_vanguard_party
 		icon = GFX_goal_syndicalist_oppression
 		x = 27
 		y = 7
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_gregoric_renewal }
+		prerequisite = { focus = ILL_gregoric_renewal }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2580,33 +2580,33 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_root_out_reactionaries
+		id = ILL_root_out_reactionaries
 		icon = GFX_goal_syndie_cross
 		x = 25
 		y = 8
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_new_workers_culture }
-		prerequisite = { focus = ILL_pk_vanguard_party }
+		prerequisite = { focus = ILL_new_workers_culture }
+		prerequisite = { focus = ILL_vanguard_party }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_rooting_out_reactionaries_idea
+			add_ideas = ILL_rooting_out_reactionaries_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_workers_and_farmers
+		id = ILL_workers_and_farmers
 		icon = GFX_goal_agrarian_reform
 		x = 27
 		y = 8
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_new_workers_culture }
-		prerequisite = { focus = ILL_pk_vanguard_party }
+		prerequisite = { focus = ILL_new_workers_culture }
+		prerequisite = { focus = ILL_vanguard_party }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2644,32 +2644,32 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_state_atheism
+		id = ILL_state_atheism
 		icon = GFX_goal_MAF_Kulturkampf
 		x = 26
 		y = 9
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_root_out_reactionaries }
-		prerequisite = { focus = ILL_pk_workers_and_farmers }
+		prerequisite = { focus = ILL_root_out_reactionaries }
+		prerequisite = { focus = ILL_workers_and_farmers }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_state_atheism_idea
+			add_ideas = ILL_state_atheism_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_confiscate_church_property
+		id = ILL_confiscate_church_property
 		icon = GFX_goal_forced_inf
 		x = 26
 		y = 10
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_state_atheism }
+		prerequisite = { focus = ILL_state_atheism }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2709,24 +2709,24 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_dictatorship_of_the_proletariat
+		id = ILL_dictatorship_of_the_proletariat
 		icon = GFX_focus_HOL_deal_with_left
 		x = 26
 		y = 11
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_confiscate_church_property }
+		prerequisite = { focus = ILL_confiscate_church_property }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_dictatorship_of_the_proletariat_idea
+			add_ideas = ILL_dictatorship_of_the_proletariat_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_turn_to_russia
+		id = ILL_turn_to_russia
 		icon = GFX_goal_support_fourth_int
 		x = 28
 		y = 12
@@ -2734,8 +2734,8 @@ focus_tree = {
 		cost = 5
 
 		prerequisite = { 
-		focus = ILL_pk_revolution_in_the_balkans
-		focus = ILL_pk_dictatorship_of_the_proletariat
+		focus = ILL_revolution_in_the_balkans
+		focus = ILL_dictatorship_of_the_proletariat
 		}
 		
 		available = {
@@ -2766,8 +2766,8 @@ focus_tree = {
 		}
 		
 		mutually_exclusive = {
-			focus = ILL_pk_self_sustenance
-			focus = ILL_pk_help_from_france
+			focus = ILL_self_sustenance
+			focus = ILL_help_from_france
 		}
 		
 		ai_will_do = { factor = 100 }
@@ -2798,7 +2798,7 @@ focus_tree = {
 	### Paths for Both ###
 	
 	focus = {
-		id = ILL_pk_womens_rights
+		id = ILL_womens_rights
 		icon = GFX_IRE_women_industry
 		x = 24
 		y = 9
@@ -2806,49 +2806,49 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = { 
-			focus = ILL_pk_favor_the_workers 
-			focus = ILL_pk_root_out_reactionaries
+			focus = ILL_favor_the_workers 
+			focus = ILL_root_out_reactionaries
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_womens_rights_idea
+			add_ideas = ILL_womens_rights_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_turbofolk
+		id = ILL_turbofolk
 		icon = GFX_goal_computer_focus
 		x = 24
 		y = 10
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_womens_rights }
+		prerequisite = { focus = ILL_womens_rights }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_turbofolk_idea
+			add_ideas = ILL_turbofolk_idea
 		}
 	}
 	
 	### THE SOCIALIST PARTY ###
 	
 	focus = {
-		id = ILL_pk_the_socialist_party
+		id = ILL_the_socialist_party
 		icon = GFX_goal_ideology_radical_socialist
 		x = 30
 		y = 6
 
 		cost = 1
 
-		prerequisite = { focus = ILL_pk_start_the_socialist_convention }
+		prerequisite = { focus = ILL_start_the_socialist_convention }
 		
 		mutually_exclusive = {
-		focus = ILL_pk_comrade_tito
-		focus = ILL_pk_gregoric_renewal
+		focus = ILL_comrade_tito
+		focus = ILL_gregoric_renewal
 		}
 		
 		available = { 
@@ -2864,14 +2864,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_power_to_the_people
+		id = ILL_power_to_the_people
 		icon = GFX_focus_generic_support_the_left_right
 		x = 29
 		y = 7
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_the_socialist_party }
+		prerequisite = { focus = ILL_the_socialist_party }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2882,120 +2882,120 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_decentralized_nation
+		id = ILL_decentralized_nation
 		icon = GFX_focus_generic_self_management
 		x = 31
 		y = 7
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_the_socialist_party }
+		prerequisite = { focus = ILL_the_socialist_party }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_decentralized_nation_idea
+			add_ideas = ILL_decentralized_nation_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_empower_the_militias
+		id = ILL_empower_the_militias
 		icon = GFX_goal_HOL_military_union
 		x = 29
 		y = 8
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_power_to_the_people }
-		prerequisite = { focus = ILL_pk_decentralized_nation }
+		prerequisite = { focus = ILL_power_to_the_people }
+		prerequisite = { focus = ILL_decentralized_nation }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_empowered_militias_idea
+			add_ideas = ILL_empowered_militias_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_the_romani
+		id = ILL_the_romani
 		icon = GFX_goal_LBR_whiter_pale
 		x = 31
 		y = 8
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_power_to_the_people }
-		prerequisite = { focus = ILL_pk_decentralized_nation }
+		prerequisite = { focus = ILL_power_to_the_people }
+		prerequisite = { focus = ILL_decentralized_nation }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_romani_conscription_idea
+			add_ideas = ILL_romani_conscription_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_regulated_economy
+		id = ILL_regulated_economy
 		icon = GFX_focus_rom_parties_end
 		x = 30
 		y = 9
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_empower_the_militias }
-		prerequisite = { focus = ILL_pk_the_romani }
+		prerequisite = { focus = ILL_empower_the_militias }
+		prerequisite = { focus = ILL_the_romani }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_regulated_economy_idea
+			add_ideas = ILL_regulated_economy_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_womens_suffrage
+		id = ILL_womens_suffrage
 		icon = GFX_IRE_women_industry
 		x = 30
 		y = 10
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_regulated_economy }
+		prerequisite = { focus = ILL_regulated_economy }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 50
-			add_ideas = ILL_pk_womens_rights_idea
+			add_ideas = ILL_womens_rights_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_revolution_in_the_balkans
+		id = ILL_revolution_in_the_balkans
 		icon = GFX_goal_revolution
 		x = 30
 		y = 11
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_womens_suffrage }
+		prerequisite = { focus = ILL_womens_suffrage }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_revolution_in_the_balkans_idea
+			add_ideas = ILL_revolution_in_the_balkans_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_help_from_france
+		id = ILL_help_from_france
 		icon = GFX_goal_NOR_syndicalist
 		x = 30
 		y = 12
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_revolution_in_the_balkans }
+		prerequisite = { focus = ILL_revolution_in_the_balkans }
 		
 		available = {
 			country_exists = FRA
@@ -3003,7 +3003,7 @@ focus_tree = {
 			is_in_faction = no
 		}
 		
-		mutually_exclusive = { focus = ILL_pk_turn_to_russia }
+		mutually_exclusive = { focus = ILL_turn_to_russia }
 		
 		ai_will_do = { factor = 100 }
 
@@ -3015,7 +3015,7 @@ focus_tree = {
 	### BLACK MONDAY RECOVERY ###
 	
 	focus = {
-		id = ILL_pk_black_monday_recovery
+		id = ILL_black_monday_recovery
 		icon = GFX_goal_bankruptcy
 		x = 31
 		y = 0
@@ -3023,7 +3023,7 @@ focus_tree = {
 		cost = 10
 		
 		available = {
-			has_idea = ILL_pk_black_monday_idea
+			has_idea = ILL_black_monday_idea
 		}
 		
 		ai_will_do = { factor = 40 }
@@ -3034,24 +3034,24 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_introduce_tariffs
+		id = ILL_introduce_tariffs
 		icon = GFX_goal_HOL_progressive_tax
 		x = 30
 		y = 1
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_black_monday_recovery }
+		prerequisite = { focus = ILL_black_monday_recovery }
 		
-		mutually_exclusive = { focus = ILL_pk_lower_wages }
+		mutually_exclusive = { focus = ILL_lower_wages }
 		
 		ai_will_do = { factor = 40 }
 
 		completion_reward = {
-			reverse_add_opinion_modifier = { target = AUS modifier = ILL_pk_austrian_tariffs }
+			reverse_add_opinion_modifier = { target = AUS modifier = ILL_austrian_tariffs }
 			swap_ideas = {
-				remove_idea = ILL_pk_black_monday_idea
-				add_idea = ILL_pk_black_monday11_idea
+				remove_idea = ILL_black_monday_idea
+				add_idea = ILL_black_monday11_idea
 			}
 			remove_ideas_with_trait = trade_laws
 			add_ideas = closed_economy
@@ -3059,42 +3059,42 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_invest_in_local_resources
+		id = ILL_invest_in_local_resources
 		icon = GFX_NIC_Cows
 		x = 30
 		y = 2
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_introduce_tariffs }
+		prerequisite = { focus = ILL_introduce_tariffs }
 		
 		ai_will_do = { factor = 40 }
 
 		completion_reward = {
 			add_political_power = 40
 			swap_ideas = {
-				remove_idea = ILL_pk_black_monday11_idea
-				add_idea = ILL_pk_black_monday12_idea
+				remove_idea = ILL_black_monday11_idea
+				add_idea = ILL_black_monday12_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_develop_food_industry
+		id = ILL_develop_food_industry
 		icon = GFX_focus_AUS_agriculture
 		x = 30
 		y = 3
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_invest_in_local_resources }
+		prerequisite = { focus = ILL_invest_in_local_resources }
 		
 		ai_will_do = { factor = 40 }
 
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = ILL_pk_black_monday12_idea
-				add_idea = ILL_pk_black_monday13_idea
+				remove_idea = ILL_black_monday12_idea
+				add_idea = ILL_black_monday13_idea
 			}
 			random_owned_controlled_state = {
 				limit = {
@@ -3130,14 +3130,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_trade_with_serbia
+		id = ILL_trade_with_serbia
 		icon = GFX_goal_generic_positive_trade_relations
 		x = 30
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_develop_food_industry }
+		prerequisite = { focus = ILL_develop_food_industry }
 		
 		bypass = { NOT = { country_exists = SER } }
 		
@@ -3145,8 +3145,8 @@ focus_tree = {
 
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = ILL_pk_black_monday13_idea
-				add_idea = ILL_pk_black_monday14_idea
+				remove_idea = ILL_black_monday13_idea
+				add_idea = ILL_black_monday14_idea
 			}
 			remove_ideas_with_trait = trade_laws
 			add_ideas = limited_exports
@@ -3155,23 +3155,23 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_lower_wages
+		id = ILL_lower_wages
 		icon = GFX_goal_HOL_black_monday
 		x = 32
 		y = 1
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_black_monday_recovery }
+		prerequisite = { focus = ILL_black_monday_recovery }
 		
-		mutually_exclusive = { focus = ILL_pk_introduce_tariffs }
+		mutually_exclusive = { focus = ILL_introduce_tariffs }
 		
 		ai_will_do = { factor = 40 }
 
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = ILL_pk_black_monday_idea
-				add_idea = ILL_pk_black_monday21_idea
+				remove_idea = ILL_black_monday_idea
+				add_idea = ILL_black_monday21_idea
 			}
 			add_political_power = 10
 			add_popularity = { ideology = syndicalist popularity = 0.05 }
@@ -3179,42 +3179,42 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_austrian_help
+		id = ILL_austrian_help
 		icon = GFX_goal_austria
 		x = 32
 		y = 2
 
 		cost = 5
 
-		prerequisite = { focus = ILL_pk_lower_wages }
+		prerequisite = { focus = ILL_lower_wages }
 		
 		ai_will_do = { factor = 40 }
 
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = ILL_pk_black_monday21_idea
-				add_idea = ILL_pk_black_monday22_idea
+				remove_idea = ILL_black_monday21_idea
+				add_idea = ILL_black_monday22_idea
 			}
-			add_timed_idea = { idea = ILL_pk_austrian_economic_dominance_idea days = 182 }
+			add_timed_idea = { idea = ILL_austrian_economic_dominance_idea days = 182 }
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_government_rationing
+		id = ILL_government_rationing
 		icon = GFX_goal_generic_position_armies
 		x = 32
 		y = 3
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_austrian_help }
+		prerequisite = { focus = ILL_austrian_help }
 		
 		ai_will_do = { factor = 40 }
 
 		completion_reward = {
 			swap_ideas = {
-				remove_idea = ILL_pk_black_monday22_idea
-				add_idea = ILL_pk_black_monday23_idea
+				remove_idea = ILL_black_monday22_idea
+				add_idea = ILL_black_monday23_idea
 			}
 			remove_ideas_with_trait = economy
 			add_ideas = low_economic_mobilisation
@@ -3222,14 +3222,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_mining_industry
+		id = ILL_mining_industry
 		icon = GFX_goal_generic_construction2
 		x = 32
 		y = 4
 
 		cost = 10
 
-		prerequisite = { focus = ILL_pk_government_rationing }
+		prerequisite = { focus = ILL_government_rationing }
 		
 		ai_will_do = { factor = 40 }
 
@@ -3239,7 +3239,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_end_of_the_black_monday
+		id = ILL_end_of_the_black_monday
 		icon = GFX_goal_bankruptcy
 		x = 31
 		y = 5
@@ -3247,17 +3247,17 @@ focus_tree = {
 		cost = 10
 
 		prerequisite = { 
-			focus = ILL_pk_trade_with_serbia 
-			focus = ILL_pk_mining_industry
+			focus = ILL_trade_with_serbia 
+			focus = ILL_mining_industry
 		}
 		
 		ai_will_do = { factor = 100 }
 
 		completion_reward = {
 			if = {
-				limit = { has_completed_focus = ILL_pk_trade_with_serbia }
-				remove_ideas = ILL_pk_black_monday14_idea
-				else = { remove_ideas = ILL_pk_black_monday23_idea }
+				limit = { has_completed_focus = ILL_trade_with_serbia }
+				remove_ideas = ILL_black_monday14_idea
+				else = { remove_ideas = ILL_black_monday23_idea }
 			}
 		}
 	}
@@ -3265,7 +3265,7 @@ focus_tree = {
 	### INDUSTRIALIZATION ###
 	
 	focus = {
-		id = ILL_pk_industrialization_plan
+		id = ILL_industrialization_plan
 		icon = GFX_goal_generic_construct_civilian
 		x = 37
 		y = 0
@@ -3280,16 +3280,16 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_highway_unity
+		id = ILL_highway_unity
 		icon = GFX_goal_Fix_Shitty_Rails
 		x = 36
 		y = 1
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_industrialization_plan }
+		prerequisite = { focus = ILL_industrialization_plan }
 		
-		bypass = { has_completed_focus = ILL_pk_provoking_minorities }
+		bypass = { has_completed_focus = ILL_provoking_minorities }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3299,14 +3299,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_expand_herzegovina_mines
+		id = ILL_expand_herzegovina_mines
 		icon = GFX_goal_generic_construction2
 		x = 38
 		y = 1
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_industrialization_plan }
+		prerequisite = { focus = ILL_industrialization_plan }
 		
 		available = { controls_state = 1029 }
 		
@@ -3321,31 +3321,31 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_exploit_natural_resources
+		id = ILL_exploit_natural_resources
 		icon = GFX_all_resource
 		x = 34
 		y = 2
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_highway_unity }
+		prerequisite = { focus = ILL_highway_unity }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = ILL_pk_resource_exploitation_idea
+			add_ideas = ILL_resource_exploitation_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_expand_illyrian_railways
+		id = ILL_expand_illyrian_railways
 		icon = GFX_goal_generic_construct_infrastructure
 		x = 40
 		y = 2
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_expand_herzegovina_mines }
+		prerequisite = { focus = ILL_expand_herzegovina_mines }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3393,17 +3393,17 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_wartime_industry
+		id = ILL_wartime_industry
 		icon = GFX_goal_generic_construct_mil_factory
 		x = 36
 		y = 2
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_highway_unity }
-		prerequisite = { focus = ILL_pk_expand_herzegovina_mines }
+		prerequisite = { focus = ILL_highway_unity }
+		prerequisite = { focus = ILL_expand_herzegovina_mines }
 
-		mutually_exclusive = { focus = ILL_pk_state_farms }
+		mutually_exclusive = { focus = ILL_state_farms }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3442,17 +3442,17 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_state_farms
+		id = ILL_state_farms
 		icon = GFX_goal_generic_construct_civ_factory
 		x = 38
 		y = 2
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_highway_unity }
-		prerequisite = { focus = ILL_pk_expand_herzegovina_mines }
+		prerequisite = { focus = ILL_highway_unity }
+		prerequisite = { focus = ILL_expand_herzegovina_mines }
 
-		mutually_exclusive = { focus = ILL_pk_wartime_industry }
+		mutually_exclusive = { focus = ILL_wartime_industry }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3491,14 +3491,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_montenegrin_oil
+		id = ILL_montenegrin_oil
 		icon = GFX_goal_basic_oil
 		x = 34
 		y = 3
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_exploit_natural_resources }
+		prerequisite = { focus = ILL_exploit_natural_resources }
 		
 		available = { has_full_control_of_state = 105 }
 		
@@ -3512,14 +3512,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_mass_production
+		id = ILL_mass_production
 		icon = GFX_goal_production
 		x = 36
 		y = 3
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_wartime_industry }
+		prerequisite = { focus = ILL_wartime_industry }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3539,19 +3539,19 @@ focus_tree = {
 					instant_build = yes
 				}
 			}
-			add_ideas = ILL_pk_mass_production_idea
+			add_ideas = ILL_mass_production_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_expand_fishing_industry
+		id = ILL_expand_fishing_industry
 		icon = GFX_focus_generic_coastal_fort
 		x = 38
 		y = 3
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_state_farms }
+		prerequisite = { focus = ILL_state_farms }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3591,14 +3591,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_dinaric_express
+		id = ILL_dinaric_express
 		icon = GFX_goal_Great_Railway_Incident
 		x = 40
 		y = 3
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_expand_illyrian_railways }
+		prerequisite = { focus = ILL_expand_illyrian_railways }
 		
 		available = { 
 			has_full_control_of_state = 1029
@@ -3650,7 +3650,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_expand_the_university_of_zagreb
+		id = ILL_expand_the_university_of_zagreb
 		icon = GFX_focus_research
 		x = 36
 		y = 4
@@ -3658,8 +3658,8 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = { 
-			focus = ILL_pk_mass_production
-			focus = ILL_pk_expand_fishing_industry
+			focus = ILL_mass_production
+			focus = ILL_expand_fishing_industry
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -3670,7 +3670,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_invite_foreign_scientists
+		id = ILL_invite_foreign_scientists
 		icon = GFX_goal_generic_scientific_exchange
 		x = 38
 		y = 4
@@ -3679,12 +3679,12 @@ focus_tree = {
 		
 		available = {
 			is_subject = no
-			NOT = { has_completed_focus = ILL_pk_austrian_science }
+			NOT = { has_completed_focus = ILL_austrian_science }
 		}
 		
 		prerequisite = { 
-			focus = ILL_pk_mass_production
-			focus = ILL_pk_expand_fishing_industry
+			focus = ILL_mass_production
+			focus = ILL_expand_fishing_industry
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -3695,7 +3695,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_focus_on_the_unthinkable
+		id = ILL_focus_on_the_unthinkable
 		icon = GFX_goal_generic_construct_military
 		x = 36
 		y = 5
@@ -3703,22 +3703,22 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = { 
-		focus = ILL_pk_expand_the_university_of_zagreb
-		focus = ILL_pk_invite_foreign_scientists
+		focus = ILL_expand_the_university_of_zagreb
+		focus = ILL_invite_foreign_scientists
 		}
 
-		mutually_exclusive = { focus = ILL_pk_further_industrialization }
+		mutually_exclusive = { focus = ILL_further_industrialization }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 70
-			add_ideas = ILL_pk_unthinkable_idea
+			add_ideas = ILL_unthinkable_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_further_industrialization
+		id = ILL_further_industrialization
 		icon = GFX_goal_generic_consumer_goods
 		x = 38
 		y = 5
@@ -3726,22 +3726,22 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = { 
-		focus = ILL_pk_expand_the_university_of_zagreb
-		focus = ILL_pk_invite_foreign_scientists
+		focus = ILL_expand_the_university_of_zagreb
+		focus = ILL_invite_foreign_scientists
 		}
 
-		mutually_exclusive = { focus = ILL_pk_focus_on_the_unthinkable }
+		mutually_exclusive = { focus = ILL_focus_on_the_unthinkable }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 70
-			add_ideas = ILL_pk_further_industrialization_idea
+			add_ideas = ILL_further_industrialization_idea
 		}
 	}
 
 	focus = {
-		id = ILL_pk_build_factories
+		id = ILL_build_factories
 		icon = GFX_goal_generic_intelligence_exchange
 		x = 36
 		y = 6
@@ -3749,8 +3749,8 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = { 
-			focus = ILL_pk_focus_on_the_unthinkable
-			focus = ILL_pk_further_industrialization
+			focus = ILL_focus_on_the_unthinkable
+			focus = ILL_further_industrialization
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -3790,7 +3790,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_expand_adriatic_ports
+		id = ILL_expand_adriatic_ports
 		icon = GFX_goal_generic_construct_naval_dockyard
 		x = 38
 		y = 6
@@ -3805,8 +3805,8 @@ focus_tree = {
 		cancel_if_invalid = yes
 		
 		prerequisite = { 
-			focus = ILL_pk_focus_on_the_unthinkable
-			focus = ILL_pk_further_industrialization
+			focus = ILL_focus_on_the_unthinkable
+			focus = ILL_further_industrialization
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -3828,15 +3828,15 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_purchase_private_companies
+		id = ILL_purchase_private_companies
 		icon = GFX_goal_generic_construction
 		x = 37
 		y = 7
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_build_factories }
-		prerequisite = { focus = ILL_pk_expand_adriatic_ports }
+		prerequisite = { focus = ILL_build_factories }
+		prerequisite = { focus = ILL_expand_adriatic_ports }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3877,7 +3877,7 @@ focus_tree = {
 	### ARMY MODERNIZATION ###
 	
 	focus = {
-		id = ILL_pk_true_illyrian_army
+		id = ILL_true_illyrian_army
 		icon = GFX_goal_generic_allies_build_infantry
 		x = 45
 		y = 0
@@ -3893,22 +3893,22 @@ focus_tree = {
 				limit = { OR = { 
 					has_country_flag = illyria_civil_war_pavelic_won
 					} }
-				load_oob = ILL_pk_domobrans
+				load_oob = ILL_domobrans
 				else = { if = {
 					limit = { OR = {
 						has_government = totalist
 						has_government = syndicalist
 						has_government = radical_socialist
 					} }
-					load_oob = ILL_pk_syndie_militiamen
-					else = { load_oob = ILL_pk_starting_army }
+					load_oob = ILL_syndie_militiamen
+					else = { load_oob = ILL_starting_army }
 				} }
 			}
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_regional_command
+		id = ILL_regional_command
 		icon = GFX_goal_generic_occupy_states_ongoing_war
 		x = 43
 		y = 1
@@ -3923,24 +3923,24 @@ focus_tree = {
 			}
 		}
 		
-		prerequisite = { focus = ILL_pk_true_illyrian_army }
+		prerequisite = { focus = ILL_true_illyrian_army }
 		
 		mutually_exclusive = {
-			focus = ILL_pk_the_best_of_the_best
-			focus = ILL_pk_no_compromises
+			focus = ILL_the_best_of_the_best
+			focus = ILL_no_compromises
 		}
 		
 		completion_reward = {
 			add_political_power = 30
 			swap_ideas = {
-				remove_idea = ILL_pk_croatian_command
-				add_idea = ILL_pk_regional_command_idea
+				remove_idea = ILL_croatian_command
+				add_idea = ILL_regional_command_idea
 			} 
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_the_best_of_the_best
+		id = ILL_the_best_of_the_best
 		icon = GFX_goal_generic_neutrality_focus
 		x = 45
 		y = 1
@@ -3955,24 +3955,24 @@ focus_tree = {
 			}
 		}
 		
-		prerequisite = { focus = ILL_pk_true_illyrian_army }
+		prerequisite = { focus = ILL_true_illyrian_army }
 		
 		mutually_exclusive = {
-			focus = ILL_pk_regional_command
-			focus = ILL_pk_no_compromises
+			focus = ILL_regional_command
+			focus = ILL_no_compromises
 		}
 		
 		completion_reward = {
 			add_political_power = 30
 			swap_ideas = {
-				remove_idea = ILL_pk_croatian_command
-				add_idea = ILL_pk_federated_army
+				remove_idea = ILL_croatian_command
+				add_idea = ILL_federated_army
 			} 
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_no_compromises
+		id = ILL_no_compromises
 		icon = GFX_focus_YUG_banovina_of_croatia
 		x = 47
 		y = 1
@@ -3982,8 +3982,8 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		mutually_exclusive = {
-			focus = ILL_pk_regional_command
-			focus = ILL_pk_the_best_of_the_best
+			focus = ILL_regional_command
+			focus = ILL_the_best_of_the_best
 		}
 		
 		available = { 
@@ -3999,11 +3999,11 @@ focus_tree = {
 			}
 		}
 		
-		prerequisite = { focus = ILL_pk_true_illyrian_army }
+		prerequisite = { focus = ILL_true_illyrian_army }
 		
 		mutually_exclusive = { 
-			ILL_pk_regional_command
-			ILL_pk_the_best_of_the_best
+			ILL_regional_command
+			ILL_the_best_of_the_best
 		}
 		
 		completion_reward = {
@@ -4012,7 +4012,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_dinaric_brigades
+		id = ILL_dinaric_brigades
 		icon = GFX_goal_generic_axis_build_infantry
 		x = 42
 		y = 2
@@ -4020,9 +4020,9 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = ILL_pk_regional_command
-			focus = ILL_pk_the_best_of_the_best
-			focus = ILL_pk_no_compromises
+			focus = ILL_regional_command
+			focus = ILL_the_best_of_the_best
+			focus = ILL_no_compromises
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -4033,7 +4033,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_motorized_army
+		id = ILL_motorized_army
 		icon = GFX_goal_generic_army_motorized
 		x = 44
 		y = 2
@@ -4041,12 +4041,12 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = ILL_pk_regional_command
-			focus = ILL_pk_the_best_of_the_best
-			focus = ILL_pk_no_compromises
+			focus = ILL_regional_command
+			focus = ILL_the_best_of_the_best
+			focus = ILL_no_compromises
 		}
 		
-		mutually_exclusive = { focus = ILL_pk_embrace_the_cavalry }
+		mutually_exclusive = { focus = ILL_embrace_the_cavalry }
 		
 		ai_will_do = { factor = 10 }
 		
@@ -4056,7 +4056,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_embrace_the_cavalry
+		id = ILL_embrace_the_cavalry
 		icon = GFX_goal_generic_cavalry
 		x = 46
 		y = 2
@@ -4064,23 +4064,23 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = ILL_pk_regional_command
-			focus = ILL_pk_the_best_of_the_best
-			focus = ILL_pk_no_compromises
+			focus = ILL_regional_command
+			focus = ILL_the_best_of_the_best
+			focus = ILL_no_compromises
 		}
 		
-		mutually_exclusive = { focus = ILL_pk_motorized_army }
+		mutually_exclusive = { focus = ILL_motorized_army }
 		
 		ai_will_do = { factor = 10 }
 		
 		completion_reward = {
 			add_political_power = 20
-			load_oob = ILL_pk_cavalry_focus1
+			load_oob = ILL_cavalry_focus1
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_start_army_exercizes
+		id = ILL_start_army_exercizes
 		icon = GFX_goal_generic_small_arms
 		x = 48
 		y = 2
@@ -4088,9 +4088,9 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = {
-			focus = ILL_pk_regional_command
-			focus = ILL_pk_the_best_of_the_best
-			focus = ILL_pk_no_compromises
+			focus = ILL_regional_command
+			focus = ILL_the_best_of_the_best
+			focus = ILL_no_compromises
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -4102,14 +4102,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_adriatic_marines
+		id = ILL_adriatic_marines
 		icon = GFX_goal_generic_amphibious_assault
 		x = 42
 		y = 4
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_dinaric_brigades }
+		prerequisite = { focus = ILL_dinaric_brigades }
 		
 		ai_will_do = { factor = 10 }
 		
@@ -4119,14 +4119,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_artillery_regiments
+		id = ILL_artillery_regiments
 		icon = GFX_goal_generic_army_artillery
 		x = 48
 		y = 4
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_start_army_exercizes }
+		prerequisite = { focus = ILL_start_army_exercizes }
 		
 		ai_will_do = { factor = 10 }
 		
@@ -4136,14 +4136,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_motorized_support
+		id = ILL_motorized_support
 		icon = GFX_goal_generic_army_motorized
 		x = 44
 		y = 3
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_motorized_army }
+		prerequisite = { focus = ILL_motorized_army }
 		
 		ai_will_do = { factor = 10 }
 		
@@ -4155,25 +4155,25 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_equine_husbandry
+		id = ILL_equine_husbandry
 		icon = GFX_goal_generic_cavalry
 		x = 46
 		y = 3
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_embrace_the_cavalry }
+		prerequisite = { focus = ILL_embrace_the_cavalry }
 		
 		ai_will_do = { factor = 10 }
 		
 		completion_reward = {
 			add_political_power = 20
-			load_oob = ILL_pk_cavalry_focus2
+			load_oob = ILL_cavalry_focus2
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_illyrian_tanks
+		id = ILL_illyrian_tanks
 		icon = GFX_goal_generic_army_tanks
 		x = 45
 		y = 4
@@ -4181,8 +4181,8 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = { 
-			focus = ILL_pk_motorized_support
-			focus = ILL_pk_equine_husbandry
+			focus = ILL_motorized_support
+			focus = ILL_equine_husbandry
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -4193,20 +4193,20 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_go_for_mobility
+		id = ILL_go_for_mobility
 		icon = GFX_goal_generic_army_doctrines
 		x = 43
 		y = 5
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_adriatic_marines }
-		prerequisite = { focus = ILL_pk_illyrian_tanks }
-		prerequisite = { focus = ILL_pk_artillery_regiments }
+		prerequisite = { focus = ILL_adriatic_marines }
+		prerequisite = { focus = ILL_illyrian_tanks }
+		prerequisite = { focus = ILL_artillery_regiments }
 		
 		mutually_exclusive = {
-		focus = ILL_pk_strategize
-		focus = ILL_pk_push_for_firepower
+		focus = ILL_strategize
+		focus = ILL_push_for_firepower
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -4217,20 +4217,20 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_push_for_firepower
+		id = ILL_push_for_firepower
 		icon = GFX_goal_generic_army_doctrines
 		x = 45
 		y = 5
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_adriatic_marines }
-		prerequisite = { focus = ILL_pk_illyrian_tanks }
-		prerequisite = { focus = ILL_pk_artillery_regiments }
+		prerequisite = { focus = ILL_adriatic_marines }
+		prerequisite = { focus = ILL_illyrian_tanks }
+		prerequisite = { focus = ILL_artillery_regiments }
 		
 		mutually_exclusive = {
-		focus = ILL_pk_go_for_mobility
-		focus = ILL_pk_strategize
+		focus = ILL_go_for_mobility
+		focus = ILL_strategize
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -4241,20 +4241,20 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_strategize
+		id = ILL_strategize
 		icon = GFX_goal_generic_army_doctrines
 		x = 47
 		y = 5
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_adriatic_marines }
-		prerequisite = { focus = ILL_pk_illyrian_tanks }
-		prerequisite = { focus = ILL_pk_artillery_regiments }
+		prerequisite = { focus = ILL_adriatic_marines }
+		prerequisite = { focus = ILL_illyrian_tanks }
+		prerequisite = { focus = ILL_artillery_regiments }
 		
 		mutually_exclusive = {
-		focus = ILL_pk_go_for_mobility
-		focus = ILL_pk_push_for_firepower
+		focus = ILL_go_for_mobility
+		focus = ILL_push_for_firepower
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -4267,7 +4267,7 @@ focus_tree = {
 	### AIR FORCE MODERNIZATION ###
 	
 	focus = {
-		id = ILL_pk_illyrian_air_force
+		id = ILL_illyrian_air_force
 		icon = GFX_goal_generic_air_fighter2
 		x = 37
 		y = 8
@@ -4284,7 +4284,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_research_air_effort
+		id = ILL_research_air_effort
 		icon = GFX_goal_generic_build_airforce
 		x = 36
 		y = 9
@@ -4293,9 +4293,9 @@ focus_tree = {
 		
 		ai_will_do = { factor = 10 }
 
-		prerequisite = { focus = ILL_pk_illyrian_air_force }
+		prerequisite = { focus = ILL_illyrian_air_force }
 		
-		mutually_exclusive = { focus = ILL_pk_purchase_blueprints }
+		mutually_exclusive = { focus = ILL_purchase_blueprints }
 		
 		completion_reward = {
 			add_tech_bonus = { bonus = 0.33 uses = 2 category = air_equipment }
@@ -4303,7 +4303,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_local_manufacturers
+		id = ILL_local_manufacturers
 		icon = GFX_goal_generic_air_production
 		x = 36
 		y = 10
@@ -4312,7 +4312,7 @@ focus_tree = {
 		
 		ai_will_do = { factor = 10 }
 
-		prerequisite = { focus = ILL_pk_research_air_effort }
+		prerequisite = { focus = ILL_research_air_effort }
 		
 		completion_reward = {
 			add_tech_bonus = { bonus = 0.5 uses = 1 category = air_equipment }
@@ -4335,7 +4335,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_research_fighters
+		id = ILL_research_fighters
 		icon = GFX_goal_generic_air_fighter
 		x = 36
 		y = 11
@@ -4344,7 +4344,7 @@ focus_tree = {
 		
 		ai_will_do = { factor = 10 }
 
-		prerequisite = { focus = ILL_pk_local_manufacturers }
+		prerequisite = { focus = ILL_local_manufacturers }
 		
 		completion_reward = {
 			add_tech_bonus = { bonus = 0.33 ahead_reduction = 1 uses = 1 category = light_fighter }
@@ -4352,7 +4352,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_purchase_blueprints
+		id = ILL_purchase_blueprints
 		icon = GFX_goal_generic_intelligence_exchange
 		x = 38
 		y = 9
@@ -4361,23 +4361,23 @@ focus_tree = {
 		
 		ai_will_do = { factor = 10 }
 
-		prerequisite = { focus = ILL_pk_illyrian_air_force }
+		prerequisite = { focus = ILL_illyrian_air_force }
 		
-		mutually_exclusive = { focus = ILL_pk_purchase_blueprints }
+		mutually_exclusive = { focus = ILL_purchase_blueprints }
 		
 		completion_reward = {
 			if = {
 				limit = {
 					has_dlc = "Death or Dishonor"
 				}
-			add_ideas = ILL_pk_license_production_idea
+			add_ideas = ILL_license_production_idea
 			else = { add_political_power = 100 }
 			}
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_invite_foreign_companies
+		id = ILL_invite_foreign_companies
 		icon = GFX_goal_generic_construct_mil_factory
 		x = 38
 		y = 11
@@ -4386,7 +4386,7 @@ focus_tree = {
 		
 		ai_will_do = { factor = 10 }
 
-		prerequisite = { focus = ILL_pk_purchase_blueprints }
+		prerequisite = { focus = ILL_purchase_blueprints }
 		
 		completion_reward = {
 			add_political_power = -50
@@ -4439,7 +4439,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_close_air_support
+		id = ILL_close_air_support
 		icon = GFX_goal_generic_CAS
 		x = 36
 		y = 12
@@ -4449,11 +4449,11 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		prerequisite = { 
-			focus = ILL_pk_research_fighters
-			focus = ILL_pk_invite_foreign_companies
+			focus = ILL_research_fighters
+			focus = ILL_invite_foreign_companies
 		}
 		
-		mutually_exclusive = { focus = ILL_pk_invest_in_bombers }
+		mutually_exclusive = { focus = ILL_invest_in_bombers }
 		
 		completion_reward = {
 			add_tech_bonus = {
@@ -4466,7 +4466,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_invest_in_bombers
+		id = ILL_invest_in_bombers
 		icon = GFX_goal_generic_air_bomber
 		x = 38
 		y = 12
@@ -4476,11 +4476,11 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		prerequisite = { 
-			focus = ILL_pk_research_fighters
-			focus = ILL_pk_invite_foreign_companies
+			focus = ILL_research_fighters
+			focus = ILL_invite_foreign_companies
 		}
 		
-		mutually_exclusive = { focus = ILL_pk_close_air_support }
+		mutually_exclusive = { focus = ILL_close_air_support }
 		
 		completion_reward = {
 			add_tech_bonus = {
@@ -4495,7 +4495,7 @@ focus_tree = {
 	### NAVY ###
 	
 	focus = {
-		id = ILL_pk_develop_montenegrin_ports
+		id = ILL_develop_montenegrin_ports
 		icon = GFX_goal_generic_construct_naval_dockyard
 		x = 44
 		y = 6
@@ -4506,7 +4506,7 @@ focus_tree = {
 		
 		available = { has_full_control_of_state = 105 }
 		
-		mutually_exclusive = { focus = ILL_pk_upgrade_dalmatian_shipyards }
+		mutually_exclusive = { focus = ILL_upgrade_dalmatian_shipyards }
 		
 		completion_reward = {
 			105 = {
@@ -4521,7 +4521,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_upgrade_dalmatian_shipyards
+		id = ILL_upgrade_dalmatian_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
 		x = 46
 		y = 6
@@ -4532,7 +4532,7 @@ focus_tree = {
 		
 		available = { has_full_control_of_state = 163 }
 		
-		mutually_exclusive = { focus = ILL_pk_develop_montenegrin_ports }
+		mutually_exclusive = { focus = ILL_develop_montenegrin_ports }
 		
 		bypass = { NOT = { owns_state = 163 } }
 		
@@ -4549,7 +4549,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_adriatic_tactics
+		id = ILL_adriatic_tactics
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		x = 44
 		y = 7
@@ -4560,7 +4560,7 @@ focus_tree = {
 		
 		available = { any_owned_state = { is_coastal = yes } }
 		
-		prerequisite = { focus = ILL_pk_develop_montenegrin_ports }
+		prerequisite = { focus = ILL_develop_montenegrin_ports }
 		
 		completion_reward = {
 			navy_experience = 15
@@ -4573,7 +4573,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_defend_our_coasts
+		id = ILL_defend_our_coasts
 		icon = GFX_focus_generic_coastal_fort
 		x = 46
 		y = 7
@@ -4584,15 +4584,15 @@ focus_tree = {
 		
 		available = { any_owned_state = { is_coastal = yes } }
 		
-		prerequisite = { focus = ILL_pk_upgrade_dalmatian_shipyards }
+		prerequisite = { focus = ILL_upgrade_dalmatian_shipyards }
 		
 		completion_reward = {
-			add_ideas = ILL_pk_coast_defense_idea
+			add_ideas = ILL_coast_defense_idea
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_invest_in_submarines
+		id = ILL_invest_in_submarines
 		icon = GFX_goal_generic_navy_submarine
 		x = 43
 		y = 8
@@ -4604,8 +4604,8 @@ focus_tree = {
 		available = { any_owned_state = { is_coastal = yes } }
 		
 		prerequisite = { 
-			focus = ILL_pk_adriatic_tactics
-			focus = ILL_pk_defend_our_coasts
+			focus = ILL_adriatic_tactics
+			focus = ILL_defend_our_coasts
 		}
 		
 		completion_reward = {
@@ -4619,7 +4619,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_modern_destroyers
+		id = ILL_modern_destroyers
 		icon = GFX_goal_generic_navy_anti_submarine
 		x = 43
 		y = 9
@@ -4630,7 +4630,7 @@ focus_tree = {
 		
 		available = { any_owned_state = { is_coastal = yes } }
 		
-		prerequisite = { focus = ILL_pk_invest_in_submarines }
+		prerequisite = { focus = ILL_invest_in_submarines }
 		
 		completion_reward = {
 			add_tech_bonus = {
@@ -4643,7 +4643,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_heavy_cruiser_effort
+		id = ILL_heavy_cruiser_effort
 		icon = GFX_goal_generic_navy_battleship
 		x = 45
 		y = 8
@@ -4655,8 +4655,8 @@ focus_tree = {
 		available = { any_owned_state = { is_coastal = yes } }
 		
 		prerequisite = { 
-			focus = ILL_pk_adriatic_tactics
-			focus = ILL_pk_defend_our_coasts
+			focus = ILL_adriatic_tactics
+			focus = ILL_defend_our_coasts
 		}
 		
 		completion_reward = {
@@ -4669,7 +4669,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_naval_bombers
+		id = ILL_naval_bombers
 		icon = GFX_goal_generic_air_naval_bomber
 		x = 47
 		y = 8
@@ -4679,8 +4679,8 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 		
 		prerequisite = { 
-			focus = ILL_pk_adriatic_tactics
-			focus = ILL_pk_defend_our_coasts
+			focus = ILL_adriatic_tactics
+			focus = ILL_defend_our_coasts
 		}
 		
 		completion_reward = {
@@ -4693,7 +4693,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_fleet_exercizes
+		id = ILL_fleet_exercizes
 		icon = GFX_goal_generic_navy_cruiser
 		x = 47
 		y = 9
@@ -4705,7 +4705,7 @@ focus_tree = {
 		available = { any_owned_state = { is_coastal = yes } }
 		
 		prerequisite = { 
-			focus = ILL_pk_naval_bombers
+			focus = ILL_naval_bombers
 		}
 		
 		completion_reward = {
@@ -4717,7 +4717,7 @@ focus_tree = {
 	### FOREIGN POLICY ###
 	
 	focus = {
-		id = ILL_pk_an_independent_illyria
+		id = ILL_an_independent_illyria
 		icon = GFX_goal_illyria
 		x = 17
 		y = 12
@@ -4734,7 +4734,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_status_quo
+		id = ILL_status_quo
 		icon = GFX_goal_generic_neutrality_focus
 		x = 13
 		y = 13
@@ -4751,12 +4751,12 @@ focus_tree = {
 			NOT = { has_country_flag = illyria_civil_war_spaho_won }
 		}
 		
-		prerequisite = { focus = ILL_pk_an_independent_illyria }
+		prerequisite = { focus = ILL_an_independent_illyria }
 		
 		mutually_exclusive = {
-		focus = ILL_pk_croatian_supremacy
-		focus = ILL_pk_slavic_federation
-		focus = ILL_pk_unite_the_balkans
+		focus = ILL_croatian_supremacy
+		focus = ILL_slavic_federation
+		focus = ILL_unite_the_balkans
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -4767,7 +4767,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_croatian_supremacy
+		id = ILL_croatian_supremacy
 		icon = GFX_focus_YUG_banovina_of_croatia
 		x = 15
 		y = 13
@@ -4779,12 +4779,12 @@ focus_tree = {
 			has_country_flag = illyria_civil_war_pavelic_won
 		}
 		
-		prerequisite = { focus = ILL_pk_an_independent_illyria }
+		prerequisite = { focus = ILL_an_independent_illyria }
 		
 		mutually_exclusive = {
-		focus = ILL_pk_status_quo
-		focus = ILL_pk_slavic_federation
-		focus = ILL_pk_unite_the_balkans
+		focus = ILL_status_quo
+		focus = ILL_slavic_federation
+		focus = ILL_unite_the_balkans
 		}
 		
 		ai_will_do = { factor = 100 }
@@ -4796,7 +4796,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_slavic_federation
+		id = ILL_slavic_federation
 		icon = GFX_goal_AUS_slav_king
 		x = 19
 		y = 13
@@ -4805,12 +4805,12 @@ focus_tree = {
 
 		available = { is_subject = no }
 		
-		prerequisite = { focus = ILL_pk_an_independent_illyria }
+		prerequisite = { focus = ILL_an_independent_illyria }
 		
 		mutually_exclusive = {
-		focus = ILL_pk_status_quo
-		focus = ILL_pk_croatian_supremacy
-		focus = ILL_pk_unite_the_balkans
+		focus = ILL_status_quo
+		focus = ILL_croatian_supremacy
+		focus = ILL_unite_the_balkans
 		}
 		
 		ai_will_do = { factor = 100 }
@@ -4822,7 +4822,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_unite_the_balkans
+		id = ILL_unite_the_balkans
 		icon = GFX_goal_generic_national_unity
 		x = 21
 		y = 13
@@ -4838,12 +4838,12 @@ focus_tree = {
 			}
 		}
 		
-		prerequisite = { focus = ILL_pk_an_independent_illyria }
+		prerequisite = { focus = ILL_an_independent_illyria }
 		
 		mutually_exclusive = {
-		focus = ILL_pk_status_quo
-		focus = ILL_pk_croatian_supremacy
-		focus = ILL_pk_slavic_federation
+		focus = ILL_status_quo
+		focus = ILL_croatian_supremacy
+		focus = ILL_slavic_federation
 		}
 		
 		ai_will_do = { factor = 30 }
@@ -4861,56 +4861,56 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_diplomatic_mission_focus
+		id = ILL_diplomatic_mission_focus
 		icon = GFX_goal_tripartite_pact
 		x = 13
 		y = 16
 
 		cost = 5
 		
-		prerequisite = { focus = ILL_pk_status_quo }
+		prerequisite = { focus = ILL_status_quo }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			reverse_add_opinion_modifier = { target = SER modifier = ILL_pk_diplomatic_mission }
-			reverse_add_opinion_modifier = { target = MTN modifier = ILL_pk_diplomatic_mission }
-			reverse_add_opinion_modifier = { target = BUL modifier = ILL_pk_diplomatic_mission }
-			reverse_add_opinion_modifier = { target = GRE modifier = ILL_pk_diplomatic_mission }
-			reverse_add_opinion_modifier = { target = ROM modifier = ILL_pk_diplomatic_mission }
-			reverse_add_opinion_modifier = { target = RRM modifier = ILL_pk_diplomatic_mission }
-			reverse_add_opinion_modifier = { target = ALB modifier = ILL_pk_diplomatic_mission }
-			reverse_add_opinion_modifier = { target = HUN modifier = ILL_pk_diplomatic_mission }
+			reverse_add_opinion_modifier = { target = SER modifier = ILL_diplomatic_mission }
+			reverse_add_opinion_modifier = { target = MTN modifier = ILL_diplomatic_mission }
+			reverse_add_opinion_modifier = { target = BUL modifier = ILL_diplomatic_mission }
+			reverse_add_opinion_modifier = { target = GRE modifier = ILL_diplomatic_mission }
+			reverse_add_opinion_modifier = { target = ROM modifier = ILL_diplomatic_mission }
+			reverse_add_opinion_modifier = { target = RRM modifier = ILL_diplomatic_mission }
+			reverse_add_opinion_modifier = { target = ALB modifier = ILL_diplomatic_mission }
+			reverse_add_opinion_modifier = { target = HUN modifier = ILL_diplomatic_mission }
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_expand_embassies
+		id = ILL_expand_embassies
 		icon = GFX_goal_generic_improve_relations
 		x = 13
 		y = 17
 
 		cost = 5
 		
-		prerequisite = { focus = ILL_pk_diplomatic_mission_focus }
+		prerequisite = { focus = ILL_diplomatic_mission_focus }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 50
-			reverse_add_opinion_modifier = { target = SER modifier = ILL_pk_embassies }
-			reverse_add_opinion_modifier = { target = MTN modifier = ILL_pk_embassies }
-			reverse_add_opinion_modifier = { target = BUL modifier = ILL_pk_embassies }
-			reverse_add_opinion_modifier = { target = GRE modifier = ILL_pk_embassies }
-			reverse_add_opinion_modifier = { target = ROM modifier = ILL_pk_embassies }
-			reverse_add_opinion_modifier = { target = RRM modifier = ILL_pk_embassies }
-			reverse_add_opinion_modifier = { target = ALB modifier = ILL_pk_embassies }
-			reverse_add_opinion_modifier = { target = HUN modifier = ILL_pk_embassies }
+			reverse_add_opinion_modifier = { target = SER modifier = ILL_embassies }
+			reverse_add_opinion_modifier = { target = MTN modifier = ILL_embassies }
+			reverse_add_opinion_modifier = { target = BUL modifier = ILL_embassies }
+			reverse_add_opinion_modifier = { target = GRE modifier = ILL_embassies }
+			reverse_add_opinion_modifier = { target = ROM modifier = ILL_embassies }
+			reverse_add_opinion_modifier = { target = RRM modifier = ILL_embassies }
+			reverse_add_opinion_modifier = { target = ALB modifier = ILL_embassies }
+			reverse_add_opinion_modifier = { target = HUN modifier = ILL_embassies }
 		}
 	}
 	
 	focus = {
-		id = ILL_pk_slovenian_question
+		id = ILL_slovenian_question
 		icon = GFX_focus_generic_diplomatic_treaty
 		x = 16
 		y = 14
@@ -4922,10 +4922,10 @@ focus_tree = {
 		}
 		
 		prerequisite = { 
-		focus = ILL_pk_croatian_supremacy
-		focus = ILL_pk_slavic_federation
-		focus = ILL_pk_unite_the_balkans
-		focus = ILL_pk_status_quo
+		focus = ILL_croatian_supremacy
+		focus = ILL_slavic_federation
+		focus = ILL_unite_the_balkans
+		focus = ILL_status_quo
 		}
 		
 		bypass = {
@@ -4952,7 +4952,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_serbian_issue
+		id = ILL_serbian_issue
 		icon = GFX_goal_generic_major_war
 		x = 18
 		y = 14
@@ -4969,9 +4969,9 @@ focus_tree = {
 		will_lead_to_war_with = SER
 		
 		prerequisite = { 
-		focus = ILL_pk_croatian_supremacy
-		focus = ILL_pk_slavic_federation
-		focus = ILL_pk_unite_the_balkans
+		focus = ILL_croatian_supremacy
+		focus = ILL_slavic_federation
+		focus = ILL_unite_the_balkans
 		}
 		
 		ai_will_do = { factor = 15 }
@@ -4997,7 +4997,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_istrian_ambitions
+		id = ILL_istrian_ambitions
 		icon = GFX_goal_generic_more_territorial_claims
 		x = 16
 		y = 15
@@ -5008,8 +5008,8 @@ focus_tree = {
 			is_subject = no
 		}
 		
-		prerequisite = { focus = ILL_pk_slovenian_question }
-		prerequisite = { focus = ILL_pk_serbian_issue }
+		prerequisite = { focus = ILL_slovenian_question }
+		prerequisite = { focus = ILL_serbian_issue }
 		
 		bypass = {
 			owns_state = 736
@@ -5038,7 +5038,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_vojvodina_slavs
+		id = ILL_vojvodina_slavs
 		icon = GFX_goal_generic_occupy_states_ongoing_war
 		x = 18
 		y = 15
@@ -5049,8 +5049,8 @@ focus_tree = {
 			is_subject = no
 		}
 		
-		prerequisite = { focus = ILL_pk_slovenian_question }
-		prerequisite = { focus = ILL_pk_serbian_issue }
+		prerequisite = { focus = ILL_slovenian_question }
+		prerequisite = { focus = ILL_serbian_issue }
 		
 		bypass = {
 			owns_state = 45
@@ -5079,7 +5079,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_integrate_the_serbs
+		id = ILL_integrate_the_serbs
 		icon = GFX_goal_generic_propaganda
 		x = 17
 		y = 16
@@ -5090,8 +5090,8 @@ focus_tree = {
 			is_subject = no
 		}
 		
-		prerequisite = { focus = ILL_pk_istrian_ambitions }
-		prerequisite = { focus = ILL_pk_vojvodina_slavs }
+		prerequisite = { focus = ILL_istrian_ambitions }
+		prerequisite = { focus = ILL_vojvodina_slavs }
 		
 		bypass = {
 			has_country_flag = illyria_serbia_willingly_integrated
@@ -5119,7 +5119,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_claim_trieste
+		id = ILL_claim_trieste
 		icon = GFX_goal_generic_position_armies
 		x = 15
 		y = 16
@@ -5130,8 +5130,8 @@ focus_tree = {
 			is_subject = no
 		}
 		
-		prerequisite = { focus = ILL_pk_istrian_ambitions }
-		prerequisite = { focus = ILL_pk_vojvodina_slavs }
+		prerequisite = { focus = ILL_istrian_ambitions }
+		prerequisite = { focus = ILL_vojvodina_slavs }
 		
 		will_lead_to_war_with = AUS
 		will_lead_to_war_with = SRI
@@ -5159,7 +5159,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_approaching_albania
+		id = ILL_approaching_albania
 		icon = GFX_goal_generic_territory_or_war
 		x = 19
 		y = 16
@@ -5171,8 +5171,8 @@ focus_tree = {
 			is_neighbor_of = ALB
 		}
 		
-		prerequisite = { focus = ILL_pk_istrian_ambitions }
-		prerequisite = { focus = ILL_pk_vojvodina_slavs }
+		prerequisite = { focus = ILL_istrian_ambitions }
+		prerequisite = { focus = ILL_vojvodina_slavs }
 		
 		will_lead_to_war_with = ALB
 		
@@ -5217,7 +5217,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_greater_croatia
+		id = ILL_greater_croatia
 		icon = GFX_focus_generic_support_the_left_right
 		x = 15
 		y = 17
@@ -5233,9 +5233,9 @@ focus_tree = {
 			owns_state = 794
 		}
 		
-		prerequisite = { focus = ILL_pk_approaching_albania }
-		prerequisite = { focus = ILL_pk_claim_trieste }
-		prerequisite = { focus = ILL_pk_integrate_the_serbs }
+		prerequisite = { focus = ILL_approaching_albania }
+		prerequisite = { focus = ILL_claim_trieste }
+		prerequisite = { focus = ILL_integrate_the_serbs }
 		
 		ai_will_do = { factor = 15 }
 
@@ -5246,7 +5246,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_macedonia
+		id = ILL_macedonia
 		icon = GFX_goal_generic_build_tank
 		x = 17
 		y = 17
@@ -5258,9 +5258,9 @@ focus_tree = {
 			NOT = { has_country_flag = illyria_expansion_greater_croatia }
 		}
 		
-		prerequisite = { focus = ILL_pk_approaching_albania }
-		prerequisite = { focus = ILL_pk_claim_trieste }
-		prerequisite = { focus = ILL_pk_integrate_the_serbs }
+		prerequisite = { focus = ILL_approaching_albania }
+		prerequisite = { focus = ILL_claim_trieste }
+		prerequisite = { focus = ILL_integrate_the_serbs }
 		
 		bypass = {
 			owns_state = 106
@@ -5288,7 +5288,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_southern_slavic_union
+		id = ILL_southern_slavic_union
 		icon = GFX_focus_generic_self_management
 		x = 19
 		y = 17
@@ -5314,9 +5314,9 @@ focus_tree = {
 			}
 		}
 		
-		prerequisite = { focus = ILL_pk_approaching_albania }
-		prerequisite = { focus = ILL_pk_claim_trieste }
-		prerequisite = { focus = ILL_pk_integrate_the_serbs }
+		prerequisite = { focus = ILL_approaching_albania }
+		prerequisite = { focus = ILL_claim_trieste }
+		prerequisite = { focus = ILL_integrate_the_serbs }
 		
 		ai_will_do = { factor = 15 }
 
@@ -5333,14 +5333,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_conquer_bulgaria
+		id = ILL_conquer_bulgaria
 		icon = GFX_goal_generic_political_pressure
 		x = 21
 		y = 16
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_unite_the_balkans }
+		prerequisite = { focus = ILL_unite_the_balkans }
 		
 		ai_will_do = { factor = 10 }
 
@@ -5350,7 +5350,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_balkans_united
+		id = ILL_balkans_united
 		icon = GFX_goal_anschluss
 		x = 21
 		y = 17
@@ -5381,10 +5381,10 @@ focus_tree = {
 			}
 		}
 		
-		prerequisite = { focus = ILL_pk_approaching_albania }
-		prerequisite = { focus = ILL_pk_claim_trieste }
-		prerequisite = { focus = ILL_pk_integrate_the_serbs }
-		prerequisite = { focus = ILL_pk_conquer_bulgaria }
+		prerequisite = { focus = ILL_approaching_albania }
+		prerequisite = { focus = ILL_claim_trieste }
+		prerequisite = { focus = ILL_integrate_the_serbs }
+		prerequisite = { focus = ILL_conquer_bulgaria }
 		
 		ai_will_do = { factor = 15 }
 
@@ -5408,7 +5408,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_conquer_greece
+		id = ILL_conquer_greece
 		icon = GFX_goal_generic_political_pressure
 		x = 21
 		y = 18
@@ -5417,7 +5417,7 @@ focus_tree = {
 		
 		available = { country_exists = GRE }
 		
-		prerequisite = { focus = ILL_pk_balkans_united }
+		prerequisite = { focus = ILL_balkans_united }
 		
 		ai_will_do = { factor = 10 }
 
@@ -5427,14 +5427,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_conquer_romania
+		id = ILL_conquer_romania
 		icon = GFX_goal_generic_political_pressure
 		x = 23
 		y = 18
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_balkans_united }
+		prerequisite = { focus = ILL_balkans_united }
 		
 		ai_will_do = { factor = 10 }
 
@@ -5460,14 +5460,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_alliance_belgrade_pact
+		id = ILL_alliance_belgrade_pact
 		icon = GFX_goal_generic_attack_allies
 		x = 13
 		y = 18
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_expand_embassies }
+		prerequisite = { focus = ILL_expand_embassies }
 		
 		available = {
 			SER = { is_faction_leader = yes }
@@ -5489,14 +5489,14 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_alliance_austria
+		id = ILL_alliance_austria
 		icon = GFX_goal_austria
 		x = 15
 		y = 18
 
 		cost = 10
 		
-		prerequisite = { focus = ILL_pk_expand_embassies }
+		prerequisite = { focus = ILL_expand_embassies }
 		
 		available = { 
 		AUS = { is_faction_leader = yes } 
@@ -5507,7 +5507,7 @@ focus_tree = {
 			} }
 		NOT = { has_war_with = AUS }
 		is_in_faction = no
-		has_completed_focus = ILL_pk_illyrian_republicanism
+		has_completed_focus = ILL_illyrian_republicanism
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -5518,7 +5518,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_alliance_mitteleuropa
+		id = ILL_alliance_mitteleuropa
 		icon = GFX_goal_align_germany
 		x = 17
 		y = 18
@@ -5526,9 +5526,9 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = { 
-		focus = ILL_pk_expand_embassies 
-		focus = ILL_pk_greater_croatia
-		focus = ILL_pk_southern_slavic_union
+		focus = ILL_expand_embassies 
+		focus = ILL_greater_croatia
+		focus = ILL_southern_slavic_union
 		}
 		
 		available = { 
@@ -5550,7 +5550,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = ILL_pk_alliance_medblock
+		id = ILL_alliance_medblock
 		icon = GFX_goal_carlist
 		x = 19
 		y = 18
@@ -5558,9 +5558,9 @@ focus_tree = {
 		cost = 10
 		
 		prerequisite = { 
-		focus = ILL_pk_expand_embassies 
-		focus = ILL_pk_greater_croatia
-		focus = ILL_pk_southern_slavic_union
+		focus = ILL_expand_embassies 
+		focus = ILL_greater_croatia
+		focus = ILL_southern_slavic_union
 		}
 		
 		available = { 

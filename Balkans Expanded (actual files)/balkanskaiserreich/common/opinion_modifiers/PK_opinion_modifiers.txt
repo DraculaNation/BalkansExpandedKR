@@ -10,86 +10,59 @@
 
 opinion_modifiers = {
 
-	### Serbia - Original but with SER_pk tag
-	
-	SER_pk_orthodox_state_religion = {
-		value = 30
-		years = 4
-	}
-
-	SER_pk_modern_and_secular = {
-		value = -20
-		years = 4
-	}
-
-	SER_pk_orthodox_government = {
-		value = 50
-		years = 4
-	}
-
-	SER_pk_sold_ship_to_us = {
-		value = 20
-		years = 2
-	}
-
-	SER_pk_refused_to_sell_ship = {
-		value = -50
-		years = 2
-	}
-
 	### Serbia - added by Balkans Expanded
-	SER_pk_refused_deal = {
+	SER_refused_deal = {
 		value = -50
 		years = 2
 	}
 
-	SER_pk_ensured_territorial_integrity = {
+	SER_ensured_territorial_integrity = {
 		value = 40
 		years = 4
 	}
 	
-	SER_pk_russia_thank = {
+	SER_russia_thank = {
 		value = 50
 		years = 2
 	}
 
-	SER_pk_condemned_us = {
+	SER_condemned_us = {
 		value = -40
 		years = 4
 	}
 	
-	SER_pk_purged_syndicalists = {
+	SER_purged_syndicalists = {
 		value = -80
 		years = 4
 	}
 	
-	SER_pk_french_help = {
+	SER_french_help = {
 		value = 40
 		years = 4
 	}
 	
-	SER_pk_french_refusal = {
+	SER_french_refusal = {
 		value = -20
 		years = 4
 	}
 	
-	SER_pk_conceded_vojvodina = {
+	SER_conceded_vojvodina = {
 		value = 80
 		years = 4
 	}
 	
 	### Illyria
-	ILL_pk_supported_independence_austria = {
+	ILL_supported_independence_austria = {
 		value = -20
 		years = 4
 	}
 	
-	ILL_pk_supported_independence_illyria = {
+	ILL_supported_independence_illyria = {
 		value = 60
 		years = 4
 	}
 	
-	ILL_pk_habsburgs_discredited = {
+	ILL_habsburgs_discredited = {
 		value = -30
 		years = 2
 	}
@@ -104,23 +77,23 @@ opinion_modifiers = {
 		years = 4
 	}
 	
-	ILL_pk_austrian_tariffs = {
+	ILL_austrian_tariffs = {
 		value = -15
 		years = 2
 	}
 	
-	ILL_pk_diplomatic_mission = {
+	ILL_diplomatic_mission = {
 		value = 15
 		years = 4
 	}
 	
-	ILL_pk_embassies = {
+	ILL_embassies = {
 		value = 25
 		years = 6
 	}
 	
 	### Albania
-	ALB_pk_belgrade_pact_observer_opinion = {
+	ALB_belgrade_pact_observer_opinion = {
 		value = 20
 		years = 4
 	}
