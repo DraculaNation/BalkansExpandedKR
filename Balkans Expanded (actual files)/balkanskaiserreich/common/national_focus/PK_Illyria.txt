@@ -3651,9 +3651,15 @@ focus_tree = {
 
 		cost = 10
 		
+		available = {
+			is_subject = no
+			NOT = { has_completed_focus = ILL_austrian_science }
+		}
+		
+		bypass = { has_completed_focus = ILL_austrian_science }
+		
 		prerequisite = { 
 			focus = ILL_mass_production
-			focus = ILL_expand_fishing_industry
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -3676,8 +3682,9 @@ focus_tree = {
 			NOT = { has_completed_focus = ILL_austrian_science }
 		}
 		
+		bypass = { has_completed_focus = ILL_austrian_science }
+		
 		prerequisite = { 
-			focus = ILL_mass_production
 			focus = ILL_expand_fishing_industry
 		}
 		
