@@ -1464,7 +1464,12 @@ country_event = { # Spaho's Revolt - Civil War start
 		ai_chance = { factor = 100 }
 		remove_state_core = 104
 		add_state_claim = 104
-		BOS = { transfer_state = 104 }
+		remove_state_core = 1028
+		add_state_claim = 1028
+		BOS = { 
+			transfer_state = 104 
+			transfer_state = 1028
+		}
 		declare_war_on = { target = BOS type = annex_everything }
 		add_political_power = 50
 		add_ideas = ILL_civil_war_ongoing_idea
@@ -1596,7 +1601,10 @@ country_event = { # Greater Croatia wins
 	fire_only_once = yes
 	trigger = {
 		tag = ILL
-		has_full_control_of_state = 104
+		AND = {
+			has_full_control_of_state = 104
+			has_full_control_of_state = 1029
+		}
 		has_country_flag = illyria_civil_war_started
 		NOT = { OR = {
 			has_country_flag = illyria_civil_war_spaho_won
@@ -1830,6 +1838,7 @@ country_event = { # Orthodox Forcefully Converted - Stepinac
 		add_political_power = -50
 		add_state_core = 104
 		add_state_core = 105
+		add_state_core = 1028
 		if = { 
 			limit = { owns_state = 794 }
 			add_state_core = 794
@@ -3246,6 +3255,12 @@ country_event = { #Serbia - Illyria invites us
 				ILL = { owns_state = 104 }
 			}
 			transfer_state = 104
+		}
+		if = {
+			limit = {
+				ILL = { owns_state = 1028 }
+			}
+			transfer_state = 1028
 		}
 		if = {
 			limit = {

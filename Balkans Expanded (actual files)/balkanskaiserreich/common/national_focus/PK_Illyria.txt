@@ -1182,6 +1182,7 @@ focus_tree = {
 		available = {
 			controls_state = 1029
 			controls_state = 104
+			controls_state = 1028
 		}
 		
 		mutually_exclusive = {
@@ -1228,6 +1229,7 @@ focus_tree = {
 		available = {
 			controls_state = 1029
 			controls_state = 104
+			controls_state = 1028
 		}
 		
 		mutually_exclusive = {
@@ -2068,6 +2070,7 @@ focus_tree = {
 			add_manpower = 75000
 			add_state_core = 104
 			add_state_core = 105
+			add_state_core = 1028
 			if = { 
 				limit = { owns_state = 794 }
 				add_state_core = 794
