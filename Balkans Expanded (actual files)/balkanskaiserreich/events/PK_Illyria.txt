@@ -3409,11 +3409,11 @@ country_event = { #Albania - Illyria asks for unification
 		ai_chance = { factor = 10 }
 		ILL = {
 			annex_country = { target = ALB }
-			any_state = {
+			every_state = {
 				limit = {
 					is_core_of = ALB
 				}
-				add_state_core = PREV
+				add_core_of = ILL
 			}
 			country_event = { id = illyria.109 days = 1 } 
 			hidden_effect = { set_country_flag = ALB_CONQ }
@@ -3472,7 +3472,7 @@ country_event = { #Albania Nay
 		    limit = {
 			    is_core_of = ALB
 			}
-			add_state_claim = PREV
+			add_claim_by = ILL
 		}
 	}
 }

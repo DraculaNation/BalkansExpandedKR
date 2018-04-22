@@ -1,4 +1,4 @@
-###########################
+﻿###########################
 # Serbia Events
 ###########################
 # By wyandotte and Dracula Nation
@@ -930,7 +930,12 @@ country_event = {
 	option = {
 		name = serbia.15.c # The Orthodox Church must have a role in government
 
-		trigger = { has_government = paternal_autocrat }
+		trigger = {
+			OR = {
+				has_government = paternal_autocrat
+				has_government = national_populist
+				}
+		}
 
 		ai_chance = {
 		factor = 0
@@ -1599,7 +1604,7 @@ country_event = { #Factory Debate
 	is_triggered_only = yes
 
 	option = {
-		name = ser.31.a #Civilian factory
+		name = serbia.31.a #Civilian factory
 		ai_chance = { factor = 30 }
 		107 = {
 			if = {
@@ -1621,7 +1626,7 @@ country_event = { #Factory Debate
 	}
 
 	option = {
-		name = ser.31.b #Military Factory
+		name = serbia.31.b #Military Factory
 		ai_chance = { factor = 65 }
 		107 = {
 			if = {
@@ -3037,6 +3042,8 @@ country_event = {
 		}
 	}
 
+	fire_only_once = yes
+	
 	mean_time_to_happen = {
 		days = 1
 	}
@@ -3047,14 +3054,14 @@ country_event = {
 			factor = 100
 			}
 			
-		every_owned_state = {
-			limit = {
-				is_claimed_by = SER
-			}
-			SER = { transfer_state = PREV }
-			remove_state_claim = PREV
-			remove_state_core = PREV
-		}
+	every_owned_state = {
+            limit = {
+                is_claimed_by = SER
+            }
+            SER = { transfer_state = PREV }
+            remove_core_of = GRE
+            remove_claim_by = GRE
+        }
 	}
 }
 
