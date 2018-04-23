@@ -1,0 +1,1357 @@
+﻿###########################
+# Hungary Events
+###########################
+# By mw and Dracula Nation
+###########################
+
+add_namespace = kr.hungary
+
+### Hungary status event
+
+country_event = {
+	id = kr.hungary.1
+	title = kr.hungary.1.t
+	desc = kr.hungary.1.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = kr.hungary.1.a
+	}
+}
+
+### Austria civil war ###
+### New Leader
+
+country_event = {
+	id = kr.hungary.2
+	title = kr.hungary.2.t
+	
+	desc = {
+		text = kr.hungary.2.d
+		trigger = { NOT = { has_completed_focus = HUN_pk_enact_land_reforms } }
+	}
+	desc = {
+		text = kr.hungary.2.dr
+		trigger = { has_completed_focus = HUN_pk_enact_land_reforms }
+	}
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = HUN
+		is_puppet = no
+	}
+
+	option = { ### Istvan Bethlen
+		name = kr.hungary.2.a
+
+		ai_chance = { factor = 50 }
+		
+		trigger = {
+			NOT = { has_completed_focus = HUN_pk_enact_land_reforms }
+		}
+		
+		hidden_effect = {
+			retire_country_leader = yes
+			remove_ideas_with_trait = head_of_government
+		}
+
+		create_country_leader = {
+			name = "István Bethlen"
+			desc = "ISTVAN_BETHLEN_DESC"
+			picture = "Istvan_Bethlen_I.tga"
+			expire = "1965.1.1"
+			ideology = social_conservative_subtype
+			traits = {}
+		}
+
+		set_politics = {
+			ruling_party = social_conservative
+			last_election = "1888.15.6"
+			election_frequency = 48
+			elections_allowed = no
+		}
+
+		add_ideas = HUN_Zoltan_Tildy_hog_sco
+
+		add_popularity = {
+			ideology = social_conservative
+			popularity = 0.2
+		}
+		
+		set_country_flag = hungary_internal_politics_unlocked
+		
+	}
+	
+	option = { ### Károly Rassay
+		name = kr.hungary.2.b
+
+		ai_chance = { factor = 30 }
+		
+		trigger = { has_completed_focus = HUN_pk_enact_land_reforms }
+		
+		hidden_effect = {
+			retire_country_leader = yes
+		}
+
+		create_country_leader = {
+			name = "Károly Rassay"
+			desc = "KAROLY_RASSAY_DESC"
+			picture = "Istvan_Bethlen_I.tga"
+			expire = "1965.1.1"
+			ideology = social_liberal_subtype
+			traits = {}
+		}
+		
+		set_politics = {
+			ruling_party = social_liberal
+			last_election = "1888.15.6"
+			election_frequency = 48
+			elections_allowed = no
+		}
+
+		add_popularity = {
+			ideology = social_liberal
+			popularity = 0.3
+		}
+		
+		set_country_flag = hungary_internal_politics_unlocked
+		
+	}
+	
+	option = { ### Pál Prónay
+		name = kr.hungary.2.c
+
+		ai_chance = { factor = 30 }
+		
+		trigger = { NOT = { has_completed_focus = HUN_pk_enact_land_reforms } }
+		
+		hidden_effect = {
+			retire_country_leader = yes
+		}
+
+		create_country_leader = {
+			name = "Pál Prónay"
+			desc = "PAL_PRONAY_DESC"
+			picture = "Pal_Pronay.tga"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = {}
+		}
+		
+		set_politics = {
+			ruling_party = paternal_autocrat
+			last_election = "1888.15.6"
+			election_frequency = 48
+			elections_allowed = no
+		}
+
+		add_popularity = {
+			ideology = paternal_autocrat
+			popularity = 0.2
+		}
+		
+		set_country_flag = hungary_internal_politics_unlocked
+		
+	}
+	
+	option = { ### Ferenc Szálasi
+		name = kr.hungary.2.e
+
+		ai_chance = { factor = 50 }
+		
+		trigger = { has_completed_focus = HUN_pk_enact_land_reforms }
+		
+		hidden_effect = {
+			retire_country_leader = yes
+		}
+
+		create_country_leader = {
+			name = "Ferenc Szálasi"
+			desc = "FERENC_SZALASI_DESC"
+			picture = "Ferenc_Szalasi.tga"
+			expire = "1965.1.1"
+			ideology = national_populist_subtype
+			traits = {}
+		}
+		
+		set_politics = {
+			ruling_party = national_populist
+			last_election = "1888.15.6"
+			election_frequency = 48
+			elections_allowed = no
+		}
+
+		add_popularity = {
+			ideology = national_populist
+			popularity = 0.15
+		}
+		
+		set_country_flag = hungary_internal_politics_unlocked
+		
+	}
+	
+	option = { ### Catholic Church
+		name = kr.hungary.2.f
+		
+		ai_chance = { factor = 20 }
+		
+		hidden_effect = {
+			retire_country_leader = yes
+		}
+
+		create_country_leader = {
+			name = "József Mindszenty"
+			desc = "JOZSEF_MINDSZENTY_DESC"
+			picture = "Jozsef_Mindszenty.tga"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = {}
+		}
+		
+		set_politics = {
+			ruling_party = authoritarian_democrat
+			last_election = "1888.15.6"
+			election_frequency = 48
+			elections_allowed = no
+		}
+
+		add_popularity = {
+			ideology = authoritarian_democrat
+			popularity = 0.3
+		}
+		
+		set_country_flag = hungary_internal_politics_unlocked
+		
+	}
+}
+
+country_event = { ### Adding leaders to Hungary when it gains independence
+	id = hungaryhidden.1
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	
+	trigger = {
+		tag = HUN
+		NOT = { is_puppet_of = AUS }
+	}
+
+	immediate = {
+		hidden_effect = {
+			create_country_leader = {
+				name = "Ferenc Szálasi"
+				desc = "FERENC_SZALASI_DESC"
+				picture = "Ferenc_Szalasi.tga"
+				expire = "1965.1.1"
+				ideology = national_populist_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "Pál Prónay"
+				desc = "PAL_PRONAY_DESC"
+				picture = "Pal_Pronay.tga"
+				expire = "1965.1.1"
+				ideology = paternal_autocrat_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "József Mindszenty"
+				desc = "JOZSEF_MINDSZENTY_DESC"
+				picture = "Jozsef_Mindszenty.tga"
+				expire = "1965.1.1"
+				ideology = authoritarian_democrat_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "István Bethlen"
+				desc = "ISTVAN_BETHLEN_DESC"
+				picture = "Istvan_Bethlen_I.tga"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "Jenő Balogh"
+				desc = "JENO_BALOGH_DESC"
+				picture = "Jeno_Balogh.tga"
+				expire = "1965.1.1"
+				ideology = market_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "Károly Rassay"
+				desc = "KAROLY_RASSAY_DESC"
+				picture = "Karoly_Rassay.tga"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "Árpád Szakasits"
+				desc = "ARPAD_SZAKASITS_DESC"
+				picture = "Arpad_Szakasits.tga"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+			remove_ideas = AUS_part_of_the_Empire
+			if = {
+				limit = { is_in_faction_with = AUS }
+				AUS = { remove_from_faction = HUN }
+			}
+		}
+	}
+}
+
+country_event = { #Rejecting Habsburg Rule
+	id = kr.hungary.3
+	title = kr.hungary.3.t
+	desc = kr.hungary.3.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = kr.hungary.3.a
+		add_political_power = -40
+	}
+}
+
+country_event = { #End of the war
+	id = kr.hungary.4
+	title = kr.hungary.4.t
+	desc = kr.hungary.4.d
+
+	trigger = { 
+	is_puppet = no
+	NOT = { has_war_with = AUS }
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+	fire_only_once = yes
+
+	option = {
+		name = kr.hungary.4.a
+		add_political_power = 150
+		add_ideas = HUN_pk_civil_war_aftermath1_idea
+		add_ideas = HUN_pk_civil_unrest1_idea
+	}
+}
+
+country_event = { #Italian Federation: Helping Hungary
+	id = kr.hungary.5
+	title = kr.hungary.5.t
+	desc = kr.hungary.5.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Equipment and volunteers
+		name = kr.hungary.5.a
+		
+		ai_chance = { factor = 50 }
+		
+		add_manpower = -10000
+		send_equipment = {
+			target = HUN
+			type = infantry_equipment
+			amount = 1000
+		}
+		hidden_effect = { HUN = { country_event = { id = kr.hungary.6 days = 1 }}}
+	}
+	
+	option = { #Food
+		name = kr.hungary.5.b
+		
+		ai_chance = { factor = 30 }
+		
+		send_equipment = {
+			target = SWI 
+			type = support_equipment
+			amount = 500
+		}
+		hidden_effect = { HUN = { country_event = { id = kr.hungary.7 days = 1 }}}
+	}
+	
+	option = { #Thoughts and Prayers
+		name = kr.hungary.5.c
+		
+		ai_chance = { factor = 20 }
+		
+		add_political_power = 10
+		hidden_effect = { HUN = { country_event = { id = kr.hungary.8 days = 1 }}}
+	}	
+}
+
+country_event = { #Italian Volunteers Arrive
+	id = kr.hungary.6
+	title = kr.hungary.6.t
+	desc = kr.hungary.6.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = kr.hungary.6.a
+		
+		add_manpower = 10000
+		load_oob = HUN_ITA_VOL
+	}
+}
+
+country_event = { #Italian Supplies Arrive
+	id = kr.hungary.7
+	title = kr.hungary.7.t
+	desc = kr.hungary.7.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = kr.hungary.6.a
+
+		add_political_power = 10
+	}
+}
+
+country_event = { #Italian Thoughts and Prayers Arrive
+	id = kr.hungary.8
+	title = kr.hungary.8.t
+	desc = kr.hungary.8.d
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = {
+		name = kr.hungary.8.a
+
+		add_political_power = 75
+	}
+}
+
+country_event = { #Demonstrations following the Ausgleich
+	id = kr.hungary.9
+	title = kr.hungary.9.t
+	desc = kr.hungary.9.d
+
+	trigger = {
+	AUS = { has_completed_focus = AUS_ausgleich } 
+	}
+
+	mean_time_to_happen = { days = 1 }
+	
+	fire_only_once = yes
+
+	option = {
+		name = kr.hungary.9.a
+		add_political_power = -50
+		if = {
+			limit = { 
+				OR = {
+				owns_state = 70 #Slovakia
+				owns_state = 71 #Slovakia 2
+				}
+			}
+			add_ideas = HUN_pk_slovak_minority_idea
+		}
+		if = {
+			limit = {
+				OR = {
+					owns_state = 789 #Szeklerland
+					owns_state = 76 #Eszak-Erdely
+				}
+			}
+			TRS = {
+				add_state_core = 82 #Banat
+				add_state_core = 83 #Criana
+				add_state_core = 76 #Eszak Elderly
+				add_state_claim = 789 #Szekelyland or smth
+				add_state_core = 84 #Transilvania
+			}
+			add_ideas = HUN_pk_transylvanian_minority_idea
+		}
+		if = {
+			limit = { 
+				OR = { 
+				owns_state = 45 #Vojvodina
+				owns_state = 875 #Western Banat
+				}
+			}
+			add_ideas = HUN_pk_serbian_minority_idea
+		}
+	}
+}
+
+country_event = { #Slovakian Protests
+	id = kr.hungary.10
+	title = kr.hungary.10.t
+	desc = kr.hungary.10.d
+
+	trigger = {
+		OR = {
+			has_idea = HUN_pk_slovak_minority_idea
+			has_idea = HUN_pk_slovak_minority2_idea
+		}
+		has_war = no
+		any_owned_state = {
+			is_core_of = SVK
+		}
+	}
+
+	mean_time_to_happen = { 
+		days = 200
+		modifier = { 
+			factor = 0.6
+			has_idea = HUN_pk_slovak_minority2_idea
+		}
+	}
+
+	option = { #Send Police
+		name = kr.hungary.10.a
+		if = {
+			limit = {
+				has_idea = HUN_pk_slovak_minority2_idea
+			}
+			add_political_power = -50
+			else = { add_political_power = -25 }
+		}
+	}
+	
+	option = { #Let them protest
+		name = kr.hungary.10.b
+		if = {
+			limit = {
+				has_idea = HUN_pk_slovak_minority2_idea
+			}
+			random_list = {
+				60 = { custom_effect_tooltip = hungary_protests }
+				40 = { add_political_power = -100 }
+			}
+			else = {
+				random_list = {
+					60 = { custom_effect_tooltip = hungary_protests }
+					40 = { add_political_power = -50 }
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Transylvanian Protests
+	id = kr.hungary.11
+	title = kr.hungary.11.t
+	desc = kr.hungary.11.d
+
+	trigger = {
+		OR = {
+			has_idea = HUN_pk_transylvanian_minority_idea
+			has_idea = HUN_pk_transylvanian_minority2_idea
+		}
+		has_war = no
+		any_owned_state = {
+			is_core_of = TRS
+		}
+	}
+
+	mean_time_to_happen = { 
+		days = 175
+		modifier = { 
+			factor = 0.5
+			has_idea = HUN_pk_transylvanian_minority2_idea
+		}
+	}
+
+	option = { #Send Police
+		name = kr.hungary.11.a
+		if = {
+			limit = {
+				has_idea = HUN_pk_transylvanian_minority2_idea
+			}
+			add_political_power = -60
+			else = { add_political_power = -30 }
+		}
+	}
+	
+	option = { #Let them protest
+		name = kr.hungary.11.b
+		if = {
+			limit = {
+				has_idea = HUN_pk_transylvanian_minority2_idea
+			}
+			random_list = {
+				60 = { custom_effect_tooltip = hungary_protests }
+				40 = { add_political_power = -120 }
+			}
+			else = {
+				random_list = {
+					60 = { custom_effect_tooltip = hungary_protests }
+					40 = { add_political_power = -60 }
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Serbian Protests
+	id = kr.hungary.12
+	title = kr.hungary.12.t
+	desc = kr.hungary.12.d
+
+	trigger = {
+		OR = {
+			has_idea = HUN_pk_serbian_minority_idea
+			has_idea = HUN_pk_serbian_minority2_idea
+		}
+		has_war = no
+		OR = {
+			controls_state = 874
+			controls_state = 45
+		}
+	}
+
+	mean_time_to_happen = { 
+		days = 300
+		modifier = { 
+			factor = 0.5
+			has_idea = HUN_pk_serbian_minority2_idea
+		}
+	}
+
+	option = { #Send Police
+		name = kr.hungary.12.a
+		if = {
+			limit = {
+				has_idea = HUN_pk_transylvanian_minority2_idea
+			}
+			add_political_power = -40
+			else = { add_political_power = -20 }
+		}
+	}
+	
+	option = { #Let them protest
+		name = kr.hungary.12.b
+		if = {
+			limit = {
+				has_idea = HUN_pk_transylvanian_minority2_idea
+			}
+			random_list = {
+				60 = { custom_effect_tooltip = hungary_protests }
+				40 = { add_political_power = -80 }
+			}
+			else = {
+				random_list = {
+					60 = { custom_effect_tooltip = hungary_protests }
+					40 = { add_political_power = -40 }
+				}
+			}
+		}
+	}
+}
+
+country_event = { #Black Monday Stabilization 1
+	id = kr.hungary.13
+	title = kr.hungary.13.t
+	desc = kr.hungary.13.d
+
+	trigger = {
+		has_completed_focus = HUN_pk_subsidize_farmers
+		has_completed_focus = HUN_pk_urbanization
+		has_idea = HUN_pk_black_monday_idea
+	}
+
+	fire_only_once = yes
+	
+	mean_time_to_happen = { 
+		days = 70
+	}
+
+	option = { #Good
+		name = kr.hungary.13.a
+		swap_ideas = { 
+			remove_idea = HUN_pk_black_monday_idea 
+			add_idea = HUN_pk_black_monday2_idea
+		}
+	}
+}
+
+country_event = { #Black Monday Stabilization 2
+	id = kr.hungary.14
+	title = kr.hungary.14.t
+	desc = kr.hungary.14.d
+
+	trigger = {
+		has_completed_focus = HUN_pk_autarky
+		has_completed_focus = HUN_pk_synthetic_oil
+		has_idea = HUN_pk_black_monday2_idea
+	}
+
+	fire_only_once = yes
+	
+	mean_time_to_happen = { 
+		days = 70
+	}
+
+	option = { #Good
+		name = kr.hungary.14.a
+		swap_ideas = { 
+			remove_idea = HUN_pk_black_monday2_idea 
+			add_idea = HUN_pk_black_monday3_idea
+		}
+	}
+}
+
+country_event = { #Black Monday Stabilization 3
+	id = kr.hungary.15
+	title = kr.hungary.15.t
+	desc = kr.hungary.15.d
+
+	trigger = {
+		OR = {
+			has_completed_focus = HUN_pk_develop_agriculture
+			has_completed_focus = HUN_pk_hungarian_electronics
+		}
+		has_idea = HUN_pk_black_monday3_idea
+	}
+
+	fire_only_once = yes
+	
+	mean_time_to_happen = { 
+		days = 70
+	}
+
+	option = { #Good
+		name = kr.hungary.15.a
+		swap_ideas = { 
+			remove_idea = HUN_pk_black_monday3_idea 
+			add_idea = HUN_pk_black_monday4_idea
+		}
+	}
+}
+
+country_event = { #Black Monday Stabilization 4
+	id = kr.hungary.16
+	title = kr.hungary.16.t
+	desc = kr.hungary.16.d
+
+	trigger = {
+		has_completed_focus = HUN_pk_embrace_old_ways
+		has_completed_focus = HUN_pk_end_of_the_black_monday
+		has_idea = HUN_pk_black_monday4_idea
+	}
+
+	fire_only_once = yes
+	
+	mean_time_to_happen = { 
+		days = 70
+	}
+
+	option = { #Good
+		name = kr.hungary.16.a
+		remove_ideas = HUN_pk_black_monday4_idea
+	}
+}
+
+country_event = { #Black Monday Strikes
+	id = kr.hungary.17
+	title = kr.hungary.17.t
+	desc = kr.hungary.17.d
+
+	trigger = {
+		AUS = { has_idea = AUS_black_monday }
+	}
+
+	fire_only_once = yes
+	
+	mean_time_to_happen = { 
+		days = 7
+	}
+
+	option = { #Crap
+		name = kr.hungary.17.a
+		add_ideas = HUN_pk_black_monday_idea
+	}
+}
+
+country_event = { #Crowning a king
+	id = kr.hungary.18
+	title = kr.hungary.18.t
+
+	desc = {
+		text = kr.hungary.18.d1
+		trigger = { has_government = authoritarian_democrat }
+	}
+
+	desc = {
+		text = kr.hungary.18.d2
+		trigger = { NOT = { OR = { has_government = paternal_autocrat has_government = authoritarian_democrat } } }
+	}
+	
+	desc = {
+		text = kr.hungary.18.d3
+		trigger = { has_government = paternal_autocrat }
+	}
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Crown Mindszenty
+		name = kr.hungary.18.a
+		
+		ai_chance = { factor = 100 }
+		
+		trigger = { has_government = authoritarian_democrat }
+		
+		create_country_leader = {
+			name = "H.A.M. József I"
+			desc = "JOZSEF_MINDSZENTY_DESC"
+			picture = "Jozsef_Mindszenty.tga"
+			expire = "1965.1.1"
+			ideology = authoritarian_democrat_subtype
+			traits = {}
+		}
+		
+	}
+	
+	option = { #Crown Károly V - symbolic
+		name = kr.hungary.18.b
+		
+		ai_chance = { factor = 40 }
+		
+		add_ideas = HUN_pk_karoly_v_idea
+	}
+	
+	option = { #Declare a republic
+		name = kr.hungary.18.c
+		
+		ai_chance = { factor = 20 }
+		
+		set_country_flag = HUN_republic
+		add_political_power = 150
+	}	
+	
+	option = { #Crown Karoly V - Absolute
+		name = kr.hungary.18.e
+		
+		ai_chance = { factor = 20 }
+		
+		trigger = { has_government = paternal_autocrat }
+		
+		retire_country_leader = yes
+		
+		create_country_leader = {
+			name = "H.A.M. Károly V"
+			desc = "CARL_V_WILHELM_DESC"
+			picture = "Vilmos_II.tga"
+			expire = "1965.1.1"
+			ideology = paternal_autocrat_subtype
+			traits = {}
+		}
+		
+		hidden_effect = {
+			create_country_leader = {
+				name = "H.A.M. Károly V"
+				desc = "CARL_V_WILHELM_DESC"
+				picture = "Vilmos_II.tga"
+				expire = "1965.1.1"
+				ideology = national_populist_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "H.A.M. Károly V"
+				desc = "CARL_V_WILHELM_DESC"
+				picture = "Vilmos_II.tga"
+				expire = "1965.1.1"
+				ideology = social_conservative_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "H.A.M. Károly V"
+				desc = "CARL_V_WILHELM_DESC"
+				picture = "Vilmos_II.tga"
+				expire = "1965.1.1"
+				ideology = market_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "H.A.M. Károly V"
+				desc = "CARL_V_WILHELM_DESC"
+				picture = "Vilmos_II.tga"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+				traits = {}
+			}
+			create_country_leader = {
+				name = "H.A.M. Károly V"
+				desc = "CARL_V_WILHELM_DESC"
+				picture = "Vilmos_II.tga"
+				expire = "1965.1.1"
+				ideology = social_democrat_subtype
+				traits = {}
+			}
+		}
+		
+	}	
+	
+}
+
+country_event = { #Fate of what little remains of the Aristocracy
+	id = kr.hungary.19
+	title = kr.hungary.19.t
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Compromise with them
+		name = kr.hungary.19.a
+		ai_chance = { factor = 33 }
+		add_ideas = HUN_pk_aristocracy_cooperation_idea
+		
+	}
+	
+	option = { #Leave them
+		name = kr.hungary.19.b
+		ai_chance = { factor = 33 }
+		add_political_power = 100
+	}
+	
+	option = { #Lower influence
+		name = kr.hungary.19.c
+		ai_chance = { factor = 34 }
+		add_ideas = HUN_pk_aristocracy_lowered_idea
+	}
+}
+
+country_event = { #Elections?
+	id = kr.hungary.20
+	title = kr.hungary.20.t
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Yay
+		name = kr.hungary.20.a
+		ai_chance = { factor = 99 }
+		set_politics = {
+			ruling_party = social_liberal
+			last_election = "1888.15.6"
+			election_frequency = 48
+			elections_allowed = yes
+		}
+	}
+	
+	option = { #Nay
+		name = kr.hungary.20.b
+		ai_chance = { factor = 1 }
+		add_political_power = 50
+	}
+}
+
+country_event = { #Socialist Coup
+	id = kr.hungary.21
+	title = kr.hungary.21.t
+	
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { #Ervin Szabo
+		name = kr.hungary.21.a
+		ai_chance = { factor = 50 }
+		set_politics = {
+			ruling_party = syndicalist
+			last_election = "1888.15.6"
+			election_frequency = 48
+			elections_allowed = no
+		}
+		set_country_flag = hungary_ervin_szabo_chosen
+	}
+	
+	option = { #Bela Kun
+		name = kr.hungary.21.b
+		ai_chance = { factor = 50 }
+		set_politics = {
+			ruling_party = totalist
+			last_election = "1888.15.6"
+			election_frequency = 48
+			elections_allowed = no
+		}
+		set_country_flag = hungary_bela_kun_chosen
+	}
+}
+
+country_event = { #Serbian liberation
+	id = kr.hungary.22
+	title = kr.hungary.22.t
+	desc = kr.hungary.22.d
+
+	trigger = {
+		owns_state = 107
+		NOT = { is_joke_nation = yes }
+		NOT = {
+			tag = SER
+		}
+		NOT = {
+			AND = {
+				controls_state = 104
+				controls_state = 109
+				NOT = {
+					tag = HUN
+					tag = AUS
+				}
+			}
+		}
+		SER = {
+			exists = no
+		}
+		has_completed_focus = HUN_pk_rule_the_serbs
+		NOT = {
+			has_country_flag = SER_CONQ_second_time
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 4
+	}
+
+	option = { #liberate without vojvodina
+		name =  kr.hungary.22.a
+		ai_chance = {
+			factor = 50
+		}
+
+		every_state = {
+			limit = {
+				is_core_of = SER
+				is_owned_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			SER = {
+				transfer_state = PREV
+			}
+		}
+		if = {
+			limit = { has_completed_focus = HUN_pk_embrace_pluralism }
+			SER = { transfer_state = 875 }
+		}
+		set_autonomy = {
+			target = SER
+			autonomous_state = kr_integrated_puppet
+		}
+
+	}
+
+	option = { #liberate with vojvodina
+		name =  kr.hungary.22.b
+		ai_chance = {
+			factor = 49
+		}
+
+		trigger = { has_completed_focus = HUN_pk_embrace_pluralism }
+		
+		every_state = {
+			limit = {
+				is_core_of = SER
+				is_owned_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			SER = {
+				transfer_state = PREV
+				if = {
+					limit = { HUN = { owns_state = 794 } }
+					transfer_state = 794
+					add_state_core = 794
+				}
+				transfer_state = 45
+				SER = { add_state_core = 45 }
+				transfer_state = 875
+				SER = { add_state_core = 875 }
+			}
+		}
+		set_autonomy = {
+			target = SER
+			autonomous_state = kr_integrated_puppet
+		}
+
+	}
+	
+	option = { #take belgrade
+		name =  kr.hungary.22.c
+		ai_chance = {
+			factor = 9
+		}
+
+		trigger = { 
+			has_completed_focus = HUN_pk_continue_magyarization
+			owns_state = 794 # no border gore allowed	
+		}
+		
+		every_state = {
+			limit = {
+				is_core_of = SER
+				is_owned_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			SER = {
+				transfer_state = PREV
+			}
+			HUN = {
+				transfer_state = 107
+			}
+		}
+		set_autonomy = {
+			target = SER
+			autonomous_state = kr_integrated_puppet
+		}
+
+	}
+	
+	option = { #occupy
+		name =  kr.hungary.22.e
+		ai_chance = {
+			factor = 1
+		}
+		set_country_flag = SER_CONQ_second_time
+		add_political_power = -70
+	}
+}
+
+country_event = { #Fate of Illyria
+	id = kr.hungary.23
+	title = kr.hungary.23.t
+	desc = kr.hungary.23.d
+
+	trigger = {
+		owns_state = 109
+		NOT = { is_joke_nation = yes }
+		NOT = {
+			tag = CRO
+			tag = AUS
+			tag = DNF
+			tag = AHE
+			tag = ILL
+		}
+		NOT = {
+			AND = {
+				controls_state = 104
+				controls_state = 107
+			}
+		}
+		ILL = {
+			exists = no
+		}
+		CRO = {
+			exists = no
+		}
+		has_completed_focus = HUN_pk_conquer_illyria
+		NOT = {
+			has_war_with = SER
+			has_war_with = YUG
+			has_war_with = BOS
+			has_war_with = ITA
+			has_war_with = AUS
+			has_war_with = AHE
+			has_war_with = DNF
+			has_war_with = ILL
+		}
+		NOT = { has_country_flag = ILL_CONQ_focus }
+	}
+
+	mean_time_to_happen = {
+		days = 4
+	}
+
+	option = { #take the claims - rest is illyria
+		name = kr.hungary.23.a
+		ai_chance = {
+			factor = 20
+		}
+
+		every_state = {
+			limit = {
+				is_core_of = ILL
+				is_owned_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			ILL = {
+				transfer_state = PREV
+			}
+		}
+		set_autonomy = {
+			target = ILL
+			autonomous_state = kr_integrated_puppet
+		}
+
+	}
+
+	option = { #take the claims - rest is dalmatia and bosnia
+		name = kr.hungary.23.b
+		ai_chance = {
+			factor = 20
+		}
+
+		every_state = {
+			limit = {
+				is_core_of = CRO
+				is_owned_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			CRO = {
+				transfer_state = PREV
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = BOS
+				is_owned_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+					is_claimed_by = ROOT
+				}
+			}
+			BOS = {
+				transfer_state = PREV
+			}
+		}
+		set_autonomy = {
+			target = CRO
+			autonomous_state = kr_integrated_puppet
+		}
+		set_autonomy = {
+			target = BOS
+			autonomous_state = kr_integrated_puppet
+		}
+		CRO = { set_cosmetic_tag = CRO_dalmatia }
+	}
+	
+	option = { #pluralist illyria
+		name = kr.hungary.23.c
+		ai_chance = {
+			factor = 20
+		}
+
+		trigger = { has_completed_focus = HUN_pk_embrace_pluralism }
+		
+		every_state = {
+			limit = {
+				is_core_of = ILL
+				is_owned_by = ROOT
+			}
+			ILL = {
+				transfer_state = PREV
+			}
+		}
+		set_autonomy = {
+			target = ILL
+			autonomous_state = kr_integrated_puppet
+		}
+
+	}
+	
+	option = { #pluralist croatia and bosnia
+		name = kr.hungary.23.e
+		ai_chance = {
+			factor = 20
+		}
+
+		trigger = { has_completed_focus = HUN_pk_embrace_pluralism }
+		
+		every_state = {
+			limit = {
+				is_core_of = CRO
+				is_owned_by = ROOT
+			}
+			CRO = {
+				transfer_state = PREV
+			}
+		}
+		every_state = {
+			limit = {
+				is_core_of = BOS
+				is_owned_by = ROOT
+			}
+			BOS = {
+				transfer_state = PREV
+			}
+		}
+		set_autonomy = {
+			target = CRO
+			autonomous_state = kr_integrated_puppet
+		}
+		set_autonomy = {
+			target = BOS
+			autonomous_state = kr_integrated_puppet
+		}
+
+	}
+	
+	option = { #occupy
+		name = kr.hungary.23.f
+		ai_chance = {
+			factor = 0
+		}
+		set_country_flag = ILL_CONQ_focus
+		add_political_power = -40
+	}
+}
+
+country_event = { # Hungary in our faction?
+	id = kr.hungary.24
+	title = kr.hungary.24.t
+	desc = kr.hungary.24.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = kr.hungary.24.a #Yeah
+		ai_chance = { factor = 75 }
+		add_to_faction = HUN
+		add_political_power = 50
+	}
+	
+	option = {
+		name = kr.hungary.24.b #Nope
+		ai_chance = { factor = 25 }
+	}
+}
+
+country_event = { # Hungary invites us
+	id = kr.hungary.25
+	title = kr.hungary.25.t
+	desc = kr.hungary.25.d
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = kr.hungary.25.a #Yeah
+		ai_chance = { factor = 85 }
+		HUN = { add_to_faction = PREV }
+		add_political_power = 20
+	}
+	
+	option = {
+		name = kr.hungary.25.b #Nope
+		ai_chance = { factor = 15 }
+	}
+}
+

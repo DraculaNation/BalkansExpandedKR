@@ -1,0 +1,4326 @@
+focus_tree = {
+	id = balkans_hungary_focus
+
+	country = {
+		factor = 0
+		modifier = {
+			add = 100
+			tag = HUN
+		}
+	}
+
+	default = no
+
+	########################
+	### Internal Politics###
+	########################
+	
+	### Bethlen/Aristocracy path ###
+	
+	focus = {
+		id = HUN_pk_a_united_hungary
+		icon = GFX_goal_ideology_social_conservative
+		x = 2
+		y = 0
+
+		cost = 1
+
+		available = {
+			always = no
+		}
+		
+		bypass = { 
+			has_government = social_conservative
+			has_country_flag = hungary_internal_politics_unlocked
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = { }
+	}
+	
+	focus = {
+		id = HUN_pk_compromises
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 1
+		y = 1
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_a_united_hungary }
+		
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_from_own_treasury
+		icon = GFX_goal_gold_reserve
+		x = 3
+		y = 1
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_a_united_hungary }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 70
+			add_timed_idea = { idea = HUN_pk_financed_state_idea days = 365 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_outlaw_populism
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		x = 1
+		y = 2
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_compromises }
+		prerequisite = { focus = HUN_pk_from_own_treasury }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_popularity = { ideology = national_populist popularity = -0.2 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_unite_the_parties
+		icon = GFX_focus_generic_anti_fascist_diplomacy
+		x = 3
+		y = 2
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_compromises }
+		prerequisite = { focus = HUN_pk_from_own_treasury }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_popularity = { ideology = social_liberal popularity = -0.05 }
+			add_popularity = { ideology = market_liberal popularity = -0.05 }
+			add_popularity = { ideology = social_conservative popularity = 0.1 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_a_stable_country
+		icon = GFX_goal_generic_neutrality_focus
+		x = 2
+		y = 3
+
+		cost = 1
+
+		available = {
+			has_war = no
+		}
+		
+		mutually_exclusive = { 
+		focus = HUN_pk_civil_dissent
+		focus = HUN_pk_the_might_of_hungary
+		focus = HUN_pk_embrace_catholicism
+		focus = HUN_pk_gaining_control
+		}
+		
+		prerequisite = { focus = HUN_pk_outlaw_populism }
+		prerequisite = { focus = HUN_pk_unite_the_parties }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	
+	##Part 2##
+	
+	focus = {
+		id = HUN_pk_develop_trade
+		icon = GFX_goal_generic_trade
+		x = 0
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_a_stable_country }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas_with_trait = trade_laws
+			add_ideas = export_focus
+			add_political_power = 50
+			every_neighbor_country = {
+				add_opinion_modifier = { target = HUN modifier = HUN_pk_local_trade_relations }
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_a_skillful_leader
+		icon = GFX_goal_tripartite_pact
+		x = 2
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_a_stable_country }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = HUN_pk_civil_unrest1_idea 
+				add_idea = HUN_pk_civil_unrest2_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_government_jobs
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 4
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_a_stable_country }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_nation_of_culture
+		icon = GFX_goal_HOL_pillarization
+		x = 1
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_develop_trade }
+		prerequisite = { focus = HUN_pk_a_skillful_leader }
+		prerequisite = { focus = HUN_pk_government_jobs }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = HUN_pk_civil_unrest2_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_focus_on_economy
+		icon = GFX_goal_generic_construction
+		x = 3
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_develop_trade }
+		prerequisite = { focus = HUN_pk_a_skillful_leader }
+		prerequisite = { focus = HUN_pk_government_jobs }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_economy_focus_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_new_dawn_for_hungary
+		icon = GFX_goal_coffee_boom
+		x = 2
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_nation_of_culture }
+		prerequisite = { focus = HUN_pk_focus_on_economy }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_new_dawn_for_hungary_idea
+		}
+	}
+	
+	### Pal Pronay/Ferenc Szalasi path
+	
+	focus = {
+		id = HUN_pk_hungary_first
+		icon = GFX_goal_support_fascism
+		x = 8
+		y = 0
+
+		cost = 1
+
+		available = {
+			always = no
+		}
+		
+		bypass = { 
+			OR = {
+			has_government = paternal_autocrat
+			has_government = national_populist
+			}
+			has_country_flag = hungary_internal_politics_unlocked
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = { }
+	}
+	
+	focus = {
+		id = HUN_pk_reject_the_habsburgs
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		x = 7
+		y = 1
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_hungary_first }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			AUS = { country_event = { id = kr.hungary.3 days = 1 } }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_patriotic_military
+		icon = GFX_focus_generic_military_mission
+		x = 9
+		y = 1
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_hungary_first }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			load_oob = HUN_patriotic_military_oob
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_nationalist_zeal
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 7
+		y = 2
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_reject_the_habsburgs }
+		prerequisite = { focus = HUN_pk_patriotic_military }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_timed_idea = { idea = HUN_pk_patriotic_military_idea days = 730 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_total_control
+		icon = GFX_goal_generic_political_pressure
+		x = 9
+		y = 2
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_reject_the_habsburgs }
+		prerequisite = { focus = HUN_pk_patriotic_military }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 70
+		}
+	}
+
+	focus = {
+		id = HUN_pk_the_might_of_hungary
+		icon = GFX_goal_HUN_step_on_skull
+		x = 8
+		y = 3
+
+		cost = 1
+
+		available = {
+			has_war = no
+		}
+		
+		mutually_exclusive = { 
+		focus = HUN_pk_a_stable_country
+		focus = HUN_pk_civil_dissent
+		focus = HUN_pk_embrace_catholicism
+		focus = HUN_pk_gaining_control
+		}
+		
+		prerequisite = { focus = HUN_pk_nationalist_zeal }
+		prerequisite = { focus = HUN_pk_total_control }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_manpower = 5000
+		}
+	}
+	
+	##Part 2##
+	
+	focus = {
+		id = HUN_pk_prioritize_our_army
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 6
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_the_might_of_hungary }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.5 uses = 2 category = infantry_weapons }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_root_out_the_revolution
+		icon = GFX_goal_HOL_ban_paramilitary_left
+		x = 8
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_the_might_of_hungary }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_manpower = -10000
+			add_popularity = { ideology = radical_socialist popularity = -0.1 }
+			add_popularity = { ideology = totalist popularity = -0.1 }
+			add_popularity = { ideology = syndicalist popularity = -0.1 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_hungary_for_the_hungarians
+		icon = GFX_goal_step_on_skull
+		x = 10
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_the_might_of_hungary }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_manpower = -10000
+			swap_ideas = { 
+				remove_idea = HUN_pk_civil_unrest1_idea 
+				add_idea = HUN_pk_civil_unrest2_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_one_party_state
+		icon = GFX_goal_ideology_national_populist
+		x = 7
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_prioritize_our_army }
+		prerequisite = { focus = HUN_pk_root_out_the_revolution }
+		prerequisite = { focus = HUN_pk_hungary_for_the_hungarians }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = 
+			if = {
+				limit = { has_government = national_populist }
+				add_popularity = { ideology = national_populist popularity = 0.3 }
+			}
+			if = {
+				limit = { has_government = paternal_autocrat }
+				add_popularity = { ideology = paternal_autocrat popularity = 0.3 }
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_dont_harm_the_fatherland
+		icon = GFX_goal_anschluss
+		x = 9
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_prioritize_our_army }
+		prerequisite = { focus = HUN_pk_root_out_the_revolution }
+		prerequisite = { focus = HUN_pk_hungary_for_the_hungarians }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = HUN_pk_civil_unrest2_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_new_balkan_hegemon
+		icon = GFX_goal_generic_demand_territory
+		x = 8
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_one_party_state }
+		prerequisite = { focus = HUN_pk_dont_harm_the_fatherland }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_new_balkan_hegemon_idea
+		}
+	}
+	
+	### Catholic Route ###
+	
+	focus = {
+		id = HUN_pk_a_catholic_hungary
+		icon = GFX_goal_KTG_Colonial_Trinity2
+		x = 21
+		y = 0
+
+		cost = 1
+
+		available = {
+			always = no
+		}
+		
+		bypass = {
+			has_government = authoritarian_democrat
+			has_country_flag = hungary_internal_politics_unlocked
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = { }
+	}
+	
+	focus = {
+		id = HUN_pk_god_wills_it
+		icon = GFX_focus_generic_support_the_left_right
+		x = 20
+		y = 1
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_a_catholic_hungary }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_god_wills_it_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_help_from_the_pope
+		icon = GFX_goal_italianfed
+		x = 22
+		y = 1
+
+		cost = 5
+
+		available = {
+		country_exists = ITA
+		ITA = { is_puppet = no }
+		}
+		
+		bypass = {
+			OR = {
+			NOT = { country_exists = ITA }
+			ITA = { is_puppet = yes }
+			}
+		}
+		}
+		
+		prerequisite = { focus = HUN_pk_a_catholic_hungary }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			ITA = { country_event = { id = kr.hungary.5 days = 1 }}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_our_religion_our_heritage
+		icon = GFX_goal_generic_demand_territory
+		x = 20
+		y = 2
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_god_wills_it }
+		prerequisite = { focus = HUN_pk_help_from_the_pope }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_cultural_warfare_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_empower_the_priests
+		icon = GFX_goal_authoritarian
+		x = 22
+		y = 2
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_god_wills_it }
+		prerequisite = { focus = HUN_pk_help_from_the_pope }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 150
+			remove_ideas_with_trait = head_of_government 
+			remove_ideas_with_trait = foreign_minister
+			remove_ideas_with_trait = economy_minister
+			remove_ideas_with_trait = security_minister
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_embrace_catholicism
+		icon = GFX_goal_faith_and_state
+		x = 21
+		y = 3
+
+		cost = 1
+
+		available = {
+			has_war = no
+		}
+		
+		mutually_exclusive = { 
+		focus = HUN_pk_a_stable_country
+		focus = HUN_pk_the_might_of_hungary
+		focus = HUN_pk_civil_dissent
+		focus = HUN_pk_gaining_control
+		}
+		
+		prerequisite = { focus = HUN_pk_empower_the_priests }
+		prerequisite = { focus = HUN_pk_our_religion_our_heritage }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 50
+		}
+	}
+	
+	##Part2##
+	
+	focus = {
+		id = HUN_pk_convert_the_protestants
+		icon = GFX_goal_dcgb
+		x = 19
+		y = 4
+
+		cost = 10
+
+		available = {
+			NOT = {
+				has_idea = HUN_pk_conversion_backlash_idea
+			}
+		}
+		
+		prerequisite = { focus = HUN_pk_embrace_catholicism }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 140
+			add_timed_idea = { idea = HUN_pk_conversion_backlash_idea days = 180 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_convert_the_godless
+		icon = GFX_goal_broken_red_star
+		x = 21
+		y = 4
+
+		cost = 10
+
+		available = {
+			NOT = {
+				has_idea = HUN_pk_conversion_backlash_idea
+			}
+		}
+		
+		prerequisite = { focus = HUN_pk_embrace_catholicism }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = HUN_pk_civil_war_aftermath1_idea 
+				add_idea = HUN_pk_civil_war_aftermath2_idea
+			}
+			add_timed_idea = { idea = HUN_pk_conversion_backlash_idea days = 180 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_convert_the_orthodox
+		icon = GFX_goal_tax_church
+		x = 23
+		y = 4
+
+		cost = 10
+
+		available = {
+			NOT = {
+				has_idea = HUN_pk_conversion_backlash_idea
+			}
+		}
+		
+		prerequisite = { focus = HUN_pk_embrace_catholicism }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_timed_idea = { idea = HUN_pk_conversion_backlash_idea days = 180 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_the_new_crusade
+		icon = GFX_goal_conscription
+		x = 20
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_convert_the_protestants }
+		prerequisite = { focus = HUN_pk_convert_the_godless }
+		prerequisite = { focus = HUN_pk_convert_the_orthodox }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = HUN_pk_theocratic_state_01_idea }
+				swap_ideas = { 
+					remove_idea = HUN_pk_theocratic_state_01_idea 
+					add_idea = HUN_pk_theocratic_state_11_idea
+				}
+				else = { add_ideas = HUN_pk_theocratic_state_10_idea }
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_apostolic_majesty
+		icon = GFX_focus_generic_concessions
+		x = 22
+		y = 5
+
+		cost = 10
+
+		available = {
+			has_completed_focus = HUN_pk_crown_a_king
+		}
+		
+		prerequisite = { focus = HUN_pk_convert_the_protestants }
+		prerequisite = { focus = HUN_pk_convert_the_godless }
+		prerequisite = { focus = HUN_pk_convert_the_orthodox }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = HUN_pk_theocratic_state_10_idea }
+				swap_ideas = { 
+					remove_idea = HUN_pk_theocratic_state_10_idea 
+					add_idea = HUN_pk_theocratic_state_11_idea
+				}
+				else = { add_ideas = HUN_pk_theocratic_state_01_idea }
+			}
+			remove_ideas = HUN_pk_civil_unrest2_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_divine_strength
+		icon = GFX_goal_generic_political_pressure
+		x = 21
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_the_new_crusade }
+		prerequisite = { focus = HUN_pk_apostolic_majesty }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = HUN_pk_theocratic_state_11_idea 
+				add_idea = HUN_pk_theocratic_state_2_idea
+			}
+		}
+	}
+	
+	### Rassay Route ###
+	
+	focus = {
+		id = HUN_pk_freedom_for_hungary
+		icon = GFX_goal_support_democracy
+		x = 27
+		y = 0
+
+		cost = 1
+
+		available = {
+			always = no
+		}
+		
+		bypass = { 
+			OR = {
+			has_government = social_liberal
+			has_government = market_liberal
+			has_government = radical_socialist
+			has_government = syndicalist
+			has_government = totalist
+			}
+			has_country_flag = hungary_internal_politics_unlocked
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = { }
+	}
+	
+	focus = {
+		id = HUN_pk_cooperation
+		icon = GFX_goal_tripartite_pact
+		x = 26
+		y = 1
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_freedom_for_hungary }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 25
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_seek_foreign_help
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 28
+		y = 1
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_freedom_for_hungary }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_solidify_rule
+		icon = GFX_goal_anschluss
+		x = 26
+		y = 2
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_cooperation }
+		prerequisite = { focus = HUN_pk_seek_foreign_help }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_popularity = { ideology = social_liberal popularity = 0.15 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_encourage_militias
+		icon = GFX_goal_military_academy
+		x = 28
+		y = 2
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_cooperation }
+		prerequisite = { focus = HUN_pk_seek_foreign_help }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_encouraged_militias_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_gaining_control
+		icon = GFX_focus_generic_self_management
+		x = 27
+		y = 3
+
+		cost = 1
+
+		available = {
+			has_war = no
+		}
+		
+		mutually_exclusive = { 
+		focus = HUN_pk_a_stable_country
+		focus = HUN_pk_the_might_of_hungary
+		focus = HUN_pk_embrace_catholicism
+		focus = HUN_pk_civil_dissent
+		}
+		
+		prerequisite = { focus = HUN_pk_solidify_rule }
+		prerequisite = { focus = HUN_pk_encourage_militias }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_popularity = { ideology = social_liberal popularity = 0.1 }
+		}
+	}
+	
+	##Part 2##
+	
+	focus = {
+		id = HUN_pk_the_aristocracy
+		icon = GFX_goal_silver_reserve
+		x = 25
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_gaining_control }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			country_event = { id = kr.hungary.19 days = 1 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_deal_with_socialism
+		icon = GFX_HOL_red_scare
+		x = 27
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_gaining_control }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = HUN_pk_civil_unrest1_idea 
+				add_idea = HUN_pk_civil_unrest2_idea
+			}
+			add_popularity = { ideology = totalist popularity = -0.05 }
+			add_popularity = { ideology = syndicalist popularity = -0.05 }
+			add_popularity = { ideology = radical_socialist popularity = -0.05 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_the_freer_the_market
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 29
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_gaining_control }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = free_trade }
+				add_political_power = 150
+				else = {
+					remove_ideas_with_trait = trade_laws
+					add_ideas = free_trade
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_law_reforms
+		icon = GFX_focus_renounce_the_treaty_of_trianon
+		x = 26
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_the_aristocracy }
+		prerequisite = { focus = HUN_pk_deal_with_socialism }
+		prerequisite = { focus = HUN_pk_the_freer_the_market }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_law_reforms_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_the_freer_the_people
+		icon = GFX_goal_ideology_social_liberal
+		x = 28
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_the_aristocracy }
+		prerequisite = { focus = HUN_pk_deal_with_socialism }
+		prerequisite = { focus = HUN_pk_the_freer_the_market }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = HUN_pk_civil_unrest2_idea
+			if = { 
+				limit = {
+					has_completed_focus = HUN_pk_enact_land_reforms
+					has_completed_focus = HUN_pk_embrace_pluralism
+					has_completed_focus = HUN_pk_enact_military_reforms
+				}
+				country_event = { id = kr.hungary.20 days = 1 }
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_new_hungarian_society
+		icon = GFX_goal_HOL_CNA_restored_stability
+		x = 27
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_law_reforms }
+		prerequisite = { focus = HUN_pk_the_freer_the_people }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_stability = 0.1
+			add_political_power = 150
+		}
+	}
+	
+	### Socialist Path ###
+	
+	focus = {
+		id = HUN_pk_civil_dissent
+		icon = GFX_goal_revolution
+		x = 15
+		y = 3
+
+		cost = 1
+
+		available = {
+			has_war = no
+		}
+		
+		mutually_exclusive = { 
+		focus = HUN_pk_a_stable_country
+		focus = HUN_pk_the_might_of_hungary
+		focus = HUN_pk_embrace_catholicism
+		focus = HUN_pk_gaining_control
+		}
+		
+		prerequisite = {
+			focus = HUN_pk_outlaw_populism
+			focus = HUN_pk_nationalist_zeal
+			focus = HUN_pk_empower_the_priests
+			focus = HUN_pk_solidify_rule
+		}
+		prerequisite = { 
+			focus = HUN_pk_unite_the_parties
+			focus = HUN_pk_total_control
+			focus = HUN_pk_our_religion_our_heritage
+			focus = HUN_pk_encourage_militias 
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_popularity = { ideology = totalist popularity = 0.25 }
+			add_popularity = { ideology = syndicalist popularity = 0.25 }
+			remove_ideas = HUN_pk_civil_unrest1_idea
+			country_event = { id = kr.hungary.21 days = 1 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_integrate_the_rebels
+		icon = GFX_focus_secret_rearmament
+		x = 15
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { 
+			focus = HUN_pk_syndicalist_utopia 
+			focus = HUN_pk_bela_kuns_vision
+		}
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_manpower = 15000
+			load_oob = HUN_pk_socialist_rebels
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_bulwark_of_socialism
+		icon = GFX_goal_red_star_dove
+		x = 15
+		y = 8
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { 
+			focus = HUN_pk_the_workers_republic
+			focus = HUN_pk_civilized_socialism
+		}
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_bulwark_of_socialism_idea
+		}
+	}
+	
+	##Syndicalist Utopia ##
+	
+	focus = {
+		id = HUN_pk_syndicalist_utopia
+		icon = GFX_goal_ideology_syndicalist
+		x = 13
+		y = 4
+
+		cost = 1
+
+		available = {
+		}
+		
+		mutually_exclusive = { focus = HUN_pk_bela_kuns_vision }
+		
+		bypass = {
+			has_country_flag = hungary_ervin_szabo_chosen
+		}
+		
+		prerequisite = { focus = HUN_pk_civil_dissent }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_empower_the_trade_unions
+		icon = GFX_goal_syndicalist_industry
+		x = 13
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_syndicalist_utopia }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_trade_unions_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_decentralization
+		icon = GFX_goal_generic_neutrality_focus
+		x = 12
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_empower_the_trade_unions }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 150
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_better_work_conditions
+		icon = GFX_goal_production
+		x = 14
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_empower_the_trade_unions }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = HUN_pk_trade_unions_idea
+				add_idea = HUN_pk_trade_unions2_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_the_workers_republic
+		icon = GFX_goal_NOR_secret_police
+		x = 13
+		y = 7
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_decentralization }
+		prerequisite = { focus = HUN_pk_better_work_conditions }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = HUN_pk_trade_unions2_idea
+				add_idea = HUN_pk_trade_unions3_idea
+			}
+		}
+	}
+	
+	##Bela Kun
+	
+	focus = {
+		id = HUN_pk_bela_kuns_vision
+		icon = GFX_goal_ideology_totalist
+		x = 17
+		y = 4
+
+		cost = 1
+
+		available = {
+		}
+		
+		mutually_exclusive = { focus = HUN_pk_syndicalist_utopia }
+		
+		bypass = {
+			has_country_flag = hungary_bela_kun_chosen
+		}
+		
+		prerequisite = { focus = HUN_pk_civil_dissent }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_balance_of_power
+		icon = GFX_goal_HOL_sustain_neutrality
+		x = 17
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_bela_kuns_vision }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 200
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_peasant_republic
+		icon = GFX_goal_agriculture
+		x = 16
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_balance_of_power }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_peasants_favored_idea
+	}
+	
+	focus = {
+		id = HUN_pk_planned_economy
+		icon = GFX_goal_state_economy
+		x = 18
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_balance_of_power }
+
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = -75
+			add_ideas = HUN_pk_planned_economy_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_civilized_socialism
+		icon = GFX_goal_red_star
+		x = 17
+		y = 7
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_peasant_republic }
+		prerequisite = { focus = HUN_pk_planned_economy }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	
+	### Hapsburg loyalty route ##
+	
+	focus = {
+		id = HUN_pk_loyalty_to_the_habsburgs
+		icon = GFX_goal_AUS_reformed_dual
+		x = 32
+		y = 0
+
+		cost = 1
+
+		available = {
+			always = no
+		}
+		
+		bypass = { 
+			AUS = { has_idea = AUS_ausgleich_success }
+			is_puppet_of = AUS
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = { }
+	}
+	
+	focus = {
+		id = HUN_pk_rekindle_the_ties
+		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
+		x = 32
+		y = 1
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_loyalty_to_the_habsburgs }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			reverse_add_opinion_modifier = { target = AUS modifier = HUN_pk_positive_relations_rekindled }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_consolidate_habsburg_rule
+		icon = GFX_focus_generic_home_defense
+		x = 32
+		y = 2
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_rekindle_the_ties }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 100
+			AUS = { add_political_power = 50 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_scientific_cooperation
+		icon = GFX_goal_generic_scientific_exchange
+		x = 31
+		y = 3
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_consolidate_habsburg_rule }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_found_the_budapest_wien_line
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 33
+		y = 3
+
+		cost = 5
+
+		available = {
+			OR = {
+				controls_state = 43
+				AUS = { controls_state = 43 }
+			}
+			OR = {
+				controls_state = 154
+				AUS = { controls_state = 154 }
+			}
+			OR = {
+				controls_state = 155
+				AUS = { controls_state = 155 }
+			}
+			OR = {
+				controls_state = 4
+				AUS = { controls_state = 4 }
+			}
+		}
+		
+		prerequisite = { focus = HUN_pk_consolidate_habsburg_rule }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			43 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			154 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			155 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+			4 = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_tighten_our_bonds
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 32
+		y = 4
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_scientific_cooperation }
+		prerequisite = { focus = HUN_pk_found_the_budapest_wien_line }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_embrace_the_dual_monarchy
+		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
+		x = 32
+		y = 5
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_tighten_our_bonds }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_dual_monarchy_embraced_idea
+		}
+	}
+	
+	################################
+	### Black Monday and Economy ###
+	################################
+	
+	focus = {
+		id = HUN_pk_black_monday_strikes
+		icon = GFX_goal_bankruptcy
+		x = 39
+		y = 0
+
+		cost = 1
+
+		available = {
+			always = no
+		}
+		
+		bypass = { 
+			has_idea = HUN_pk_black_monday_idea
+		}
+		
+		ai_will_do = { factor = 100 }
+
+		completion_reward = { }
+	}
+	
+	### Land Reforms ###
+	
+	focus = {
+		id = HUN_pk_enact_land_reforms
+		icon = GFX_goal_constitutional_guarantees
+		x = 36
+		y = 1
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_black_monday_strikes }
+		
+		mutually_exclusive = { focus = HUN_pk_embrace_old_ways }
+		
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+			add_political_power = -25
+			swap_ideas = { 
+				remove_idea = HUN_pk_black_monday_idea 
+				add_idea = HUN_pk_black_monday2_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_collectivization
+		icon = GFX_goal_economic_control
+		x = 35
+		y = 2
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_enact_land_reforms }
+		
+		ai_will_do = { factor = 30 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_peasants_rights
+		icon = GFX_focus_AUS_agriculture
+		x = 37
+		y = 2
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_enact_land_reforms }
+		
+		ai_will_do = { factor = 30 }
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_qualified_landowners
+		icon = GFX_goal_generic_national_unity
+		x = 36
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_collectivization }
+		prerequisite = { focus = HUN_pk_peasants_rights }
+		
+		ai_will_do = { factor = 30 }
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = HUN_pk_black_monday2_idea 
+				add_idea = HUN_pk_black_monday3_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_economic_recovery
+		icon = GFX_goal_construction_engineering
+		x = 36
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_qualified_landowners }
+		
+		ai_will_do = { factor = 30 }
+
+		completion_reward = {
+			swap_ideas = { 
+				remove_idea = HUN_pk_black_monday3_idea 
+				add_idea = HUN_pk_black_monday4_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_end_of_the_black_monday
+		icon = GFX_goal_bankruptcy
+		x = 39
+		y = 5
+
+		cost = 5
+
+		available = {
+		has_idea = HUN_pk_black_monday4_idea
+		}
+		
+		prerequisite = { 
+			focus = HUN_pk_economic_recovery 
+			focus = HUN_pk_develop_agriculture
+			focus = HUN_pk_hungarian_electornics
+		}
+		
+		ai_will_do = { factor = 30 }
+
+		completion_reward = {
+			if = {
+				limit = { has_completed_focus = HUN_pk_enact_land_reforms }
+				remove_ideas = HUN_pk_black_monday4_idea
+				else = { custom_effect_tooltip = hungary_black_monday_recovery }
+			}
+		}
+	}
+	
+	### Old Ways ###
+	
+	focus = {
+		id = HUN_pk_embrace_old_ways
+		icon = GFX_goal_generic_forceful_treaty
+		x = 42
+		y = 1
+
+		cost = 1
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_black_monday_strikes }
+		
+		mutually_exclusive = { focus = HUN_pk_enact_land_reforms }
+		
+		ai_will_do = { factor = 100 }
+
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_subsidize_farmers
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 41
+		y = 2
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_embrace_old_ways }
+		
+		ai_will_do = { factor = 30 }
+
+		completion_reward = {
+			add_political_power = -30
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_urbanization
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 43
+		y = 2
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_embrace_old_ways }
+		
+		ai_will_do = { factor = 30 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_autarky
+		icon = GFX_goal_munitions_factories
+		x = 41
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_subsidize_farmers }
+		prerequisite = { focus = HUN_pk_urbanization }
+		
+		ai_will_do = { factor = 30 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_synthetic_oil
+		icon = GFX_goal_basic_oil
+		x = 43
+		y = 3
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_subsidize_farmers }
+		prerequisite = { focus = HUN_pk_urbanization }
+		
+		ai_will_do = { factor = 30 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.7 uses = 1 category = synth_resources }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_develop_agriculture
+		icon = GFX_focus_AUS_agriculture
+		x = 41
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_autarky }
+		prerequisite = { focus = HUN_pk_synthetic_oil }
+		
+		mutually_exclusive = { focus = HUN_pk_hungarian_electornics }
+		
+		ai_will_do = { factor = 30 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_hungarian_electornics
+		icon = GFX_goal_computer_focus
+		x = 43
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_autarky }
+		prerequisite = { focus = HUN_pk_synthetic_oil }
+		
+		ai_will_do = { factor = 30 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.4 uses = 2 category = electronics }
+		}
+	}
+	
+	### Industrialization ###
+	
+	focus = {
+		id = HUN_pk_industrial_effort
+		icon = GFX_goal_generic_construction
+		x = 36
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_end_of_the_black_monday }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_develop_hungarian_railways
+		icon = GFX_goal_Fix_Shitty_Rails
+		x = 36
+		y = 7
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_industrial_effort }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_purchase_companies
+		icon = GFX_goal_HOL_progressive_tax
+		x = 36
+		y = 8
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_develop_hungarian_railways }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_military_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 42
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_end_of_the_black_monday }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_purchase_farms
+		icon = GFX_NIC_Cows
+		x = 42
+		y = 7
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_military_industry }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 0
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_age_of_industrialization
+		icon = GFX_goal_generic_construction2
+		x = 42
+		y = 8
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_purchase_farms }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 50
+			add_ideas = HUN_pk_age_of_industrialization_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_start_the_reparation
+		icon = GFX_goal_economic_control
+		x = 38
+		y = 6
+
+		cost = 10
+
+		available = {
+			has_idea = HUN_pk_civil_war_aftermath1_idea
+		}
+		
+		prerequisite = { focus = HUN_pk_end_of_the_black_monday }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = -50
+			swap_ideas = { 
+				remove_idea = HUN_pk_civil_war_aftermath1_idea 
+				add_idea = HUN_pk_civil_war_aftermath2_idea
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_end_martial_law
+		icon = GFX_goal_generic_isolation
+		x = 40
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_end_of_the_black_monday }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = { OR = {
+						has_idea = undisturbed_isolation 
+						has_idea = isolation 
+						has_idea = civilian_economy 
+					} }
+				}
+			remove_ideas_with_trait = economy
+			add_ideas = civilian_economy
+			}
+			if = {
+				limit = {
+					NOT = { has_completed_focus = HUN_pk_quick_mobilization }
+				}
+				add_political_power = 300
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_rebuild_hungary
+		icon = GFX_IRE_medium_industry
+		x = 39
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_start_the_reparation }
+		prerequisite = { focus = HUN_pk_end_martial_law }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = HUN_pk_civil_war_aftermath2_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_revitalized_education
+		icon = GFX_goal_generic_scientific_exchange
+		x = 38
+		y = 7
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_rebuild_hungary }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_rejuvenation_project
+		icon = GFX_IRE_heavy_industry
+		x = 40
+		y = 7
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_rebuild_hungary }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_civil_war_repair_idea
+		}
+	}
+	
+	######################################
+	### INTERNAL AND EXTERNAL POLITICS ###
+	######################################
+	
+	### Magyarization ###
+	
+	focus = {
+		id = HUN_pk_continue_magyarization
+		icon = GFX_goal_authoritarian
+		x = 46
+		y = 0
+
+		cost = 1
+
+		available = {
+			NOT`= { has_government = totalist }
+			NOT`= { has_government = syndicalist }
+			NOT`= { has_government = radical_socialist }
+			is_puppet = no
+			OR = {
+				has_completed_focus = HUN_pk_a_stable_country
+				has_completed_focus = HUN_pk_the_might_of_hungary
+				has_completed_focus = HUN_pk_civil_dissent
+				has_completed_focus = HUN_pk_embrace_catholicism
+				has_completed_focus = HUN_pk_gaining_control
+			}
+			NOT = { has_country_flag = hungary_compromised_with_minorities }
+		}
+		
+		mutually_exclusive = { focus = HUN_pk_embrace_pluralism }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = -25
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_magyarize_vojvodina
+		icon = GFX_focus_AUS_agriculture
+		x = 45
+		y = 1
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+		}
+		
+		bypass = { 
+			NOT = { has_idea = HUN_pk_serbian_minority_idea}
+		}
+		
+		prerequisite = { focus = HUN_pk_continue_magyarization }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = HUN_pk_serbian_minority_idea
+			add_timed_idea = { idea = HUN_pk_serbian_minority2_idea days = 365 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_enforce_hungarian_language
+		icon = GFX_goal_generic_propaganda
+		x = 47
+		y = 1
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+		}
+		
+		prerequisite = { focus = HUN_pk_continue_magyarization }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_stability = -0.05
+			add_political_power = 150
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_magyarize_slovakia
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 45
+		y = 2
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+		}
+		
+		bypass = { 
+			NOT = { has_idea = HUN_pk_slovakian_minority_idea}
+		}
+		
+		prerequisite = { focus = HUN_pk_magyarize_vojvodina }
+		prerequisite = { focus = HUN_pk_enforce_hungarian_language }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = HUN_pk_slovakian_minority_idea
+			add_timed_idea = { idea = HUN_pk_slovakian_minority2_idea days = 365 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_magyarize_transylvania
+		icon = GFX_focus_rom_parties_end
+		x = 47
+		y = 2
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+		}
+		
+		bypass = { 
+			NOT = { has_idea = HUN_pk_transylvanian_minority_idea}
+		}
+		
+		prerequisite = { focus = HUN_pk_magyarize_vojvodina }
+		prerequisite = { focus = HUN_pk_enforce_hungarian_language }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = HUN_pk_transylvanian_minority_idea
+			add_timed_idea = { idea = HUN_pk_transylvanian_minority2_idea days = 365 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_no_pass_for_germans
+		icon = GFX_goal_HOL_ban_paramilitary
+		x = 46
+		y = 3
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+		}
+		
+		prerequisite = { focus = HUN_pk_magyarize_slovakia }
+		prerequisite = { focus = HUN_pk_magyarize_transylvania }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 50
+			add_stability = 0.05
+			reverse_add_opinion_modifier = { target = AUS modifier = HUN_pk_magyarized_germans }
+			reverse_add_opinion_modifier = { target = GER modifier = HUN_pk_magyarized_germans }
+		}
+	}
+	
+	### Pluralism ###
+	
+	focus = {
+		id = HUN_pk_embrace_pluralism
+		icon = GFX_goal_generic_national_unity
+		x = 50
+		y = 0
+
+		cost = 1
+
+		available = {
+			NOT`= { has_government = paternal_autocrat }
+			NOT`= { has_government = national_populist }
+			is_puppet = no
+			OR = {
+				has_completed_focus = HUN_pk_a_stable_country
+				has_completed_focus = HUN_pk_the_might_of_hungary
+				has_completed_focus = HUN_pk_civil_dissent
+				has_completed_focus = HUN_pk_embrace_catholicism
+				has_completed_focus = HUN_pk_gaining_control
+			}
+		}
+		
+		mutually_exclusive = { focus = HUN_pk_continue_magyarization }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 25
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_serbian_minority
+		icon = GFX_goal_serbia
+		x = 49
+		y = 1
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+		}
+		
+		prerequisite = { focus = HUN_pk_continue_magyarization }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			875 = { remove_core_of = HUN add_core_of = SER add_claim_by = HUN }
+			if = {
+				limit = { has_idea = { HUN_pk_minority_autonomy_idea } }
+				swap_ideas = { 
+					remove_idea = HUN_pk_minority_autonomy_idea 
+					add_idea = HUN_pk_minority_autonomy2_idea
+				}
+				remove_ideas = HUN_pk_serbian_minority_idea
+				else = {
+					swap_ideas = { 
+						remove_idea = HUN_pk_serbian_minority_idea
+						add_idea = HUN_pk_minority_autonomy_idea
+					}
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_german_provinces
+		icon = GFX_goal_germany
+		x = 51
+		y = 1
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+		}
+		
+		prerequisite = { focus = HUN_pk_continue_magyarization }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = { has_idea = { HUN_pk_minority_autonomy_idea } }
+				swap_ideas = { 
+					remove_idea = HUN_pk_minority_autonomy_idea 
+					add_idea = HUN_pk_minority_autonomy2_idea
+				}
+				else = {
+					add_ideas = { add_idea = HUN_pk_minority_autonomy_idea }
+				}
+			}
+			add_political_power = 50
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_slovakian_autonomy
+		icon = GFX_goal_generic_improve_relations
+		x = 49
+		y = 2
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+			controls_state = 70
+			controls_state = 71
+		}
+		
+		bypass = {
+			NOT = { has_idea = HUN_pk_slovakian_minority_idea }
+		}
+		
+		prerequisite = { focus = HUN_pk_serbian_minority }
+		prerequisite = { focus = HUN_pk_german_provinces }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = HUN_pk_slovakian_minority_idea
+			SVK = { 
+				set_state_owner = 70
+				set_state_owner = 71
+			}
+			set_autonomy = {
+				target = SVK
+				autonomous_state = kr_integrated_puppet
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_minority_representation
+		icon = GFX_goal_constitutional_guarantees
+		x = 51
+		y = 2
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+		}
+		
+		prerequisite = { focus = HUN_pk_serbian_minority }
+		prerequisite = { focus = HUN_pk_german_provinces }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_stability = 0.1
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_transylvanian_autonomy
+		icon = GFX_focus_generic_concessions
+		x = 50
+		y = 3
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+			controls_state = 82
+			controls_state = 83
+			controls_state = 84
+		}
+		
+		bypass = {
+			NOT = { has_idea = HUN_pk_transylvanian_minority_idea }
+		}
+		
+		prerequisite = { focus = HUN_pk_minority_representation }
+		prerequisite = { focus = HUN_pk_slovakian_autonomy }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = HUN_pk_transylvanian_minority_idea
+			TRS = { 
+				set_state_owner = 82
+				set_state_owner = 83
+				set_state_owner = 84
+			}
+			set_autonomy = {
+				target = TRS
+				autonomous_state = kr_integrated_puppet
+			}
+		}
+	}
+	
+	### Crowning a King ###
+	
+	focus = {
+		id = HUN_pk_crown_a_king
+		icon = GFX_focus_hun_elect_a_king
+		x = 48
+		y = 4
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+		}
+		
+		prerequisite = { 
+			focus = HUN_pk_no_pass_for_germans
+			focus = HUN_pk_transylvanian_autonomy
+		}
+		
+		bypass = {
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+				has_government = radical_socialist
+			}
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			country_event = { id = kr.hungary.18 days = 1 }
+		}
+	}
+	
+	### Claims ###
+	
+	focus = {
+		id = HUN_pk_rule_the_serbs
+		icon = GFX_goal_generic_territory_or_war
+		x = 47
+		y = 5
+
+		cost = 10
+
+		available = {
+			is_puppet = no
+			country_exists = SER
+		}
+		
+		prerequisite = { 
+			focus = HUN_pk_crown_a_king
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			create_wargoal = { type = annex_everything target = SER }
+			set_country_flag = SER_CONQ
+		}
+	}
+
+	focus = {
+		id = HUN_pk_rule_the_romanians
+		icon = GFX_goal_generic_territory_or_war
+		x = 49
+		y = 5
+
+		cost = 10
+
+		available = {
+			is_puppet = no
+			OR = {
+				country_exists = ROM
+				country_exists = RRM
+			}
+		}
+		
+		prerequisite = { 
+			focus = HUN_pk_crown_a_king
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = { country_exists = ROM }
+				create_wargoal = { type = annex_everything target = ROM }
+			}
+			if = {
+				limit = { country_exists = RRM }
+				create_wargoal = { type = annex_everything target = RRM }
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_conquer_illyria
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 46
+		y = 6
+
+		cost = 10
+
+		available = {
+			is_puppet = no
+			OR = {
+				country_exists = ILL
+				country_exists = CRO
+				country_exists = BOS
+			}
+		}
+		
+		prerequisite = { 
+			focus = HUN_pk_crown_a_king
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = { country_exists = ILL }
+				create_wargoal = { type = annex_everything target = ILL }
+			}
+			if = {
+				limit = { country_exists = CRO }
+				create_wargoal = { type = annex_everything target = CRO }
+			}
+			if = {
+				limit = { country_exists = BOS }
+				create_wargoal = { type = annex_everything target = BOS }
+			}
+			set_country_flag = CRO_CONQ
+			set_country_flag = BOS_CONQ
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_conquer_galicia
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 50
+		y = 6
+
+		cost = 10
+
+		available = {
+			is_puppet = no
+			country_exists = GAL
+		}
+		
+		prerequisite = { 
+			focus = HUN_pk_crown_a_king
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = { country_exists = GAL }
+				create_wargoal = { type = annex_everything target = GAL }
+			}
+		}
+	}
+	
+	### Alliances ###
+	
+	focus = {
+		id = HUN_pk_picking_an_alliance
+		icon = GFX_goal_tripartite_pact
+		x = 48
+		y = 6
+
+		cost = 1
+
+		available = {
+			is_puppet = no
+			is_in_faction = no
+		}
+		
+		prerequisite = { focus = HUN_pk_crown_a_king }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_the_third_international
+		icon = GFX_goal_syndicalism
+		x = 44
+		y = 7
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+			is_in_faction = no
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+				has_government = radical_socialist
+			}
+			FRA = { is_faction_leader = yes }
+			country_exists = FRA
+		}
+		
+		prerequisite = { focus = HUN_pk_picking_an_alliance }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			FRA = { country_event = { id = kr.hungary.24 days = 1 } }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_the_fourth_international
+		icon = GFX_goal_support_fourth_int
+		x = 46
+		y = 7
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+			is_in_faction = no
+			OR = {
+				has_government = totalist
+				has_government = syndicalist
+				has_government = radical_socialist
+			}
+			OR = {
+				AND = {
+					SOV = { is_faction_leader = yes }
+					country_exists = SOV
+				}
+				AND = {
+					RUS = { is_faction_leader = yes }
+					country_exists = RUS
+					RUS = { OR = {
+						has_government = totalist
+						has_government = syndicalist
+						has_government = radical_socialist
+					} }
+				}
+			}
+		}
+		
+		prerequisite = { focus = HUN_pk_picking_an_alliance }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = {
+					RUS = { is_faction_leader = yes }
+					country_exists = RUS
+					RUS = { OR = {
+						has_government = totalist
+						has_government = syndicalist
+						has_government = radical_socialist
+					} }
+				}
+				RUS = { country_event = { id = kr.hungary.24 days = 1 } }
+				else = { SOV = { country_event = { id = kr.hungary.24 days = 1 } } }
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_form_our_own
+		icon = GFX_focus_generic_support_the_left_right
+		x = 48
+		y = 7
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+			is_in_faction = no
+		}
+		
+		prerequisite = { focus = HUN_pk_picking_an_alliance }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			if = {
+				limit = { 
+					OR = {
+						has_government = totalist
+						has_government = syndicalist
+						has_government = radical_socialist
+					}
+				}
+				create_faction = Pannonian_International
+				else = { create_faction = Pannonian_Bloc }
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_join_mitteleuropa
+		icon = GFX_goal_align_germany
+		x = 50
+		y = 7
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+			is_in_faction = no
+			NOT = { OR = {
+				has_government = totalist
+				has_government = syndicalist
+				has_government = radical_socialist
+			} }
+			GER = { is_faction_leader = yes }
+			country_exists = GER
+		}
+		
+		prerequisite = { focus = HUN_pk_picking_an_alliance }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			GER = { country_event = { id = kr.hungary.24 days = 1 } }
+		}
+	}
+
+	focus = {
+		id = HUN_pk_join_russia
+		icon = GFX_goal_align_russia
+		x = 52
+		y = 7
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+			is_in_faction = no
+			NOT = { OR = {
+				has_government = totalist
+				has_government = syndicalist
+				has_government = radical_socialist
+			} }
+			RUS = { is_faction_leader = yes }
+			country_exists = RUS
+			RUS = {	NOT = { OR = {
+				has_government = totalist
+				has_government = syndicalist
+				has_government = radical_socialist
+			} } }
+		}
+		
+		prerequisite = { focus = HUN_pk_picking_an_alliance }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			RUS = { country_event = { id = kr.hungary.24 days = 1 } }
+		}
+	}
+
+	focus = {
+		id = HUN_pk_invite_poland
+		icon = GFX_goal_anschluss
+		x = 46
+		y = 8
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+			is_faction_leader = yes
+			OR = {
+				AND = { 
+					NOT = { OR = {
+					has_government = totalist
+					has_government = syndicalist
+					has_government = radical_socialist
+					} }
+					POL = { NOT = { OR = {
+					has_government = totalist
+					has_government = syndicalist
+					has_government = radical_socialist
+					} } }
+				}
+				AND = { 
+					OR = {
+					has_government = totalist
+					has_government = syndicalist
+					has_government = radical_socialist
+					}
+					POL = { OR = {
+					has_government = totalist
+					has_government = syndicalist
+					has_government = radical_socialist
+					} }
+				}
+			}
+			POL = { is_in_faction = no }
+			country_exists = POL
+		}
+		
+		prerequisite = { focus = HUN_pk_form_our_own }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			POL = { country_event = { id = kr.hungary.25 days = 1 } }
+		}
+	}
+
+	focus = {
+		id = HUN_pk_invite_italy
+		icon = GFX_goal_generic_alliance
+		x = 48
+		y = 8
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+			is_faction_leader = yes
+			OR = {
+				AND = { 
+					NOT = { OR = {
+					has_government = totalist
+					has_government = syndicalist
+					has_government = radical_socialist
+					} }
+					ITA = { NOT = { OR = {
+					has_government = totalist
+					has_government = syndicalist
+					has_government = radical_socialist
+					} } }
+				}
+				AND = { 
+					OR = {
+					has_government = totalist
+					has_government = syndicalist
+					has_government = radical_socialist
+					}
+					ITA = { OR = {
+					has_government = totalist
+					has_government = syndicalist
+					has_government = radical_socialist
+					} }
+				}
+			}
+			ITA = { is_in_faction = no }
+			country_exists = ITA
+		}
+		
+		prerequisite = { focus = HUN_pk_form_our_own }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			ITA = { country_event = { id = kr.hungary.25 days = 1 } }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_invite_bulgaria
+		icon = GFX_goal_generic_alliance
+		x = 50
+		y = 8
+
+		cost = 5
+
+		available = {
+			is_puppet = no
+			is_faction_leader = yes
+			OR = {
+				AND = { 
+					NOT = { OR = {
+					has_government = totalist
+					has_government = syndicalist
+					has_government = radical_socialist
+					} }
+					BUL = { NOT = { OR = {
+					has_government = totalist
+					has_government = syndicalist
+					has_government = radical_socialist
+					} } }
+				}
+				AND = { 
+					OR = {
+					has_government = totalist
+					has_government = syndicalist
+					has_government = radical_socialist
+					}
+					BUL = { OR = {
+					has_government = totalist
+					has_government = syndicalist
+					has_government = radical_socialist
+					} }
+				}
+			}
+			BUL = { is_in_faction = no }
+			country_exists = BUL
+		}
+		
+		prerequisite = { focus = HUN_pk_form_our_own }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			BUL = { country_event = { id = kr.hungary.25 days = 1 } }
+		}
+	}
+	
+	#######################
+	### CIVIL WAR BOONS ###
+	#######################
+	
+	focus = {
+		id = HUN_pk_austro_hungarian_civil_war
+		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
+		x = 56
+		y = 0
+
+		cost = 1
+
+		available = {
+			always = no
+		}
+		
+		bypass = { 
+			has_war_with = AUS
+			is_puppet = no
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = { }
+	}
+	
+	focus = {
+		id = HUN_pk_quick_mobilization
+		icon = GFX_focus_secret_rearmament
+		x = 55
+		y = 1
+
+		cost = 5
+
+		available = {
+			has_war_with = AUS
+			is_puppet = no
+		}
+		
+		prerequisite = { focus = HUN_pk_austro_hungarian_civil_war }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas_with_trait = economy
+			add_ideas = partial_economic_mobilisation
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_increase_drafts
+		icon = GFX_goal_volunteer_alliance
+		x = 57
+		y = 1
+
+		cost = 5
+
+		available = {
+			has_war_with = AUS
+			is_puppet = no
+		}
+		
+		prerequisite = { focus = HUN_pk_austro_hungarian_civil_war }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas_with_trait = mobilization_laws
+			add_ideas = service_by_requirement 
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_push_our_workers
+		icon = GFX_goal_munitions_factories
+		x = 54
+		y = 2
+
+		cost = 5
+
+		available = {
+			has_war_with = AUS
+			is_puppet = no
+		}
+		
+		prerequisite = { focus = HUN_pk_austro_hungarian_civil_war }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_popularity = { ideology = syndicalist popularity = 0.1 }
+			add_timed_idea = { idea = HUN_pk_workers_pushed_idea days = 365 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_compromise_with_minorities
+		icon = GFX_goal_POR_burden_empire
+		x = 56
+		y = 2
+
+		cost = 5
+
+		available = {
+			has_war_with = AUS
+			is_puppet = no
+			NOT = { has_government = national_populist } 
+			NOT = { has_government = paternal_autocrat }
+		}
+		
+		prerequisite = { focus = HUN_pk_austro_hungarian_civil_war }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			custom_effect_tooltip = hungary_locked_to_pluralism
+			set_country_flag = hungary_compromised_with_minorities
+			add_timed_idea = { idea = HUN_pk_minority_recruitment_idea days = 365 }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_a_patriotic_cause
+		icon = GFX_focus_generic_little_entente
+		x = 58
+		y = 2
+
+		cost = 5
+
+		available = {
+			has_war_with = AUS
+			is_puppet = no
+		}
+		
+		prerequisite = { focus = HUN_pk_austro_hungarian_civil_war }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_timed_idea = { idea = HUN_pk_patriotic_cause_idea days = 365 }
+		}
+	}
+	
+	### Military Reform ###
+	
+	focus = {
+		id = HUN_pk_enact_military_reforms
+		icon = GFX_goal_MAF_Army_Reforms
+		x = 54
+		y = 3
+
+		cost = 1
+
+		available = {
+		}
+		
+		mutually_exclusive = { focus = HUN_pk_modernize_our_military }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = -30
+			add_ideas = HUN_pk_undergoing_military_reforms_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_military_schools
+		icon = GFX_goal_generic_army_doctrines
+		x = 53
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_enact_military_reforms }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_military_schools_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_foreign_instructors
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 55
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_enact_military_reforms }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_foreign_instructors_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_elite_army
+		icon = GFX_goal_offensive_army
+		x = 53
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_military_schools }
+		prerequisite = { focus = HUN_pk_foreign_instructors }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_elite_army_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_qualified_generals
+		icon = GFX_focus_generic_military_mission
+		x = 55
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_military_schools }
+		prerequisite = { focus = HUN_pk_foreign_instructors }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_qualified_generals_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_superior_firepower_tactics
+		icon = GFX_goal_generic_army_artillery2
+		x = 53
+		y = 6
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_elite_army }
+		prerequisite = { focus = HUN_pk_qualified_generals }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.5 uses = 1 category = cat_superior_firepower }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_carpathian_brigades
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 55
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_elite_army }
+		prerequisite = { focus = HUN_pk_qualified_generals }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.5 uses = 1 category = mountaineers_tech }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_new_hungarian_army
+		icon = GFX_goal_step_on_skull
+		x = 55
+		y = 6
+
+		cost = 2
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_carpathian_brigades }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			remove_ideas = HUN_pk_undergoing_military_reforms_idea
+		}
+	}
+	
+	### Army Modernization ###
+	
+	focus = {
+		id = HUN_pk_modernize_our_military
+		icon = GFX_goal_generic_fortify_city
+		x = 58
+		y = 3
+
+		cost = 1
+
+		available = {
+		}
+		
+		mutually_exclusive = { focus = HUN_pk_enact_military_reforms }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_political_power = 30
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_artillery_regiments
+		icon = GFX_goal_generic_army_artillery
+		x = 57
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_modernize_our_military }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.5 uses = 2 category = artillery }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_better_rifles
+		icon = GFX_goal_generic_small_arms
+		x = 59
+		y = 4
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_modernize_our_military }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.5 uses = 1 category = infantry_weapons }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_increase_peasant_conscription
+		icon = GFX_goal_generic_radar
+		x = 57
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_artillery_regiments }
+		prerequisite = { focus = HUN_pk_better_rifles }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_increased_peasant_conscription_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_motorization
+		icon = GFX_goal_generic_army_motorized
+		x = 59
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_artillery_regiments }
+		prerequisite = { focus = HUN_pk_better_rifles }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.33 uses = 2 category = motorized_equipment }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_monitor_production
+		icon = GFX_goal_generic_production
+		x = 57
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_increase_peasant_conscription }
+		prerequisite = { focus = HUN_pk_motorization }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_monitored_production_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_mass_warfare_tactics
+		icon = GFX_goal_refugee_management
+		x = 59
+		y = 6
+
+		cost = 5
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_increase_peasant_conscription }
+		prerequisite = { focus = HUN_pk_motorization }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = { bonus = 0.5 uses = 1 category = cat_mass_assault }
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_deadly_and_efficient
+		icon = GFX_goal_generic_secret_weapon
+		x = 57
+		y = 7
+
+		cost = 2
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_increase_peasant_conscription }
+		prerequisite = { focus = HUN_pk_motorization }
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			add_command_power = 50
+		}
+	}
+	
+	#################
+	### NAVY TREE ###
+	#################
+	
+	focus = {
+		id = HUN_pk_rebirth_of_the_navy
+		icon = GFX_goal_generic_navy_cruiser
+		x = 64
+		y = 0
+
+		cost = 1
+
+		available = {
+			any_owned_state = { is_coastal = yes }
+		}
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			navy_experience = 5
+		}
+	}
+
+	focus = {
+		id = HUN_pk_build_shipyards
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 63
+		y = 1
+
+		cost = 10
+
+		available = {
+			any_owned_state = { is_coastal = yes }
+		}
+		
+		prerequisite = { focus = HUN_pk_rebirth_of_the_navy }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+					is_coastal = yes
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes	
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_naval_training
+		icon = GFX_goal_generic_navy_anti_submarine
+		x = 65
+		y = 1
+
+		cost = 10
+
+		available = {
+			any_owned_state = { is_coastal = yes }
+		}
+		
+		prerequisite = { focus = HUN_pk_rebirth_of_the_navy }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			navy_experience = 25
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_naval_tactics
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 62
+		y = 2
+
+		cost = 10
+
+		available = {
+			any_owned_state = { is_coastal = yes }
+		}
+		
+		prerequisite = { focus = HUN_pk_build_shipyards }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = naval_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_fund_docks
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 64
+		y = 2
+
+		cost = 10
+
+		available = {
+			any_owned_state = { is_coastal = yes }
+		}
+		
+		prerequisite = { focus = HUN_pk_build_shipyards }
+		prerequisite = { focus = HUN_pk_naval_training }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_fund_docks_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_research_cruisers
+		icon = GFX_goal_generic_navy_cruiser
+		x = 66
+		y = 2
+
+		cost = 10
+
+		available = {
+			any_owned_state = { is_coastal = yes }
+		}
+		
+		prerequisite = { focus = HUN_pk_naval_training }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = ca_tech
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_capital_ships
+		icon = GFX_goal_generic_navy_battleship
+		x = 63
+		y = 3
+
+		cost = 10
+
+		available = {
+			any_owned_state = { is_coastal = yes }
+		}
+		
+		prerequisite = { focus = HUN_pk_naval_tactics }
+		prerequisite = { focus = HUN_pk_fund_docks }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				name = capital_ships_bonus
+				bonus = 0.5
+				ahead_reduction = 1
+				uses = 1
+				technology = basic_battlecruiser
+				technology = basic_battleship
+				technology = improved_battleship
+				technology = advanced_battleship
+				technology = heavy_battleship
+				technology = heavy_battleship2
+				technology = early_carrier
+				technology = basic_carrier
+				technology = improved_carrier
+				technology = advanced_carrier
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_submarine_effort
+		icon = GFX_goal_generic_navy_submarine
+		x = 65
+		y = 3
+
+		cost = 10
+
+		available = {
+			any_owned_state = { is_coastal = yes }
+		}
+		
+		prerequisite = { focus = HUN_pk_research_cruisers }
+		prerequisite = { focus = HUN_pk_fund_docks }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				ahead_reduction = 1
+				category = ss_tech
+			}
+		}
+	}
+	
+	################
+	### AIR TREE ###
+	################
+	
+	focus = {
+		id = HUN_pk_hungarian_airforce
+		icon = GFX_goal_generic_build_airforce
+		x = 64
+		y = 4
+
+		cost = 1
+
+		available = {
+		}
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			air_experience = 5
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_air_tactics
+		icon = GFX_goal_generic_air_doctrine
+		x = 63
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_hungarian_airforce }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 2
+				category = air_doctrine
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_air_exercizes
+		icon = GFX_focus_generic_air_defense
+		x = 65
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_hungarian_airforce }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			air_experience = 30
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_heavy_fighters
+		icon = GFX_goal_generic_air_fighter
+		x = 61
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_air_tactics }
+		
+		mutually_exclusive = { focus = HUN_pk_light_fighters }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.66
+				uses = 1
+				category = cat_heavy_fighter
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_light_fighters
+		icon = GFX_goal_generic_air_fighter2
+		x = 63
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_air_tactics }
+		
+		mutually_exclusive = { focus = HUN_pk_heavy_fighters }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.66
+				uses = 1
+				category = light_fighter
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_cas_bombers
+		icon = GFX_goal_generic_CAS
+		x = 65
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_air_exercizes }
+		
+		mutually_exclusive = { focus = HUN_pk_tactical_bombers }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.66
+				uses = 1
+				category = cas_bomber
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_tactical_bombers
+		icon = GFX_goal_generic_air_bomber
+		x = 67
+		y = 5
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = { focus = HUN_pk_air_exercizes }
+		
+		mutually_exclusive = { focus = HUN_pk_cas_bombers }
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.66
+				uses = 1
+				category = tactical_bomber
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_fund_runways
+		icon = GFX_goal_generic_radar
+		x = 64
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = {
+			focus = HUN_pk_heavy_fighters
+			focus = HUN_pk_light_fighters
+		}
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_ideas = HUN_pk_fund_runways_idea
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_fund_airplane_manufacturers
+		icon = GFX_goal_continuous_air_production
+		x = 66
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = {
+			focus = HUN_pk_heavy_fighters
+			focus = HUN_pk_light_fighters
+		}
+		
+		prerequisite = {
+			focus = HUN_pk_cas_bombers
+			focus = HUN_pk_tactical_bombers
+		}
+		
+		ai_will_do = { factor = 10 }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = HUN_pk_rocketry_effort
+		icon = GFX_focus_rocketry
+		x = 68
+		y = 6
+
+		cost = 10
+
+		available = {
+		}
+		
+		prerequisite = {
+			focus = HUN_pk_cas_bombers
+			focus = HUN_pk_tactical_bombers
+		}
+		
+		ai_will_do = { factor = 5 }
+
+		completion_reward = {
+			add_tech_bonus = {
+				bonus = 0.5
+				uses = 1
+				category = rocketry
+			}
+		}
+	}
+	
+}

@@ -1,0 +1,683 @@
+### Hungarian Ideas
+
+ideas = {
+##############
+# Country ideas
+##############
+	country = {
+		
+		HUN_financial_ties_broken = {
+			picture = can_patriation
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = 0.25
+				autonomy_gain = 0.6
+			}
+		}
+		
+		HUN_financial_ties = {
+			picture = HUN_hungarian_monarchy_habsburg
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.25
+				autonomy_gain = -0.4
+			}
+		}
+		
+		HUN_slovak_demonstrations = {
+			picture = totalist_charta
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.5
+			}
+		}
+		HUN_transylvanian_demonstrations = {
+			picture = totalist_charta
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.5
+			}
+		}
+		HUN_pk_financed_state_idea = {
+			picture = IRE_debt_vlow
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+					consumer_goods_factor = -0.05
+			}
+		}
+		HUN_pk_civil_war_aftermath1_idea = { #Add negative war readiness
+			picture = ENG_the_war_to_end_all_wars
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+					industry_free_repair_factor = -0.25
+					production_speed_buildings_factor = -0.1
+					consumer_goods_factor = 0.1
+					army_morale_factor = -0.1
+			}
+		}
+		HUN_pk_civil_war_aftermath2_idea = {
+			picture = ENG_the_war_to_end_all_wars
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+					industry_free_repair_factor = -0.15
+					production_speed_buildings_factor = -0.05
+					consumer_goods_factor = 0.05
+					army_morale_factor = -0.05
+			}
+		}
+		HUN_pk_civil_war_repair_idea = {
+			picture = IRE_medium_industry
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				industry_free_repair_factor = 0.33
+				industry_repair_factor = 0.5
+			}
+		}
+		HUN_pk_civil_unrest1_idea = {
+			picture = FRA_scw_intervention_republicans_focus
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.05
+				stability_factor = -0.25
+				syndicalism_drift = 0.01
+				totalism_drift = 0.01
+			}
+		}
+		HUN_pk_civil_unrest2_idea = {
+			picture = FRA_scw_intervention_republicans_focus
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.02
+				stability_factor = -0.1
+			}
+		}
+		HUN_pk_patriotic_military_idea = {
+			picture = generic_manpower_bonus
+			modifier = {
+				army_morale_factor = 0.1
+			}
+		}
+		HUN_pk_god_wills_it_idea = {
+			picture = IRE_catholic
+			modifier = {
+				army_core_attack_factor = 0.05
+				army_core_attack_factor = 0.05
+			}
+		}
+		HUN_pk_cultural_warfare_idea = {
+			picture = FRA_scw_intervention_nationalists_focus
+			modifier = {
+				conscription = 0.01
+				stability_factor = 0.05
+			}
+		}
+		HUN_pk_encouraged_militias_idea = {
+			picture = generic_manpower_bonus
+			modifier = {
+				conscription = 0.01
+				training_time_army_factor = -0.05
+			}
+		}
+		### National Minorities Dynamic ###
+		
+		HUN_pk_slovak_minority_idea = {
+			picture = totalist_charta
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.33
+				stability_factor = -0.05
+			}
+		}
+		HUN_pk_transylvanian_minority_idea = {
+			picture = totalist_charta
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.66
+				stability_factor = -0.05
+			}
+		}
+		HUN_pk_serbian_minority_idea = {
+			picture = totalist_charta
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.1
+				stability_factor = -0.025
+			}
+		}
+		HUN_pk_slovak_minority2_idea = {
+			picture = totalist_charta
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.5
+				stability_factor = -0.1
+			}
+		}
+		HUN_pk_transylvanian_minority2_idea = {
+			picture = totalist_charta
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.75
+				stability_factor = -0.15
+			}
+		}
+		HUN_pk_serbian_minority2_idea = {
+			picture = totalist_charta
+			allowed = {
+				always = no
+			}
+			removal_cost = -1
+			modifier = {
+				political_power_gain = -0.33
+				stability_factor = -0.05
+			}
+		}
+		
+		### Black Monday ###
+		
+		HUN_pk_black_monday_idea = {
+			picture = great_depression
+			modifier = {
+				consumer_goods_factor = 0.3
+				stability_factor = -0.2
+				production_speed_buildings_factor = -0.8
+				industrial_capacity_factory = -0.5
+				production_factory_max_efficiency_factor = -0.20
+				min_export = -0.4
+			}
+		}
+		
+		HUN_pk_black_monday2_idea = {
+			picture = great_depression
+			modifier = {
+				consumer_goods_factor = 0.2
+				stability_factor = -0.1
+				production_speed_buildings_factor = -0.6
+				industrial_capacity_factory = -0.3
+				production_factory_max_efficiency_factor = -0.1
+				min_export = -0.3
+			}
+		}
+		
+		HUN_pk_black_monday3_idea = {
+			picture = great_depression
+			modifier = {
+				consumer_goods_factor = 0.1
+				production_speed_buildings_factor = -0.4
+				industrial_capacity_factory = -0.2
+				production_factory_max_efficiency_factor = -0.05
+				min_export = -0.2
+			}
+		}
+		
+		HUN_pk_black_monday4_idea = {
+			picture = great_depression
+			modifier = {
+				production_speed_buildings_factor = -0.2
+				industrial_capacity_factory = -0.1
+			}
+		}
+		
+		HUN_pk_karoly_v_idea = {
+			picture = HUN_charles_v
+			modifier = {
+				stability_factor = 0.05
+				political_power_gain = 0.5
+			}
+		}
+		
+		HUN_pk_age_of_industrialization_idea = {
+			picture = IRE_medium_industry
+			modifier = {
+				production_speed_infrastructure_factor = 0.25
+			}
+		}
+		
+		HUN_pk_dual_monarchy_embraced_idea = {
+			picture = HUN_hungarian_monarchy_habsburg
+			modifier = {
+				army_core_attack_factor = 0.05
+				army_core_defense_factor = 0.05
+				political_power_gain = 0.3
+				autonomy_gain = -0.1
+			}
+		}
+		
+		HUN_pk_economy_focus_idea = {
+			picture = economic_control_icon
+			modifier = {
+				consumer_goods_factor = -0.05
+				production_speed_buildings_factor = 0.05
+			}
+		}
+		
+		HUN_pk_new_dawn_for_hungary_idea = {
+			picture = generic_morale_bonus
+			modifier = {
+				local_resources_factor = 0.1
+				social_conservative_drift = 0.01
+				political_power_factor = 0.25
+			}
+		}
+		
+		HUN_pk_new_balkan_hegemon_idea = {
+			picture = ROM_balkans_dominance
+			modifier = {
+				#increased war support
+				justify_war_goal_time = -0.25
+				planning_speed = 0.15
+				political_power_factor = 0.1
+			}
+		}
+		
+		HUN_pk_conversion_backlash_idea = {
+			picture = GFX_idea_guns_shield
+			modifier = {
+				stability_factor = -0.1
+				political_power_gain = -0.3
+			}
+		}
+		
+		HUN_pk_theocratic_state_10_idea = {
+			picture = IRE_catholic
+			modifier = {
+				conscription_factor = 0.15	
+				attrition = -0.1
+			}
+		}
+		
+		HUN_pk_theocratic_state_01_idea = {
+			picture = IRE_catholic
+			modifier = {
+				political_power_gain = 0.5
+			}
+		}
+		
+		HUN_pk_theocratic_state_11_idea = {
+			picture = IRE_catholic
+			modifier = {
+				conscription_factor = 0.15	
+				attrition = -0.1
+				political_power_gain = 0.5
+			}
+		}
+		
+		HUN_pk_theocratic_state_2_idea = {
+			picture = IRE_catholic
+			modifier = {
+				conscription_factor = 0.15	
+				attrition = -0.1
+				political_power_gain = 0.5
+				army_attack_factor = 0.1
+				army_speed_factor = 0.05
+			}
+		}
+		
+		HUN_pk_aristocracy_lowered_idea = {
+			picture = generic_coins
+			modifier = {
+				political_power_gain = 0.3
+				consumer_goods_factor = 0.05
+			}
+		}
+		
+		HUN_pk_aristocracy_cooperation_idea = {
+			picture = generic_coins
+			modifier = {
+				political_power_gain = -0.2
+				consumer_goods_factor = -0.05
+			}
+		}
+		
+		HUN_pk_law_reforms_idea = {
+			picture = HUN_treaty_of_triannon
+			modifier = {
+				political_power_cost = -0.25
+			}
+		}
+		
+		HUN_pk_trade_unions_idea = {
+			picture = UK_economy_syn_idea
+			modifier = {
+				industrial_capacity_factory = 0.1
+			}
+		}
+		
+		HUN_pk_trade_unions2_idea = {
+			picture = UK_economy_syn_idea
+			modifier = {
+				industrial_capacity_factory = 0.1
+				production_factory_start_efficiency_factor = 0.05
+			}
+		}
+		
+		HUN_pk_trade_unions3_idea = {
+			picture = UK_economy_syn_idea
+			modifier = {
+				industrial_capacity_factory = 0.1
+				production_factory_start_efficiency_factor = 0.05
+				production_factory_efficiency_gain_factor = 0.05
+			}
+		}
+		
+		HUN_pk_peasants_favored_idea = {
+			picture = generic_agrarian_society
+			modifier = {
+				production_speed_infrastructure_factor = 0.1
+					local_resources_factor = 0.1
+			}
+		}
+		
+		HUN_pk_planned_economy_idea = {
+			picture = state_economy
+			modifier = {
+				consumer_goods_factor = -0.1
+			}
+		}
+
+		HUN_pk_bulwark_of_socialism_idea = {
+			picture = NOR_uob_support_idea
+			modifier = {
+				syndicalism_drift = 0.02
+				totalism_drift = 0.02
+			}
+		}
+		
+		HUN_pk_minority_autonomy_idea = {
+			picture = HUN_treaty_of_triannon
+			modifier = {
+				political_power_gain = -0.1
+			}
+		}
+		
+		HUN_pk_minority_autonomy2_idea = {
+			picture = HUN_treaty_of_triannon
+			modifier = {
+				political_power_gain = -0.2
+				stability_factor = 0.05
+			}
+		}
+		
+		HUN_pk_workers_pushed_idea = {
+			picture = backward_industry
+			modifier = {
+				syndicalism_drift = 0.01
+				industrial_capacity_factory = 0.15
+			}
+		}
+		
+		HUN_pk_minority_recruitment_idea = {
+			picture = generic_manpower_bonus
+			modifier = {
+				conscription = 0.05
+			}
+		}
+
+		HUN_pk_patriotic_cause_idea = {
+			picture = generic_morale_bonus
+			modifier = {
+				army_morale_factor = 0.1
+			}
+		}
+
+		HUN_pk_undergoing_military_reforms_idea = {
+			picture = LBR_broken_center
+			modifier = {
+				experience_gain_army_factor = -0.05
+				training_time_factor = 0.15
+			}
+		}
+		
+		HUN_pk_military_schools_idea = {
+			picture = OTT_compromise_idea
+			modifier = {
+				research_bonus = { land_doctrine = 0.08 }
+			}
+		}
+		
+		HUN_pk_foreign_instructors_idea = {
+			picture = MAF_Black_hat
+			modifier = {
+				planning_speed = 0.1
+				army_org_Factor = 0.05
+			}
+		}
+		
+		HUN_pk_elite_army_idea = {
+			picture = generic_intel_bonus
+			modifier = {
+				training_time_factor = 0.05
+				army_attack_factor = 0.05
+				army_defence_factor = 0.05
+			}
+		}
+		
+		HUN_pk_qualified_generals_idea = {
+			picture = belgian_general_staff
+			modifier = {
+				military_leader_cost_factor = 2.00
+				army_leader_start_level = 3
+			}
+		}
+		
+		HUN_pk_increased_peasant_conscription_idea = {
+			picture = generic_manpower_bonus
+			modifier = {
+				conscription_factor = 0.05
+			}
+		}
+		
+		HUN_pk_monitored_production_idea = {
+			picture = backward_industry
+			modifier = {
+				production_factory_efficiency_gain_factor = 0.05
+			}
+		}
+		
+		HUN_pk_fund_docks_idea = {
+			picture = generic_navy_bonus
+			modifier = {
+				production_speed_naval_base_factor = 0.25
+			}
+		}
+		
+		HUN_pk_fund_runways_idea = {
+			picture = GFX_idea_generic_air_bonus
+			modifier = {
+				production_speed_air_base_factor = 0.20
+			}
+		}
+		
+	}
+
+##############
+# Companies
+##############
+
+#### General ####
+industrial_concern = {
+
+	manfred_weiss_steel = {
+		allowed = { original_tag = HUN }
+		traits = { industrial_manufacturer }
+		modifier = {
+			production_speed_arms_factory_factor = 0.1
+			production_speed_industrial_complex_factor = 0.1
+		}
+		research_bonus = {
+			industry = 0.1
+		}
+	}
+	
+	apollo_refinery = {
+		allowed = {original_tag = HUN }
+		traits = { chemical_producer }
+		modifier = {
+			production_speed_radar_station_factor = 0.1
+		}
+		research_bonus = {
+			synth_resources = 0.1
+			industry = 0.05
+		}
+	}
+		
+	orion_electronics = {
+		allowed = { original_tag = HUN }
+		traits = { electronics_manufacturer }
+		modifier = {
+			production_speed_synthetic_refinery_factor = 0.1
+		}
+		research_bonus = {
+			electronics = 0.1
+			industry = 0.05
+		}
+	}
+}
+
+#### Weapons Manufacturer ####
+weapons_manufacturer = {
+	designer = yes
+	
+	feg = {
+		allowed = { original_tag = HUN }
+		traits = { infantry_equipment_producer_defense_1 }
+		research_bonus = {
+			infantry_weapons = 0.1
+		}
+	}
+}
+	
+#### Heavy Equipment Manufacturer ####
+tank_manufacturer = {
+	designer = yes
+	
+	mavag = {
+		allowed = { original_tag = HUN }
+		traits = { artillery_producer_offense_1 }
+		research_bonus = {
+			artillery = 0.05
+		}
+	}
+	
+	raba = {
+		allowed = { original_tag = HUN }
+		traits = { motorised_equipment_producer_mass_1 }
+		research_bonus = {
+			motorized_equipment = 0.05
+		}
+	}
+	
+	ganz_mavag = {
+		allowed = { original_tag = HUN }
+		traits = { medium_tank_producer_offense_1 }
+		modifier = {}
+		research_bonus = {
+			armor = 0.05
+		}
+	}
+		
+	ganz = {
+		allowed = { original_tag = HUN }
+		traits = { small_tank_producer_defense_1 }
+		research_bonus = {
+			armor = 0.05
+		}
+	}
+}
+
+#### Air and Naval Manufacturer ####
+air_naval_manufacturer = {
+	designer = yes
+	
+	ungarische_flugzeugfabrik = {
+		allowed = { original_tag = HUN }
+		traits = { fighter_producer_offense_1 }
+		research_bonus = {
+			air_equipment = 0.05
+		}
+	}
+	
+	feigl_rotter = {
+		allowed = { original_tag = HUN }
+		traits = { fighter_producer_mass_1 }
+		research_bonus = {
+			air_equipment = 0.05
+		}
+	}
+	
+	magyar_lloyd = {
+		allowed = { original_tag = HUN }
+		traits = { bomber_producer_defense_1 }
+		research_bonus = {
+			air_equipment = 0.05
+		}
+	}
+	
+	danubian_aircraft_company = {
+		allowed = { original_tag = HUN }
+		traits = { nav_cas_producer_offense_1 }
+		research_bonus = {
+			air_equipment = 0.05
+		}
+	}
+}
+
+##############
+# Theorist
+##############
+theorist = {
+		
+	manfred_weiss = {
+		allowed = {OR = { original_tag = AUS original_tag = BOM tag = HUN }}
+		traits = { industry_theorist expert}
+		research_bonus = {
+			industry = 0.15
+		}
+	}
+}
+
+}
