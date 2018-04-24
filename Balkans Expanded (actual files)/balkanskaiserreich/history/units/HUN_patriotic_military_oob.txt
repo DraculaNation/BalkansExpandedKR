@@ -1,0 +1,47 @@
+﻿########
+#Templates
+########
+
+division_template = {
+	name = "Hazafiak"	
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+		militia = { x = 2 y = 2 }
+	}
+	support = {
+		
+	}
+}
+
+########
+units = {
+########
+
+#### INF ####
+	division= {	
+		name = "Magyarország Fiai"
+		location = 9660
+		division_template = "Forradalmárok"
+		start_experience_factor = 0.7
+	}
+	division= {	
+		name = "Ellenállás Harcosok"
+		location = 9660
+		division_template = "Forradalmárok"
+		start_experience_factor = 0.7
+	}
+	division= {	
+		name = "Fehér Rémület"
+		location = 9660
+		division_template = "Forradalmárok"
+		start_experience_factor = 0.4
+	}
+}

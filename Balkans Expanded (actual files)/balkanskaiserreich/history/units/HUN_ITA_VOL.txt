@@ -1,0 +1,65 @@
+﻿########
+#Templates
+########
+
+division_template = {
+	name = "Papal Guard"	
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		
+	}
+}
+division_template = {
+	name = "Crusaders"	
+
+	regiments = {
+		militia = { x = 0 y = 0 }
+		militia = { x = 0 y = 1 }
+		militia = { x = 0 y = 2 }
+		militia = { x = 1 y = 0 }
+		militia = { x = 1 y = 1 }
+		militia = { x = 1 y = 2 }
+		militia = { x = 2 y = 0 }
+		militia = { x = 2 y = 1 }
+		militia = { x = 2 y = 2 }
+	}
+	support = {
+		
+	}
+}
+
+########
+units = {
+########
+
+#### INF ####
+	division= {	
+		name = "Papal Guard"
+		location = 9660
+		division_template = "Papal Guard"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "Crusaders I"
+		location = 9660
+		division_template = "Crusaders"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		name = "Crusaders II"
+		location = 9660
+		division_template = "Crusaders"
+		start_experience_factor = 0.4
+	}
+}
