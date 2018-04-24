@@ -2473,9 +2473,9 @@ focus_tree = {
 		cost = 1
 
 		available = {
-			NOT`= { has_government = totalist }
-			NOT`= { has_government = syndicalist }
-			NOT`= { has_government = radical_socialist }
+			NOT = { has_government = totalist }
+			NOT = { has_government = syndicalist }
+			NOT = { has_government = radical_socialist }
 			is_puppet = no
 			OR = {
 				has_completed_focus = HUN_a_stable_country
@@ -2662,7 +2662,7 @@ focus_tree = {
 		completion_reward = {
 			875 = { remove_core_of = HUN add_core_of = SER add_claim_by = HUN }
 			if = {
-				limit = { has_idea = { HUN_minority_autonomy_idea } }
+				limit = { has_idea = HUN_minority_autonomy_idea }
 				swap_ideas = { 
 					remove_idea = HUN_minority_autonomy_idea 
 					add_idea = HUN_minority_autonomy2_idea
@@ -2696,13 +2696,13 @@ focus_tree = {
 
 		completion_reward = {
 			if = {
-				limit = { has_idea = { HUN_minority_autonomy_idea } }
+				limit = { has_idea = HUN_minority_autonomy_idea }
 				swap_ideas = {
 					remove_idea = HUN_minority_autonomy_idea 
 					add_idea = HUN_minority_autonomy2_idea
 				}
 				else = {
-					add_ideas = { add_ideas = HUN_minority_autonomy_idea }
+					add_ideas = HUN_minority_autonomy_idea
 				}
 			}
 			add_political_power = 50

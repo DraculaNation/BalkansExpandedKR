@@ -4002,7 +4002,7 @@ focus_tree = {
 		
 		prerequisite = { focus = ILL_true_illyrian_army }
 		
-		mutually_exclusive = { 
+		mutually_exclusive = {
 			ILL_regional_command
 			ILL_the_best_of_the_best
 		}

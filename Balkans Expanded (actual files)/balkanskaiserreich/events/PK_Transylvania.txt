@@ -32,7 +32,7 @@ country_event = {
 			}
 		}
 		
-		NOT = { HUN = { has_completed_focus = HUN_pk_transylvanian_autonomy } }
+		NOT = { HUN = { has_completed_focus = HUN_transylvanian_autonomy } }
 	}
 
 	fire_only_once = yes

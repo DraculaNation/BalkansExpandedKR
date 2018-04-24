@@ -713,7 +713,7 @@ country_event = { #Black Monday Stabilization 3
 	trigger = {
 		OR = {
 			has_completed_focus = HUN_develop_agriculture
-			has_completed_focus = HUN_hungarian_electronics
+			has_completed_focus = HUN_hungarian_electornics
 		}
 		has_idea = HUN_black_monday3_idea
 	}
