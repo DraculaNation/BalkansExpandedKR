@@ -542,7 +542,7 @@ focus_tree = {
 		
 		ai_will_do = { factor = 10 }
 
-		completion_reward = 
+		completion_reward = {
 			if = {
 				limit = { has_government = national_populist }
 				add_popularity = { ideology = national_populist popularity = 0.3 }
@@ -623,7 +623,7 @@ focus_tree = {
 	
 	focus = {
 		id = HUN_god_wills_it
-		icon = GFX_focus_generic_support_the_left_right
+		icon = GFX_goal_conscription
 		x = 19
 		y = 1
 
@@ -643,7 +643,7 @@ focus_tree = {
 	
 	focus = {
 		id = HUN_help_from_the_pope
-		icon = GFX_goal_italianfed
+		icon = GFX_BEL_Improve_Catholic_Relations
 		x = 21
 		y = 1
 
@@ -666,7 +666,7 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			ITA = { country_event = { id = kr.hungary.5 days = 1 }}
+			PAP = { country_event = { id = kr.hungary.5 days = 1 }}
 		}
 	}
 	
@@ -824,7 +824,7 @@ focus_tree = {
 	
 	focus = {
 		id = HUN_the_new_crusade
-		icon = GFX_goal_conscription
+		icon = GFX_PAP_holy_war
 		x = 19
 		y = 5
 
@@ -1594,7 +1594,7 @@ focus_tree = {
 	focus = {
 		id = HUN_scientific_cooperation
 		icon = GFX_goal_generic_scientific_exchange
-		x = 19
+		x = 29
 		y = 3
 
 		cost = 5
@@ -1644,12 +1644,6 @@ focus_tree = {
 
 		completion_reward = {
 			43 = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 1
-					}
-				}
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -1657,12 +1651,6 @@ focus_tree = {
 				}
 			}
 			154 = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 1
-					}
-				}
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -1670,12 +1658,6 @@ focus_tree = {
 				}
 			}
 			155 = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 1
-					}
-				}
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -1683,12 +1665,6 @@ focus_tree = {
 				}
 			}
 			4 = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 1
-					}
-				}
 				add_building_construction = {
 					type = infrastructure
 					level = 1
@@ -2532,10 +2508,6 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		bypass = { 
-			NOT = { has_idea = HUN_serbian_minority_idea}
-		}
-		
 		prerequisite = { focus = HUN_continue_magyarization }
 		
 		ai_will_do = { factor = 10 }
@@ -2580,10 +2552,6 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		bypass = { 
-			NOT = { has_idea = HUN_slovakian_minority_idea}
-		}
-		
 		prerequisite = { focus = HUN_magyarize_vojvodina }
 		prerequisite = { focus = HUN_enforce_hungarian_language }
 		
@@ -2605,10 +2573,6 @@ focus_tree = {
 
 		available = {
 			is_puppet = no
-		}
-		
-		bypass = { 
-			NOT = { has_idea = HUN_transylvanian_minority_idea}
 		}
 		
 		prerequisite = { focus = HUN_magyarize_vojvodina }
@@ -2658,8 +2622,8 @@ focus_tree = {
 		cost = 1
 
 		available = {
-			NOT`= { has_government = paternal_autocrat }
-			NOT`= { has_government = national_populist }
+			NOT = { has_government = paternal_autocrat }
+			NOT = { has_government = national_populist }
 			is_puppet = no
 			OR = {
 				has_completed_focus = HUN_a_stable_country
@@ -2733,12 +2697,12 @@ focus_tree = {
 		completion_reward = {
 			if = {
 				limit = { has_idea = { HUN_minority_autonomy_idea } }
-				swap_ideas = { 
+				swap_ideas = {
 					remove_idea = HUN_minority_autonomy_idea 
 					add_idea = HUN_minority_autonomy2_idea
 				}
 				else = {
-					add_ideas = { add_idea = HUN_minority_autonomy_idea }
+					add_ideas = { add_ideas = HUN_minority_autonomy_idea }
 				}
 			}
 			add_political_power = 50
@@ -2760,7 +2724,7 @@ focus_tree = {
 		}
 		
 		bypass = {
-			NOT = { has_idea = HUN_slovakian_minority_idea }
+			NOT = { has_idea = HUN_slovak_minority_idea }
 		}
 		
 		prerequisite = { focus = HUN_serbian_minority }
@@ -3537,7 +3501,7 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_military_schools_idea
+			add_tech_bonus = { bonus = 0.25 uses = 2 category = land_doctrine }
 		}
 	}
 	
@@ -4098,7 +4062,7 @@ focus_tree = {
 		id = HUN_air_exercizes
 		icon = GFX_focus_generic_air_defense
 		x = 65
-		y = 5
+		y = 6
 
 		cost = 7
 
@@ -4118,7 +4082,7 @@ focus_tree = {
 		id = HUN_heavy_fighters
 		icon = GFX_goal_generic_air_fighter
 		x = 61
-		y = 5
+		y = 6
 
 		cost = 7
 
@@ -4144,7 +4108,7 @@ focus_tree = {
 		id = HUN_light_fighters
 		icon = GFX_goal_generic_air_fighter2
 		x = 63
-		y = 5
+		y = 6
 
 		cost = 7
 
@@ -4170,7 +4134,7 @@ focus_tree = {
 		id = HUN_cas_bombers
 		icon = GFX_goal_generic_CAS
 		x = 65
-		y = 5
+		y = 6
 
 		cost = 7
 
@@ -4196,7 +4160,7 @@ focus_tree = {
 		id = HUN_tactical_bombers
 		icon = GFX_goal_generic_air_bomber
 		x = 67
-		y = 5
+		y = 6
 
 		cost = 7
 
@@ -4222,7 +4186,7 @@ focus_tree = {
 		id = HUN_fund_runways
 		icon = GFX_goal_generic_radar
 		x = 64
-		y = 6
+		y = 7
 
 		cost = 7
 
@@ -4245,7 +4209,7 @@ focus_tree = {
 		id = HUN_fund_airplane_manufacturers
 		icon = GFX_goal_continuous_air_production
 		x = 62
-		y = 6
+		y = 7
 
 		cost = 7
 
@@ -4301,8 +4265,7 @@ focus_tree = {
 	focus = {
 		id = HUN_rocketry_effort
 		icon = GFX_focus_rocketry
-		x = 66
-		y = 6
+		x = 6676
 
 		cost = 7
 

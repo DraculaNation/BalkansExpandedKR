@@ -229,7 +229,7 @@ country_event = {
 }
 
 country_event = { ### Adding leaders to Hungary when it gains independence
-	id = hungaryhidden.1
+	id = kr.hungary.1000
 	
 	is_triggered_only = yes
 	fire_only_once = yes
@@ -762,7 +762,17 @@ country_event = { #Black Monday Strikes
 	desc = kr.hungary.17.d
 
 	trigger = {
-		AUS = { has_idea = AUS_black_monday }
+		AUS = { 
+			OR = {
+				has_idea = AUS_black_monday
+				has_idea = AUS_black_monday_cs-1
+				has_idea = AUS_black_monday_cs-2
+				has_idea = AUS_black_monday_cs-3
+				has_idea = AUS_black_monday_sdap-1
+				has_idea = AUS_black_monday_sdap-2
+				has_idea = AUS_black_monday_sdap-3
+			}
+		}
 	}
 
 	fire_only_once = yes

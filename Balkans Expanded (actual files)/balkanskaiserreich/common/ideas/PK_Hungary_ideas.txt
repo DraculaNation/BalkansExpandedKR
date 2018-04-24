@@ -106,8 +106,8 @@ ideas = {
 			modifier = {
 				political_power_gain = -0.05
 				stability_factor = -0.25
-				syndicalism_drift = 0.01
-				totalism_drift = 0.01
+				syndicalist_drift = 0.01
+				totalist_drift = 0.01
 			}
 		}
 		HUN_civil_unrest2_idea = {
@@ -281,7 +281,7 @@ ideas = {
 			picture = HUN_hungarian_monarchy_habsburg
 			modifier = {
 				army_core_attack_factor = 0.05
-				army_core_defense_factor = 0.05
+				army_core_defence_factor = 0.05
 				political_power_gain = 0.3
 				autonomy_gain = -0.1
 			}
@@ -422,8 +422,8 @@ ideas = {
 		HUN_bulwark_of_socialism_idea = {
 			picture = NOR_uob_support_idea
 			modifier = {
-				syndicalism_drift = 0.02
-				totalism_drift = 0.02
+				syndicalist_drift = 0.02
+				totalist_drift = 0.02
 			}
 		}
 		
@@ -445,7 +445,7 @@ ideas = {
 		HUN_workers_pushed_idea = {
 			picture = backward_industry
 			modifier = {
-				syndicalism_drift = 0.01
+				syndicalist_drift = 0.01
 				industrial_capacity_factory = 0.15
 			}
 		}
@@ -469,13 +469,6 @@ ideas = {
 			modifier = {
 				experience_gain_army_factor = -0.05
 				training_time_factor = 0.15
-			}
-		}
-		
-		HUN_military_schools_idea = {
-			picture = OTT_compromise_idea
-			modifier = {
-				research_bonus = { land_doctrine = 0.08 }
 			}
 		}
 		
