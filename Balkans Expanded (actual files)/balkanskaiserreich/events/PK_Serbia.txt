@@ -3141,7 +3141,7 @@ country_event = { # Welcome to Balkans Upgraded
 				name = "Tupac Shakur"
 				picture = "Tupac.tga"
 				expire = "1965.1.1"
-				ideology = social_liberal
+				ideology = social_liberal_subtype
 				traits = { }
 			}
 			add_popularity = { ideology = social_liberal popularity = 1 }
@@ -3157,7 +3157,7 @@ country_event = { # Welcome to Balkans Upgraded
 				name = "God"
 				picture = "Morgan_Freeman.tga"
 				expire = "1965.1.1"
-				ideology = social_liberal
+				ideology = social_liberal_subtype
 				traits = { }
 			}
 			add_popularity = { ideology = social_liberal popularity = 1 }

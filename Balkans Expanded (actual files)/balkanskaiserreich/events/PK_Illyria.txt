@@ -818,12 +818,12 @@ country_event = { #Hungary - Illyria caves in
 		name = illyria.29.a
 		add_timed_idea = { idea = ILL_hungary_reparations2_idea days = 730}
 		add_state_core = 794
-		any_state = {
+		every_state = {
 			limit = {
 				is_owned_by = ILL
 				is_claimed_by = HUN
 			}
-			remove_state_claim = PREV
+			remove_claim_by = HUN
 		}
 	}
 }
@@ -3484,7 +3484,7 @@ country_event = { # Balkan Federation Flag Referendum
 	id = illyria.111
 	title = illyria.111.t
 	desc = illyria.111.d
-	
+	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = {
@@ -3511,7 +3511,7 @@ country_event = { # Illyria in Belgrade Pact?
 	id = illyria.112
 	title = illyria.112.t
 	desc = illyria.112.d
-	
+	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = {
@@ -3532,7 +3532,7 @@ country_event = { # Illyria in Mitteleuropa?
 	id = illyria.113
 	title = illyria.113.t
 	desc = illyria.113.d
-	
+	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = {
@@ -3553,7 +3553,7 @@ country_event = { # Illyria with Austria?
 	id = illyria.114
 	title = illyria.114.t
 	desc = illyria.114.d
-	
+	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = {
@@ -3574,7 +3574,7 @@ country_event = { # Illyria in Med Block
 	id = illyria.115
 	title = illyria.115.t
 	desc = illyria.115.d
-	
+	fire_only_once = yes
 	is_triggered_only = yes
 	
 	option = {
@@ -3600,6 +3600,7 @@ country_event = { # Sarkotic/Dragicevic's demotion
 		NOT = { is_subject_of = AUS }
 		NOT = { has_country_flag = illyria_sarkotic_dead }
 	}
+	fire_only_once = yes
 	
 	option = {
 		name = illyria.116.a # Welp
@@ -3799,7 +3800,6 @@ country_event = { # France: peace deal?
 	mean_time_to_happen = {
 		days = 1
 	}
-	
 	option = {
 		name = illyria.120.b #Peace deal
 		ai_chance = { factor = 13 }
