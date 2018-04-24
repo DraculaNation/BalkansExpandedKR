@@ -50,7 +50,7 @@ ideas = {
 				political_power_gain = -0.5
 			}
 		}
-		HUN_pk_financed_state_idea = {
+		HUN_financed_state_idea = {
 			picture = IRE_debt_vlow
 			allowed = {
 				always = no
@@ -60,7 +60,7 @@ ideas = {
 					consumer_goods_factor = -0.05
 			}
 		}
-		HUN_pk_civil_war_aftermath1_idea = { #Add negative war readiness
+		HUN_civil_war_aftermath1_idea = { #Add negative war readiness
 			picture = ENG_the_war_to_end_all_wars
 			allowed = {
 				always = no
@@ -73,7 +73,7 @@ ideas = {
 					army_morale_factor = -0.1
 			}
 		}
-		HUN_pk_civil_war_aftermath2_idea = {
+		HUN_civil_war_aftermath2_idea = {
 			picture = ENG_the_war_to_end_all_wars
 			allowed = {
 				always = no
@@ -86,7 +86,7 @@ ideas = {
 					army_morale_factor = -0.05
 			}
 		}
-		HUN_pk_civil_war_repair_idea = {
+		HUN_civil_war_repair_idea = {
 			picture = IRE_medium_industry
 			allowed = {
 				always = no
@@ -97,7 +97,7 @@ ideas = {
 				industry_repair_factor = 0.5
 			}
 		}
-		HUN_pk_civil_unrest1_idea = {
+		HUN_civil_unrest1_idea = {
 			picture = FRA_scw_intervention_republicans_focus
 			allowed = {
 				always = no
@@ -110,7 +110,7 @@ ideas = {
 				totalism_drift = 0.01
 			}
 		}
-		HUN_pk_civil_unrest2_idea = {
+		HUN_civil_unrest2_idea = {
 			picture = FRA_scw_intervention_republicans_focus
 			allowed = {
 				always = no
@@ -121,27 +121,27 @@ ideas = {
 				stability_factor = -0.1
 			}
 		}
-		HUN_pk_patriotic_military_idea = {
+		HUN_patriotic_military_idea = {
 			picture = generic_manpower_bonus
 			modifier = {
 				army_morale_factor = 0.1
 			}
 		}
-		HUN_pk_god_wills_it_idea = {
+		HUN_god_wills_it_idea = {
 			picture = IRE_catholic
 			modifier = {
 				army_core_attack_factor = 0.05
 				army_core_attack_factor = 0.05
 			}
 		}
-		HUN_pk_cultural_warfare_idea = {
+		HUN_cultural_warfare_idea = {
 			picture = FRA_scw_intervention_nationalists_focus
 			modifier = {
 				conscription = 0.01
 				stability_factor = 0.05
 			}
 		}
-		HUN_pk_encouraged_militias_idea = {
+		HUN_encouraged_militias_idea = {
 			picture = generic_manpower_bonus
 			modifier = {
 				conscription = 0.01
@@ -150,7 +150,7 @@ ideas = {
 		}
 		### National Minorities Dynamic ###
 		
-		HUN_pk_slovak_minority_idea = {
+		HUN_slovak_minority_idea = {
 			picture = totalist_charta
 			allowed = {
 				always = no
@@ -161,7 +161,7 @@ ideas = {
 				stability_factor = -0.05
 			}
 		}
-		HUN_pk_transylvanian_minority_idea = {
+		HUN_transylvanian_minority_idea = {
 			picture = totalist_charta
 			allowed = {
 				always = no
@@ -172,7 +172,7 @@ ideas = {
 				stability_factor = -0.05
 			}
 		}
-		HUN_pk_serbian_minority_idea = {
+		HUN_serbian_minority_idea = {
 			picture = totalist_charta
 			allowed = {
 				always = no
@@ -183,7 +183,7 @@ ideas = {
 				stability_factor = -0.025
 			}
 		}
-		HUN_pk_slovak_minority2_idea = {
+		HUN_slovak_minority2_idea = {
 			picture = totalist_charta
 			allowed = {
 				always = no
@@ -194,7 +194,7 @@ ideas = {
 				stability_factor = -0.1
 			}
 		}
-		HUN_pk_transylvanian_minority2_idea = {
+		HUN_transylvanian_minority2_idea = {
 			picture = totalist_charta
 			allowed = {
 				always = no
@@ -205,7 +205,7 @@ ideas = {
 				stability_factor = -0.15
 			}
 		}
-		HUN_pk_serbian_minority2_idea = {
+		HUN_serbian_minority2_idea = {
 			picture = totalist_charta
 			allowed = {
 				always = no
@@ -219,7 +219,7 @@ ideas = {
 		
 		### Black Monday ###
 		
-		HUN_pk_black_monday_idea = {
+		HUN_black_monday_idea = {
 			picture = great_depression
 			modifier = {
 				consumer_goods_factor = 0.3
@@ -231,7 +231,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_black_monday2_idea = {
+		HUN_black_monday2_idea = {
 			picture = great_depression
 			modifier = {
 				consumer_goods_factor = 0.2
@@ -243,7 +243,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_black_monday3_idea = {
+		HUN_black_monday3_idea = {
 			picture = great_depression
 			modifier = {
 				consumer_goods_factor = 0.1
@@ -254,7 +254,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_black_monday4_idea = {
+		HUN_black_monday4_idea = {
 			picture = great_depression
 			modifier = {
 				production_speed_buildings_factor = -0.2
@@ -262,7 +262,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_karoly_v_idea = {
+		HUN_karoly_v_idea = {
 			picture = HUN_charles_v
 			modifier = {
 				stability_factor = 0.05
@@ -270,14 +270,14 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_age_of_industrialization_idea = {
+		HUN_age_of_industrialization_idea = {
 			picture = IRE_medium_industry
 			modifier = {
 				production_speed_infrastructure_factor = 0.25
 			}
 		}
 		
-		HUN_pk_dual_monarchy_embraced_idea = {
+		HUN_dual_monarchy_embraced_idea = {
 			picture = HUN_hungarian_monarchy_habsburg
 			modifier = {
 				army_core_attack_factor = 0.05
@@ -287,7 +287,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_economy_focus_idea = {
+		HUN_economy_focus_idea = {
 			picture = economic_control_icon
 			modifier = {
 				consumer_goods_factor = -0.05
@@ -295,7 +295,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_new_dawn_for_hungary_idea = {
+		HUN_new_dawn_for_hungary_idea = {
 			picture = generic_morale_bonus
 			modifier = {
 				local_resources_factor = 0.1
@@ -304,17 +304,17 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_new_balkan_hegemon_idea = {
+		HUN_new_balkan_hegemon_idea = {
 			picture = ROM_balkans_dominance
 			modifier = {
-				#increased war support
+				war_support_factor = 0.05
 				justify_war_goal_time = -0.25
 				planning_speed = 0.15
 				political_power_factor = 0.1
 			}
 		}
 		
-		HUN_pk_conversion_backlash_idea = {
+		HUN_conversion_backlash_idea = {
 			picture = GFX_idea_guns_shield
 			modifier = {
 				stability_factor = -0.1
@@ -322,7 +322,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_theocratic_state_10_idea = {
+		HUN_theocratic_state_10_idea = {
 			picture = IRE_catholic
 			modifier = {
 				conscription_factor = 0.15	
@@ -330,14 +330,14 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_theocratic_state_01_idea = {
+		HUN_theocratic_state_01_idea = {
 			picture = IRE_catholic
 			modifier = {
 				political_power_gain = 0.5
 			}
 		}
 		
-		HUN_pk_theocratic_state_11_idea = {
+		HUN_theocratic_state_11_idea = {
 			picture = IRE_catholic
 			modifier = {
 				conscription_factor = 0.15	
@@ -346,7 +346,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_theocratic_state_2_idea = {
+		HUN_theocratic_state_2_idea = {
 			picture = IRE_catholic
 			modifier = {
 				conscription_factor = 0.15	
@@ -357,7 +357,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_aristocracy_lowered_idea = {
+		HUN_aristocracy_lowered_idea = {
 			picture = generic_coins
 			modifier = {
 				political_power_gain = 0.3
@@ -365,7 +365,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_aristocracy_cooperation_idea = {
+		HUN_aristocracy_cooperation_idea = {
 			picture = generic_coins
 			modifier = {
 				political_power_gain = -0.2
@@ -373,21 +373,21 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_law_reforms_idea = {
+		HUN_law_reforms_idea = {
 			picture = HUN_treaty_of_triannon
 			modifier = {
 				political_power_cost = -0.25
 			}
 		}
 		
-		HUN_pk_trade_unions_idea = {
+		HUN_trade_unions_idea = {
 			picture = UK_economy_syn_idea
 			modifier = {
 				industrial_capacity_factory = 0.1
 			}
 		}
 		
-		HUN_pk_trade_unions2_idea = {
+		HUN_trade_unions2_idea = {
 			picture = UK_economy_syn_idea
 			modifier = {
 				industrial_capacity_factory = 0.1
@@ -395,7 +395,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_trade_unions3_idea = {
+		HUN_trade_unions3_idea = {
 			picture = UK_economy_syn_idea
 			modifier = {
 				industrial_capacity_factory = 0.1
@@ -404,7 +404,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_peasants_favored_idea = {
+		HUN_peasants_favored_idea = {
 			picture = generic_agrarian_society
 			modifier = {
 				production_speed_infrastructure_factor = 0.1
@@ -412,14 +412,14 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_planned_economy_idea = {
+		HUN_planned_economy_idea = {
 			picture = state_economy
 			modifier = {
 				consumer_goods_factor = -0.1
 			}
 		}
 
-		HUN_pk_bulwark_of_socialism_idea = {
+		HUN_bulwark_of_socialism_idea = {
 			picture = NOR_uob_support_idea
 			modifier = {
 				syndicalism_drift = 0.02
@@ -427,14 +427,14 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_minority_autonomy_idea = {
+		HUN_minority_autonomy_idea = {
 			picture = HUN_treaty_of_triannon
 			modifier = {
 				political_power_gain = -0.1
 			}
 		}
 		
-		HUN_pk_minority_autonomy2_idea = {
+		HUN_minority_autonomy2_idea = {
 			picture = HUN_treaty_of_triannon
 			modifier = {
 				political_power_gain = -0.2
@@ -442,7 +442,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_workers_pushed_idea = {
+		HUN_workers_pushed_idea = {
 			picture = backward_industry
 			modifier = {
 				syndicalism_drift = 0.01
@@ -450,21 +450,21 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_minority_recruitment_idea = {
+		HUN_minority_recruitment_idea = {
 			picture = generic_manpower_bonus
 			modifier = {
 				conscription = 0.05
 			}
 		}
 
-		HUN_pk_patriotic_cause_idea = {
+		HUN_patriotic_cause_idea = {
 			picture = generic_morale_bonus
 			modifier = {
 				army_morale_factor = 0.1
 			}
 		}
 
-		HUN_pk_undergoing_military_reforms_idea = {
+		HUN_undergoing_military_reforms_idea = {
 			picture = LBR_broken_center
 			modifier = {
 				experience_gain_army_factor = -0.05
@@ -472,14 +472,14 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_military_schools_idea = {
+		HUN_military_schools_idea = {
 			picture = OTT_compromise_idea
 			modifier = {
 				research_bonus = { land_doctrine = 0.08 }
 			}
 		}
 		
-		HUN_pk_foreign_instructors_idea = {
+		HUN_foreign_instructors_idea = {
 			picture = MAF_Black_hat
 			modifier = {
 				planning_speed = 0.1
@@ -487,7 +487,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_elite_army_idea = {
+		HUN_elite_army_idea = {
 			picture = generic_intel_bonus
 			modifier = {
 				training_time_factor = 0.05
@@ -496,7 +496,7 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_qualified_generals_idea = {
+		HUN_qualified_generals_idea = {
 			picture = belgian_general_staff
 			modifier = {
 				military_leader_cost_factor = 2.00
@@ -504,28 +504,28 @@ ideas = {
 			}
 		}
 		
-		HUN_pk_increased_peasant_conscription_idea = {
+		HUN_increased_peasant_conscription_idea = {
 			picture = generic_manpower_bonus
 			modifier = {
 				conscription_factor = 0.05
 			}
 		}
 		
-		HUN_pk_monitored_production_idea = {
+		HUN_monitored_production_idea = {
 			picture = backward_industry
 			modifier = {
 				production_factory_efficiency_gain_factor = 0.05
 			}
 		}
 		
-		HUN_pk_fund_docks_idea = {
+		HUN_fund_docks_idea = {
 			picture = generic_navy_bonus
 			modifier = {
 				production_speed_naval_base_factor = 0.25
 			}
 		}
 		
-		HUN_pk_fund_runways_idea = {
+		HUN_fund_runways_idea = {
 			picture = GFX_idea_generic_air_bonus
 			modifier = {
 				production_speed_air_base_factor = 0.20

@@ -30,18 +30,18 @@ country_event = {
 	
 	desc = {
 		text = kr.hungary.2.d
-		trigger = { NOT = { has_completed_focus = HUN_pk_enact_land_reforms } }
+		trigger = { NOT = { has_completed_focus = HUN_enact_land_reforms } }
 	}
 	desc = {
 		text = kr.hungary.2.dr
-		trigger = { has_completed_focus = HUN_pk_enact_land_reforms }
+		trigger = { has_completed_focus = HUN_enact_land_reforms }
 	}
 	
 	fire_only_once = yes
 
 	trigger = {
 		tag = HUN
-		is_puppet = no
+		is_subject = no
 	}
 
 	option = { ### Istvan Bethlen
@@ -50,7 +50,7 @@ country_event = {
 		ai_chance = { factor = 50 }
 		
 		trigger = {
-			NOT = { has_completed_focus = HUN_pk_enact_land_reforms }
+			NOT = { has_completed_focus = HUN_enact_land_reforms }
 		}
 		
 		hidden_effect = {
@@ -90,7 +90,7 @@ country_event = {
 
 		ai_chance = { factor = 30 }
 		
-		trigger = { has_completed_focus = HUN_pk_enact_land_reforms }
+		trigger = { has_completed_focus = HUN_enact_land_reforms }
 		
 		hidden_effect = {
 			retire_country_leader = yes
@@ -126,7 +126,7 @@ country_event = {
 
 		ai_chance = { factor = 30 }
 		
-		trigger = { NOT = { has_completed_focus = HUN_pk_enact_land_reforms } }
+		trigger = { NOT = { has_completed_focus = HUN_enact_land_reforms } }
 		
 		hidden_effect = {
 			retire_country_leader = yes
@@ -162,7 +162,7 @@ country_event = {
 
 		ai_chance = { factor = 50 }
 		
-		trigger = { has_completed_focus = HUN_pk_enact_land_reforms }
+		trigger = { has_completed_focus = HUN_enact_land_reforms }
 		
 		hidden_effect = {
 			retire_country_leader = yes
@@ -338,8 +338,8 @@ country_event = { #End of the war
 	option = {
 		name = kr.hungary.4.a
 		add_political_power = 150
-		add_ideas = HUN_pk_civil_war_aftermath1_idea
-		add_ideas = HUN_pk_civil_unrest1_idea
+		add_ideas = HUN_civil_war_aftermath1_idea
+		add_ideas = HUN_civil_unrest1_idea
 	}
 }
 
@@ -457,7 +457,7 @@ country_event = { #Demonstrations following the Ausgleich
 				owns_state = 71 #Slovakia 2
 				}
 			}
-			add_ideas = HUN_pk_slovak_minority_idea
+			add_ideas = HUN_slovak_minority_idea
 		}
 		if = {
 			limit = {
@@ -473,7 +473,7 @@ country_event = { #Demonstrations following the Ausgleich
 				add_state_claim = 789 #Szekelyland or smth
 				add_state_core = 84 #Transilvania
 			}
-			add_ideas = HUN_pk_transylvanian_minority_idea
+			add_ideas = HUN_transylvanian_minority_idea
 		}
 		if = {
 			limit = { 
@@ -482,7 +482,7 @@ country_event = { #Demonstrations following the Ausgleich
 				owns_state = 875 #Western Banat
 				}
 			}
-			add_ideas = HUN_pk_serbian_minority_idea
+			add_ideas = HUN_serbian_minority_idea
 		}
 	}
 }
@@ -494,8 +494,8 @@ country_event = { #Slovakian Protests
 
 	trigger = {
 		OR = {
-			has_idea = HUN_pk_slovak_minority_idea
-			has_idea = HUN_pk_slovak_minority2_idea
+			has_idea = HUN_slovak_minority_idea
+			has_idea = HUN_slovak_minority2_idea
 		}
 		has_war = no
 		any_owned_state = {
@@ -507,7 +507,7 @@ country_event = { #Slovakian Protests
 		days = 200
 		modifier = { 
 			factor = 0.6
-			has_idea = HUN_pk_slovak_minority2_idea
+			has_idea = HUN_slovak_minority2_idea
 		}
 	}
 
@@ -515,7 +515,7 @@ country_event = { #Slovakian Protests
 		name = kr.hungary.10.a
 		if = {
 			limit = {
-				has_idea = HUN_pk_slovak_minority2_idea
+				has_idea = HUN_slovak_minority2_idea
 			}
 			add_political_power = -50
 			else = { add_political_power = -25 }
@@ -526,7 +526,7 @@ country_event = { #Slovakian Protests
 		name = kr.hungary.10.b
 		if = {
 			limit = {
-				has_idea = HUN_pk_slovak_minority2_idea
+				has_idea = HUN_slovak_minority2_idea
 			}
 			random_list = {
 				60 = { custom_effect_tooltip = hungary_protests }
@@ -549,8 +549,8 @@ country_event = { #Transylvanian Protests
 
 	trigger = {
 		OR = {
-			has_idea = HUN_pk_transylvanian_minority_idea
-			has_idea = HUN_pk_transylvanian_minority2_idea
+			has_idea = HUN_transylvanian_minority_idea
+			has_idea = HUN_transylvanian_minority2_idea
 		}
 		has_war = no
 		any_owned_state = {
@@ -562,7 +562,7 @@ country_event = { #Transylvanian Protests
 		days = 175
 		modifier = { 
 			factor = 0.5
-			has_idea = HUN_pk_transylvanian_minority2_idea
+			has_idea = HUN_transylvanian_minority2_idea
 		}
 	}
 
@@ -570,7 +570,7 @@ country_event = { #Transylvanian Protests
 		name = kr.hungary.11.a
 		if = {
 			limit = {
-				has_idea = HUN_pk_transylvanian_minority2_idea
+				has_idea = HUN_transylvanian_minority2_idea
 			}
 			add_political_power = -60
 			else = { add_political_power = -30 }
@@ -581,7 +581,7 @@ country_event = { #Transylvanian Protests
 		name = kr.hungary.11.b
 		if = {
 			limit = {
-				has_idea = HUN_pk_transylvanian_minority2_idea
+				has_idea = HUN_transylvanian_minority2_idea
 			}
 			random_list = {
 				60 = { custom_effect_tooltip = hungary_protests }
@@ -604,8 +604,8 @@ country_event = { #Serbian Protests
 
 	trigger = {
 		OR = {
-			has_idea = HUN_pk_serbian_minority_idea
-			has_idea = HUN_pk_serbian_minority2_idea
+			has_idea = HUN_serbian_minority_idea
+			has_idea = HUN_serbian_minority2_idea
 		}
 		has_war = no
 		OR = {
@@ -618,7 +618,7 @@ country_event = { #Serbian Protests
 		days = 300
 		modifier = { 
 			factor = 0.5
-			has_idea = HUN_pk_serbian_minority2_idea
+			has_idea = HUN_serbian_minority2_idea
 		}
 	}
 
@@ -626,7 +626,7 @@ country_event = { #Serbian Protests
 		name = kr.hungary.12.a
 		if = {
 			limit = {
-				has_idea = HUN_pk_transylvanian_minority2_idea
+				has_idea = HUN_transylvanian_minority2_idea
 			}
 			add_political_power = -40
 			else = { add_political_power = -20 }
@@ -637,7 +637,7 @@ country_event = { #Serbian Protests
 		name = kr.hungary.12.b
 		if = {
 			limit = {
-				has_idea = HUN_pk_transylvanian_minority2_idea
+				has_idea = HUN_transylvanian_minority2_idea
 			}
 			random_list = {
 				60 = { custom_effect_tooltip = hungary_protests }
@@ -659,9 +659,9 @@ country_event = { #Black Monday Stabilization 1
 	desc = kr.hungary.13.d
 
 	trigger = {
-		has_completed_focus = HUN_pk_subsidize_farmers
-		has_completed_focus = HUN_pk_urbanization
-		has_idea = HUN_pk_black_monday_idea
+		has_completed_focus = HUN_subsidize_farmers
+		has_completed_focus = HUN_urbanization
+		has_idea = HUN_black_monday_idea
 	}
 
 	fire_only_once = yes
@@ -673,8 +673,8 @@ country_event = { #Black Monday Stabilization 1
 	option = { #Good
 		name = kr.hungary.13.a
 		swap_ideas = { 
-			remove_idea = HUN_pk_black_monday_idea 
-			add_idea = HUN_pk_black_monday2_idea
+			remove_idea = HUN_black_monday_idea 
+			add_idea = HUN_black_monday2_idea
 		}
 	}
 }
@@ -685,9 +685,9 @@ country_event = { #Black Monday Stabilization 2
 	desc = kr.hungary.14.d
 
 	trigger = {
-		has_completed_focus = HUN_pk_autarky
-		has_completed_focus = HUN_pk_synthetic_oil
-		has_idea = HUN_pk_black_monday2_idea
+		has_completed_focus = HUN_autarky
+		has_completed_focus = HUN_synthetic_oil
+		has_idea = HUN_black_monday2_idea
 	}
 
 	fire_only_once = yes
@@ -699,8 +699,8 @@ country_event = { #Black Monday Stabilization 2
 	option = { #Good
 		name = kr.hungary.14.a
 		swap_ideas = { 
-			remove_idea = HUN_pk_black_monday2_idea 
-			add_idea = HUN_pk_black_monday3_idea
+			remove_idea = HUN_black_monday2_idea 
+			add_idea = HUN_black_monday3_idea
 		}
 	}
 }
@@ -712,10 +712,10 @@ country_event = { #Black Monday Stabilization 3
 
 	trigger = {
 		OR = {
-			has_completed_focus = HUN_pk_develop_agriculture
-			has_completed_focus = HUN_pk_hungarian_electronics
+			has_completed_focus = HUN_develop_agriculture
+			has_completed_focus = HUN_hungarian_electronics
 		}
-		has_idea = HUN_pk_black_monday3_idea
+		has_idea = HUN_black_monday3_idea
 	}
 
 	fire_only_once = yes
@@ -727,8 +727,8 @@ country_event = { #Black Monday Stabilization 3
 	option = { #Good
 		name = kr.hungary.15.a
 		swap_ideas = { 
-			remove_idea = HUN_pk_black_monday3_idea 
-			add_idea = HUN_pk_black_monday4_idea
+			remove_idea = HUN_black_monday3_idea 
+			add_idea = HUN_black_monday4_idea
 		}
 	}
 }
@@ -739,9 +739,9 @@ country_event = { #Black Monday Stabilization 4
 	desc = kr.hungary.16.d
 
 	trigger = {
-		has_completed_focus = HUN_pk_embrace_old_ways
-		has_completed_focus = HUN_pk_end_of_the_black_monday
-		has_idea = HUN_pk_black_monday4_idea
+		has_completed_focus = HUN_embrace_old_ways
+		has_completed_focus = HUN_end_of_the_black_monday
+		has_idea = HUN_black_monday4_idea
 	}
 
 	fire_only_once = yes
@@ -752,7 +752,7 @@ country_event = { #Black Monday Stabilization 4
 
 	option = { #Good
 		name = kr.hungary.16.a
-		remove_ideas = HUN_pk_black_monday4_idea
+		remove_ideas = HUN_black_monday4_idea
 	}
 }
 
@@ -773,7 +773,7 @@ country_event = { #Black Monday Strikes
 
 	option = { #Crap
 		name = kr.hungary.17.a
-		add_ideas = HUN_pk_black_monday_idea
+		add_ideas = HUN_black_monday_idea
 	}
 }
 
@@ -822,7 +822,7 @@ country_event = { #Crowning a king
 		
 		ai_chance = { factor = 40 }
 		
-		add_ideas = HUN_pk_karoly_v_idea
+		add_ideas = HUN_karoly_v_idea
 	}
 	
 	option = { #Declare a republic
@@ -909,7 +909,7 @@ country_event = { #Fate of what little remains of the Aristocracy
 	option = { #Compromise with them
 		name = kr.hungary.19.a
 		ai_chance = { factor = 33 }
-		add_ideas = HUN_pk_aristocracy_cooperation_idea
+		add_ideas = HUN_aristocracy_cooperation_idea
 		
 	}
 	
@@ -922,7 +922,7 @@ country_event = { #Fate of what little remains of the Aristocracy
 	option = { #Lower influence
 		name = kr.hungary.19.c
 		ai_chance = { factor = 34 }
-		add_ideas = HUN_pk_aristocracy_lowered_idea
+		add_ideas = HUN_aristocracy_lowered_idea
 	}
 }
 
@@ -1007,7 +1007,7 @@ country_event = { #Serbian liberation
 		SER = {
 			exists = no
 		}
-		has_completed_focus = HUN_pk_rule_the_serbs
+		has_completed_focus = HUN_rule_the_serbs
 		NOT = {
 			has_country_flag = SER_CONQ_second_time
 		}
@@ -1037,7 +1037,7 @@ country_event = { #Serbian liberation
 			}
 		}
 		if = {
-			limit = { has_completed_focus = HUN_pk_embrace_pluralism }
+			limit = { has_completed_focus = HUN_embrace_pluralism }
 			SER = { transfer_state = 875 }
 		}
 		set_autonomy = {
@@ -1053,7 +1053,7 @@ country_event = { #Serbian liberation
 			factor = 49
 		}
 
-		trigger = { has_completed_focus = HUN_pk_embrace_pluralism }
+		trigger = { has_completed_focus = HUN_embrace_pluralism }
 		
 		every_state = {
 			limit = {
@@ -1091,7 +1091,7 @@ country_event = { #Serbian liberation
 		}
 
 		trigger = { 
-			has_completed_focus = HUN_pk_continue_magyarization
+			has_completed_focus = HUN_continue_magyarization
 			owns_state = 794 # no border gore allowed	
 		}
 		
@@ -1155,7 +1155,7 @@ country_event = { #Fate of Illyria
 		CRO = {
 			exists = no
 		}
-		has_completed_focus = HUN_pk_conquer_illyria
+		has_completed_focus = HUN_conquer_illyria
 		NOT = {
 			has_war_with = SER
 			has_war_with = YUG
@@ -1248,7 +1248,7 @@ country_event = { #Fate of Illyria
 			factor = 20
 		}
 
-		trigger = { has_completed_focus = HUN_pk_embrace_pluralism }
+		trigger = { has_completed_focus = HUN_embrace_pluralism }
 		
 		every_state = {
 			limit = {
@@ -1272,7 +1272,7 @@ country_event = { #Fate of Illyria
 			factor = 20
 		}
 
-		trigger = { has_completed_focus = HUN_pk_embrace_pluralism }
+		trigger = { has_completed_focus = HUN_embrace_pluralism }
 		
 		every_state = {
 			limit = {

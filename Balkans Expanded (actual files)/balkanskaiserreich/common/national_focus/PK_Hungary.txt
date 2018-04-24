@@ -18,7 +18,7 @@ focus_tree = {
 	### Bethlen/Aristocracy path ###
 	
 	focus = {
-		id = HUN_pk_a_united_hungary
+		id = HUN_a_united_hungary
 		icon = GFX_goal_ideology_social_conservative
 		x = 2
 		y = 0
@@ -40,7 +40,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_compromises
+		id = HUN_compromises
 		icon = GFX_goal_generic_intelligence_exchange
 		x = 1
 		y = 1
@@ -50,7 +50,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_a_united_hungary }
+		prerequisite = { focus = HUN_a_united_hungary }
 		
 		ai_will_do = { factor = 100 }
 
@@ -61,7 +61,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_from_own_treasury
+		id = HUN_from_own_treasury
 		icon = GFX_goal_gold_reserve
 		x = 3
 		y = 1
@@ -71,18 +71,18 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_a_united_hungary }
+		prerequisite = { focus = HUN_a_united_hungary }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 70
-			add_timed_idea = { idea = HUN_pk_financed_state_idea days = 365 }
+			add_timed_idea = { idea = HUN_financed_state_idea days = 365 }
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_outlaw_populism
+		id = HUN_outlaw_populism
 		icon = GFX_focus_generic_anti_fascist_diplomacy
 		x = 1
 		y = 2
@@ -92,8 +92,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_compromises }
-		prerequisite = { focus = HUN_pk_from_own_treasury }
+		prerequisite = { focus = HUN_compromises }
+		prerequisite = { focus = HUN_from_own_treasury }
 		
 		ai_will_do = { factor = 10 }
 
@@ -103,7 +103,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_unite_the_parties
+		id = HUN_unite_the_parties
 		icon = GFX_focus_generic_anti_fascist_diplomacy
 		x = 3
 		y = 2
@@ -113,8 +113,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_compromises }
-		prerequisite = { focus = HUN_pk_from_own_treasury }
+		prerequisite = { focus = HUN_compromises }
+		prerequisite = { focus = HUN_from_own_treasury }
 		
 		ai_will_do = { factor = 10 }
 
@@ -126,7 +126,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_a_stable_country
+		id = HUN_a_stable_country
 		icon = GFX_goal_generic_neutrality_focus
 		x = 2
 		y = 3
@@ -138,14 +138,14 @@ focus_tree = {
 		}
 		
 		mutually_exclusive = { 
-		focus = HUN_pk_civil_dissent
-		focus = HUN_pk_the_might_of_hungary
-		focus = HUN_pk_embrace_catholicism
-		focus = HUN_pk_gaining_control
+		focus = HUN_civil_dissent
+		focus = HUN_the_might_of_hungary
+		focus = HUN_embrace_catholicism
+		focus = HUN_gaining_control
 		}
 		
-		prerequisite = { focus = HUN_pk_outlaw_populism }
-		prerequisite = { focus = HUN_pk_unite_the_parties }
+		prerequisite = { focus = HUN_outlaw_populism }
+		prerequisite = { focus = HUN_unite_the_parties }
 		
 		ai_will_do = { factor = 10 }
 
@@ -157,7 +157,7 @@ focus_tree = {
 	##Part 2##
 	
 	focus = {
-		id = HUN_pk_develop_trade
+		id = HUN_develop_trade
 		icon = GFX_goal_generic_trade
 		x = 0
 		y = 4
@@ -167,7 +167,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_a_stable_country }
+		prerequisite = { focus = HUN_a_stable_country }
 		
 		ai_will_do = { factor = 10 }
 
@@ -176,13 +176,13 @@ focus_tree = {
 			add_ideas = export_focus
 			add_political_power = 50
 			every_neighbor_country = {
-				add_opinion_modifier = { target = HUN modifier = HUN_pk_local_trade_relations }
+				add_opinion_modifier = { target = HUN modifier = HUN_local_trade_relations }
 			}
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_a_skillful_leader
+		id = HUN_a_skillful_leader
 		icon = GFX_goal_tripartite_pact
 		x = 2
 		y = 4
@@ -192,20 +192,20 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_a_stable_country }
+		prerequisite = { focus = HUN_a_stable_country }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			swap_ideas = { 
-				remove_idea = HUN_pk_civil_unrest1_idea 
-				add_idea = HUN_pk_civil_unrest2_idea
+				remove_idea = HUN_civil_unrest1_idea 
+				add_idea = HUN_civil_unrest2_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_government_jobs
+		id = HUN_government_jobs
 		icon = GFX_goal_generic_intelligence_exchange
 		x = 4
 		y = 4
@@ -215,7 +215,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_a_stable_country }
+		prerequisite = { focus = HUN_a_stable_country }
 		
 		ai_will_do = { factor = 10 }
 
@@ -254,7 +254,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_nation_of_culture
+		id = HUN_nation_of_culture
 		icon = GFX_goal_HOL_pillarization
 		x = 1
 		y = 5
@@ -264,19 +264,19 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_develop_trade }
-		prerequisite = { focus = HUN_pk_a_skillful_leader }
-		prerequisite = { focus = HUN_pk_government_jobs }
+		prerequisite = { focus = HUN_develop_trade }
+		prerequisite = { focus = HUN_a_skillful_leader }
+		prerequisite = { focus = HUN_government_jobs }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = HUN_pk_civil_unrest2_idea
+			remove_ideas = HUN_civil_unrest2_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_focus_on_economy
+		id = HUN_focus_on_economy
 		icon = GFX_goal_generic_construction
 		x = 3
 		y = 5
@@ -286,19 +286,19 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_develop_trade }
-		prerequisite = { focus = HUN_pk_a_skillful_leader }
-		prerequisite = { focus = HUN_pk_government_jobs }
+		prerequisite = { focus = HUN_develop_trade }
+		prerequisite = { focus = HUN_a_skillful_leader }
+		prerequisite = { focus = HUN_government_jobs }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_economy_focus_idea
+			add_ideas = HUN_economy_focus_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_new_dawn_for_hungary
+		id = HUN_new_dawn_for_hungary
 		icon = GFX_goal_coffee_boom
 		x = 2
 		y = 6
@@ -308,20 +308,20 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_nation_of_culture }
-		prerequisite = { focus = HUN_pk_focus_on_economy }
+		prerequisite = { focus = HUN_nation_of_culture }
+		prerequisite = { focus = HUN_focus_on_economy }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_new_dawn_for_hungary_idea
+			add_ideas = HUN_new_dawn_for_hungary_idea
 		}
 	}
 	
 	### Pal Pronay/Ferenc Szalasi path
 	
 	focus = {
-		id = HUN_pk_hungary_first
+		id = HUN_hungary_first
 		icon = GFX_goal_support_fascism
 		x = 8
 		y = 0
@@ -346,7 +346,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_reject_the_habsburgs
+		id = HUN_reject_the_habsburgs
 		icon = GFX_goal_tfv_sever_ties_with_uk
 		x = 7
 		y = 1
@@ -356,7 +356,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_hungary_first }
+		prerequisite = { focus = HUN_hungary_first }
 		
 		ai_will_do = { factor = 10 }
 
@@ -366,7 +366,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_patriotic_military
+		id = HUN_patriotic_military
 		icon = GFX_focus_generic_military_mission
 		x = 9
 		y = 1
@@ -376,7 +376,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_hungary_first }
+		prerequisite = { focus = HUN_hungary_first }
 		
 		ai_will_do = { factor = 10 }
 
@@ -386,7 +386,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_nationalist_zeal
+		id = HUN_nationalist_zeal
 		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
 		x = 7
 		y = 2
@@ -396,18 +396,18 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_reject_the_habsburgs }
-		prerequisite = { focus = HUN_pk_patriotic_military }
+		prerequisite = { focus = HUN_reject_the_habsburgs }
+		prerequisite = { focus = HUN_patriotic_military }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_timed_idea = { idea = HUN_pk_patriotic_military_idea days = 730 }
+			add_timed_idea = { idea = HUN_patriotic_military_idea days = 730 }
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_total_control
+		id = HUN_total_control
 		icon = GFX_goal_generic_political_pressure
 		x = 9
 		y = 2
@@ -417,8 +417,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_reject_the_habsburgs }
-		prerequisite = { focus = HUN_pk_patriotic_military }
+		prerequisite = { focus = HUN_reject_the_habsburgs }
+		prerequisite = { focus = HUN_patriotic_military }
 		
 		ai_will_do = { factor = 10 }
 
@@ -428,7 +428,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = HUN_pk_the_might_of_hungary
+		id = HUN_the_might_of_hungary
 		icon = GFX_goal_HUN_step_on_skull
 		x = 8
 		y = 3
@@ -440,14 +440,14 @@ focus_tree = {
 		}
 		
 		mutually_exclusive = { 
-		focus = HUN_pk_a_stable_country
-		focus = HUN_pk_civil_dissent
-		focus = HUN_pk_embrace_catholicism
-		focus = HUN_pk_gaining_control
+		focus = HUN_a_stable_country
+		focus = HUN_civil_dissent
+		focus = HUN_embrace_catholicism
+		focus = HUN_gaining_control
 		}
 		
-		prerequisite = { focus = HUN_pk_nationalist_zeal }
-		prerequisite = { focus = HUN_pk_total_control }
+		prerequisite = { focus = HUN_nationalist_zeal }
+		prerequisite = { focus = HUN_total_control }
 		
 		ai_will_do = { factor = 10 }
 
@@ -459,7 +459,7 @@ focus_tree = {
 	##Part 2##
 	
 	focus = {
-		id = HUN_pk_prioritize_our_army
+		id = HUN_prioritize_our_army
 		icon = GFX_goal_generic_axis_build_infantry
 		x = 6
 		y = 4
@@ -469,7 +469,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_the_might_of_hungary }
+		prerequisite = { focus = HUN_the_might_of_hungary }
 		
 		ai_will_do = { factor = 10 }
 
@@ -479,7 +479,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_root_out_the_revolution
+		id = HUN_root_out_the_revolution
 		icon = GFX_goal_HOL_ban_paramilitary_left
 		x = 8
 		y = 4
@@ -489,7 +489,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_the_might_of_hungary }
+		prerequisite = { focus = HUN_the_might_of_hungary }
 		
 		ai_will_do = { factor = 10 }
 
@@ -502,7 +502,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_hungary_for_the_hungarians
+		id = HUN_hungary_for_the_hungarians
 		icon = GFX_goal_step_on_skull
 		x = 10
 		y = 4
@@ -512,21 +512,21 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_the_might_of_hungary }
+		prerequisite = { focus = HUN_the_might_of_hungary }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_manpower = -10000
 			swap_ideas = { 
-				remove_idea = HUN_pk_civil_unrest1_idea 
-				add_idea = HUN_pk_civil_unrest2_idea
+				remove_idea = HUN_civil_unrest1_idea 
+				add_idea = HUN_civil_unrest2_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_one_party_state
+		id = HUN_one_party_state
 		icon = GFX_goal_ideology_national_populist
 		x = 7
 		y = 5
@@ -536,9 +536,9 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_prioritize_our_army }
-		prerequisite = { focus = HUN_pk_root_out_the_revolution }
-		prerequisite = { focus = HUN_pk_hungary_for_the_hungarians }
+		prerequisite = { focus = HUN_prioritize_our_army }
+		prerequisite = { focus = HUN_root_out_the_revolution }
+		prerequisite = { focus = HUN_hungary_for_the_hungarians }
 		
 		ai_will_do = { factor = 10 }
 
@@ -555,7 +555,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_dont_harm_the_fatherland
+		id = HUN_dont_harm_the_fatherland
 		icon = GFX_goal_anschluss
 		x = 9
 		y = 5
@@ -565,19 +565,19 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_prioritize_our_army }
-		prerequisite = { focus = HUN_pk_root_out_the_revolution }
-		prerequisite = { focus = HUN_pk_hungary_for_the_hungarians }
+		prerequisite = { focus = HUN_prioritize_our_army }
+		prerequisite = { focus = HUN_root_out_the_revolution }
+		prerequisite = { focus = HUN_hungary_for_the_hungarians }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = HUN_pk_civil_unrest2_idea
+			remove_ideas = HUN_civil_unrest2_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_new_balkan_hegemon
+		id = HUN_new_balkan_hegemon
 		icon = GFX_goal_generic_demand_territory
 		x = 8
 		y = 6
@@ -587,20 +587,20 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_one_party_state }
-		prerequisite = { focus = HUN_pk_dont_harm_the_fatherland }
+		prerequisite = { focus = HUN_one_party_state }
+		prerequisite = { focus = HUN_dont_harm_the_fatherland }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_new_balkan_hegemon_idea
+			add_ideas = HUN_new_balkan_hegemon_idea
 		}
 	}
 	
 	### Catholic Route ###
 	
 	focus = {
-		id = HUN_pk_a_catholic_hungary
+		id = HUN_a_catholic_hungary
 		icon = GFX_goal_KTG_Colonial_Trinity2
 		x = 21
 		y = 0
@@ -622,7 +622,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_god_wills_it
+		id = HUN_god_wills_it
 		icon = GFX_focus_generic_support_the_left_right
 		x = 20
 		y = 1
@@ -632,17 +632,17 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_a_catholic_hungary }
+		prerequisite = { focus = HUN_a_catholic_hungary }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_god_wills_it_idea
+			add_ideas = HUN_god_wills_it_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_help_from_the_pope
+		id = HUN_help_from_the_pope
 		icon = GFX_goal_italianfed
 		x = 22
 		y = 1
@@ -662,7 +662,7 @@ focus_tree = {
 		}
 		}
 		
-		prerequisite = { focus = HUN_pk_a_catholic_hungary }
+		prerequisite = { focus = HUN_a_catholic_hungary }
 		
 		ai_will_do = { factor = 10 }
 
@@ -672,7 +672,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_our_religion_our_heritage
+		id = HUN_our_religion_our_heritage
 		icon = GFX_goal_generic_demand_territory
 		x = 20
 		y = 2
@@ -682,18 +682,18 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_god_wills_it }
-		prerequisite = { focus = HUN_pk_help_from_the_pope }
+		prerequisite = { focus = HUN_god_wills_it }
+		prerequisite = { focus = HUN_help_from_the_pope }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_cultural_warfare_idea
+			add_ideas = HUN_cultural_warfare_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_empower_the_priests
+		id = HUN_empower_the_priests
 		icon = GFX_goal_authoritarian
 		x = 22
 		y = 2
@@ -703,8 +703,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_god_wills_it }
-		prerequisite = { focus = HUN_pk_help_from_the_pope }
+		prerequisite = { focus = HUN_god_wills_it }
+		prerequisite = { focus = HUN_help_from_the_pope }
 		
 		ai_will_do = { factor = 10 }
 
@@ -718,7 +718,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_embrace_catholicism
+		id = HUN_embrace_catholicism
 		icon = GFX_goal_faith_and_state
 		x = 21
 		y = 3
@@ -730,14 +730,14 @@ focus_tree = {
 		}
 		
 		mutually_exclusive = { 
-		focus = HUN_pk_a_stable_country
-		focus = HUN_pk_the_might_of_hungary
-		focus = HUN_pk_civil_dissent
-		focus = HUN_pk_gaining_control
+		focus = HUN_a_stable_country
+		focus = HUN_the_might_of_hungary
+		focus = HUN_civil_dissent
+		focus = HUN_gaining_control
 		}
 		
-		prerequisite = { focus = HUN_pk_empower_the_priests }
-		prerequisite = { focus = HUN_pk_our_religion_our_heritage }
+		prerequisite = { focus = HUN_empower_the_priests }
+		prerequisite = { focus = HUN_our_religion_our_heritage }
 		
 		ai_will_do = { factor = 10 }
 
@@ -749,7 +749,7 @@ focus_tree = {
 	##Part2##
 	
 	focus = {
-		id = HUN_pk_convert_the_protestants
+		id = HUN_convert_the_protestants
 		icon = GFX_goal_dcgb
 		x = 19
 		y = 4
@@ -758,22 +758,22 @@ focus_tree = {
 
 		available = {
 			NOT = {
-				has_idea = HUN_pk_conversion_backlash_idea
+				has_idea = HUN_conversion_backlash_idea
 			}
 		}
 		
-		prerequisite = { focus = HUN_pk_embrace_catholicism }
+		prerequisite = { focus = HUN_embrace_catholicism }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 140
-			add_timed_idea = { idea = HUN_pk_conversion_backlash_idea days = 180 }
+			add_timed_idea = { idea = HUN_conversion_backlash_idea days = 180 }
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_convert_the_godless
+		id = HUN_convert_the_godless
 		icon = GFX_goal_broken_red_star
 		x = 21
 		y = 4
@@ -782,25 +782,25 @@ focus_tree = {
 
 		available = {
 			NOT = {
-				has_idea = HUN_pk_conversion_backlash_idea
+				has_idea = HUN_conversion_backlash_idea
 			}
 		}
 		
-		prerequisite = { focus = HUN_pk_embrace_catholicism }
+		prerequisite = { focus = HUN_embrace_catholicism }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			swap_ideas = { 
-				remove_idea = HUN_pk_civil_war_aftermath1_idea 
-				add_idea = HUN_pk_civil_war_aftermath2_idea
+				remove_idea = HUN_civil_war_aftermath1_idea 
+				add_idea = HUN_civil_war_aftermath2_idea
 			}
-			add_timed_idea = { idea = HUN_pk_conversion_backlash_idea days = 180 }
+			add_timed_idea = { idea = HUN_conversion_backlash_idea days = 180 }
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_convert_the_orthodox
+		id = HUN_convert_the_orthodox
 		icon = GFX_goal_tax_church
 		x = 23
 		y = 4
@@ -809,22 +809,22 @@ focus_tree = {
 
 		available = {
 			NOT = {
-				has_idea = HUN_pk_conversion_backlash_idea
+				has_idea = HUN_conversion_backlash_idea
 			}
 		}
 		
-		prerequisite = { focus = HUN_pk_embrace_catholicism }
+		prerequisite = { focus = HUN_embrace_catholicism }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_stability = 0.1
-			add_timed_idea = { idea = HUN_pk_conversion_backlash_idea days = 180 }
+			add_timed_idea = { idea = HUN_conversion_backlash_idea days = 180 }
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_the_new_crusade
+		id = HUN_the_new_crusade
 		icon = GFX_goal_conscription
 		x = 20
 		y = 5
@@ -834,26 +834,26 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_convert_the_protestants }
-		prerequisite = { focus = HUN_pk_convert_the_godless }
-		prerequisite = { focus = HUN_pk_convert_the_orthodox }
+		prerequisite = { focus = HUN_convert_the_protestants }
+		prerequisite = { focus = HUN_convert_the_godless }
+		prerequisite = { focus = HUN_convert_the_orthodox }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			if = {
-				limit = { has_idea = HUN_pk_theocratic_state_01_idea }
+				limit = { has_idea = HUN_theocratic_state_01_idea }
 				swap_ideas = { 
-					remove_idea = HUN_pk_theocratic_state_01_idea 
-					add_idea = HUN_pk_theocratic_state_11_idea
+					remove_idea = HUN_theocratic_state_01_idea 
+					add_idea = HUN_theocratic_state_11_idea
 				}
-				else = { add_ideas = HUN_pk_theocratic_state_10_idea }
+				else = { add_ideas = HUN_theocratic_state_10_idea }
 			}
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_apostolic_majesty
+		id = HUN_apostolic_majesty
 		icon = GFX_focus_generic_concessions
 		x = 22
 		y = 5
@@ -861,30 +861,30 @@ focus_tree = {
 		cost = 10
 
 		available = {
-			has_completed_focus = HUN_pk_crown_a_king
+			has_completed_focus = HUN_crown_a_king
 		}
 		
-		prerequisite = { focus = HUN_pk_convert_the_protestants }
-		prerequisite = { focus = HUN_pk_convert_the_godless }
-		prerequisite = { focus = HUN_pk_convert_the_orthodox }
+		prerequisite = { focus = HUN_convert_the_protestants }
+		prerequisite = { focus = HUN_convert_the_godless }
+		prerequisite = { focus = HUN_convert_the_orthodox }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			if = {
-				limit = { has_idea = HUN_pk_theocratic_state_10_idea }
+				limit = { has_idea = HUN_theocratic_state_10_idea }
 				swap_ideas = { 
-					remove_idea = HUN_pk_theocratic_state_10_idea 
-					add_idea = HUN_pk_theocratic_state_11_idea
+					remove_idea = HUN_theocratic_state_10_idea 
+					add_idea = HUN_theocratic_state_11_idea
 				}
-				else = { add_ideas = HUN_pk_theocratic_state_01_idea }
+				else = { add_ideas = HUN_theocratic_state_01_idea }
 			}
-			remove_ideas = HUN_pk_civil_unrest2_idea
+			remove_ideas = HUN_civil_unrest2_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_divine_strength
+		id = HUN_divine_strength
 		icon = GFX_goal_generic_political_pressure
 		x = 21
 		y = 6
@@ -894,15 +894,15 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_the_new_crusade }
-		prerequisite = { focus = HUN_pk_apostolic_majesty }
+		prerequisite = { focus = HUN_the_new_crusade }
+		prerequisite = { focus = HUN_apostolic_majesty }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			swap_ideas = { 
-				remove_idea = HUN_pk_theocratic_state_11_idea 
-				add_idea = HUN_pk_theocratic_state_2_idea
+				remove_idea = HUN_theocratic_state_11_idea 
+				add_idea = HUN_theocratic_state_2_idea
 			}
 		}
 	}
@@ -910,7 +910,7 @@ focus_tree = {
 	### Rassay Route ###
 	
 	focus = {
-		id = HUN_pk_freedom_for_hungary
+		id = HUN_freedom_for_hungary
 		icon = GFX_goal_support_democracy
 		x = 27
 		y = 0
@@ -938,7 +938,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_cooperation
+		id = HUN_cooperation
 		icon = GFX_goal_tripartite_pact
 		x = 26
 		y = 1
@@ -948,7 +948,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_freedom_for_hungary }
+		prerequisite = { focus = HUN_freedom_for_hungary }
 		
 		ai_will_do = { factor = 10 }
 
@@ -959,7 +959,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_seek_foreign_help
+		id = HUN_seek_foreign_help
 		icon = GFX_goal_generic_intelligence_exchange
 		x = 28
 		y = 1
@@ -969,7 +969,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_freedom_for_hungary }
+		prerequisite = { focus = HUN_freedom_for_hungary }
 		
 		ai_will_do = { factor = 10 }
 
@@ -993,7 +993,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_solidify_rule
+		id = HUN_solidify_rule
 		icon = GFX_goal_anschluss
 		x = 26
 		y = 2
@@ -1003,8 +1003,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_cooperation }
-		prerequisite = { focus = HUN_pk_seek_foreign_help }
+		prerequisite = { focus = HUN_cooperation }
+		prerequisite = { focus = HUN_seek_foreign_help }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1014,7 +1014,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_encourage_militias
+		id = HUN_encourage_militias
 		icon = GFX_goal_military_academy
 		x = 28
 		y = 2
@@ -1024,18 +1024,18 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_cooperation }
-		prerequisite = { focus = HUN_pk_seek_foreign_help }
+		prerequisite = { focus = HUN_cooperation }
+		prerequisite = { focus = HUN_seek_foreign_help }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_encouraged_militias_idea
+			add_ideas = HUN_encouraged_militias_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_gaining_control
+		id = HUN_gaining_control
 		icon = GFX_focus_generic_self_management
 		x = 27
 		y = 3
@@ -1047,14 +1047,14 @@ focus_tree = {
 		}
 		
 		mutually_exclusive = { 
-		focus = HUN_pk_a_stable_country
-		focus = HUN_pk_the_might_of_hungary
-		focus = HUN_pk_embrace_catholicism
-		focus = HUN_pk_civil_dissent
+		focus = HUN_a_stable_country
+		focus = HUN_the_might_of_hungary
+		focus = HUN_embrace_catholicism
+		focus = HUN_civil_dissent
 		}
 		
-		prerequisite = { focus = HUN_pk_solidify_rule }
-		prerequisite = { focus = HUN_pk_encourage_militias }
+		prerequisite = { focus = HUN_solidify_rule }
+		prerequisite = { focus = HUN_encourage_militias }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1066,7 +1066,7 @@ focus_tree = {
 	##Part 2##
 	
 	focus = {
-		id = HUN_pk_the_aristocracy
+		id = HUN_the_aristocracy
 		icon = GFX_goal_silver_reserve
 		x = 25
 		y = 4
@@ -1076,7 +1076,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_gaining_control }
+		prerequisite = { focus = HUN_gaining_control }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1086,7 +1086,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_deal_with_socialism
+		id = HUN_deal_with_socialism
 		icon = GFX_HOL_red_scare
 		x = 27
 		y = 4
@@ -1096,14 +1096,14 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_gaining_control }
+		prerequisite = { focus = HUN_gaining_control }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			swap_ideas = { 
-				remove_idea = HUN_pk_civil_unrest1_idea 
-				add_idea = HUN_pk_civil_unrest2_idea
+				remove_idea = HUN_civil_unrest1_idea 
+				add_idea = HUN_civil_unrest2_idea
 			}
 			add_popularity = { ideology = totalist popularity = -0.05 }
 			add_popularity = { ideology = syndicalist popularity = -0.05 }
@@ -1112,7 +1112,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_the_freer_the_market
+		id = HUN_the_freer_the_market
 		icon = GFX_goal_generic_positive_trade_relations
 		x = 29
 		y = 4
@@ -1122,7 +1122,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_gaining_control }
+		prerequisite = { focus = HUN_gaining_control }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1139,7 +1139,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_law_reforms
+		id = HUN_law_reforms
 		icon = GFX_focus_renounce_the_treaty_of_trianon
 		x = 26
 		y = 5
@@ -1149,19 +1149,19 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_the_aristocracy }
-		prerequisite = { focus = HUN_pk_deal_with_socialism }
-		prerequisite = { focus = HUN_pk_the_freer_the_market }
+		prerequisite = { focus = HUN_the_aristocracy }
+		prerequisite = { focus = HUN_deal_with_socialism }
+		prerequisite = { focus = HUN_the_freer_the_market }
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_law_reforms_idea
+			add_ideas = HUN_law_reforms_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_the_freer_the_people
+		id = HUN_the_freer_the_people
 		icon = GFX_goal_ideology_social_liberal
 		x = 28
 		y = 5
@@ -1171,19 +1171,19 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_the_aristocracy }
-		prerequisite = { focus = HUN_pk_deal_with_socialism }
-		prerequisite = { focus = HUN_pk_the_freer_the_market }
+		prerequisite = { focus = HUN_the_aristocracy }
+		prerequisite = { focus = HUN_deal_with_socialism }
+		prerequisite = { focus = HUN_the_freer_the_market }
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = HUN_pk_civil_unrest2_idea
+			remove_ideas = HUN_civil_unrest2_idea
 			if = { 
 				limit = {
-					has_completed_focus = HUN_pk_enact_land_reforms
-					has_completed_focus = HUN_pk_embrace_pluralism
-					has_completed_focus = HUN_pk_enact_military_reforms
+					has_completed_focus = HUN_enact_land_reforms
+					has_completed_focus = HUN_embrace_pluralism
+					has_completed_focus = HUN_enact_military_reforms
 				}
 				country_event = { id = kr.hungary.20 days = 1 }
 			}
@@ -1191,7 +1191,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_new_hungarian_society
+		id = HUN_new_hungarian_society
 		icon = GFX_goal_HOL_CNA_restored_stability
 		x = 27
 		y = 6
@@ -1201,8 +1201,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_law_reforms }
-		prerequisite = { focus = HUN_pk_the_freer_the_people }
+		prerequisite = { focus = HUN_law_reforms }
+		prerequisite = { focus = HUN_the_freer_the_people }
 
 		ai_will_do = { factor = 10 }
 
@@ -1215,7 +1215,7 @@ focus_tree = {
 	### Socialist Path ###
 	
 	focus = {
-		id = HUN_pk_civil_dissent
+		id = HUN_civil_dissent
 		icon = GFX_goal_revolution
 		x = 15
 		y = 3
@@ -1227,23 +1227,23 @@ focus_tree = {
 		}
 		
 		mutually_exclusive = { 
-		focus = HUN_pk_a_stable_country
-		focus = HUN_pk_the_might_of_hungary
-		focus = HUN_pk_embrace_catholicism
-		focus = HUN_pk_gaining_control
+		focus = HUN_a_stable_country
+		focus = HUN_the_might_of_hungary
+		focus = HUN_embrace_catholicism
+		focus = HUN_gaining_control
 		}
 		
 		prerequisite = {
-			focus = HUN_pk_outlaw_populism
-			focus = HUN_pk_nationalist_zeal
-			focus = HUN_pk_empower_the_priests
-			focus = HUN_pk_solidify_rule
+			focus = HUN_outlaw_populism
+			focus = HUN_nationalist_zeal
+			focus = HUN_empower_the_priests
+			focus = HUN_solidify_rule
 		}
 		prerequisite = { 
-			focus = HUN_pk_unite_the_parties
-			focus = HUN_pk_total_control
-			focus = HUN_pk_our_religion_our_heritage
-			focus = HUN_pk_encourage_militias 
+			focus = HUN_unite_the_parties
+			focus = HUN_total_control
+			focus = HUN_our_religion_our_heritage
+			focus = HUN_encourage_militias 
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -1251,13 +1251,13 @@ focus_tree = {
 		completion_reward = {
 			add_popularity = { ideology = totalist popularity = 0.25 }
 			add_popularity = { ideology = syndicalist popularity = 0.25 }
-			remove_ideas = HUN_pk_civil_unrest1_idea
+			remove_ideas = HUN_civil_unrest1_idea
 			country_event = { id = kr.hungary.21 days = 1 }
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_integrate_the_rebels
+		id = HUN_integrate_the_rebels
 		icon = GFX_focus_secret_rearmament
 		x = 15
 		y = 5
@@ -1268,20 +1268,20 @@ focus_tree = {
 		}
 		
 		prerequisite = { 
-			focus = HUN_pk_syndicalist_utopia 
-			focus = HUN_pk_bela_kuns_vision
+			focus = HUN_syndicalist_utopia 
+			focus = HUN_bela_kuns_vision
 		}
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_manpower = 15000
-			load_oob = HUN_pk_socialist_rebels
+			load_oob = HUN_socialist_rebels
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_bulwark_of_socialism
+		id = HUN_bulwark_of_socialism
 		icon = GFX_goal_red_star_dove
 		x = 15
 		y = 8
@@ -1292,21 +1292,21 @@ focus_tree = {
 		}
 		
 		prerequisite = { 
-			focus = HUN_pk_the_workers_republic
-			focus = HUN_pk_civilized_socialism
+			focus = HUN_the_workers_republic
+			focus = HUN_civilized_socialism
 		}
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_bulwark_of_socialism_idea
+			add_ideas = HUN_bulwark_of_socialism_idea
 		}
 	}
 	
 	##Syndicalist Utopia ##
 	
 	focus = {
-		id = HUN_pk_syndicalist_utopia
+		id = HUN_syndicalist_utopia
 		icon = GFX_goal_ideology_syndicalist
 		x = 13
 		y = 4
@@ -1316,13 +1316,13 @@ focus_tree = {
 		available = {
 		}
 		
-		mutually_exclusive = { focus = HUN_pk_bela_kuns_vision }
+		mutually_exclusive = { focus = HUN_bela_kuns_vision }
 		
 		bypass = {
 			has_country_flag = hungary_ervin_szabo_chosen
 		}
 		
-		prerequisite = { focus = HUN_pk_civil_dissent }
+		prerequisite = { focus = HUN_civil_dissent }
 
 		ai_will_do = { factor = 10 }
 
@@ -1331,7 +1331,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_empower_the_trade_unions
+		id = HUN_empower_the_trade_unions
 		icon = GFX_goal_syndicalist_industry
 		x = 13
 		y = 5
@@ -1341,17 +1341,17 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_syndicalist_utopia }
+		prerequisite = { focus = HUN_syndicalist_utopia }
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_trade_unions_idea
+			add_ideas = HUN_trade_unions_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_decentralization
+		id = HUN_decentralization
 		icon = GFX_goal_generic_neutrality_focus
 		x = 12
 		y = 6
@@ -1361,7 +1361,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_empower_the_trade_unions }
+		prerequisite = { focus = HUN_empower_the_trade_unions }
 
 		ai_will_do = { factor = 10 }
 
@@ -1372,7 +1372,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_better_work_conditions
+		id = HUN_better_work_conditions
 		icon = GFX_goal_production
 		x = 14
 		y = 6
@@ -1382,20 +1382,20 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_empower_the_trade_unions }
+		prerequisite = { focus = HUN_empower_the_trade_unions }
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			swap_ideas = { 
-				remove_idea = HUN_pk_trade_unions_idea
-				add_idea = HUN_pk_trade_unions2_idea
+				remove_idea = HUN_trade_unions_idea
+				add_idea = HUN_trade_unions2_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_the_workers_republic
+		id = HUN_the_workers_republic
 		icon = GFX_goal_NOR_secret_police
 		x = 13
 		y = 7
@@ -1405,15 +1405,15 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_decentralization }
-		prerequisite = { focus = HUN_pk_better_work_conditions }
+		prerequisite = { focus = HUN_decentralization }
+		prerequisite = { focus = HUN_better_work_conditions }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			swap_ideas = { 
-				remove_idea = HUN_pk_trade_unions2_idea
-				add_idea = HUN_pk_trade_unions3_idea
+				remove_idea = HUN_trade_unions2_idea
+				add_idea = HUN_trade_unions3_idea
 			}
 		}
 	}
@@ -1421,7 +1421,7 @@ focus_tree = {
 	##Bela Kun
 	
 	focus = {
-		id = HUN_pk_bela_kuns_vision
+		id = HUN_bela_kuns_vision
 		icon = GFX_goal_ideology_totalist
 		x = 17
 		y = 4
@@ -1431,13 +1431,13 @@ focus_tree = {
 		available = {
 		}
 		
-		mutually_exclusive = { focus = HUN_pk_syndicalist_utopia }
+		mutually_exclusive = { focus = HUN_syndicalist_utopia }
 		
 		bypass = {
 			has_country_flag = hungary_bela_kun_chosen
 		}
 		
-		prerequisite = { focus = HUN_pk_civil_dissent }
+		prerequisite = { focus = HUN_civil_dissent }
 
 		ai_will_do = { factor = 10 }
 
@@ -1446,7 +1446,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_balance_of_power
+		id = HUN_balance_of_power
 		icon = GFX_goal_HOL_sustain_neutrality
 		x = 17
 		y = 5
@@ -1456,7 +1456,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_bela_kuns_vision }
+		prerequisite = { focus = HUN_bela_kuns_vision }
 
 		ai_will_do = { factor = 10 }
 
@@ -1466,7 +1466,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_peasant_republic
+		id = HUN_peasant_republic
 		icon = GFX_goal_agriculture
 		x = 16
 		y = 6
@@ -1476,16 +1476,16 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_balance_of_power }
+		prerequisite = { focus = HUN_balance_of_power }
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_peasants_favored_idea
+			add_ideas = HUN_peasants_favored_idea
 	}
 	
 	focus = {
-		id = HUN_pk_planned_economy
+		id = HUN_planned_economy
 		icon = GFX_goal_state_economy
 		x = 18
 		y = 6
@@ -1495,18 +1495,18 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_balance_of_power }
+		prerequisite = { focus = HUN_balance_of_power }
 
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = -75
-			add_ideas = HUN_pk_planned_economy_idea
+			add_ideas = HUN_planned_economy_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_civilized_socialism
+		id = HUN_civilized_socialism
 		icon = GFX_goal_red_star
 		x = 17
 		y = 7
@@ -1516,8 +1516,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_peasant_republic }
-		prerequisite = { focus = HUN_pk_planned_economy }
+		prerequisite = { focus = HUN_peasant_republic }
+		prerequisite = { focus = HUN_planned_economy }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1529,7 +1529,7 @@ focus_tree = {
 	### Hapsburg loyalty route ##
 	
 	focus = {
-		id = HUN_pk_loyalty_to_the_habsburgs
+		id = HUN_loyalty_to_the_habsburgs
 		icon = GFX_goal_AUS_reformed_dual
 		x = 32
 		y = 0
@@ -1551,7 +1551,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_rekindle_the_ties
+		id = HUN_rekindle_the_ties
 		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
 		x = 32
 		y = 1
@@ -1561,17 +1561,17 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_loyalty_to_the_habsburgs }
+		prerequisite = { focus = HUN_loyalty_to_the_habsburgs }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			reverse_add_opinion_modifier = { target = AUS modifier = HUN_pk_positive_relations_rekindled }
+			reverse_add_opinion_modifier = { target = AUS modifier = HUN_positive_relations_rekindled }
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_consolidate_habsburg_rule
+		id = HUN_consolidate_habsburg_rule
 		icon = GFX_focus_generic_home_defense
 		x = 32
 		y = 2
@@ -1581,7 +1581,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_rekindle_the_ties }
+		prerequisite = { focus = HUN_rekindle_the_ties }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1592,7 +1592,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_scientific_cooperation
+		id = HUN_scientific_cooperation
 		icon = GFX_goal_generic_scientific_exchange
 		x = 31
 		y = 3
@@ -1602,7 +1602,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_consolidate_habsburg_rule }
+		prerequisite = { focus = HUN_consolidate_habsburg_rule }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1612,7 +1612,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_found_the_budapest_wien_line
+		id = HUN_found_the_budapest_wien_line
 		icon = GFX_goal_generic_construct_infrastructure
 		x = 33
 		y = 3
@@ -1638,7 +1638,7 @@ focus_tree = {
 			}
 		}
 		
-		prerequisite = { focus = HUN_pk_consolidate_habsburg_rule }
+		prerequisite = { focus = HUN_consolidate_habsburg_rule }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1699,7 +1699,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_tighten_our_bonds
+		id = HUN_tighten_our_bonds
 		icon = GFX_focus_generic_diplomatic_treaty
 		x = 32
 		y = 4
@@ -1709,8 +1709,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_scientific_cooperation }
-		prerequisite = { focus = HUN_pk_found_the_budapest_wien_line }
+		prerequisite = { focus = HUN_scientific_cooperation }
+		prerequisite = { focus = HUN_found_the_budapest_wien_line }
 		
 		ai_will_do = { factor = 10 }
 
@@ -1720,7 +1720,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_embrace_the_dual_monarchy
+		id = HUN_embrace_the_dual_monarchy
 		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
 		x = 32
 		y = 5
@@ -1730,12 +1730,12 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_tighten_our_bonds }
+		prerequisite = { focus = HUN_tighten_our_bonds }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_dual_monarchy_embraced_idea
+			add_ideas = HUN_dual_monarchy_embraced_idea
 		}
 	}
 	
@@ -1744,7 +1744,7 @@ focus_tree = {
 	################################
 	
 	focus = {
-		id = HUN_pk_black_monday_strikes
+		id = HUN_black_monday_strikes
 		icon = GFX_goal_bankruptcy
 		x = 39
 		y = 0
@@ -1756,7 +1756,7 @@ focus_tree = {
 		}
 		
 		bypass = { 
-			has_idea = HUN_pk_black_monday_idea
+			has_idea = HUN_black_monday_idea
 		}
 		
 		ai_will_do = { factor = 100 }
@@ -1767,7 +1767,7 @@ focus_tree = {
 	### Land Reforms ###
 	
 	focus = {
-		id = HUN_pk_enact_land_reforms
+		id = HUN_enact_land_reforms
 		icon = GFX_goal_constitutional_guarantees
 		x = 36
 		y = 1
@@ -1777,23 +1777,23 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_black_monday_strikes }
+		prerequisite = { focus = HUN_black_monday_strikes }
 		
-		mutually_exclusive = { focus = HUN_pk_embrace_old_ways }
+		mutually_exclusive = { focus = HUN_embrace_old_ways }
 		
 		ai_will_do = { factor = 100 }
 
 		completion_reward = {
 			add_political_power = -25
 			swap_ideas = { 
-				remove_idea = HUN_pk_black_monday_idea 
-				add_idea = HUN_pk_black_monday2_idea
+				remove_idea = HUN_black_monday_idea 
+				add_idea = HUN_black_monday2_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_collectivization
+		id = HUN_collectivization
 		icon = GFX_goal_economic_control
 		x = 35
 		y = 2
@@ -1803,7 +1803,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_enact_land_reforms }
+		prerequisite = { focus = HUN_enact_land_reforms }
 		
 		ai_will_do = { factor = 30 }
 
@@ -1827,7 +1827,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_peasants_rights
+		id = HUN_peasants_rights
 		icon = GFX_focus_AUS_agriculture
 		x = 37
 		y = 2
@@ -1837,7 +1837,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_enact_land_reforms }
+		prerequisite = { focus = HUN_enact_land_reforms }
 		
 		ai_will_do = { factor = 30 }
 
@@ -1848,7 +1848,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_qualified_landowners
+		id = HUN_qualified_landowners
 		icon = GFX_goal_generic_national_unity
 		x = 36
 		y = 3
@@ -1858,21 +1858,21 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_collectivization }
-		prerequisite = { focus = HUN_pk_peasants_rights }
+		prerequisite = { focus = HUN_collectivization }
+		prerequisite = { focus = HUN_peasants_rights }
 		
 		ai_will_do = { factor = 30 }
 
 		completion_reward = {
 			swap_ideas = { 
-				remove_idea = HUN_pk_black_monday2_idea 
-				add_idea = HUN_pk_black_monday3_idea
+				remove_idea = HUN_black_monday2_idea 
+				add_idea = HUN_black_monday3_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_economic_recovery
+		id = HUN_economic_recovery
 		icon = GFX_goal_construction_engineering
 		x = 36
 		y = 4
@@ -1882,20 +1882,20 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_qualified_landowners }
+		prerequisite = { focus = HUN_qualified_landowners }
 		
 		ai_will_do = { factor = 30 }
 
 		completion_reward = {
 			swap_ideas = { 
-				remove_idea = HUN_pk_black_monday3_idea 
-				add_idea = HUN_pk_black_monday4_idea
+				remove_idea = HUN_black_monday3_idea 
+				add_idea = HUN_black_monday4_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_end_of_the_black_monday
+		id = HUN_end_of_the_black_monday
 		icon = GFX_goal_bankruptcy
 		x = 39
 		y = 5
@@ -1903,21 +1903,21 @@ focus_tree = {
 		cost = 5
 
 		available = {
-		has_idea = HUN_pk_black_monday4_idea
+		has_idea = HUN_black_monday4_idea
 		}
 		
 		prerequisite = { 
-			focus = HUN_pk_economic_recovery 
-			focus = HUN_pk_develop_agriculture
-			focus = HUN_pk_hungarian_electornics
+			focus = HUN_economic_recovery 
+			focus = HUN_develop_agriculture
+			focus = HUN_hungarian_electornics
 		}
 		
 		ai_will_do = { factor = 30 }
 
 		completion_reward = {
 			if = {
-				limit = { has_completed_focus = HUN_pk_enact_land_reforms }
-				remove_ideas = HUN_pk_black_monday4_idea
+				limit = { has_completed_focus = HUN_enact_land_reforms }
+				remove_ideas = HUN_black_monday4_idea
 				else = { custom_effect_tooltip = hungary_black_monday_recovery }
 			}
 		}
@@ -1926,7 +1926,7 @@ focus_tree = {
 	### Old Ways ###
 	
 	focus = {
-		id = HUN_pk_embrace_old_ways
+		id = HUN_embrace_old_ways
 		icon = GFX_goal_generic_forceful_treaty
 		x = 42
 		y = 1
@@ -1936,9 +1936,9 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_black_monday_strikes }
+		prerequisite = { focus = HUN_black_monday_strikes }
 		
-		mutually_exclusive = { focus = HUN_pk_enact_land_reforms }
+		mutually_exclusive = { focus = HUN_enact_land_reforms }
 		
 		ai_will_do = { factor = 100 }
 
@@ -1948,7 +1948,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_subsidize_farmers
+		id = HUN_subsidize_farmers
 		icon = GFX_goal_generic_construct_civ_factory
 		x = 41
 		y = 2
@@ -1958,7 +1958,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_embrace_old_ways }
+		prerequisite = { focus = HUN_embrace_old_ways }
 		
 		ai_will_do = { factor = 30 }
 
@@ -1983,7 +1983,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_urbanization
+		id = HUN_urbanization
 		icon = GFX_goal_generic_construct_infrastructure
 		x = 43
 		y = 2
@@ -1993,7 +1993,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_embrace_old_ways }
+		prerequisite = { focus = HUN_embrace_old_ways }
 		
 		ai_will_do = { factor = 30 }
 
@@ -2015,7 +2015,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_autarky
+		id = HUN_autarky
 		icon = GFX_goal_munitions_factories
 		x = 41
 		y = 3
@@ -2025,8 +2025,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_subsidize_farmers }
-		prerequisite = { focus = HUN_pk_urbanization }
+		prerequisite = { focus = HUN_subsidize_farmers }
+		prerequisite = { focus = HUN_urbanization }
 		
 		ai_will_do = { factor = 30 }
 
@@ -2050,7 +2050,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_synthetic_oil
+		id = HUN_synthetic_oil
 		icon = GFX_goal_basic_oil
 		x = 43
 		y = 3
@@ -2060,8 +2060,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_subsidize_farmers }
-		prerequisite = { focus = HUN_pk_urbanization }
+		prerequisite = { focus = HUN_subsidize_farmers }
+		prerequisite = { focus = HUN_urbanization }
 		
 		ai_will_do = { factor = 30 }
 
@@ -2071,7 +2071,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_develop_agriculture
+		id = HUN_develop_agriculture
 		icon = GFX_focus_AUS_agriculture
 		x = 41
 		y = 4
@@ -2081,10 +2081,10 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_autarky }
-		prerequisite = { focus = HUN_pk_synthetic_oil }
+		prerequisite = { focus = HUN_autarky }
+		prerequisite = { focus = HUN_synthetic_oil }
 		
-		mutually_exclusive = { focus = HUN_pk_hungarian_electornics }
+		mutually_exclusive = { focus = HUN_hungarian_electornics }
 		
 		ai_will_do = { factor = 30 }
 
@@ -2106,7 +2106,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_hungarian_electornics
+		id = HUN_hungarian_electornics
 		icon = GFX_goal_computer_focus
 		x = 43
 		y = 4
@@ -2116,8 +2116,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_autarky }
-		prerequisite = { focus = HUN_pk_synthetic_oil }
+		prerequisite = { focus = HUN_autarky }
+		prerequisite = { focus = HUN_synthetic_oil }
 		
 		ai_will_do = { factor = 30 }
 
@@ -2129,7 +2129,7 @@ focus_tree = {
 	### Industrialization ###
 	
 	focus = {
-		id = HUN_pk_industrial_effort
+		id = HUN_industrial_effort
 		icon = GFX_goal_generic_construction
 		x = 36
 		y = 6
@@ -2139,7 +2139,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_end_of_the_black_monday }
+		prerequisite = { focus = HUN_end_of_the_black_monday }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2163,7 +2163,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_develop_hungarian_railways
+		id = HUN_develop_hungarian_railways
 		icon = GFX_goal_Fix_Shitty_Rails
 		x = 36
 		y = 7
@@ -2173,7 +2173,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_industrial_effort }
+		prerequisite = { focus = HUN_industrial_effort }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2208,7 +2208,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_purchase_companies
+		id = HUN_purchase_companies
 		icon = GFX_goal_HOL_progressive_tax
 		x = 36
 		y = 8
@@ -2218,7 +2218,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_develop_hungarian_railways }
+		prerequisite = { focus = HUN_develop_hungarian_railways }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2257,7 +2257,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_military_industry
+		id = HUN_military_industry
 		icon = GFX_goal_generic_construct_mil_factory
 		x = 42
 		y = 6
@@ -2267,7 +2267,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_end_of_the_black_monday }
+		prerequisite = { focus = HUN_end_of_the_black_monday }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2291,7 +2291,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_purchase_farms
+		id = HUN_purchase_farms
 		icon = GFX_NIC_Cows
 		x = 42
 		y = 7
@@ -2301,7 +2301,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_military_industry }
+		prerequisite = { focus = HUN_military_industry }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2338,7 +2338,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_age_of_industrialization
+		id = HUN_age_of_industrialization
 		icon = GFX_goal_generic_construction2
 		x = 42
 		y = 8
@@ -2348,18 +2348,18 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_purchase_farms }
+		prerequisite = { focus = HUN_purchase_farms }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 50
-			add_ideas = HUN_pk_age_of_industrialization_idea
+			add_ideas = HUN_age_of_industrialization_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_start_the_reparation
+		id = HUN_start_the_reparation
 		icon = GFX_goal_economic_control
 		x = 38
 		y = 6
@@ -2367,24 +2367,24 @@ focus_tree = {
 		cost = 10
 
 		available = {
-			has_idea = HUN_pk_civil_war_aftermath1_idea
+			has_idea = HUN_civil_war_aftermath1_idea
 		}
 		
-		prerequisite = { focus = HUN_pk_end_of_the_black_monday }
+		prerequisite = { focus = HUN_end_of_the_black_monday }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = -50
 			swap_ideas = { 
-				remove_idea = HUN_pk_civil_war_aftermath1_idea 
-				add_idea = HUN_pk_civil_war_aftermath2_idea
+				remove_idea = HUN_civil_war_aftermath1_idea 
+				add_idea = HUN_civil_war_aftermath2_idea
 			}
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_end_martial_law
+		id = HUN_end_martial_law
 		icon = GFX_goal_generic_isolation
 		x = 40
 		y = 6
@@ -2394,7 +2394,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_end_of_the_black_monday }
+		prerequisite = { focus = HUN_end_of_the_black_monday }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2412,7 +2412,7 @@ focus_tree = {
 			}
 			if = {
 				limit = {
-					NOT = { has_completed_focus = HUN_pk_quick_mobilization }
+					NOT = { has_completed_focus = HUN_quick_mobilization }
 				}
 				add_political_power = 300
 			}
@@ -2420,7 +2420,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_rebuild_hungary
+		id = HUN_rebuild_hungary
 		icon = GFX_IRE_medium_industry
 		x = 39
 		y = 6
@@ -2430,18 +2430,18 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_start_the_reparation }
-		prerequisite = { focus = HUN_pk_end_martial_law }
+		prerequisite = { focus = HUN_start_the_reparation }
+		prerequisite = { focus = HUN_end_martial_law }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = HUN_pk_civil_war_aftermath2_idea
+			remove_ideas = HUN_civil_war_aftermath2_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_revitalized_education
+		id = HUN_revitalized_education
 		icon = GFX_goal_generic_scientific_exchange
 		x = 38
 		y = 7
@@ -2451,7 +2451,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_rebuild_hungary }
+		prerequisite = { focus = HUN_rebuild_hungary }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2461,7 +2461,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_rejuvenation_project
+		id = HUN_rejuvenation_project
 		icon = GFX_IRE_heavy_industry
 		x = 40
 		y = 7
@@ -2471,12 +2471,12 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_rebuild_hungary }
+		prerequisite = { focus = HUN_rebuild_hungary }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_civil_war_repair_idea
+			add_ideas = HUN_civil_war_repair_idea
 		}
 	}
 	
@@ -2487,7 +2487,7 @@ focus_tree = {
 	### Magyarization ###
 	
 	focus = {
-		id = HUN_pk_continue_magyarization
+		id = HUN_continue_magyarization
 		icon = GFX_goal_authoritarian
 		x = 46
 		y = 0
@@ -2500,16 +2500,16 @@ focus_tree = {
 			NOT`= { has_government = radical_socialist }
 			is_puppet = no
 			OR = {
-				has_completed_focus = HUN_pk_a_stable_country
-				has_completed_focus = HUN_pk_the_might_of_hungary
-				has_completed_focus = HUN_pk_civil_dissent
-				has_completed_focus = HUN_pk_embrace_catholicism
-				has_completed_focus = HUN_pk_gaining_control
+				has_completed_focus = HUN_a_stable_country
+				has_completed_focus = HUN_the_might_of_hungary
+				has_completed_focus = HUN_civil_dissent
+				has_completed_focus = HUN_embrace_catholicism
+				has_completed_focus = HUN_gaining_control
 			}
 			NOT = { has_country_flag = hungary_compromised_with_minorities }
 		}
 		
-		mutually_exclusive = { focus = HUN_pk_embrace_pluralism }
+		mutually_exclusive = { focus = HUN_embrace_pluralism }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2519,7 +2519,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_magyarize_vojvodina
+		id = HUN_magyarize_vojvodina
 		icon = GFX_focus_AUS_agriculture
 		x = 45
 		y = 1
@@ -2531,21 +2531,21 @@ focus_tree = {
 		}
 		
 		bypass = { 
-			NOT = { has_idea = HUN_pk_serbian_minority_idea}
+			NOT = { has_idea = HUN_serbian_minority_idea}
 		}
 		
-		prerequisite = { focus = HUN_pk_continue_magyarization }
+		prerequisite = { focus = HUN_continue_magyarization }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = HUN_pk_serbian_minority_idea
-			add_timed_idea = { idea = HUN_pk_serbian_minority2_idea days = 365 }
+			remove_ideas = HUN_serbian_minority_idea
+			add_timed_idea = { idea = HUN_serbian_minority2_idea days = 365 }
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_enforce_hungarian_language
+		id = HUN_enforce_hungarian_language
 		icon = GFX_goal_generic_propaganda
 		x = 47
 		y = 1
@@ -2556,7 +2556,7 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		prerequisite = { focus = HUN_pk_continue_magyarization }
+		prerequisite = { focus = HUN_continue_magyarization }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2567,7 +2567,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_magyarize_slovakia
+		id = HUN_magyarize_slovakia
 		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
 		x = 45
 		y = 2
@@ -2579,22 +2579,22 @@ focus_tree = {
 		}
 		
 		bypass = { 
-			NOT = { has_idea = HUN_pk_slovakian_minority_idea}
+			NOT = { has_idea = HUN_slovakian_minority_idea}
 		}
 		
-		prerequisite = { focus = HUN_pk_magyarize_vojvodina }
-		prerequisite = { focus = HUN_pk_enforce_hungarian_language }
+		prerequisite = { focus = HUN_magyarize_vojvodina }
+		prerequisite = { focus = HUN_enforce_hungarian_language }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = HUN_pk_slovakian_minority_idea
-			add_timed_idea = { idea = HUN_pk_slovakian_minority2_idea days = 365 }
+			remove_ideas = HUN_slovakian_minority_idea
+			add_timed_idea = { idea = HUN_slovakian_minority2_idea days = 365 }
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_magyarize_transylvania
+		id = HUN_magyarize_transylvania
 		icon = GFX_focus_rom_parties_end
 		x = 47
 		y = 2
@@ -2606,22 +2606,22 @@ focus_tree = {
 		}
 		
 		bypass = { 
-			NOT = { has_idea = HUN_pk_transylvanian_minority_idea}
+			NOT = { has_idea = HUN_transylvanian_minority_idea}
 		}
 		
-		prerequisite = { focus = HUN_pk_magyarize_vojvodina }
-		prerequisite = { focus = HUN_pk_enforce_hungarian_language }
+		prerequisite = { focus = HUN_magyarize_vojvodina }
+		prerequisite = { focus = HUN_enforce_hungarian_language }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = HUN_pk_transylvanian_minority_idea
-			add_timed_idea = { idea = HUN_pk_transylvanian_minority2_idea days = 365 }
+			remove_ideas = HUN_transylvanian_minority_idea
+			add_timed_idea = { idea = HUN_transylvanian_minority2_idea days = 365 }
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_no_pass_for_germans
+		id = HUN_no_pass_for_germans
 		icon = GFX_goal_HOL_ban_paramilitary
 		x = 46
 		y = 3
@@ -2632,23 +2632,23 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		prerequisite = { focus = HUN_pk_magyarize_slovakia }
-		prerequisite = { focus = HUN_pk_magyarize_transylvania }
+		prerequisite = { focus = HUN_magyarize_slovakia }
+		prerequisite = { focus = HUN_magyarize_transylvania }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = 50
 			add_stability = 0.05
-			reverse_add_opinion_modifier = { target = AUS modifier = HUN_pk_magyarized_germans }
-			reverse_add_opinion_modifier = { target = GER modifier = HUN_pk_magyarized_germans }
+			reverse_add_opinion_modifier = { target = AUS modifier = HUN_magyarized_germans }
+			reverse_add_opinion_modifier = { target = GER modifier = HUN_magyarized_germans }
 		}
 	}
 	
 	### Pluralism ###
 	
 	focus = {
-		id = HUN_pk_embrace_pluralism
+		id = HUN_embrace_pluralism
 		icon = GFX_goal_generic_national_unity
 		x = 50
 		y = 0
@@ -2660,15 +2660,15 @@ focus_tree = {
 			NOT`= { has_government = national_populist }
 			is_puppet = no
 			OR = {
-				has_completed_focus = HUN_pk_a_stable_country
-				has_completed_focus = HUN_pk_the_might_of_hungary
-				has_completed_focus = HUN_pk_civil_dissent
-				has_completed_focus = HUN_pk_embrace_catholicism
-				has_completed_focus = HUN_pk_gaining_control
+				has_completed_focus = HUN_a_stable_country
+				has_completed_focus = HUN_the_might_of_hungary
+				has_completed_focus = HUN_civil_dissent
+				has_completed_focus = HUN_embrace_catholicism
+				has_completed_focus = HUN_gaining_control
 			}
 		}
 		
-		mutually_exclusive = { focus = HUN_pk_continue_magyarization }
+		mutually_exclusive = { focus = HUN_continue_magyarization }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2678,7 +2678,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_serbian_minority
+		id = HUN_serbian_minority
 		icon = GFX_goal_serbia
 		x = 49
 		y = 1
@@ -2689,23 +2689,23 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		prerequisite = { focus = HUN_pk_continue_magyarization }
+		prerequisite = { focus = HUN_continue_magyarization }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			875 = { remove_core_of = HUN add_core_of = SER add_claim_by = HUN }
 			if = {
-				limit = { has_idea = { HUN_pk_minority_autonomy_idea } }
+				limit = { has_idea = { HUN_minority_autonomy_idea } }
 				swap_ideas = { 
-					remove_idea = HUN_pk_minority_autonomy_idea 
-					add_idea = HUN_pk_minority_autonomy2_idea
+					remove_idea = HUN_minority_autonomy_idea 
+					add_idea = HUN_minority_autonomy2_idea
 				}
-				remove_ideas = HUN_pk_serbian_minority_idea
+				remove_ideas = HUN_serbian_minority_idea
 				else = {
 					swap_ideas = { 
-						remove_idea = HUN_pk_serbian_minority_idea
-						add_idea = HUN_pk_minority_autonomy_idea
+						remove_idea = HUN_serbian_minority_idea
+						add_idea = HUN_minority_autonomy_idea
 					}
 				}
 			}
@@ -2713,7 +2713,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_german_provinces
+		id = HUN_german_provinces
 		icon = GFX_goal_germany
 		x = 51
 		y = 1
@@ -2724,19 +2724,19 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		prerequisite = { focus = HUN_pk_continue_magyarization }
+		prerequisite = { focus = HUN_continue_magyarization }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			if = {
-				limit = { has_idea = { HUN_pk_minority_autonomy_idea } }
+				limit = { has_idea = { HUN_minority_autonomy_idea } }
 				swap_ideas = { 
-					remove_idea = HUN_pk_minority_autonomy_idea 
-					add_idea = HUN_pk_minority_autonomy2_idea
+					remove_idea = HUN_minority_autonomy_idea 
+					add_idea = HUN_minority_autonomy2_idea
 				}
 				else = {
-					add_ideas = { add_idea = HUN_pk_minority_autonomy_idea }
+					add_ideas = { add_idea = HUN_minority_autonomy_idea }
 				}
 			}
 			add_political_power = 50
@@ -2744,7 +2744,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_slovakian_autonomy
+		id = HUN_slovakian_autonomy
 		icon = GFX_goal_generic_improve_relations
 		x = 49
 		y = 2
@@ -2758,16 +2758,16 @@ focus_tree = {
 		}
 		
 		bypass = {
-			NOT = { has_idea = HUN_pk_slovakian_minority_idea }
+			NOT = { has_idea = HUN_slovakian_minority_idea }
 		}
 		
-		prerequisite = { focus = HUN_pk_serbian_minority }
-		prerequisite = { focus = HUN_pk_german_provinces }
+		prerequisite = { focus = HUN_serbian_minority }
+		prerequisite = { focus = HUN_german_provinces }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = HUN_pk_slovakian_minority_idea
+			remove_ideas = HUN_slovakian_minority_idea
 			SVK = { 
 				set_state_owner = 70
 				set_state_owner = 71
@@ -2780,7 +2780,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_minority_representation
+		id = HUN_minority_representation
 		icon = GFX_goal_constitutional_guarantees
 		x = 51
 		y = 2
@@ -2791,8 +2791,8 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		prerequisite = { focus = HUN_pk_serbian_minority }
-		prerequisite = { focus = HUN_pk_german_provinces }
+		prerequisite = { focus = HUN_serbian_minority }
+		prerequisite = { focus = HUN_german_provinces }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2802,7 +2802,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_transylvanian_autonomy
+		id = HUN_transylvanian_autonomy
 		icon = GFX_focus_generic_concessions
 		x = 50
 		y = 3
@@ -2817,16 +2817,16 @@ focus_tree = {
 		}
 		
 		bypass = {
-			NOT = { has_idea = HUN_pk_transylvanian_minority_idea }
+			NOT = { has_idea = HUN_transylvanian_minority_idea }
 		}
 		
-		prerequisite = { focus = HUN_pk_minority_representation }
-		prerequisite = { focus = HUN_pk_slovakian_autonomy }
+		prerequisite = { focus = HUN_minority_representation }
+		prerequisite = { focus = HUN_slovakian_autonomy }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = HUN_pk_transylvanian_minority_idea
+			remove_ideas = HUN_transylvanian_minority_idea
 			TRS = { 
 				set_state_owner = 82
 				set_state_owner = 83
@@ -2842,7 +2842,7 @@ focus_tree = {
 	### Crowning a King ###
 	
 	focus = {
-		id = HUN_pk_crown_a_king
+		id = HUN_crown_a_king
 		icon = GFX_focus_hun_elect_a_king
 		x = 48
 		y = 4
@@ -2854,8 +2854,8 @@ focus_tree = {
 		}
 		
 		prerequisite = { 
-			focus = HUN_pk_no_pass_for_germans
-			focus = HUN_pk_transylvanian_autonomy
+			focus = HUN_no_pass_for_germans
+			focus = HUN_transylvanian_autonomy
 		}
 		
 		bypass = {
@@ -2876,7 +2876,7 @@ focus_tree = {
 	### Claims ###
 	
 	focus = {
-		id = HUN_pk_rule_the_serbs
+		id = HUN_rule_the_serbs
 		icon = GFX_goal_generic_territory_or_war
 		x = 47
 		y = 5
@@ -2889,7 +2889,7 @@ focus_tree = {
 		}
 		
 		prerequisite = { 
-			focus = HUN_pk_crown_a_king
+			focus = HUN_crown_a_king
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -2901,7 +2901,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = HUN_pk_rule_the_romanians
+		id = HUN_rule_the_romanians
 		icon = GFX_goal_generic_territory_or_war
 		x = 49
 		y = 5
@@ -2917,7 +2917,7 @@ focus_tree = {
 		}
 		
 		prerequisite = { 
-			focus = HUN_pk_crown_a_king
+			focus = HUN_crown_a_king
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -2935,7 +2935,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_conquer_illyria
+		id = HUN_conquer_illyria
 		icon = GFX_goal_generic_more_territorial_claims
 		x = 46
 		y = 6
@@ -2952,7 +2952,7 @@ focus_tree = {
 		}
 		
 		prerequisite = { 
-			focus = HUN_pk_crown_a_king
+			focus = HUN_crown_a_king
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -2976,7 +2976,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_conquer_galicia
+		id = HUN_conquer_galicia
 		icon = GFX_goal_generic_more_territorial_claims
 		x = 50
 		y = 6
@@ -2989,7 +2989,7 @@ focus_tree = {
 		}
 		
 		prerequisite = { 
-			focus = HUN_pk_crown_a_king
+			focus = HUN_crown_a_king
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -3005,7 +3005,7 @@ focus_tree = {
 	### Alliances ###
 	
 	focus = {
-		id = HUN_pk_picking_an_alliance
+		id = HUN_picking_an_alliance
 		icon = GFX_goal_tripartite_pact
 		x = 48
 		y = 6
@@ -3017,7 +3017,7 @@ focus_tree = {
 			is_in_faction = no
 		}
 		
-		prerequisite = { focus = HUN_pk_crown_a_king }
+		prerequisite = { focus = HUN_crown_a_king }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3026,7 +3026,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_the_third_international
+		id = HUN_the_third_international
 		icon = GFX_goal_syndicalism
 		x = 44
 		y = 7
@@ -3045,7 +3045,7 @@ focus_tree = {
 			country_exists = FRA
 		}
 		
-		prerequisite = { focus = HUN_pk_picking_an_alliance }
+		prerequisite = { focus = HUN_picking_an_alliance }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3055,7 +3055,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_the_fourth_international
+		id = HUN_the_fourth_international
 		icon = GFX_goal_support_fourth_int
 		x = 46
 		y = 7
@@ -3087,7 +3087,7 @@ focus_tree = {
 			}
 		}
 		
-		prerequisite = { focus = HUN_pk_picking_an_alliance }
+		prerequisite = { focus = HUN_picking_an_alliance }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3109,7 +3109,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_form_our_own
+		id = HUN_form_our_own
 		icon = GFX_focus_generic_support_the_left_right
 		x = 48
 		y = 7
@@ -3121,7 +3121,7 @@ focus_tree = {
 			is_in_faction = no
 		}
 		
-		prerequisite = { focus = HUN_pk_picking_an_alliance }
+		prerequisite = { focus = HUN_picking_an_alliance }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3141,7 +3141,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_join_mitteleuropa
+		id = HUN_join_mitteleuropa
 		icon = GFX_goal_align_germany
 		x = 50
 		y = 7
@@ -3160,7 +3160,7 @@ focus_tree = {
 			country_exists = GER
 		}
 		
-		prerequisite = { focus = HUN_pk_picking_an_alliance }
+		prerequisite = { focus = HUN_picking_an_alliance }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3170,7 +3170,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = HUN_pk_join_russia
+		id = HUN_join_russia
 		icon = GFX_goal_align_russia
 		x = 52
 		y = 7
@@ -3194,7 +3194,7 @@ focus_tree = {
 			} } }
 		}
 		
-		prerequisite = { focus = HUN_pk_picking_an_alliance }
+		prerequisite = { focus = HUN_picking_an_alliance }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3204,7 +3204,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = HUN_pk_invite_poland
+		id = HUN_invite_poland
 		icon = GFX_goal_anschluss
 		x = 46
 		y = 8
@@ -3244,7 +3244,7 @@ focus_tree = {
 			country_exists = POL
 		}
 		
-		prerequisite = { focus = HUN_pk_form_our_own }
+		prerequisite = { focus = HUN_form_our_own }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3254,7 +3254,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = HUN_pk_invite_italy
+		id = HUN_invite_italy
 		icon = GFX_goal_generic_alliance
 		x = 48
 		y = 8
@@ -3294,7 +3294,7 @@ focus_tree = {
 			country_exists = ITA
 		}
 		
-		prerequisite = { focus = HUN_pk_form_our_own }
+		prerequisite = { focus = HUN_form_our_own }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3304,7 +3304,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_invite_bulgaria
+		id = HUN_invite_bulgaria
 		icon = GFX_goal_generic_alliance
 		x = 50
 		y = 8
@@ -3344,7 +3344,7 @@ focus_tree = {
 			country_exists = BUL
 		}
 		
-		prerequisite = { focus = HUN_pk_form_our_own }
+		prerequisite = { focus = HUN_form_our_own }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3358,7 +3358,7 @@ focus_tree = {
 	#######################
 	
 	focus = {
-		id = HUN_pk_austro_hungarian_civil_war
+		id = HUN_austro_hungarian_civil_war
 		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
 		x = 56
 		y = 0
@@ -3380,7 +3380,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_quick_mobilization
+		id = HUN_quick_mobilization
 		icon = GFX_focus_secret_rearmament
 		x = 55
 		y = 1
@@ -3392,7 +3392,7 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		prerequisite = { focus = HUN_pk_austro_hungarian_civil_war }
+		prerequisite = { focus = HUN_austro_hungarian_civil_war }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3403,7 +3403,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_increase_drafts
+		id = HUN_increase_drafts
 		icon = GFX_goal_volunteer_alliance
 		x = 57
 		y = 1
@@ -3415,7 +3415,7 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		prerequisite = { focus = HUN_pk_austro_hungarian_civil_war }
+		prerequisite = { focus = HUN_austro_hungarian_civil_war }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3426,7 +3426,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_push_our_workers
+		id = HUN_push_our_workers
 		icon = GFX_goal_munitions_factories
 		x = 54
 		y = 2
@@ -3438,18 +3438,18 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		prerequisite = { focus = HUN_pk_austro_hungarian_civil_war }
+		prerequisite = { focus = HUN_austro_hungarian_civil_war }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_popularity = { ideology = syndicalist popularity = 0.1 }
-			add_timed_idea = { idea = HUN_pk_workers_pushed_idea days = 365 }
+			add_timed_idea = { idea = HUN_workers_pushed_idea days = 365 }
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_compromise_with_minorities
+		id = HUN_compromise_with_minorities
 		icon = GFX_goal_POR_burden_empire
 		x = 56
 		y = 2
@@ -3463,19 +3463,19 @@ focus_tree = {
 			NOT = { has_government = paternal_autocrat }
 		}
 		
-		prerequisite = { focus = HUN_pk_austro_hungarian_civil_war }
+		prerequisite = { focus = HUN_austro_hungarian_civil_war }
 		
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
 			custom_effect_tooltip = hungary_locked_to_pluralism
 			set_country_flag = hungary_compromised_with_minorities
-			add_timed_idea = { idea = HUN_pk_minority_recruitment_idea days = 365 }
+			add_timed_idea = { idea = HUN_minority_recruitment_idea days = 365 }
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_a_patriotic_cause
+		id = HUN_a_patriotic_cause
 		icon = GFX_focus_generic_little_entente
 		x = 58
 		y = 2
@@ -3487,19 +3487,19 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		prerequisite = { focus = HUN_pk_austro_hungarian_civil_war }
+		prerequisite = { focus = HUN_austro_hungarian_civil_war }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_timed_idea = { idea = HUN_pk_patriotic_cause_idea days = 365 }
+			add_timed_idea = { idea = HUN_patriotic_cause_idea days = 365 }
 		}
 	}
 	
 	### Military Reform ###
 	
 	focus = {
-		id = HUN_pk_enact_military_reforms
+		id = HUN_enact_military_reforms
 		icon = GFX_goal_MAF_Army_Reforms
 		x = 54
 		y = 3
@@ -3509,18 +3509,18 @@ focus_tree = {
 		available = {
 		}
 		
-		mutually_exclusive = { focus = HUN_pk_modernize_our_military }
+		mutually_exclusive = { focus = HUN_modernize_our_military }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
 			add_political_power = -30
-			add_ideas = HUN_pk_undergoing_military_reforms_idea
+			add_ideas = HUN_undergoing_military_reforms_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_military_schools
+		id = HUN_military_schools
 		icon = GFX_goal_generic_army_doctrines
 		x = 53
 		y = 4
@@ -3530,17 +3530,17 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_enact_military_reforms }
+		prerequisite = { focus = HUN_enact_military_reforms }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_military_schools_idea
+			add_ideas = HUN_military_schools_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_foreign_instructors
+		id = HUN_foreign_instructors
 		icon = GFX_goal_generic_axis_build_infantry
 		x = 55
 		y = 4
@@ -3550,17 +3550,17 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_enact_military_reforms }
+		prerequisite = { focus = HUN_enact_military_reforms }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_foreign_instructors_idea
+			add_ideas = HUN_foreign_instructors_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_elite_army
+		id = HUN_elite_army
 		icon = GFX_goal_offensive_army
 		x = 53
 		y = 5
@@ -3570,18 +3570,18 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_military_schools }
-		prerequisite = { focus = HUN_pk_foreign_instructors }
+		prerequisite = { focus = HUN_military_schools }
+		prerequisite = { focus = HUN_foreign_instructors }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_elite_army_idea
+			add_ideas = HUN_elite_army_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_qualified_generals
+		id = HUN_qualified_generals
 		icon = GFX_focus_generic_military_mission
 		x = 55
 		y = 5
@@ -3591,18 +3591,18 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_military_schools }
-		prerequisite = { focus = HUN_pk_foreign_instructors }
+		prerequisite = { focus = HUN_military_schools }
+		prerequisite = { focus = HUN_foreign_instructors }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_qualified_generals_idea
+			add_ideas = HUN_qualified_generals_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_superior_firepower_tactics
+		id = HUN_superior_firepower_tactics
 		icon = GFX_goal_generic_army_artillery2
 		x = 53
 		y = 6
@@ -3612,8 +3612,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_elite_army }
-		prerequisite = { focus = HUN_pk_qualified_generals }
+		prerequisite = { focus = HUN_elite_army }
+		prerequisite = { focus = HUN_qualified_generals }
 		
 		ai_will_do = { factor = 5 }
 
@@ -3623,7 +3623,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_carpathian_brigades
+		id = HUN_carpathian_brigades
 		icon = GFX_goal_generic_allies_build_infantry
 		x = 55
 		y = 6
@@ -3633,8 +3633,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_elite_army }
-		prerequisite = { focus = HUN_pk_qualified_generals }
+		prerequisite = { focus = HUN_elite_army }
+		prerequisite = { focus = HUN_qualified_generals }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3644,7 +3644,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_new_hungarian_army
+		id = HUN_new_hungarian_army
 		icon = GFX_goal_step_on_skull
 		x = 55
 		y = 6
@@ -3654,19 +3654,19 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_carpathian_brigades }
+		prerequisite = { focus = HUN_carpathian_brigades }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = HUN_pk_undergoing_military_reforms_idea
+			remove_ideas = HUN_undergoing_military_reforms_idea
 		}
 	}
 	
 	### Army Modernization ###
 	
 	focus = {
-		id = HUN_pk_modernize_our_military
+		id = HUN_modernize_our_military
 		icon = GFX_goal_generic_fortify_city
 		x = 58
 		y = 3
@@ -3676,7 +3676,7 @@ focus_tree = {
 		available = {
 		}
 		
-		mutually_exclusive = { focus = HUN_pk_enact_military_reforms }
+		mutually_exclusive = { focus = HUN_enact_military_reforms }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3686,7 +3686,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_artillery_regiments
+		id = HUN_artillery_regiments
 		icon = GFX_goal_generic_army_artillery
 		x = 57
 		y = 4
@@ -3696,7 +3696,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_modernize_our_military }
+		prerequisite = { focus = HUN_modernize_our_military }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3706,7 +3706,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_better_rifles
+		id = HUN_better_rifles
 		icon = GFX_goal_generic_small_arms
 		x = 59
 		y = 4
@@ -3716,7 +3716,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_modernize_our_military }
+		prerequisite = { focus = HUN_modernize_our_military }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3726,7 +3726,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_increase_peasant_conscription
+		id = HUN_increase_peasant_conscription
 		icon = GFX_goal_generic_radar
 		x = 57
 		y = 5
@@ -3736,18 +3736,18 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_artillery_regiments }
-		prerequisite = { focus = HUN_pk_better_rifles }
+		prerequisite = { focus = HUN_artillery_regiments }
+		prerequisite = { focus = HUN_better_rifles }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_increased_peasant_conscription_idea
+			add_ideas = HUN_increased_peasant_conscription_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_motorization
+		id = HUN_motorization
 		icon = GFX_goal_generic_army_motorized
 		x = 59
 		y = 5
@@ -3757,8 +3757,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_artillery_regiments }
-		prerequisite = { focus = HUN_pk_better_rifles }
+		prerequisite = { focus = HUN_artillery_regiments }
+		prerequisite = { focus = HUN_better_rifles }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3768,7 +3768,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_monitor_production
+		id = HUN_monitor_production
 		icon = GFX_goal_generic_production
 		x = 57
 		y = 6
@@ -3778,18 +3778,18 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_increase_peasant_conscription }
-		prerequisite = { focus = HUN_pk_motorization }
+		prerequisite = { focus = HUN_increase_peasant_conscription }
+		prerequisite = { focus = HUN_motorization }
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_monitored_production_idea
+			add_ideas = HUN_monitored_production_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_mass_warfare_tactics
+		id = HUN_mass_warfare_tactics
 		icon = GFX_goal_refugee_management
 		x = 59
 		y = 6
@@ -3799,8 +3799,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_increase_peasant_conscription }
-		prerequisite = { focus = HUN_pk_motorization }
+		prerequisite = { focus = HUN_increase_peasant_conscription }
+		prerequisite = { focus = HUN_motorization }
 		
 		ai_will_do = { factor = 5 }
 
@@ -3810,7 +3810,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_deadly_and_efficient
+		id = HUN_deadly_and_efficient
 		icon = GFX_goal_generic_secret_weapon
 		x = 57
 		y = 7
@@ -3820,8 +3820,8 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_increase_peasant_conscription }
-		prerequisite = { focus = HUN_pk_motorization }
+		prerequisite = { focus = HUN_increase_peasant_conscription }
+		prerequisite = { focus = HUN_motorization }
 		
 		ai_will_do = { factor = 10 }
 
@@ -3835,7 +3835,7 @@ focus_tree = {
 	#################
 	
 	focus = {
-		id = HUN_pk_rebirth_of_the_navy
+		id = HUN_rebirth_of_the_navy
 		icon = GFX_goal_generic_navy_cruiser
 		x = 64
 		y = 0
@@ -3854,7 +3854,7 @@ focus_tree = {
 	}
 
 	focus = {
-		id = HUN_pk_build_shipyards
+		id = HUN_build_shipyards
 		icon = GFX_goal_generic_construct_naval_dockyard
 		x = 63
 		y = 1
@@ -3865,7 +3865,7 @@ focus_tree = {
 			any_owned_state = { is_coastal = yes }
 		}
 		
-		prerequisite = { focus = HUN_pk_rebirth_of_the_navy }
+		prerequisite = { focus = HUN_rebirth_of_the_navy }
 		
 		ai_will_do = { factor = 5 }
 
@@ -3890,7 +3890,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_naval_training
+		id = HUN_naval_training
 		icon = GFX_goal_generic_navy_anti_submarine
 		x = 65
 		y = 1
@@ -3901,7 +3901,7 @@ focus_tree = {
 			any_owned_state = { is_coastal = yes }
 		}
 		
-		prerequisite = { focus = HUN_pk_rebirth_of_the_navy }
+		prerequisite = { focus = HUN_rebirth_of_the_navy }
 		
 		ai_will_do = { factor = 5 }
 
@@ -3911,7 +3911,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_naval_tactics
+		id = HUN_naval_tactics
 		icon = GFX_goal_generic_navy_doctrines_tactics
 		x = 62
 		y = 2
@@ -3922,7 +3922,7 @@ focus_tree = {
 			any_owned_state = { is_coastal = yes }
 		}
 		
-		prerequisite = { focus = HUN_pk_build_shipyards }
+		prerequisite = { focus = HUN_build_shipyards }
 		
 		ai_will_do = { factor = 5 }
 
@@ -3936,7 +3936,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_fund_docks
+		id = HUN_fund_docks
 		icon = GFX_goal_generic_construct_naval_dockyard
 		x = 64
 		y = 2
@@ -3947,18 +3947,18 @@ focus_tree = {
 			any_owned_state = { is_coastal = yes }
 		}
 		
-		prerequisite = { focus = HUN_pk_build_shipyards }
-		prerequisite = { focus = HUN_pk_naval_training }
+		prerequisite = { focus = HUN_build_shipyards }
+		prerequisite = { focus = HUN_naval_training }
 		
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_fund_docks_idea
+			add_ideas = HUN_fund_docks_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_research_cruisers
+		id = HUN_research_cruisers
 		icon = GFX_goal_generic_navy_cruiser
 		x = 66
 		y = 2
@@ -3969,7 +3969,7 @@ focus_tree = {
 			any_owned_state = { is_coastal = yes }
 		}
 		
-		prerequisite = { focus = HUN_pk_naval_training }
+		prerequisite = { focus = HUN_naval_training }
 		
 		ai_will_do = { factor = 5 }
 
@@ -3983,7 +3983,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_capital_ships
+		id = HUN_capital_ships
 		icon = GFX_goal_generic_navy_battleship
 		x = 63
 		y = 3
@@ -3994,8 +3994,8 @@ focus_tree = {
 			any_owned_state = { is_coastal = yes }
 		}
 		
-		prerequisite = { focus = HUN_pk_naval_tactics }
-		prerequisite = { focus = HUN_pk_fund_docks }
+		prerequisite = { focus = HUN_naval_tactics }
+		prerequisite = { focus = HUN_fund_docks }
 		
 		ai_will_do = { factor = 5 }
 
@@ -4020,7 +4020,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_submarine_effort
+		id = HUN_submarine_effort
 		icon = GFX_goal_generic_navy_submarine
 		x = 65
 		y = 3
@@ -4031,8 +4031,8 @@ focus_tree = {
 			any_owned_state = { is_coastal = yes }
 		}
 		
-		prerequisite = { focus = HUN_pk_research_cruisers }
-		prerequisite = { focus = HUN_pk_fund_docks }
+		prerequisite = { focus = HUN_research_cruisers }
+		prerequisite = { focus = HUN_fund_docks }
 		
 		ai_will_do = { factor = 5 }
 
@@ -4051,7 +4051,7 @@ focus_tree = {
 	################
 	
 	focus = {
-		id = HUN_pk_hungarian_airforce
+		id = HUN_hungarian_airforce
 		icon = GFX_goal_generic_build_airforce
 		x = 64
 		y = 4
@@ -4069,7 +4069,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_air_tactics
+		id = HUN_air_tactics
 		icon = GFX_goal_generic_air_doctrine
 		x = 63
 		y = 5
@@ -4079,7 +4079,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_hungarian_airforce }
+		prerequisite = { focus = HUN_hungarian_airforce }
 		
 		ai_will_do = { factor = 5 }
 
@@ -4093,7 +4093,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_air_exercizes
+		id = HUN_air_exercizes
 		icon = GFX_focus_generic_air_defense
 		x = 65
 		y = 5
@@ -4103,7 +4103,7 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_hungarian_airforce }
+		prerequisite = { focus = HUN_hungarian_airforce }
 		
 		ai_will_do = { factor = 5 }
 
@@ -4113,7 +4113,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_heavy_fighters
+		id = HUN_heavy_fighters
 		icon = GFX_goal_generic_air_fighter
 		x = 61
 		y = 5
@@ -4123,9 +4123,9 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_air_tactics }
+		prerequisite = { focus = HUN_air_tactics }
 		
-		mutually_exclusive = { focus = HUN_pk_light_fighters }
+		mutually_exclusive = { focus = HUN_light_fighters }
 		
 		ai_will_do = { factor = 5 }
 
@@ -4139,7 +4139,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_light_fighters
+		id = HUN_light_fighters
 		icon = GFX_goal_generic_air_fighter2
 		x = 63
 		y = 5
@@ -4149,9 +4149,9 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_air_tactics }
+		prerequisite = { focus = HUN_air_tactics }
 		
-		mutually_exclusive = { focus = HUN_pk_heavy_fighters }
+		mutually_exclusive = { focus = HUN_heavy_fighters }
 		
 		ai_will_do = { factor = 5 }
 
@@ -4165,7 +4165,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_cas_bombers
+		id = HUN_cas_bombers
 		icon = GFX_goal_generic_CAS
 		x = 65
 		y = 5
@@ -4175,9 +4175,9 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_air_exercizes }
+		prerequisite = { focus = HUN_air_exercizes }
 		
-		mutually_exclusive = { focus = HUN_pk_tactical_bombers }
+		mutually_exclusive = { focus = HUN_tactical_bombers }
 		
 		ai_will_do = { factor = 5 }
 
@@ -4191,7 +4191,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_tactical_bombers
+		id = HUN_tactical_bombers
 		icon = GFX_goal_generic_air_bomber
 		x = 67
 		y = 5
@@ -4201,9 +4201,9 @@ focus_tree = {
 		available = {
 		}
 		
-		prerequisite = { focus = HUN_pk_air_exercizes }
+		prerequisite = { focus = HUN_air_exercizes }
 		
-		mutually_exclusive = { focus = HUN_pk_cas_bombers }
+		mutually_exclusive = { focus = HUN_cas_bombers }
 		
 		ai_will_do = { factor = 5 }
 
@@ -4217,7 +4217,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_fund_runways
+		id = HUN_fund_runways
 		icon = GFX_goal_generic_radar
 		x = 64
 		y = 6
@@ -4228,19 +4228,19 @@ focus_tree = {
 		}
 		
 		prerequisite = {
-			focus = HUN_pk_heavy_fighters
-			focus = HUN_pk_light_fighters
+			focus = HUN_heavy_fighters
+			focus = HUN_light_fighters
 		}
 		
 		ai_will_do = { factor = 5 }
 
 		completion_reward = {
-			add_ideas = HUN_pk_fund_runways_idea
+			add_ideas = HUN_fund_runways_idea
 		}
 	}
 	
 	focus = {
-		id = HUN_pk_fund_airplane_manufacturers
+		id = HUN_fund_airplane_manufacturers
 		icon = GFX_goal_continuous_air_production
 		x = 66
 		y = 6
@@ -4251,13 +4251,13 @@ focus_tree = {
 		}
 		
 		prerequisite = {
-			focus = HUN_pk_heavy_fighters
-			focus = HUN_pk_light_fighters
+			focus = HUN_heavy_fighters
+			focus = HUN_light_fighters
 		}
 		
 		prerequisite = {
-			focus = HUN_pk_cas_bombers
-			focus = HUN_pk_tactical_bombers
+			focus = HUN_cas_bombers
+			focus = HUN_tactical_bombers
 		}
 		
 		ai_will_do = { factor = 10 }
@@ -4297,7 +4297,7 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = HUN_pk_rocketry_effort
+		id = HUN_rocketry_effort
 		icon = GFX_focus_rocketry
 		x = 68
 		y = 6
@@ -4308,8 +4308,8 @@ focus_tree = {
 		}
 		
 		prerequisite = {
-			focus = HUN_pk_cas_bombers
-			focus = HUN_pk_tactical_bombers
+			focus = HUN_cas_bombers
+			focus = HUN_tactical_bombers
 		}
 		
 		ai_will_do = { factor = 5 }
