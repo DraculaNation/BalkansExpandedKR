@@ -1295,7 +1295,10 @@ country_event = { # Montenegro defects
 		remove_state_core = 105
 		release = MTN
 		remove_ideas = { ILL_montenegrin_nationalism_idea }
-		hidden_effect = { country_event = { id = illyria.45 days = 1 } }
+		hidden_effect = { 
+			country_event = { id = illyria.45 days = 1 } 
+			MTN = { load_oob = MTN_initial_troops }
+		}
 	}
 }
 

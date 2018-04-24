@@ -1,0 +1,48 @@
+﻿########
+#Templates
+########
+
+division_template = {
+	name = "Pješačka Divizija"	
+
+	regiments = {
+		infantry = { x = 0 y = 0 }
+		infantry = { x = 0 y = 1 }
+		infantry = { x = 0 y = 2 }
+		infantry = { x = 1 y = 0 }
+		infantry = { x = 1 y = 1 }
+		infantry = { x = 1 y = 2 }
+		infantry = { x = 2 y = 0 }
+		infantry = { x = 2 y = 1 }
+		infantry = { x = 2 y = 2 }
+	}
+	support = {
+		
+	}
+}
+
+
+########
+units = {
+########
+
+#### INF ####
+	division= {	
+		name = "Pješačka Divizija 1"
+		location = 9809
+		division_template = "Pješačka Divizija"
+		start_experience_factor = 0.6
+	}
+	division= {	
+		name = "Pješačka Divizija 2"
+		location = 9809
+		division_template = "Pješačka Divizija"
+		start_experience_factor = 0.6
+	}
+	division= {	
+		name = "Pješačka Divizija 3"
+		location = 9809
+		division_template = "Pješačka Divizija"
+		start_experience_factor = 0.6
+	}
+}
