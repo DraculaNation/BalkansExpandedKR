@@ -4,7 +4,7 @@ focus_tree = {
 	country = {
 		factor = 0
 		modifier = {
-			add = 100
+			add = 10
 			tag = ILL
 		}
 	}
@@ -5487,6 +5487,7 @@ focus_tree = {
 		completion_reward = {
 			SER = { country_event = { id = illyria.112 days = 1 } }
 		}
+		available_if_capitulated = no
 	}
 	
 	focus = {
@@ -5516,6 +5517,7 @@ focus_tree = {
 		completion_reward = {
 			AUS = { country_event = { id = illyria.114 days = 1 } }
 		}
+		available_if_capitulated = no
 	}
 	
 	focus = {
@@ -5548,11 +5550,12 @@ focus_tree = {
 		completion_reward = {
 			GER = { country_event = { id = illyria.113 days = 1 } }
 		}
+		available_if_capitulated = no
 	}
 	
 	focus = {
 		id = ILL_alliance_medblock
-		icon = GFX_goal_carlist
+		icon = GFX_NATFRA_flags1
 		x = 19
 		y = 18
 
@@ -5565,21 +5568,28 @@ focus_tree = {
 		}
 		
 		available = { 
-		CAR = { is_faction_leader = yes }
+		OR = {
+			has_government = social_democrat
+			has_government = social_liberal
+			has_government = market_liberal
+			has_government = social_conservative
+		}
+		NFA = { is_faction_leader = yes }
 			NOT = { OR = {
 				has_government = totalist
 				has_government = syndicalist
 				has_government = radical_socialist
 			} }
 		is_in_faction = no
-		NOT = { has_war_with = CAR }
+		NOT = { has_war_with = NFA }
 		}
 		
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			CAR = { country_event = { id = illyria.115 days = 1 } }
+			NFA = { country_event = { id = illyria.115 days = 1 } }
 		}
+		available_if_capitulated = no
 	}
 	
 }

@@ -287,14 +287,14 @@ ideas = {
 				stability_factor = -0.1
 				political_power_gain = -0.1
 			}
-			picture = fra_matignon_agreements
+			picture = FRA_matignon_agreements
 		}
 		
 		ILL_minorities_ignored_idea = {
 			modifier = {
 				stability_factor = -0.15
 			}
-			picture = fra_matignon_agreements
+			picture = FRA_matignon_agreements
 		}
 		
 		ILL_minorities_outraged_idea = {
@@ -302,7 +302,7 @@ ideas = {
 				stability_factor = -0.15
 				political_power_gain = -0.2
 			}
-			picture = fra_matignon_agreements
+			picture = FRA_matignon_agreements
 		}
 		
 		ILL_civil_war_ongoing_idea = {

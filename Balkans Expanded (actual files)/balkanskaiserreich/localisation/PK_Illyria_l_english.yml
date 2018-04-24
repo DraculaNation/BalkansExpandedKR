@@ -828,8 +828,8 @@ ILL_alliance_austria:0 "Rejoin Austria"
 ILL_alliance_austria_desc:0 "Kicking us out of their faction, the Austrians never assumed that we simply want independence. With our pacifist policies, we can apply for membership in the Austrian Sphere again, and cooperate with them again."
 ILL_alliance_mitteleuropa:0 "Join Mitteleuropa"
 ILL_alliance_mitteleuropa_desc:0 "We had our sights set towards a certain global alliance by the name of Mitteleuropa. Our membership there would mean that we would have protection from Germany against anyone that would go against us."
-ILL_alliance_medblock:0 "Join the Mediteranean Block"
-ILL_alliance_medblock_desc:0 "With the Carlists creating a new, Catholic alliance of Mediteranean countries, we should apply to be members - for mutual protection, eocnomic cooperation and more."
+ILL_alliance_medblock:0 "Join the Entente"
+ILL_alliance_medblock_desc:0 "With our newfound independence, it might be wise for us to ask for protection from the Entente. That way, they'll gain a stronghold in Europe, and we'll fight the toxic ideologies of socialism!"
 
 ### Events ###
 illyria.1.t:0 "Kingdom of Illyria"
@@ -1373,8 +1373,8 @@ illyria.114.d:0 "Today, in a surprising diplomatic move, the nation of Illyria h
 illyria.114.a:0 "Welcome back!"
 illyria.114.b:0 "Fool me once, shame on you. Fool me twice, shame on me."
 
-illyria.115.t:0 "[ILL.GetName] in the Mediteranean Block?"
-illyria.115.d:0 "Today, while negotiating with our government, the [ILL.GetAdjective] representatives showed significant interest in joining the Mediteranean Block. Having such an ally could help us in the struggle against our enemies, as well as in asserting dominance over the Balkans. What should we do?"
+illyria.115.t:0 "[ILL.GetName] in the Entente?"
+illyria.115.d:0 "Today, while negotiating with our government, the [ILL.GetAdjective] representatives showed significant interest in joining the Entente. Having such an ally could help us gain a stronghold in Europe, while in return protecting them from anyone who might threaten their sovereignity. What should we do?"
 illyria.115.a:0 "Welcome, brothers."
 illyria.115.b:0 "We cannot let them in."
 

@@ -3169,3 +3169,57 @@ country_event = { # Welcome to Balkans Upgraded
 	}
 	
 }
+
+country_event = { #Herzegovina Liberation - Pan Serbia
+	id = serbia.74
+	title = serbia.74.t
+	desc = serbia.74.d
+
+	trigger = {
+		owns_state = 1029
+		tag = SER
+		has_completed_focus = SER_pan_serbia
+		BOS = {
+			exists = no
+		}
+		NOT = {
+			has_country_flag = BOS_CONQ
+		}
+	}
+	
+	immediate = {
+		hidden_effect = {
+			set_country_flag = BOS_CONQ
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 4
+	}
+
+	option = { #liberate
+		name = serbia.74.a
+		ai_chance = {
+			factor = 100
+		}
+		BOS = {
+			set_cosmetic_tag = BOS_herzegovina
+			transfer_state = 1029
+		}
+			set_autonomy = {
+				target = BOS
+				autonomous_state = kr_integrated_puppet
+			}
+	}
+
+	option = { #occupy
+		name = serbia.74.b
+		ai_chance = {
+			factor = 0
+		}
+		set_country_flag = BOS_CONQ
+		add_political_power = -10
+		add_stability = -0.01
+		add_war_support = -0.01
+	}
+}
