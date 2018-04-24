@@ -4062,7 +4062,7 @@ focus_tree = {
 		id = HUN_air_exercizes
 		icon = GFX_focus_generic_air_defense
 		x = 65
-		y = 6
+		y = 5
 
 		cost = 7
 
@@ -4265,7 +4265,8 @@ focus_tree = {
 	focus = {
 		id = HUN_rocketry_effort
 		icon = GFX_focus_rocketry
-		x = 6676
+		x = 66
+		y = 7
 
 		cost = 7
 
