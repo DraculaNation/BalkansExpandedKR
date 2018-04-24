@@ -93,9 +93,29 @@ opinion_modifiers = {
 	}
 	
 	### Albania
+	
 	ALB_belgrade_pact_observer_opinion = {
 		value = 20
 		years = 4
 	}
+	
+	### Hungary
+	
+	HUN_local_trade_relations = {
+		value = 15
+		years = 8
+	}
+	
+	HUN_magyarized_germans = {
+		value = -40
+		years = 3
+	}
+	
+	HUN_positive_relations_rekindled = {
+		value = 30
+		years = 4
+	}
+	
+	
 	
 }

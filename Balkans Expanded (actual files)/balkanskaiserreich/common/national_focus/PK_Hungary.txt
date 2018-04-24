@@ -162,7 +162,7 @@ focus_tree = {
 		x = 0
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -187,7 +187,7 @@ focus_tree = {
 		x = 2
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -210,7 +210,7 @@ focus_tree = {
 		x = 4
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -259,7 +259,7 @@ focus_tree = {
 		x = 1
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -281,7 +281,7 @@ focus_tree = {
 		x = 3
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -303,7 +303,7 @@ focus_tree = {
 		x = 2
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -464,7 +464,7 @@ focus_tree = {
 		x = 6
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -484,7 +484,7 @@ focus_tree = {
 		x = 8
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -507,7 +507,7 @@ focus_tree = {
 		x = 10
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -531,7 +531,7 @@ focus_tree = {
 		x = 7
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -560,7 +560,7 @@ focus_tree = {
 		x = 9
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -582,7 +582,7 @@ focus_tree = {
 		x = 8
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -602,7 +602,7 @@ focus_tree = {
 	focus = {
 		id = HUN_a_catholic_hungary
 		icon = GFX_goal_KTG_Colonial_Trinity2
-		x = 21
+		x = 20
 		y = 0
 
 		cost = 1
@@ -624,7 +624,7 @@ focus_tree = {
 	focus = {
 		id = HUN_god_wills_it
 		icon = GFX_focus_generic_support_the_left_right
-		x = 20
+		x = 19
 		y = 1
 
 		cost = 5
@@ -644,7 +644,7 @@ focus_tree = {
 	focus = {
 		id = HUN_help_from_the_pope
 		icon = GFX_goal_italianfed
-		x = 22
+		x = 21
 		y = 1
 
 		cost = 5
@@ -660,7 +660,6 @@ focus_tree = {
 			ITA = { is_puppet = yes }
 			}
 		}
-		}
 		
 		prerequisite = { focus = HUN_a_catholic_hungary }
 		
@@ -674,7 +673,7 @@ focus_tree = {
 	focus = {
 		id = HUN_our_religion_our_heritage
 		icon = GFX_goal_generic_demand_territory
-		x = 20
+		x = 19
 		y = 2
 
 		cost = 5
@@ -695,7 +694,7 @@ focus_tree = {
 	focus = {
 		id = HUN_empower_the_priests
 		icon = GFX_goal_authoritarian
-		x = 22
+		x = 21
 		y = 2
 
 		cost = 5
@@ -720,7 +719,7 @@ focus_tree = {
 	focus = {
 		id = HUN_embrace_catholicism
 		icon = GFX_goal_faith_and_state
-		x = 21
+		x = 20
 		y = 3
 
 		cost = 1
@@ -751,10 +750,10 @@ focus_tree = {
 	focus = {
 		id = HUN_convert_the_protestants
 		icon = GFX_goal_dcgb
-		x = 19
+		x = 18
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 			NOT = {
@@ -775,10 +774,10 @@ focus_tree = {
 	focus = {
 		id = HUN_convert_the_godless
 		icon = GFX_goal_broken_red_star
-		x = 21
+		x = 20
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 			NOT = {
@@ -802,10 +801,10 @@ focus_tree = {
 	focus = {
 		id = HUN_convert_the_orthodox
 		icon = GFX_goal_tax_church
-		x = 23
+		x = 22
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 			NOT = {
@@ -826,10 +825,10 @@ focus_tree = {
 	focus = {
 		id = HUN_the_new_crusade
 		icon = GFX_goal_conscription
-		x = 20
+		x = 19
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -855,10 +854,10 @@ focus_tree = {
 	focus = {
 		id = HUN_apostolic_majesty
 		icon = GFX_focus_generic_concessions
-		x = 22
+		x = 21
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 			has_completed_focus = HUN_crown_a_king
@@ -886,10 +885,10 @@ focus_tree = {
 	focus = {
 		id = HUN_divine_strength
 		icon = GFX_goal_generic_political_pressure
-		x = 21
+		x = 20
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -912,7 +911,7 @@ focus_tree = {
 	focus = {
 		id = HUN_freedom_for_hungary
 		icon = GFX_goal_support_democracy
-		x = 27
+		x = 26
 		y = 0
 
 		cost = 1
@@ -940,7 +939,7 @@ focus_tree = {
 	focus = {
 		id = HUN_cooperation
 		icon = GFX_goal_tripartite_pact
-		x = 26
+		x = 25
 		y = 1
 
 		cost = 5
@@ -961,7 +960,7 @@ focus_tree = {
 	focus = {
 		id = HUN_seek_foreign_help
 		icon = GFX_goal_generic_intelligence_exchange
-		x = 28
+		x = 27
 		y = 1
 
 		cost = 5
@@ -995,7 +994,7 @@ focus_tree = {
 	focus = {
 		id = HUN_solidify_rule
 		icon = GFX_goal_anschluss
-		x = 26
+		x = 25
 		y = 2
 
 		cost = 5
@@ -1016,7 +1015,7 @@ focus_tree = {
 	focus = {
 		id = HUN_encourage_militias
 		icon = GFX_goal_military_academy
-		x = 28
+		x = 27
 		y = 2
 
 		cost = 5
@@ -1037,7 +1036,7 @@ focus_tree = {
 	focus = {
 		id = HUN_gaining_control
 		icon = GFX_focus_generic_self_management
-		x = 27
+		x = 26
 		y = 3
 
 		cost = 1
@@ -1068,10 +1067,10 @@ focus_tree = {
 	focus = {
 		id = HUN_the_aristocracy
 		icon = GFX_goal_silver_reserve
-		x = 25
+		x = 24
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1088,10 +1087,10 @@ focus_tree = {
 	focus = {
 		id = HUN_deal_with_socialism
 		icon = GFX_HOL_red_scare
-		x = 27
+		x = 26
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1114,10 +1113,10 @@ focus_tree = {
 	focus = {
 		id = HUN_the_freer_the_market
 		icon = GFX_goal_generic_positive_trade_relations
-		x = 29
+		x = 28
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1141,10 +1140,10 @@ focus_tree = {
 	focus = {
 		id = HUN_law_reforms
 		icon = GFX_focus_renounce_the_treaty_of_trianon
-		x = 26
+		x = 25
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1163,10 +1162,10 @@ focus_tree = {
 	focus = {
 		id = HUN_the_freer_the_people
 		icon = GFX_goal_ideology_social_liberal
-		x = 28
+		x = 27
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1193,10 +1192,10 @@ focus_tree = {
 	focus = {
 		id = HUN_new_hungarian_society
 		icon = GFX_goal_HOL_CNA_restored_stability
-		x = 27
+		x = 26
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1217,7 +1216,7 @@ focus_tree = {
 	focus = {
 		id = HUN_civil_dissent
 		icon = GFX_goal_revolution
-		x = 15
+		x = 14
 		y = 3
 
 		cost = 1
@@ -1259,10 +1258,10 @@ focus_tree = {
 	focus = {
 		id = HUN_integrate_the_rebels
 		icon = GFX_focus_secret_rearmament
-		x = 15
+		x = 14
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1283,10 +1282,10 @@ focus_tree = {
 	focus = {
 		id = HUN_bulwark_of_socialism
 		icon = GFX_goal_red_star_dove
-		x = 15
+		x = 14
 		y = 8
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1308,7 +1307,7 @@ focus_tree = {
 	focus = {
 		id = HUN_syndicalist_utopia
 		icon = GFX_goal_ideology_syndicalist
-		x = 13
+		x = 12
 		y = 4
 
 		cost = 1
@@ -1333,10 +1332,10 @@ focus_tree = {
 	focus = {
 		id = HUN_empower_the_trade_unions
 		icon = GFX_goal_syndicalist_industry
-		x = 13
+		x = 12
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1353,10 +1352,10 @@ focus_tree = {
 	focus = {
 		id = HUN_decentralization
 		icon = GFX_goal_generic_neutrality_focus
-		x = 12
+		x = 11
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1374,10 +1373,10 @@ focus_tree = {
 	focus = {
 		id = HUN_better_work_conditions
 		icon = GFX_goal_production
-		x = 14
+		x = 13
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1397,10 +1396,10 @@ focus_tree = {
 	focus = {
 		id = HUN_the_workers_republic
 		icon = GFX_goal_NOR_secret_police
-		x = 13
+		x = 12
 		y = 7
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1423,7 +1422,7 @@ focus_tree = {
 	focus = {
 		id = HUN_bela_kuns_vision
 		icon = GFX_goal_ideology_totalist
-		x = 17
+		x = 16
 		y = 4
 
 		cost = 1
@@ -1448,10 +1447,10 @@ focus_tree = {
 	focus = {
 		id = HUN_balance_of_power
 		icon = GFX_goal_HOL_sustain_neutrality
-		x = 17
+		x = 16
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1468,10 +1467,10 @@ focus_tree = {
 	focus = {
 		id = HUN_peasant_republic
 		icon = GFX_goal_agriculture
-		x = 16
+		x = 15
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1482,15 +1481,16 @@ focus_tree = {
 
 		completion_reward = {
 			add_ideas = HUN_peasants_favored_idea
+		}
 	}
 	
 	focus = {
 		id = HUN_planned_economy
 		icon = GFX_goal_state_economy
-		x = 18
+		x = 17
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1508,10 +1508,10 @@ focus_tree = {
 	focus = {
 		id = HUN_civilized_socialism
 		icon = GFX_goal_red_star
-		x = 17
+		x = 16	
 		y = 7
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1530,8 +1530,8 @@ focus_tree = {
 	
 	focus = {
 		id = HUN_loyalty_to_the_habsburgs
-		icon = GFX_goal_AUS_reformed_dual
-		x = 32
+		icon = GFX_goal_austria
+		x = 30
 		y = 0
 
 		cost = 1
@@ -1553,7 +1553,7 @@ focus_tree = {
 	focus = {
 		id = HUN_rekindle_the_ties
 		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
-		x = 32
+		x = 30
 		y = 1
 
 		cost = 5
@@ -1573,7 +1573,7 @@ focus_tree = {
 	focus = {
 		id = HUN_consolidate_habsburg_rule
 		icon = GFX_focus_generic_home_defense
-		x = 32
+		x = 30
 		y = 2
 
 		cost = 5
@@ -1594,7 +1594,7 @@ focus_tree = {
 	focus = {
 		id = HUN_scientific_cooperation
 		icon = GFX_goal_generic_scientific_exchange
-		x = 31
+		x = 19
 		y = 3
 
 		cost = 5
@@ -1614,7 +1614,7 @@ focus_tree = {
 	focus = {
 		id = HUN_found_the_budapest_wien_line
 		icon = GFX_goal_generic_construct_infrastructure
-		x = 33
+		x = 31
 		y = 3
 
 		cost = 5
@@ -1701,7 +1701,7 @@ focus_tree = {
 	focus = {
 		id = HUN_tighten_our_bonds
 		icon = GFX_focus_generic_diplomatic_treaty
-		x = 32
+		x = 30
 		y = 4
 
 		cost = 5
@@ -1722,7 +1722,7 @@ focus_tree = {
 	focus = {
 		id = HUN_embrace_the_dual_monarchy
 		icon = GFX_focus_proclaim_the_restauration_of_Austria_Hungary
-		x = 32
+		x = 30
 		y = 5
 
 		cost = 5
@@ -1798,7 +1798,7 @@ focus_tree = {
 		x = 35
 		y = 2
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1832,7 +1832,7 @@ focus_tree = {
 		x = 37
 		y = 2
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1853,7 +1853,7 @@ focus_tree = {
 		x = 36
 		y = 3
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1877,7 +1877,7 @@ focus_tree = {
 		x = 36
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1953,7 +1953,7 @@ focus_tree = {
 		x = 41
 		y = 2
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -1988,7 +1988,7 @@ focus_tree = {
 		x = 43
 		y = 2
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -2020,7 +2020,7 @@ focus_tree = {
 		x = 41
 		y = 3
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -2055,7 +2055,7 @@ focus_tree = {
 		x = 43
 		y = 3
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -2076,7 +2076,7 @@ focus_tree = {
 		x = 41
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -2111,10 +2111,12 @@ focus_tree = {
 		x = 43
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
+		
+		mutually_exclusive = { focus = HUN_develop_agriculture }
 		
 		prerequisite = { focus = HUN_autarky }
 		prerequisite = { focus = HUN_synthetic_oil }
@@ -2134,7 +2136,7 @@ focus_tree = {
 		x = 36
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -2168,7 +2170,7 @@ focus_tree = {
 		x = 36
 		y = 7
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -2213,7 +2215,7 @@ focus_tree = {
 		x = 36
 		y = 8
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -2262,7 +2264,7 @@ focus_tree = {
 		x = 42
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -2296,7 +2298,7 @@ focus_tree = {
 		x = 42
 		y = 7
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -2343,7 +2345,7 @@ focus_tree = {
 		x = 42
 		y = 8
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -2364,7 +2366,7 @@ focus_tree = {
 		x = 38
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 			has_idea = HUN_civil_war_aftermath1_idea
@@ -2389,7 +2391,7 @@ focus_tree = {
 		x = 40
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -2423,9 +2425,9 @@ focus_tree = {
 		id = HUN_rebuild_hungary
 		icon = GFX_IRE_medium_industry
 		x = 39
-		y = 6
+		y = 7
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -2444,7 +2446,7 @@ focus_tree = {
 		id = HUN_revitalized_education
 		icon = GFX_goal_generic_scientific_exchange
 		x = 38
-		y = 7
+		y = 8
 
 		cost = 5
 
@@ -2464,7 +2466,7 @@ focus_tree = {
 		id = HUN_rejuvenation_project
 		icon = GFX_IRE_heavy_industry
 		x = 40
-		y = 7
+		y = 8
 
 		cost = 5
 
@@ -2588,8 +2590,8 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = HUN_slovakian_minority_idea
-			add_timed_idea = { idea = HUN_slovakian_minority2_idea days = 365 }
+			remove_ideas = HUN_slovak_minority_idea
+			add_timed_idea = { idea = HUN_slovak_minority2_idea days = 365 }
 		}
 	}
 	
@@ -2622,7 +2624,7 @@ focus_tree = {
 	
 	focus = {
 		id = HUN_no_pass_for_germans
-		icon = GFX_goal_HOL_ban_paramilitary
+		icon = GFX_goal_germany
 		x = 46
 		y = 3
 
@@ -2689,7 +2691,7 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		prerequisite = { focus = HUN_continue_magyarization }
+		prerequisite = { focus = HUN_embrace_pluralism }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2724,7 +2726,7 @@ focus_tree = {
 			is_puppet = no
 		}
 		
-		prerequisite = { focus = HUN_continue_magyarization }
+		prerequisite = { focus = HUN_embrace_pluralism }
 		
 		ai_will_do = { factor = 10 }
 
@@ -2767,7 +2769,7 @@ focus_tree = {
 		ai_will_do = { factor = 10 }
 
 		completion_reward = {
-			remove_ideas = HUN_slovakian_minority_idea
+			remove_ideas = HUN_slovak_minority_idea
 			SVK = { 
 				set_state_owner = 70
 				set_state_owner = 71
@@ -2881,7 +2883,7 @@ focus_tree = {
 		x = 47
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 			is_puppet = no
@@ -2906,7 +2908,7 @@ focus_tree = {
 		x = 49
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 			is_puppet = no
@@ -2940,7 +2942,7 @@ focus_tree = {
 		x = 46
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 			is_puppet = no
@@ -2981,7 +2983,7 @@ focus_tree = {
 		x = 50
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 			is_puppet = no
@@ -3206,7 +3208,7 @@ focus_tree = {
 	focus = {
 		id = HUN_invite_poland
 		icon = GFX_goal_anschluss
-		x = 46
+		x = 48
 		y = 8
 
 		cost = 5
@@ -3256,7 +3258,7 @@ focus_tree = {
 	focus = {
 		id = HUN_invite_italy
 		icon = GFX_goal_generic_alliance
-		x = 48
+		x = 46
 		y = 8
 
 		cost = 5
@@ -3525,7 +3527,7 @@ focus_tree = {
 		x = 53
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -3545,7 +3547,7 @@ focus_tree = {
 		x = 55
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -3565,7 +3567,7 @@ focus_tree = {
 		x = 53
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -3586,7 +3588,7 @@ focus_tree = {
 		x = 55
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -3628,7 +3630,7 @@ focus_tree = {
 		x = 55
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -3647,7 +3649,7 @@ focus_tree = {
 		id = HUN_new_hungarian_army
 		icon = GFX_goal_step_on_skull
 		x = 55
-		y = 6
+		y = 7
 
 		cost = 2
 
@@ -3691,7 +3693,7 @@ focus_tree = {
 		x = 57
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -3711,7 +3713,7 @@ focus_tree = {
 		x = 59
 		y = 4
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -3731,7 +3733,7 @@ focus_tree = {
 		x = 57
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -3752,7 +3754,7 @@ focus_tree = {
 		x = 59
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -3773,7 +3775,7 @@ focus_tree = {
 		x = 57
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -3859,7 +3861,7 @@ focus_tree = {
 		x = 63
 		y = 1
 
-		cost = 10
+		cost = 7
 
 		available = {
 			any_owned_state = { is_coastal = yes }
@@ -3895,7 +3897,7 @@ focus_tree = {
 		x = 65
 		y = 1
 
-		cost = 10
+		cost = 7
 
 		available = {
 			any_owned_state = { is_coastal = yes }
@@ -3916,7 +3918,7 @@ focus_tree = {
 		x = 62
 		y = 2
 
-		cost = 10
+		cost = 7
 
 		available = {
 			any_owned_state = { is_coastal = yes }
@@ -3941,7 +3943,7 @@ focus_tree = {
 		x = 64
 		y = 2
 
-		cost = 10
+		cost = 7
 
 		available = {
 			any_owned_state = { is_coastal = yes }
@@ -3963,7 +3965,7 @@ focus_tree = {
 		x = 66
 		y = 2
 
-		cost = 10
+		cost = 7
 
 		available = {
 			any_owned_state = { is_coastal = yes }
@@ -3988,7 +3990,7 @@ focus_tree = {
 		x = 63
 		y = 3
 
-		cost = 10
+		cost = 7
 
 		available = {
 			any_owned_state = { is_coastal = yes }
@@ -4025,7 +4027,7 @@ focus_tree = {
 		x = 65
 		y = 3
 
-		cost = 10
+		cost = 7
 
 		available = {
 			any_owned_state = { is_coastal = yes }
@@ -4074,7 +4076,7 @@ focus_tree = {
 		x = 63
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -4098,7 +4100,7 @@ focus_tree = {
 		x = 65
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -4118,7 +4120,7 @@ focus_tree = {
 		x = 61
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -4144,7 +4146,7 @@ focus_tree = {
 		x = 63
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -4170,7 +4172,7 @@ focus_tree = {
 		x = 65
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -4196,7 +4198,7 @@ focus_tree = {
 		x = 67
 		y = 5
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -4222,7 +4224,7 @@ focus_tree = {
 		x = 64
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -4242,10 +4244,10 @@ focus_tree = {
 	focus = {
 		id = HUN_fund_airplane_manufacturers
 		icon = GFX_goal_continuous_air_production
-		x = 66
+		x = 62
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
@@ -4299,10 +4301,10 @@ focus_tree = {
 	focus = {
 		id = HUN_rocketry_effort
 		icon = GFX_focus_rocketry
-		x = 68
+		x = 66
 		y = 6
 
-		cost = 10
+		cost = 7
 
 		available = {
 		}
