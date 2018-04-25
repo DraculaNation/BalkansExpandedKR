@@ -3101,6 +3101,7 @@ country_event = { # Welcome to Balkans Upgraded
 		OR = {
 			tag = SER 
 			tag = ILL
+			tag = HUN
 		}
 		is_ai = no
 		
@@ -3159,6 +3160,28 @@ country_event = { # Welcome to Balkans Upgraded
 				expire = "1965.1.1"
 				ideology = social_liberal_subtype
 				traits = { }
+			}
+			add_popularity = { ideology = social_liberal popularity = 1 }
+			add_popularity = { ideology = national_populist popularity = -1 }
+			add_popularity = { ideology = paternal_autocrat popularity = -1 }
+			add_popularity = { ideology = authoritarian_democrat popularity = -1 }
+			add_popularity = { ideology = social_conservative popularity = -1 }
+		}
+		HUN = {
+			kill_country_leader = yes
+			set_politics = { ruling_party = social_liberal elections_allowed = no }
+			create_country_leader = {
+				name = "Mil Mi-24"
+				picture = "Attack_Helicopter.tga"
+				expire = "1965.1.1"
+				ideology = social_liberal_subtype
+				traits = { }
+			}
+			every_state = {
+				limit = {
+					is_core_of = MON
+				}
+				add_core_of = HUN
 			}
 			add_popularity = { ideology = social_liberal popularity = 1 }
 			add_popularity = { ideology = national_populist popularity = -1 }
