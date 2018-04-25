@@ -773,6 +773,7 @@ country_event = { #Black Monday Strikes
 				has_idea = AUS_black_monday_sdap-3
 			}
 		}
+		tag = HUN
 	}
 
 	fire_only_once = yes
