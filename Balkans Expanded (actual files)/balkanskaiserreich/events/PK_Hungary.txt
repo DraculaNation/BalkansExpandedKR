@@ -329,6 +329,7 @@ country_event = { #End of the war
 	trigger = { 
 	is_puppet = no
 	NOT = { has_war_with = AUS }
+	tag = HUN
 	}
 
 	mean_time_to_happen = { days = 1 }
@@ -441,6 +442,7 @@ country_event = { #Demonstrations following the Ausgleich
 
 	trigger = {
 	AUS = { has_completed_focus = AUS_ausgleich } 
+	tag = HUN
 	}
 
 	mean_time_to_happen = { days = 1 }
@@ -1022,6 +1024,7 @@ country_event = { #Serbian liberation
 		NOT = {
 			has_country_flag = SER_CONQ_second_time
 		}
+		tag = HUN
 	}
 
 	mean_time_to_happen = {
@@ -1178,6 +1181,7 @@ country_event = { #Fate of Illyria
 			has_war_with = ILL
 		}
 		NOT = { has_country_flag = ILL_CONQ_focus }
+		tag = HUN
 	}
 
 	mean_time_to_happen = {
