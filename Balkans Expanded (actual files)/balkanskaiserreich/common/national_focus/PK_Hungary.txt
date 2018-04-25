@@ -3009,6 +3009,7 @@ focus_tree = {
 			}
 			FRA = { is_faction_leader = yes }
 			country_exists = FRA
+			NOT = { has_war_with = FRA }
 		}
 		
 		prerequisite = { focus = HUN_picking_an_alliance }
@@ -3040,6 +3041,7 @@ focus_tree = {
 				AND = {
 					SOV = { is_faction_leader = yes }
 					country_exists = SOV
+					NOT = { has_war_with = SOV }
 				}
 				AND = {
 					RUS = { is_faction_leader = yes }
@@ -3049,6 +3051,7 @@ focus_tree = {
 						has_government = syndicalist
 						has_government = radical_socialist
 					} }
+					NOT = { has_war_with = RUS }
 				}
 			}
 		}

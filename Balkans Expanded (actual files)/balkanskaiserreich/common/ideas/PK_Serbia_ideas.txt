@@ -469,6 +469,106 @@ ideas = {
 			picture = generic_morale_bonus
 		}
 		
+		SER_chaotic_position_idea = {
+			modifier = {
+				war_support_factor = 0.15
+				army_core_defence_factor = 0.05
+				political_power_gain = -0.2
+			}
+			picture = generic_morale_bonus
+		}
+		
+		SER_russian_refugees_idea = {
+			modifier = {
+				research_time_factor = -0.03
+			}
+			picture = generic_research_bonus_bonus
+		}
+		
+		SER_militant_populace_idea = {
+			modifier = {
+				army_core_attack_factor = 0.1
+				army_core_defence_factor = 0.1
+			}
+			picture = generic_morale_bonus
+		}
+		
+		SER_imports_markov_idea = {
+			modifier = {
+				line_change_production_efficiency_factor = 0.05
+			}
+			equipment_bonus = {
+				infantry = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+				motorized = {
+					build_cost_ic = -0.10
+					instant = yes
+				}
+			}
+			picture = generic_production_bonus_bonus
+		}
+		
+		SER_imports_shatilov_idea = {
+			modifier = {
+				line_change_production_efficiency_factor = 0.05
+			}
+			equipment_bonus = {
+				infantry = {
+					build_cost_ic = -0.05
+					instant = yes
+				}
+				artillery = {
+					build_cost_ic = -0.10
+					instant = yes
+				}
+			}
+			picture = generic_production_bonus_bonus
+		}
+		
+		SER_imports_wrangel_idea = {
+			modifier = {
+				line_change_production_efficiency_factor = 0.05
+				supply_consumption_factor = -0.05
+			}
+			equipment_bonus = {
+				infantry = {
+					build_cost_ic = -0.10
+					instant = yes
+				}
+			}
+			picture = generic_production_bonus_bonus
+		}
+		
+		SER_imports_denikin_idea = {
+			modifier = {
+				line_change_production_efficiency_factor = 0.05
+			}
+			equipment_bonus = {
+				infantry = {
+					build_cost_ic = -0.15
+					instant = yes
+				}
+			}
+			picture = generic_production_bonus_bonus
+		}
+		
+		SER_anti_austria_idea = {
+			modifier = {
+				targeted_modifier = { tag = AUS attack_bonus_against = 0.1 }
+				targeted_modifier = { tag = AUS defense_bonus_against = 0.1 }
+			}
+			picture = generic_morale_bonus
+		}
+		
+		SER_organized_generalstab_idea = {
+			modifier = {
+				planning_speed = 0.2
+			}
+			picture = generic_manpower_bonus
+		}
+		
 	}
 		
 ##############

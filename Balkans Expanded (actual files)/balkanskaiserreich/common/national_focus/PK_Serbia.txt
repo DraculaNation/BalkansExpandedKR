@@ -184,8 +184,8 @@ focus_tree = {
 	}
 	
 	focus = {
-		id = SER_kosovo_chromium
-		icon = GFX_goal_chromium
+		id = SER_chaotic_position
+		icon = GFX_goal_ideology_authoritarian_democrat
 		x = 1
 		y = 6
 
@@ -194,13 +194,9 @@ focus_tree = {
 		prerequisite = { focus = SER_quality_workforce }
 
 		ai_will_do = { factor = 20 }
-
-		available = {
-			owns_state = 765
-		}
 		
 		completion_reward = {
-			add_resource = { type = chromium amount = 4 state = 765 }
+			add_ideas = SER_chaotic_position_idea
 		}
 	}
 
@@ -402,7 +398,7 @@ focus_tree = {
 
 		prerequisite = {
 			focus = SER_purge_the_opposition
-			focus = SER_kosovo_chromium
+			focus = SER_chaotic_position
 		}
 
 		ai_will_do = { factor = 10 }
@@ -3561,7 +3557,7 @@ focus_tree = {
 	focus = {
 		id = SER_new_economic_policy
 		icon = GFX_goal_generic_consumer_goods
-		x = 49
+		x = 50
 		y = 0
 
 		cost = 10
@@ -3578,6 +3574,159 @@ focus_tree = {
 		}
 	}
 
+	#Shared
+	
+	focus = {
+		id = SER_invest_in_railroads
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 50
+		y = 2
+
+		cost = 10
+
+		ai_will_do = { factor = 7 }
+
+		prerequisite = {
+			focus = SER_industry
+			focus = SER_agriculture
+		}
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_russian_refugees
+		icon = GFX_goal_military_research
+		x = 50
+		y = 3
+
+		cost = 10
+
+		ai_will_do = { factor = 10 }
+
+		prerequisite = { focus = SER_invest_in_railroads }
+
+		completion_reward = {
+			add_ideas = SER_russian_refugees_idea
+		}
+	}
+	
+	focus = {
+		id = SER_control_over_villages
+		icon = GFX_focus_generic_self_management
+		x = 50
+		y = 4
+
+		cost = 10
+
+		ai_will_do = { factor = 10 }
+
+		prerequisite = { focus = SER_russian_refugees }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = infrastructure
+						size > 1
+					}
+				}
+				add_building_construction = {
+					type = infrastructure
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
 	# Agriculture
 	focus = {
 		id = SER_agriculture
@@ -3636,62 +3785,16 @@ focus_tree = {
 	}
 
 	focus = {
-		id = SER_invest_in_railroads
-		icon = GFX_goal_generic_construct_infrastructure
-		x = 49
-		y = 2
-
-		cost = 10
-
-		ai_will_do = { factor = 7 }
-
-		prerequisite = {
-			focus = SER_industry
-			focus = SER_agriculture
-		}
-
-		completion_reward = {
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 1
-					}
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = infrastructure
-						size > 1
-					}
-				}
-				add_building_construction = {
-					type = infrastructure
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-	}
-
-	focus = {
 		id = SER_support_peasants
 		icon = GFX_goal_generic_construct_civ_factory
 		x = 48
-		y = 3
+		y = 2
 
 		cost = 10
 
 		ai_will_do = { factor = 10 }
 
 		prerequisite = { focus = SER_agriculture }
-		prerequisite = { focus = SER_invest_in_railroads }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -3701,6 +3804,21 @@ focus_tree = {
 				category = industry
 			}
 
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -3735,6 +3853,82 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SER_farming_act
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 48
+		y = 3
+
+		cost = 10
+
+		ai_will_do = { factor = 10 }
+
+		prerequisite = { focus = SER_support_peasants }
+
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
 		id = SER_mechanisation
 		icon = GFX_goal_generic_production2
 		x = 48
@@ -3744,7 +3938,7 @@ focus_tree = {
 
 		ai_will_do = { factor = 5 }
 
-		prerequisite = { focus = SER_support_peasants }
+		prerequisite = { focus = SER_farming_act }
 
 		completion_reward = {
 			add_tech_bonus = {
@@ -3781,7 +3975,7 @@ focus_tree = {
 	focus = {
 		id = SER_industry
 		icon = GFX_goal_generic_construction
-		x = 50
+		x = 52
 		y = 1
 
 		cost = 10
@@ -3830,15 +4024,14 @@ focus_tree = {
 	focus = {
 		id = SER_war_industry
 		icon = GFX_goal_generic_construct_mil_factory
-		x = 50
-		y = 3
+		x = 52
+		y = 2
 
 		cost = 10
 
 		ai_will_do = { factor = 7 }
 
 		prerequisite = { focus = SER_industry }
-		prerequisite = { focus = SER_invest_in_railroads }
 
 		completion_reward = {
 			random_owned_controlled_state = {
@@ -3875,9 +4068,40 @@ focus_tree = {
 	}
 
 	focus = {
+		id = SER_kosovo_chromium
+		icon = GFX_goal_chromium
+		x = 52
+		y = 3
+
+		cost = 5
+
+		prerequisite = { focus = SER_war_industry }
+
+		ai_will_do = { factor = 7 }
+
+		available = {
+			owns_state = 765
+		}
+		
+		bypass = { NOT = { owns_state = 765 } }
+		
+		completion_reward = {
+			add_resource = { type = chromium amount = 4 state = 765 }
+			765 = {
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = industrial_complex
+					level = 2
+					instant_build = yes
+				}
+			}
+		}
+	}
+	
+	focus = {
 		id = SER_expand_bor_mining_complex
 		icon = GFX_goal_generic_construction2
-		x = 50
+		x = 52
 		y = 4
 
 		cost = 10
@@ -3886,16 +4110,26 @@ focus_tree = {
 
 		prerequisite = { focus = SER_war_industry }
 
+		available = { owns_state = 767 }
+		
 		completion_reward = {
 			add_resource = { type = steel amount = 10 state = 767 }
 			add_resource = { type = tungsten amount = 5 state = 767 }
+			767 = {
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
 		}
 	}
 
 	focus = {
 		id = SER_extra_research_slot
 		icon = GFX_focus_research
-		x = 49
+		x = 50
 		y = 5
 
 		cost = 10
@@ -3905,6 +4139,7 @@ focus_tree = {
 		prerequisite = {
 			focus = SER_mechanisation
 			focus = SER_expand_bor_mining_complex
+			focus = SER_control_over_villages
 		}
 
 		completion_reward = {
@@ -3919,7 +4154,7 @@ focus_tree = {
 	focus = {
 		id = SER_army_reform_nedic
 		icon = GFX_goal_generic_army_artillery
-		x = 52
+		x = 54
 		y = 0
 
 		cost = 10
@@ -3945,7 +4180,7 @@ focus_tree = {
 	focus = {
 		id = SER_expand_artillery_factories
 		icon = GFX_goal_generic_army_artillery2
-		x = 52
+		x = 54
 		y = 1
 
 		cost = 10
@@ -3985,7 +4220,7 @@ focus_tree = {
 	focus = {
 		id = SER_motorisation_effort
 		icon = GFX_goal_generic_army_motorized
-		x = 52
+		x = 54
 		y = 2
 
 		cost = 10
@@ -4009,7 +4244,7 @@ focus_tree = {
 	focus = {
 		id = SER_army_tactics_nedic
 		icon = GFX_goal_generic_army_doctrines
-		x = 52
+		x = 54
 		y = 3
 
 		cost = 10
@@ -4035,7 +4270,7 @@ focus_tree = {
 	focus = {
 		id = SER_armour_effort
 		icon = GFX_goal_generic_army_tanks
-		x = 52
+		x = 54
 		y = 4
 
 		cost = 10
@@ -4059,7 +4294,7 @@ focus_tree = {
 	focus = {
 		id = SER_patriotic_spirit
 		icon = GFX_goal_generic_build_tank
-		x = 52
+		x = 54
 		y = 5
 
 		cost = 10
@@ -4086,7 +4321,7 @@ focus_tree = {
 	focus = {
 		id = SER_army_reform_mihailovic
 		icon = GFX_goal_generic_defence
-		x = 54
+		x = 58
 		y = 0
 
 		cost = 10
@@ -4112,7 +4347,7 @@ focus_tree = {
 	focus = {
 		id = SER_special_forces
 		icon = GFX_goal_generic_special_forces
-		x = 54
+		x = 58
 		y = 1
 
 		cost = 10
@@ -4142,7 +4377,7 @@ focus_tree = {
 	focus = {
 		id = SER_expand_infantry_weapons_factories
 		icon = GFX_goal_generic_small_arms
-		x = 54
+		x = 58
 		y = 2
 
 		cost = 10
@@ -4189,7 +4424,7 @@ focus_tree = {
 	focus = {
 		id = SER_bunker_focus
 		icon = GFX_goal_generic_fortify_city
-		x = 54
+		x = 58
 		y = 3
 
 		cost = 10
@@ -4227,7 +4462,7 @@ focus_tree = {
 	focus = {
 		id = SER_army_tactics_mihailovic
 		icon = GFX_goal_generic_army_doctrines
-		x = 54
+		x = 58
 		y = 4
 
 		cost = 10
@@ -4253,7 +4488,7 @@ focus_tree = {
 	focus = {
 		id = SER_mobilisation_of_the_masses
 		icon = GFX_goal_generic_allies_build_infantry
-		x = 54
+		x = 58
 		y = 5
 
 		cost = 10
@@ -4274,6 +4509,191 @@ focus_tree = {
 		}
 	}
 
+	#Both
+	
+	focus = {
+		id = SER_militant_populace
+		icon = GFX_goal_generic_allies_build_infantry
+		x = 56
+		y = 1
+
+		cost = 7
+
+		prerequisite = {
+			focus = SER_army_reform_mihailovic
+			focus = SER_army_reform_nedic
+		}
+
+		ai_will_do = {
+			factor = 15
+
+			modifier = {
+				factor = 3
+				has_war = yes
+			}
+		}
+
+		completion_reward = {
+			add_ideas = SER_militant_populace_idea
+		}
+	}
+	
+	focus = {
+		id = SER_russian_imports
+		icon = GFX_goal_align_russia
+		x = 56
+		y = 2
+
+		cost = 7
+
+		prerequisite = {
+			focus = SER_militant_populace
+		}
+
+		ai_will_do = {
+			factor = 15
+
+			modifier = {
+				factor = 3
+				has_war = yes
+			}
+		}
+
+		completion_reward = {
+			if = {
+				limit = {
+					RUS = { has_completed_focus = RUS_reform_markov }
+				}
+				add_ideas = SER_imports_markov_idea
+				else = {
+					if = {
+						limit = {
+							RUS = { has_completed_focus = RUS_reform_shatilov }
+						}
+						add_ideas = SER_imports_markov_idea
+						else = {
+							if = {
+								limit = {
+									RUS = { has_completed_focus = RUS_reform_wrangel }
+								}
+								add_ideas = SER_imports_wrangel_idea
+								else = { add_ideas = SER_imports_denikin_idea }
+							}
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	
+	focus = {
+		id = SER_anti_austrian_agenda
+		icon = GFX_goal_austria
+		x = 56
+		y = 3
+
+		cost = 7
+
+		prerequisite = {
+			focus = SER_russian_imports
+		}
+
+		ai_will_do = {
+			factor = 15
+
+			modifier = {
+				factor = 3
+				has_war_with = AUS
+			}
+		}
+
+		completion_reward = {
+			add_ideas = SER_anti_austria_idea
+		}
+	}
+	
+	focus = {
+		id = SER_enemies_everywhere
+		icon = GFX_goal_generic_fortify_city
+		x = 56
+		y = 4
+
+		cost = 7
+
+		prerequisite = {
+			focus = SER_anti_austrian_agenda
+		}
+
+		available = {
+		controls_state = 767
+		controls_state = 107
+		controls_state = 108
+		controls_state = 765
+		}
+		
+		ai_will_do = {
+			factor = 15
+
+			modifier = {
+				factor = 3
+				has_war = yes
+			}
+		}
+
+		completion_reward = {
+			107 = {
+			add_building_construction = { type = bunker province = 3956 level = 2 instant_build = yes }
+			add_building_construction = { type = bunker province = 797 level = 2 instant_build = yes }
+			add_building_construction = { type = bunker province = 3609 level = 2 instant_build = yes }
+			add_building_construction = { type = bunker province = 11586 level = 2 instant_build = yes }
+			add_building_construction = { type = bunker province = 11583 level = 2 instant_build = yes }
+			}
+			767 = {
+			add_building_construction = { type = bunker province = 6634 level = 2 instant_build = yes }
+			add_building_construction = { type = bunker province = 630 level = 2 instant_build = yes }
+			add_building_construction = { type = bunker province = 9756 level = 2 instant_build = yes }
+			add_building_construction = { type = bunker province = 11887 level = 2 instant_build = yes }
+			add_building_construction = { type = bunker province = 9906 level = 2 instant_build = yes }
+			}
+			765 = {
+			add_building_construction = { type = bunker province = 9874 level = 2 instant_build = yes }
+			add_building_construction = { type = bunker province = 9849 level = 2 instant_build = yes }
+			add_building_construction = { type = bunker province = 6940 level = 2 instant_build = yes }
+			}
+			108 = {
+			add_building_construction = { type = bunker province = 3922 level = 2 instant_build = yes }
+			add_building_construction = { type = bunker province = 937 level = 2 instant_build = yes }
+			}
+		}
+	}
+	
+	focus = {
+		id = SER_organize_generalstab
+		icon = GFX_goal_generic_army_doctrines
+		x = 56
+		y = 5
+
+		cost = 7
+
+		prerequisite = {
+			focus = SER_enemies_everywhere
+		}
+
+		ai_will_do = {
+			factor = 15
+
+			modifier = {
+				factor = 3
+				has_war = yes
+			}
+		}
+
+		completion_reward = {
+			add_ideas = SER_organized_generalstab_idea
+		}
+	}
+	
 	#################
 	### Air Force ###
 	#################
@@ -4281,7 +4701,7 @@ focus_tree = {
 	focus = {
 		id = SER_expand_air_force
 		icon = GFX_goal_generic_build_airforce
-		x = 59
+		x = 63
 		y = 0
 
 		cost = 10
@@ -4317,7 +4737,7 @@ focus_tree = {
 	focus = {
 		id = SER_fighter_focus
 		icon = GFX_goal_generic_air_fighter
-		x = 58
+		x = 62
 		y = 1
 
 		cost = 10
@@ -4340,7 +4760,7 @@ focus_tree = {
 	focus = {
 		id = SER_heavy_fighter_focus
 		icon = GFX_goal_generic_air_fighter2
-		x = 56
+		x = 60
 		y = 1
 
 		cost = 10
@@ -4364,7 +4784,7 @@ focus_tree = {
 	focus = {
 		id = SER_bomber_focus
 		icon = GFX_goal_generic_air_bomber
-		x = 60
+		x = 64
 		y = 1
 
 		cost = 10
@@ -4387,7 +4807,7 @@ focus_tree = {
 	focus = {
 		id = SER_cas_effort
 		icon = GFX_goal_generic_CAS
-		x = 62
+		x = 66
 		y = 1
 
 		cost = 10
@@ -4411,7 +4831,7 @@ focus_tree = {
 	focus = {
 		id = SER_air_tactics
 		icon = GFX_goal_generic_air_doctrine
-		x = 56
+		x = 60
 		y = 2
 
 		cost = 10
@@ -4442,7 +4862,7 @@ focus_tree = {
 	focus = {
 		id = SER_expand_airfields
 		icon = GFX_goal_generic_air_production
-		x = 58
+		x = 62
 		y = 2
 
 		cost = 10
@@ -4494,7 +4914,7 @@ focus_tree = {
 	focus = {
 		id = SER_rocket_effort
 		icon = GFX_focus_rocketry
-		x = 60
+		x = 64
 		y = 2
 
 		cost = 10
@@ -4536,7 +4956,7 @@ focus_tree = {
 	focus = {
 		id = SER_paratrooper_effort
 		icon = GFX_focus_generic_paratrooper
-		x = 62
+		x = 66
 		y = 2
 
 		cost = 10
@@ -4572,7 +4992,7 @@ focus_tree = {
 	focus = {
 		id = SER_birth_of_the_navy
 		icon = GFX_goal_generic_build_navy
-		x = 58
+		x = 62
 		y = 3
 
 		cost = 10
@@ -4644,7 +5064,7 @@ focus_tree = {
 	focus = {
 		id = SER_build_first_ships
 		icon = GFX_goal_generic_navy_cruiser
-		x = 60
+		x = 64
 		y = 3
 
 		cost = 10
@@ -4669,7 +5089,7 @@ focus_tree = {
 	focus = {
 		id = SER_expand_ports
 		icon = GFX_goal_generic_construct_naval_dockyard
-		x = 56
+		x = 60
 		y = 4
 
 		cost = 10
@@ -4732,7 +5152,7 @@ focus_tree = {
 	focus = {
 		id = SER_fleet_maneuvers
 		icon = GFX_goal_generic_navy_doctrines_tactics
-		x = 58
+		x = 62
 		y = 4
 
 		cost = 10
@@ -4757,7 +5177,7 @@ focus_tree = {
 	focus = {
 		id = SER_buy_hms_lion
 		icon = GFX_goal_generic_navy_battleship
-		x = 60
+		x = 64
 		y = 4
 
 		cost = 10
@@ -4796,7 +5216,7 @@ focus_tree = {
 	focus = {
 		id = SER_cruiser_effort
 		icon = GFX_goal_generic_occupy_states_coastal
-		x = 62
+		x = 66
 		y = 4
 
 		cost = 10
@@ -4822,7 +5242,7 @@ focus_tree = {
 	focus = {
 		id = SER_focus_on_submarines
 		icon = GFX_goal_generic_navy_submarine
-		x = 56
+		x = 60
 		y = 5
 
 		cost = 10
@@ -4847,7 +5267,7 @@ focus_tree = {
 	focus = {
 		id = SER_build_destroyers
 		icon = GFX_goal_generic_wolf_pack
-		x = 61
+		x = 65
 		y = 5
 
 		cost = 10
@@ -4870,7 +5290,7 @@ focus_tree = {
 	focus = {
 		id = SER_invest_in_light_cruisers
 		icon = GFX_goal_generic_navy_cruiser
-		x = 58
+		x = 62
 		y = 5
 
 		cost = 10
@@ -4928,12 +5348,16 @@ focus_tree = {
 	focus = {
 		id = SER_belgrade_pact_science
 		icon = GFX_goal_tfv_generic_tech_sharing
-		x = 2
+		x = 0
 		y = 9
 		
 		prerequisite = { focus = SER_belgrade_pact_future }
 		
-		mutually_exclusive = { focus = SER_belgrade_pact_forts }
+		mutually_exclusive = { 
+		focus = SER_belgrade_pact_forts
+		focus = SER_join_entente
+		focus = SER_join_russia
+		}
 		
 		available = { 
 			is_faction_leader = yes
@@ -4962,7 +5386,7 @@ focus_tree = {
 	focus = {
 		id = SER_belgrade_pact_attack_germany
 		icon = GFX_goal_generic_occupy_start_war
-		x = 2
+		x = 0
 		y = 10
 
 		cost = 10
@@ -4999,7 +5423,7 @@ focus_tree = {
 	focus = {
 		id = SER_belgrade_pact_forts
 		icon = GFX_goal_generic_fortify_city
-		x = 4
+		x = 2
 		y = 9
 
 		cost = 10
@@ -5010,7 +5434,11 @@ focus_tree = {
 			has_country_flag = serbia_belgrade_pact_dissolved_focus
 		}
 		
-		mutually_exclusive = { focus = SER_belgrade_pact_science }
+		mutually_exclusive = { 
+		focus = SER_belgrade_pact_science 
+		focus = SER_join_entente
+		focus = SER_join_russia
+		}
 		
 		ai_will_do = {
 			factor = 10
@@ -5025,9 +5453,100 @@ focus_tree = {
 	}
 	
 	focus = {
+		id = SER_join_russia
+		icon = GFX_goal_align_russia
+		x = 4
+		y = 9
+
+		cost = 1
+
+		prerequisite = { focus = SER_belgrade_pact_future }
+		
+		available = { 
+		has_country_flag = serbia_belgrade_pact_dissolved_focus
+		is_subject = no
+		NOT = {
+			has_government = totalist
+			has_government = syndicalist
+			has_government = radical_socialist
+		}
+		RUS = { is_faction_leader = yes
+			NOT = { OR = {
+				has_government = totalist
+				has_government = syndicalist
+				has_government = radical_socialist
+			} }
+		}
+		is_in_faction = no
+		NOT = { has_war_with = RUS }
+		}
+		
+		mutually_exclusive = { 
+		focus = SER_belgrade_pact_science 
+		focus = SER_belgrade_pact_forts
+		focus = SER_join_entente
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		available_if_capitulated = no
+		
+		completion_reward = {
+			RUS = {	country_event = { id = serbia.75 } }
+		}
+	}
+	
+	focus = {
+		id = SER_join_entente
+		icon = GFX_goal_canada
+		x = 6
+		y = 9
+
+		cost = 1
+
+		prerequisite = { focus = SER_belgrade_pact_future }
+
+		available_if_capitulated = no
+		
+		available = { 
+		has_country_flag = serbia_belgrade_pact_dissolved_focus
+		NOT = {
+			has_government = totalist
+			has_government = syndicalist
+			has_government = radical_socialist
+		}
+		CAN = { is_faction_leader = yes }
+			NOT = { OR = {
+				has_government = totalist
+				has_government = syndicalist
+				has_government = radical_socialist
+			} }
+		is_in_faction = no
+		is_subject = no
+		NOT = { has_war_with = CAN }
+		}
+		
+		mutually_exclusive = { 
+		focus = SER_belgrade_pact_science 
+		focus = SER_belgrade_pact_forts
+		focus = SER_join_russia
+		}
+		
+		ai_will_do = {
+			factor = 10
+		}
+
+		completion_reward = {
+			CAN = {	country_event = { id = serbia.75 } }
+		}
+	}
+	
+	focus = {
 		id = SER_belgrade_pact_end
 		icon = GFX_goal_generic_forceful_treaty
-		x = 7
+		x = 9
 		y = 8
 
 		cost = 1
@@ -5059,7 +5578,7 @@ focus_tree = {
 		
 		prerequisite = { focus = SER_belgrade_pact_end }
 		
-		x = 6
+		x = 8
 		y = 9
 
 		ai_will_do = {
@@ -5111,7 +5630,7 @@ focus_tree = {
 		
 		prerequisite = { focus = SER_belgrade_pact_end }
 		
-		x = 8
+		x = 10
 		y = 9
 
 		ai_will_do = {

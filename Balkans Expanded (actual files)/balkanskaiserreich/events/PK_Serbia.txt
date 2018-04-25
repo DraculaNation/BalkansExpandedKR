@@ -3246,3 +3246,22 @@ country_event = { #Herzegovina Liberation - Pan Serbia
 		add_war_support = -0.01
 	}
 }
+
+country_event = { # Serbia in our faction?
+	id = serbia.75
+	title = serbia.75.t
+	desc = serbia.75.d
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = serbia.75.a #Yeah
+		ai_chance = { factor = 75 }
+		add_to_faction = SER
+	}
+	
+	option = {
+		name = serbia.75.b #Nope
+		ai_chance = { factor = 25 }
+	}
+}
