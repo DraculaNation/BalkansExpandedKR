@@ -26,22 +26,22 @@ units = {
 ########
 
 #### INF ####
-	division= {	
+	division= {
 		name = "Magyarország Fiai"
 		location = 9660
-		division_template = "Forradalmárok"
+		division_template = "Hazafiak"
 		start_experience_factor = 0.7
 	}
 	division= {	
 		name = "Ellenállás Harcosok"
 		location = 9660
-		division_template = "Forradalmárok"
+		division_template = "Hazafiak"
 		start_experience_factor = 0.7
 	}
 	division= {	
 		name = "Fehér Rémület"
 		location = 9660
-		division_template = "Forradalmárok"
+		division_template = "Hazafiak"
 		start_experience_factor = 0.4
 	}
 }

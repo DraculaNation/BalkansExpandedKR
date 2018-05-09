@@ -555,10 +555,8 @@ ideas = {
 		}
 		
 		SER_anti_austria_idea = {
-			modifier = {
-				targeted_modifier = { tag = AUS attack_bonus_against = 0.1 }
-				targeted_modifier = { tag = AUS defense_bonus_against = 0.1 }
-			}
+			targeted_modifier = { tag = AUS attack_bonus_against = 0.1 }
+			targeted_modifier = { tag = AUS defense_bonus_against = 0.1 }
 			picture = generic_morale_bonus
 		}
 		

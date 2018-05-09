@@ -515,6 +515,10 @@ SER_belgrade_pact_attack_germany:0 "Final Payback"
 SER_belgrade_pact_attack_germany_desc:0 "Germany has brought so much suffering and chaos into this world, namely the Balkans. It is time we have our revenge."
 SER_belgrade_pact_forts:0 "Just in Case"
 SER_belgrade_pact_forts_desc:0 "In case we're deemed weak by another, huge power, we should focus on fortifying our country, so that no one will be able to conquer us."
+SER_join_russia:0 "Join Russia"
+SER_join_russia_desc:0 "Russia was the first country to rush into the Weltkrieg and defend us from the Austrians. Since we have proven ourselves, we could join their faction, and maybe return the favor."
+SER_join_entente:0 "Join the Entente"
+SER_join_entente_desc:0 "The Entente were one of the countries that lost the most, after the Weltkrieg. We have already defeated Austria, and we can attempt to help them get back on their feet, and defeat the syndicalist menace!"
 
 ### Joining the Internationales ###
 
